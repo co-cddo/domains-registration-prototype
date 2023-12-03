@@ -1,5 +1,7 @@
 {% extends "layouts/main.html" %}
 
+
+
 {% block pageTitle %}
   Start page template – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
@@ -15,14 +17,14 @@
     items: [
       {
         text: "Home",
-        href: "#"
+        href: "/index.html"
       },
       {
-        text: "Section",
-        href: "#"
+        text: "Register your .gov.uk domain protoype admin",
+        href: "/registration/index"
       },
       {
-        text: "Subsection"
+        text: "Start page"
       }
     ]
   }) }}
@@ -50,7 +52,7 @@
 
       {{ govukButton({
         text: "Start now",
-        href: "#",
+        href: "my-tasks.html",
         isStartButton: true
       }) }}
 
@@ -81,25 +83,25 @@
         <nav role="navigation" aria-labelledby="subsection-title">
           <ul class="govuk-list govuk-!-font-size-16">
             <li>
-              <a href="https://sso.service.security.gov.uk/" target="new" class="govuk-!-font-weight-bold">
+              <a href="https://sso.service.security.gov.uk/" target="new" class="govuk-link--no-visited-state govuk-!-font-weight-bold">
                 Single Sign On (Tactical) <span class="govuk-visually-hidden">Single Sign On (Tactical)</span>
               </a>
             </li>
             
             <li>
-              <a href="https://signin.account.gov.uk/sign-in-or-create" target="new" class="govuk-!-font-weight-bold">
+              <a href="https://signin.account.gov.uk/sign-in-or-create" target="new" class="govuk-link--no-visited-state govuk-!-font-weight-bold">
                 One Login (Strategic)  <span class="govuk-visually-hidden">One Login </span>
               </a>
             </li>
             <li>
             
             <li>
-              <a href="https://home.account.gov.uk/security" target="new">
+              <a href="https://home.account.gov.uk/security" target="new" class="govuk-link--no-visited-state">
                 Update contact details
               </a>
             </li>
             <li>
-              <a href="https://home.account.gov.uk/your-services" target="new">
+              <a href="https://home.account.gov.uk/your-services" target="new" class="govuk-link--no-visited-state">
                 My services
               </a>
             </li>
