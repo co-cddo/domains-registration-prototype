@@ -1,0 +1,53 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Confirmation page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {{ govukPanel({
+        titleText: "Application complete",
+        html: "Your reference number<br><strong>HDJ2123F</strong>"
+      }) }}
+
+      <p>
+        We have sent you a confirmation email.
+      </p>
+
+      <h2 class="govuk-heading-m">
+        What happens next
+      </h2>
+
+      <p>
+        We've sent your application to the Domains Management team. 
+      </p>
+
+      <p>
+        They will contact you either to confirm approval of the chosen domain name registration or to ask for more information within five working days. 
+      </p>
+      <p>
+        If your application is rejected, you can <a href="https://www.gov.uk/guidance/appeal-your-rejected-govuk-domain-name-application" class="govuk-link--no-visited-state">choose to appeal</a> to the decision. 
+      </p>
+
+      <h3 class="govuk-heading-s">
+        Contact your registrar
+      </h3>
+      <p>We have selected a list of suitable suppliers who can help you with your domain registration. </p>
+        <p>Registrars are suppliers who deal with the domain name setup on DNS servers.
+        After you have <a href="https://www.gov.uk/guidance/appeal-your-rejected-govuk-domain-name-application" class="govuk-link--no-visited-state">download a list of approved registrars</a>, you need to choose a preferred supplier who will assist you, based on your needs. 
+      
+      <p>
+        <a href="#">
+          What did you think of this service?
+        </a> (takes 30 seconds)
+      </p>
+
+
+    </div>
+  </div>
+
+{% endblock %}
