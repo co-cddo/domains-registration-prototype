@@ -1,0 +1,74 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Start page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+  <!-- Blank header with no service name for the start page -->
+  {{ govukHeader() }}
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Home",
+      href: "/index.html"
+    },
+    {
+      text: "Register and check your .gov.uk domains admin",
+      href: "/registration/index"
+    },
+    {
+      text: "Start page"
+    }
+  ]
+}) }}
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        
+        Check a .gov.uk domain approval: using a share code
+      </h1>
+
+      <p>Check details of a .gov.uk domain name, including:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>its purpose</li>
+          <li>registrant organisation and contact details</li>
+          <li>domain administrator name and contact details</li>
+          <li>domain technical name and contact details</li>
+          <li>approval token id and its details</li>
+        </ul>
+
+        <p>You'll need the registrant's:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>date of birth</li>
+          <li>the .gov.uk domain name approval share code</li>
+        </ul>
+      
+      <p>You can also <a href="#">check registrant's original email confirmation</a> instead - for example if you do not have a share code.</p>
+      
+
+
+
+      {{ govukButton({
+        text: "Start now",
+        href: "#",
+        isStartButton: true
+      }) }}
+
+      
+    </div>
+
+    
+  </div>
+
+{% endblock %}
