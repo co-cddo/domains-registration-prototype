@@ -1,0 +1,59 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Content page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Details to give your registrar
+      </h1>
+      <h2 class="govuk-heading-m">
+        Share code
+      </h2>
+      <h3 class="govuk-heading-xl">
+        WDZ PL6 2XG
+      </h3>
+
+      {{ govukInsetText({
+        text: "This code is valid until 19 March 2024"
+      }) }}
+      <h2 class="govuk-heading-m">
+        What to do next
+      </h2>
+      <P>
+        <ol class="govuk-list govuk-list--number">
+          <li>Give the share code and your date of birth to the supplier who you have appointed as your registrar.</li>
+          <li>To see that your .gov.uk domain name has been approved, they must enter the share code and your date of birth at <a href="/path/of/page">www.gov.uk/view-gov-uk-domain-approval</a></li>
+          <li>Contact your registrar to make sure they have all the information they need. </li>
+        </ol>
+      </P>
+      
+      
+
+      <p>
+        <a href="/path/of/page">Print this page</a>.
+      </p>
+
+      {{ govukButton({
+        text: "Send code by email"
+      }) }}
+
+      <p>
+        <a href="/path/of/page">Finish and leave service</a>.
+      </p>
+    </div>
+  </div>
+
+{% endblock %}
