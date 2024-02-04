@@ -1,0 +1,110 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Registrant organisation type – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      
+      <form class="form" action="registrant" method="post">
+        {{ govukRadios({
+          name: "registrant-type",
+          fieldset: {
+            legend: {
+              text: "Which of the folllowing best describes the Registrant organisation?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          hint: {
+            text: "Registrant needs to be an organisation eligible for a .gov.uk domain name."
+          },
+          items: [
+            {
+              value: "central",
+              text: "Central government department or agency",
+              checked: checked("registrant-type", "central")
+            },
+            {
+              value: "alb",
+              text: "Non-departmental body - also known as an arm’s length body",
+              checked: checked("registrant-type", "alb")
+            },
+            {
+              value: "fire",
+              text: "Fire service",
+              checked: checked("registrant-type", "fire")
+            },
+            {
+              value: "county",
+              text: "County, borough, metropolitan or district council",
+              checked: checked("registrant-type", "county")
+            },
+            {
+              value: "parish",
+              text: "Parish, town or community council",
+              checked: checked("registrant-type", "parish")
+            },
+            {
+              value: "villagecouncil",
+              text: "Neighbourhood or village council",
+              checked: checked("registrant-type", "villagecouncil")
+            },
+            {
+              value: "unitary",
+              text: "Combined or unitary authority",
+              checked: checked("registrant-type", "unitary")
+            },
+            {
+              value: "police",
+              text: "Police and crime commissioner",
+              checked: checked("registrant-type", "police")
+            },
+            {
+              value: "jointauthority",
+              text: "Joint authority",
+              checked: checked("registrant-type", "jointauthority")
+            },
+            {
+              value: "jointcommunity",
+              text: "Joint committee",
+              checked: checked("registrant-type", "jointcommunity")
+            },
+            {
+              value: "publicsectorbodies",
+              text: "Representing public sector bodies",
+              checked: checked("registrant-type", "publicsectorbodies")
+            },
+            {
+              divider: "or"
+            },
+            {
+              value: "none",
+              text: "None of the above",
+              checked: checked("registrant-type", "none")
+            }
+          ]
+        }) }}
+        
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

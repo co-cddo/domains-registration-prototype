@@ -1,0 +1,37 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Elimination for Exemption from GOV.UK – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">
+        You cannot get approval for .gov.uk domain name
+      </h1>
+      <p class="govuk-body">You cannot get approval for a .gov.uk domain name because the Registrant organisation cannot prove its exemption from GOV.UK website.</p>
+      
+      {{ govukInsetText({
+        text: "Central government organisations are expected to use the GOV.UK website for their publishing, unless there’s a good reason not to."
+      }) }}
+      <p class="govuk-body"></p>
+      
+      
+  
+         
+      <p class="govuk-body">
+        <a href="https://www.gov.uk/guidance/request-an-exemption-from-using-the-govuk-website" class="govuk-link">Check if you can request an exemption from using the GOV.UK website</a>
+      </p>
+    </div>
+  </div>
+
+{% endblock %}

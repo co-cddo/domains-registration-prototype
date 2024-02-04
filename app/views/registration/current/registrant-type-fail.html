@@ -1,0 +1,59 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Elimination for Registrant organisation type – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">
+        You cannot get approval for .gov.uk domain name
+      </h1>
+      <p class="govuk-body">You cannot get approval for a .gov.uk domain name because the Registrant organisation is not eligible.</p>
+          <details class="govuk-details" data-module="govuk-details">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+                Who is eligible
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+              <ul class="govuk-list govuk-list--bullet">
+                <li>central government department or agency - unless you qualify for an exemption</li>
+                <li>non-departmental body - also known as an arm’s length body</li>
+                <li>fire service</li>
+                <li>county, borough, metropolitan or district council</li>
+                <li>parish, town or community council</li>
+                <li>neighbourhood or village council</li>
+                <li>combined or unitary authority</li>
+                <li>police and crime commissioner</li>
+                <li>joint authority</li>
+                <li>joint committee</li>
+                <li>partnership body</li>
+                <li>Representing public sector bodies</li>
+              </ul>
+  
+  
+              </div>
+          </details>
+  
+          <!--Nunjucks warning-->
+          {{ govukWarningText({
+              text: 'If your organisation is not on the list above and you think you may be eligible to apply, contact approval@digital.cabinet-@office.gov.uk.',
+              iconFallbackText: 'Warning'
+          }) }}
+      <p class="govuk-body">
+        <a href="https://www.gov.uk/guidance/check-if-your-organisation-can-get-a-govuk-domain-name" class="govuk-link">Check if the Registrant organisation can get a .gov.uk domain name</a>
+      </p>
+    </div>
+  </div>
+
+{% endblock %}

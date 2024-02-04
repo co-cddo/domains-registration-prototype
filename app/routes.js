@@ -7,3 +7,8 @@ const govukPrototypeKit = require('govuk-prototype-kit')
 const router = govukPrototypeKit.requests.setupRouter()
 
 // Add your routes here
+router.use('/registration/current', require('./views/registration/current/routes/routes'))
+
+
+
+module.exports = router

@@ -1,0 +1,49 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Registrant organisation – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+<form class="form" action="registrant-type" method="post">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      
+      <form class="form" action="registrant-type" method="post">
+        {{ govukInput({
+          label: {
+            text: "Who is the Registrant organisation?",
+            classes: "govuk-label--l",
+            isPageHeading: true
+          },
+          hint: {
+            text: "You have to provide the formal legal name."
+          },
+          id: "event-name",
+          name: "eventName"
+        }) }}
+      
+        {{ govukWarningText({
+          text: "Applications won't be approved if the Registrant's organisation name is not correctly spelled, or do not match official records.",
+          iconFallbackText: "Warning"
+        }) }}
+
+      {{ govukButton({
+          text: "Continue"
+      }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
+

@@ -1,0 +1,46 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Registrar email contact – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+<form class="form" action="registrant-type" method="post">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <span class="govuk-caption-l">Registrar details</span>
+      <h1 class="govuk-heading-l">
+        What is the Registrar email contact?
+      </h1>
+
+      <form class="form" action="registrant-type" method="post">
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="registrar-email">
+            Email address
+          </label>
+          <div id="email-hint" class="govuk-hint">
+            Approved Registrars will provide<a href="https://www.gov.uk/guidance/choose-a-good-registrar-or-dns-provider?step-by-step-nav=5a9309a3-9a80-4faa-b24f-1797023e897f" class="govuk-link"> web hosting, email hosting or DNS services.</a> <br>
+          
+          </div>
+          <input class="govuk-input" id="registrar-email" name="registrar-email" type="email" spellcheck="false" aria-describedby="email-hint" autocomplete="email" value="{{ data['registrar-email'] }}">
+        </div>
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
+

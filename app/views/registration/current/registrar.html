@@ -1,0 +1,93 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  The Registrar organisation  – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "get-approval-start"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      
+      <h1 class="govuk-heading-l">
+        The Registrar organisation 
+      </h1>
+
+      <form class="form" action="registrar-email" method="post">
+
+    {{ govukSelect({
+      id: "location",
+      name: "location",
+      label: {
+        text: "Choose your organisation"
+      },
+      hint: {
+        text: "The .gov.uk Registry Operator provides a list of Approved Registrars who can register .gov.uk domain names."
+      },
+      items: [
+        {
+          value: "choose",
+          text: "Choose your organisation",
+          selected: true
+        },
+        {
+          value: "1clicks",
+          text: "1 Click Services Limited"
+        },
+        {
+          value: "20i",
+          text: "20i Ltd"
+        },
+        {
+          value: "34sp",
+          text: "34SP.com"
+        },
+        {
+          value: "aimes",
+          text: "AIMES Management Services Ltd"
+        },
+        {
+          value: "aubergine",
+          text: "Aubergine 262 Ltd"
+        },
+        {
+          value: "bwp",
+          text: "BWP Creative Limited"
+        },
+        {
+          value: "consider",
+          text: "Consider IT Limited"
+        },
+        {
+          value: "fasthosts",
+          text: "Fasthosts Internet Ltd"
+        },
+        {
+          value: "freethought",
+          text: "Freethought Internet Limited"
+        }
+      ]
+    }) }}
+
+    {{ govukWarningText({
+      text: "If you're not on this list and you plan to be included, please contact migration@digital.cabinet-office.gov.uk",
+      iconFallbackText: "Warning"
+    }) }}
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
