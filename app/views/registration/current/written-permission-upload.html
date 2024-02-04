@@ -1,0 +1,49 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Exemption upload – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      
+      <h1 class="govuk-heading-l">
+        Written permission upload
+      </h1>
+      <div id="exemption-upload-hint" class="govuk-hint">
+        In order to get approval for a .gov.uk domain name, Registrant needs to provide written permission from a senior stakeholder.
+      </div>
+      
+      <form class="form" action="domain" method="post">
+
+      {{ govukFileUpload({
+          id: "written-permission-upload",
+          name: "written-permission-upload",
+          hint: {
+            text: "Support file is .PDF and maximum size is 2MB."
+          },
+          label: {
+            text: "Upload a file"
+          }
+      }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

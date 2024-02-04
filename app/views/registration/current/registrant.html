@@ -12,7 +12,7 @@
 {% endblock %}
 
 {% block content %}
-<form class="form" action="registrant-type" method="post">
+<form class="form" action="registrant-answer" method="post">
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
@@ -27,8 +27,9 @@
           hint: {
             text: "You have to provide the formal legal name."
           },
-          id: "event-name",
-          name: "eventName"
+          id: "registrant",
+          name: "registrant",
+          value: data['registrant']
         }) }}
       
         {{ govukWarningText({

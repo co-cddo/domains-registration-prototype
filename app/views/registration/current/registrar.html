@@ -24,8 +24,8 @@
       <form class="form" action="registrar-email" method="post">
 
     {{ govukSelect({
-      id: "location",
-      name: "location",
+      id: "registrar",
+      name: "registrar",
       label: {
         text: "Choose your organisation"
       },
@@ -73,12 +73,16 @@
         {
           value: "freethought",
           text: "Freethought Internet Limited"
+        },
+        {
+          value: "other",
+          text: "Other"
         }
       ]
     }) }}
 
     {{ govukWarningText({
-      text: "If you're not on this list and you plan to be included, please contact migration@digital.cabinet-office.gov.uk",
+      text: "If you're not on this list and you plan to be included, please contact registration@digital.cabinet-office.gov.uk.  ",
       iconFallbackText: "Warning"
     }) }}
         {{ govukButton({

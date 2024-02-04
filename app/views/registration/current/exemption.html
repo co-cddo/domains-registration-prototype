@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  Question page – {{ serviceName }} – GOV.UK Prototype Kit
+  Exemption – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}
@@ -16,11 +16,11 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <form class="form" action="/path/of/next/page" method="post">
+      <form class="form" action="exemption-answer" method="post">
 
         {{ govukRadios({
           classes: "govuk-radios--inline",
-          name: "changedName",
+          name: "exemption",
           fieldset: {
             legend: {
               text: "Can you prove exemption from .GOV.UK website?",
@@ -34,11 +34,13 @@
           items: [
             {
               value: "yes",
-              text: "Yes"
+              text: "Yes",
+              checked: checked("exemption", "yes")
             },
             {
               value: "no",
-              text: "No"
+              text: "No",
+              checked: checked("exemption", "no")
             }
           ]
         }) }}
