@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  Exemption upload – {{ serviceName }} – GOV.UK Prototype Kit
+  Written permission upload – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}
@@ -24,13 +24,13 @@
         
       </div>
       
-      <form class="form" action="domain" method="post">
+      <form class="form" action="written-permission-upload-confirm" method="post">
 
       {{ govukFileUpload({
           id: "written-permission-upload",
           name: "written-permission-upload",
           hint: {
-            text: "Support file is .PDF and maximum size is 2MB."
+            text: "Support file is .PDF and maximum size is 10MB."
           },
           label: {
             text: "Upload a file"
@@ -38,7 +38,7 @@
       }) }}
 
         {{ govukButton({
-          text: "Upload file"
+          text: "Upload evidence"
         }) }}
 
       </form>

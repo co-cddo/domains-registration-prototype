@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  Minister request – {{ serviceName }} – GOV.UK Prototype Kit
+  Minister support – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}
@@ -23,7 +23,7 @@
       
 
 
-      <form class="form" action="/path/of/next/page" method="post">
+      <form class="form" action="minister-answer" method="post">
 
         {{ govukRadios({
           classes: "govuk-radios--inline",
@@ -35,7 +35,7 @@
             }
           },
           hint: {
-            html: "In special circumstances a minister could support the requested .gov.uk domain name. <br><br>Registrants must provide details about the minister's involvement."
+            html: "In special circumstances a minister could support the requested .gov.uk domain name. <br><br>Registrants must provide evidence about the minister's support."
           },
           items: [
             {

@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  Exemption upload confirmation – {{ serviceName }} – GOV.UK Prototype Kit
+  Written permission upload confirmation – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}
@@ -21,7 +21,7 @@
       
 
 
-      <form class="form" action="written-permission" method="post">
+      <form class="form" action="domain" method="post">
 
        
         
@@ -29,7 +29,7 @@
         </h1>
 
 <div id="file-upload-1-hint" class="govuk-hint">
-  You can upload your evidence of the GOV.UK website exemption.<Br> The selected file must be smaller than 10MB.<br><br>
+  You can upload your evidence of written permission.<Br> The selected file must be smaller than 10MB.<br><br>
  
 
 </div>
@@ -47,7 +47,7 @@
       rows: [
         {
           key: {
-            html: '<a class="govuk-link" href="#">gds0054.pdf</a>'
+            html: '<a class="govuk-link" href="#">CEOletter.pdf</a>'
           },
           value: {
             text: govukTag({ text: "Uploaded", classes: "govuk-tag--green" })

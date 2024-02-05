@@ -51,6 +51,28 @@ router.post('/written-permission-answer', function(request, response) {
     }
 })
 
+// Q: Domain
+router.post('/domain-answer', function(request, response) {
+
+    var registrantType2 = request.session.data['registrant-type']
+    if (registrantType2 == "central"){
+        response.redirect("minister")
+    } else {
+        response.redirect("registrant-contact")
+    }
+})
+
+// Q: Minister support
+router.post('/minister-answer', function(request, response) {
+
+    var minister = request.session.data['minister']
+    if (minister == "yes"){
+        response.redirect("minister-upload")
+    } else {
+        response.redirect("registrant-contact")
+    }
+})
+
 
 
 module.exports = router
