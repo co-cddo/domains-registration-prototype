@@ -20,21 +20,32 @@
       <h1 class="govuk-heading-l">
         What is the requested .gov.uk domain name?
       </h1>
-      
+      <div id="domain-hint">
+        <p class="govuk-body govuk-hint">A .gov.uk domain name must clearly describe the Registrant organisation or government initiative. For example:
+        </p>
+            <ul class="govuk-list govuk-list--bullet govuk-hint">
+              <li>a central department can use <code class="govspeak-code">hmrc.gov.uk</code></li>
+              <li>a county council can use <code class="govspeak-code">northamptonshire.gov.uk</code></li>
+              <li>a town council can use <code class="govspeak-code">biggleswadetowncouncil.gov.uk</code></li>
+              <li>a parish council can use <code class="govspeak-code">bonbyparishcouncil.gov.uk</code>.</li>
+            </ul>
+      </div>
+      <p class="govuk-body">
+        <a href="https://www.gov.uk/guidance/choose-your-govuk-domain-name" class="govuk-link" target="new">Follow the rules how to choose a .gov.uk domain name (opens in a new tab)</a>.
+      </p>
+
 
 
       <form class="form" action="/path/of/next/page" method="post">
 
-        {% from "govuk/components/input/macro.njk" import govukInput %}
-
         {{ govukInput({
           label: {
-            text: "Add a .gov.uk domain name"
+            text: "Enter a .gov.uk domain name"
           },
           classes: "govuk-input--width-5",
-          id: "weight",
+          id: "domain",
+          name: "domain",
           classes: "govuk-!-width-three-quarters",
-          name: "weight",
           suffix: {
             text: ".gov.uk"
           },
