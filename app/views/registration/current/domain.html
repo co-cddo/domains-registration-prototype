@@ -18,18 +18,28 @@
 
       
       <h1 class="govuk-heading-l">
-        Domain
+        What is the requested .gov.uk domain name?
       </h1>
       
 
 
       <form class="form" action="/path/of/next/page" method="post">
 
-        <p>
-          [Insert question content here - see the
-          <a href="https://design-system.service.gov.uk">GOV.UK Design System</a>
-          for examples]
-        </p>
+        {% from "govuk/components/input/macro.njk" import govukInput %}
+
+        {{ govukInput({
+          label: {
+            text: "Add a .gov.uk domain name"
+          },
+          classes: "govuk-input--width-5",
+          id: "weight",
+          classes: "govuk-!-width-three-quarters",
+          name: "weight",
+          suffix: {
+            text: ".gov.uk"
+          },
+          spellcheck: false
+        }) }}
 
         {{ govukButton({
           text: "Continue"
