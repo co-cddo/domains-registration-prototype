@@ -18,7 +18,8 @@
 
       
       <h1 class="govuk-heading-l">
-        The Registrar organisation 
+        Which .gov.uk Approved Registrar organisation are you from?
+
       </h1>
 
       <form class="form" action="registrar-email" method="post">
@@ -30,12 +31,12 @@
         text: "Choose your organisation"
       },
       hint: {
-        text: "The .gov.uk Registry Operator provides a list of Approved Registrars who can register .gov.uk domain names."
+        text: ""
       },
       items: [
         {
           value: "choose",
-          text: "Choose your organisation",
+          text: "Select your organisation from the list ",
           selected: true
         },
         {
@@ -82,7 +83,7 @@
     }) }}
 
     {{ govukWarningText({
-      text: "If you're not on this list and you plan to be included, please contact registration@digital.cabinet-office.gov.uk.  ",
+      text: "If you are not listed as a .gov.uk Approved Registrar on the registry operator’s website, you cannot use this service.",
       iconFallbackText: "Warning"
     }) }}
         {{ govukButton({

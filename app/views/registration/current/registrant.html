@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  Registrant organisation – {{ serviceName }} – GOV.UK Prototype Kit
+  Registrant organisation name – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}
@@ -20,12 +20,12 @@
       <form class="form" action="registrant-type" method="post">
         {{ govukInput({
           label: {
-            text: "Who is the Registrant organisation?",
+            text: "What is your registrant’s organisation name?",
             classes: "govuk-label--l",
             isPageHeading: true
           },
           hint: {
-            text: "You have to provide the formal legal name."
+            text: "You must provide the formal legal name of your registrant’s organisation."
           },
           id: "registrant",
           name: "registrant",
@@ -33,7 +33,7 @@
         }) }}
       
         {{ govukWarningText({
-          text: "Applications won't be approved if the Registrant's organisation name is not correctly spelled, or do not match official records.",
+          text: "The Domains Team will reject applications if the registrant's organisation name does not match official records or is misspelt.",
           iconFallbackText: "Warning"
         }) }}
 

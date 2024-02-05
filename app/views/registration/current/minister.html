@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  Exemption – {{ serviceName }} – GOV.UK Prototype Kit
+  Minister request – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}
@@ -16,31 +16,37 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <form class="form" action="exemption-answer" method="post">
+      
+      <h1 class="govuk-heading-l">
+        Did a minister support the requested {{data['domain']}}.gov.uk domain name? 
+      </h1>
+      
+
+
+      <form class="form" action="/path/of/next/page" method="post">
 
         {{ govukRadios({
           classes: "govuk-radios--inline",
-          name: "exemption",
+          name: "minister",
           fieldset: {
             legend: {
-              text: "Does your registrant have an exemption from the GOV.UK website?",
-              isPageHeading: true,
+              
               classes: "govuk-fieldset__legend--l"
             }
           },
           hint: {
-            text: " If your registrant is a central government department or agency, they must not create any new central government website or public-facing domain unless the Government Digital Service has given them an exemption from GOV.UK."
+            html: "In special circumstances a minister could support the requested .gov.uk domain name. <br><br>Registrants must provide details about the minister's involvement."
           },
           items: [
             {
               value: "yes",
               text: "Yes",
-              checked: checked("exemption", "yes")
+              checked: checked("minister", "yes")
             },
             {
               value: "no",
               text: "No",
-              checked: checked("exemption", "no")
+              checked: checked("minister", "no")
             }
           ]
         }) }}

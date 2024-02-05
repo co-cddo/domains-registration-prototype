@@ -16,13 +16,14 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <h1 class="govuk-heading-l">
-        You cannot get approval for a .gov.uk domain name
+        Your registrant is not eligible for a .gov.uk domain name
       </h1>
-      <p class="govuk-body">You cannot get approval for a .gov.uk domain name because the Registrant organisation is not eligible.</p>
+      <p class="govuk-body">Your registrant cannot get approval for a .gov.uk domain name because they are not from an eligible organisation.</p>
+      
           <details class="govuk-details" data-module="govuk-details">
             <summary class="govuk-details__summary">
               <span class="govuk-details__summary-text">
-                Who is eligible
+                Check which organisations are eligible
               </span>
             </summary>
             <div class="govuk-details__text">
@@ -38,21 +39,23 @@
                 <li>joint authority</li>
                 <li>joint committee</li>
                 <li>partnership body</li>
-                <li>Representing public sector bodies</li>
+                <li>representing public sector bodies</li>
               </ul>
   
   
               </div>
           </details>
-  
+          
           <!--Nunjucks warning-->
           {{ govukWarningText({
-              text: 'If your organisation is not on the list above and you think you may be eligible to apply, contact approval@digital.cabinet-@office.gov.uk.',
+              text: 'If your organisation is not on the list above and you think you may be eligible to apply, contact approval@digital.cabinet-office.gov.uk.',
               iconFallbackText: 'Warning'
           }) }}
-      <p class="govuk-body">
-        <a href="https://www.gov.uk/guidance/check-if-your-organisation-can-get-a-govuk-domain-name" class="govuk-link">Check if the Registrant organisation can get a .gov.uk domain name</a>
-      </p>
+
+          <p class="govuk-body">
+            For more information on eligibility <a href="https://www.gov.uk/guidance/check-if-your-organisation-can-get-a-govuk-domain-name" class="govuk-link">read the guidance to check if your registrant’s organisation can get a .gov.uk domain name</a>.
+          </p>
+      
     </div>
   </div>
 
