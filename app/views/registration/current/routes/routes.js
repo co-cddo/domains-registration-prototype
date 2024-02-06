@@ -6,9 +6,11 @@
 const govukPrototypeKit = require('govuk-prototype-kit')
 const router = govukPrototypeKit.requests.setupRouter()
 
+  
 // Add your routes here
 // Q: Registrant type
 router.post('/registrant-type-answer', function(request, response) {
+    var completedUrl = 'answers'
 
     var registrantType = request.session.data['registrant-type']
     if (registrantType == "none"){
@@ -18,11 +20,12 @@ router.post('/registrant-type-answer', function(request, response) {
     }
 })
 
+
 // Q: Registrant
 router.post('/registrant-answer', function(request, response) {
 
     var registrantType = request.session.data['registrant-type']
-    if (registrantType == "central"){
+    if (registrantType == "Central government department or agency"){
         response.redirect("exemption")
     } else {
         response.redirect("written-permission")
@@ -55,7 +58,7 @@ router.post('/written-permission-answer', function(request, response) {
 router.post('/domain-answer', function(request, response) {
 
     var registrantType2 = request.session.data['registrant-type']
-    if (registrantType2 == "central"){
+    if (registrantType2 == "Central government department or agency"){
         response.redirect("minister")
     } else {
         response.redirect("registrant-contact")
@@ -73,7 +76,11 @@ router.post('/minister-answer', function(request, response) {
     }
 })
 
+// Final: Answers
+router.post('/answers', function(request, response) {
+    req.session.data.COMPLETED = true
+})
 
 
 module.exports = router
-   
+

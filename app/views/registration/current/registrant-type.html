@@ -41,59 +41,59 @@
           },
           items: [
             {
-              value: "central",
+              value: "Central government department or agency",
               text: "Central government department or agency",
-              checked: checked("registrant-type", "central")
+              checked: checked("registrant-type", "Central government department or agency")
             },
             {
-              value: "alb",
-              text: "Non-departmental body - also known as an arm’s length body",
-              checked: checked("registrant-type", "alb")
+              value: "Non-departmental body - also known as an arm's length body",
+              text: "Non-departmental body - also known as an arm's length body",
+              checked: checked("registrant-type", "Non-departmental body - also known as an arm's length body")
             },
             {
-              value: "fire",
+              value: "Fire service",
               text: "Fire service",
-              checked: checked("registrant-type", "fire")
+              checked: checked("registrant-type", "Fire service")
             },
             {
-              value: "county",
+              value: "County, borough, metropolitan or district council",
               text: "County, borough, metropolitan or district council",
-              checked: checked("registrant-type", "county")
+              checked: checked("registrant-type", "County, borough, metropolitan or district council")
             },
             {
-              value: "parish",
+              value: "Parish, town or community council",
               text: "Parish, town or community council",
               checked: checked("registrant-type", "parish")
             },
             {
-              value: "villagecouncil",
+              value: "Neighbourhood or village council",
               text: "Neighbourhood or village council",
-              checked: checked("registrant-type", "villagecouncil")
+              checked: checked("registrant-type", "Neighbourhood or village council")
             },
             {
-              value: "unitary",
+              value: "Combined or unitary authority",
               text: "Combined or unitary authority",
-              checked: checked("registrant-type", "unitary")
+              checked: checked("registrant-type", "Combined or unitary authority")
             },
             {
-              value: "police",
+              value: "Police and crime commissioner",
               text: "Police and crime commissioner",
-              checked: checked("registrant-type", "police")
+              checked: checked("registrant-type", "Police and crime commissioner")
             },
             {
-              value: "jointauthority",
+              value: "Joint authority",
               text: "Joint authority",
-              checked: checked("registrant-type", "jointauthority")
+              checked: checked("registrant-type", "Joint authority")
             },
             {
-              value: "jointcommunity",
+              value: "Joint committee",
               text: "Joint committee",
-              checked: checked("registrant-type", "jointcommunity")
+              checked: checked("registrant-type", "Joint committee")
             },
             {
-              value: "publicsectorbodies",
+              value: "Representing public sector bodies",
               text: "Representing public sector bodies",
-              checked: checked("registrant-type", "publicsectorbodies")
+              checked: checked("registrant-type", "Representing public sector bodies")
             },
             {
               divider: "or"
@@ -111,6 +111,10 @@
           text: "Continue"
         }) }}
 
+        {% if data['COMPLETED'] == true %}
+          <button onclick="document.getElementById('mainForm').action='{{ completedUrl }}'" class="govuk-button govuk-button--secondary govuk-!-margin-right-1" data-module="govuk-button">Back to answers
+          </button>
+          {% endif %}
       </form>
 
     </div>
