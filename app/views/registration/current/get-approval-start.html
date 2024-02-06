@@ -17,6 +17,15 @@
 {% endblock %}
 
 {% block beforeContent %}
+{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+  {{ govukPhaseBanner({
+    tag: {
+    text: "prototype",
+    classes: "govuk-tag--pink"
+    },
+      html: 'This is not a full service. It is not production code and you might experience problems.'
+  }) }}
+ 
   <div class="app-step-nav-header">
     <span class="app-step-nav-header__part-of">Part of</span>
     <a class="app-step-nav-header__title" href="tactical-step-by-step">
