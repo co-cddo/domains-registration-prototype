@@ -32,78 +32,54 @@
       
       <form class="form" action="registrar-email" method="post">
 
-    {{ govukSelect({
-      id: "registrar",
-      name: "registrar",
-      label: {
-        text: "Choose your organisation"
-      },
-      hint: {
-        text: ""
-      },
-      items: [
-        {
-          value: "choose",
-          text: "Select your organisation from the list ",
-          selected: true
-        },
-        {
-          value: "1clicks",
-          text: "1 Click Services Limited"
-        },
-        {
-          value: "20i",
-          text: "20i Ltd"
-        },
-        {
-          value: "34sp",
-          text: "34SP.com"
-        },
-        {
-          value: "aimes",
-          text: "AIMES Management Services Ltd"
-        },
-        {
-          value: "Aubergine 262 Ltd",
-          text: "Aubergine 262 Ltd"
-        },
-        {
-          value: "bwp",
-          text: "BWP Creative Limited"
-        },
-        {
-          value: "consider",
-          text: "Consider IT Limited"
-        },
-        {
-          value: "fasthosts",
-          text: "Fasthosts Internet Ltd"
-        },
-        {
-          value: "freethought",
-          text: "Freethought Internet Limited"
-        },
-        {
-          value: "other",
-          text: "Other"
-        }
-      ]
-    }) }}
-
+    
+    <div class="govuk-form-group">
+      <label class="govuk-label" for="location">
+        Choose your organisation
+      </label>
+      
+      <select class="govuk-select" id="registrar" name="registrar" aria-describedby="registrar-hint" value="{{ data['registrar'] }}">
+        <option value="choose" selected>Select your organisation from the list</option>
+        <option value="1 Click Services Limited">1 Click Services Limited</option>
+        <option value="eastofengland">East of England</option>
+        <option value="20i Ltd">20i Ltd</option>
+        <option value="34SP.com">34SP.com</option>
+        <option value="AIMES Management Services Ltd">AIMES Management Services Ltd</option>
+        <option value="Aubergine 262 Ltd">Aubergine 262 Ltd</option>
+        <option value="BWP Creative Limited">BWP Creative Limited</option>
+        <option value="Consider IT Limited">Consider IT Limited</option>
+        <option value="Defra - Department for Environment Food and Rural Affairs">Defra - Department for Environment Food and Rural Affairs</option>
+        <option value="Durham Associates Limited">Durham Associates Limited</option>
+        <option value="Fasthosts Internet Ltd">Fasthosts Internet Ltd</option>
+        <option value="Freethought Internet Limited">Freethought Internet Limited</option>
+        <option value="Justice Digital">Justice Digital</option>
+        <option value="NetWise UK">NetWise UK</option>
+        <option value="reCoded Solutions Ltd">reCoded Solutions Ltd</option>
+        <option value="WJP Software Limited">WJP Software Limited</option>
+        <option value="Other">Other</option>
+      </select>
+    </div>
+    
     {{ govukWarningText({
-      text: "If you are not listed as a .gov.uk Approved Registrar on the registry operator’s website, you cannot use this service.",
+      text: "If you are not listed as a .gov.uk Approved Registrar on the registry operator's website, you cannot use this service.",
       iconFallbackText: "Warning"
     }) }}
-          {{ govukButton({
-            text: "Continue"
-          }) }}
-          
-          {% if data['COMPLETED'] == true %}
-          <button onclick="document.getElementById('mainForm').action='{{ completedUrl }}'" class="govuk-button govuk-button--secondary govuk-!-margin-right-1" data-module="govuk-button">Back to answers
-          </button>
-          {% endif %}
-      </form>
 
+
+
+      <div class="govuk-button-group">
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+        
+        {% if data['COMPLETED'] == true %}
+        <a class="govuk-link govuk-link govuk-link--no-visited-state" href="answers"></a>
+        {% endif %}
+      </div>
+      
+      </form>
+      
+      
     </div>
   </div>
 

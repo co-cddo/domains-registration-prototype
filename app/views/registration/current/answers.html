@@ -51,7 +51,7 @@
           ,
           {
             key: {
-              text: "Email contact"
+              text: "Email contact  "
             },
             value: {
               html: data['registrar-email']
@@ -112,18 +112,18 @@
           ,
           {
             key: {
-              text: "Registrar"
+              text: "Registrant's written permission"
             },
             value: {
-              html: data['registrar']
+              html: data['written-permission']
               
             },
             actions: {
               items: [
                 {
-                  href: "registrar",
+                  href: "written-permission",
                   text: "Change",
-                  visuallyHiddenText: "Registrar"
+                  visuallyHiddenText: "Registrant's written permission"
                 }
               ]
             }
@@ -131,211 +131,84 @@
           ,
           {
             key: {
-              text: "Registrar"
+              text: "Domain name"
             },
             value: {
-              html: data['registrar']
+              html: data['domain']+".gov.uk"
               
             },
             actions: {
               items: [
                 {
-                  href: "registrar",
+                  href: "domain",
                   text: "Change",
-                  visuallyHiddenText: "Registrar"
+                  visuallyHiddenText: "Domain"
                 }
               ]
             }
           }
-          ,
-          {
-            key: {
-              text: "Registrar"
-            },
-            value: {
-              html: data['registrar']
-              
-            },
-            actions: {
-              items: [
-                {
-                  href: "registrar",
-                  text: "Change",
-                  visuallyHiddenText: "Registrar"
-                }
-              ]
-            }
+          
+        ]
+      }) }}
+      <h2 class="govuk-heading-m">Contact details</h2>
+      {{ govukSummaryList({
+        rows: [
+        {
+          key: {
+            text: "Applicant"
+          },
+          value: {
+            html: "full name, email address, telephone number "
+            
+          },
+          actions: {
+            items: [
+              {
+                href: "applicant",
+                text: "Change",
+                visuallyHiddenText: "Applicant contact"
+              }
+            ]
           }
-          ,
-          {
-            key: {
-              text: "Registrar"
-            },
-            value: {
-              html: data['registrar']
-              
-            },
-            actions: {
-              items: [
-                {
-                  href: "registrar",
-                  text: "Change",
-                  visuallyHiddenText: "Registrar"
-                }
-              ]
-            }
+        }
+        ,
+        {
+          key: {
+            text: "Registrant"
+          },
+          value: {
+            html: "full name of a human (to validate identity), email address (any), telephone number (any)"
+            
+          },
+          actions: {
+            items: [
+              {
+                href: "registrant-contact",
+                text: "Change",
+                visuallyHiddenText: "Registrant contact"
+              }
+            ]
           }
-          ,
-          {
-            key: {
-              text: "Registrar"
-            },
-            value: {
-              html: data['registrar']
-              
-            },
-            actions: {
-              items: [
-                {
-                  href: "registrar",
-                  text: "Change",
-                  visuallyHiddenText: "Registrar"
-                }
-              ]
-            }
+        },
+        {
+          key: {
+            text: "Registry data (public)"
+          },
+          value: {
+            html: "Name - role name (mandatory), role-based email address - the role of the human being above (mandatory), telephone number (no personal phone numbers)"
+            
+          },
+          actions: {
+            items: [
+              {
+                href: "registrant-contact",
+                text: "Change",
+                visuallyHiddenText: "Registrant contact"
+              }
+            ]
           }
-          ,
-          {
-            key: {
-              text: "Registrar"
-            },
-            value: {
-              html: data['registrar']
-              
-            },
-            actions: {
-              items: [
-                {
-                  href: "registrar",
-                  text: "Change",
-                  visuallyHiddenText: "Registrar"
-                }
-              ]
-            }
-          }
-          ,
-          {
-            key: {
-              text: "Registrar"
-            },
-            value: {
-              html: data['registrar']
-              
-            },
-            actions: {
-              items: [
-                {
-                  href: "registrar",
-                  text: "Change",
-                  visuallyHiddenText: "Registrar"
-                }
-              ]
-            }
-          }
-          ,
-          {
-            key: {
-              text: "Registrar"
-            },
-            value: {
-              html: data['registrar']
-              
-            },
-            actions: {
-              items: [
-                {
-                  href: "registrar",
-                  text: "Change",
-                  visuallyHiddenText: "Registrar"
-                }
-              ]
-            }
-          }
-          ,
-          {
-            key: {
-              text: "Registrar"
-            },
-            value: {
-              html: data['registrar']
-              
-            },
-            actions: {
-              items: [
-                {
-                  href: "registrar",
-                  text: "Change",
-                  visuallyHiddenText: "Registrar"
-                }
-              ]
-            }
-          }
-          ,
-          {
-            key: {
-              text: "Registrar"
-            },
-            value: {
-              html: data['registrar']
-              
-            },
-            actions: {
-              items: [
-                {
-                  href: "registrar",
-                  text: "Change",
-                  visuallyHiddenText: "Registrar"
-                }
-              ]
-            }
-          }
-          ,
-          {
-            key: {
-              text: "Registrar"
-            },
-            value: {
-              html: data['registrar']
-              
-            },
-            actions: {
-              items: [
-                {
-                  href: "registrar",
-                  text: "Change",
-                  visuallyHiddenText: "Registrar"
-                }
-              ]
-            }
-          }
-          ,
-          {
-            key: {
-              text: "Registrar email"
-            },
-            value: {
-              html: data['registrar-email']
-            },
-            actions: {
-              items: [
-                {
-                  href: "registrar-email",
-                  text: "Change",
-                  visuallyHiddenText: "Registrar email"
-                }
-              ]
-            }
-          }
+        }
+          
           
         ]
       }) }}
@@ -348,7 +221,7 @@
         By submitting this application you are confirming that, to the best of your knowledge, the details you are providing are correct.
       </p>
 
-      <form action="/confirmation" method="post" novalidate>
+      <form action="confirmation" method="post" novalidate>
 
         {{ govukButton({
           text: "Accept and send"

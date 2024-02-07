@@ -5,67 +5,64 @@
 {% endblock %}
 
 {% block content %}
-{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
-  {{ govukPhaseBanner({
-    tag: {
-    text: "prototype",
-    classes: "govuk-tag--pink"
-    },
-      html: 'This is not a full service. It is not production code and you might experience problems.'
-  }) }}
  
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
       {{ govukPanel({
-        titleText: "Application complete",
+        titleText: "Application submitted",
         html: "Your reference number<br><strong>HDJ2123F</strong>"
       }) }}
 
       <p>
-        We have sent you a confirmation email.
+        We have sent you a confirmation email with a record of your answers.
       </p>
 
-      <h2 class="govuk-heading-m">
-        What happens next
-      </h2>
+     
+      <p>If you do not get an email within five working days, please contact the Domains Team:
+       </p>
+       <h2 class="govuk-heading-m">Protecting Public Sector Domains Team</h2>
 
-      <p>
-        We've sent your application to the Domains Management team. 
-      </p>
+       
+ 
+ <h3 class="govuk-heading-s">Email</h3>
+ 
+ <ul class="govuk-list">
+   <li><a class="govuk-link" href="#">approval@domains.gov.uk</a></li>
+ 
+ </ul>
+ <h2 class="govuk-heading-m">
+  What happens next
+</h2>
 
-      <p>
-        They will contact you either to confirm approval of the chosen domain name registration or to ask for more information within five working days. 
-      </p>
-      <p>
-        If your application is rejected, you can <a href="https://www.gov.uk/guidance/appeal-your-rejected-govuk-domain-name-application" class="govuk-link--no-visited-state">choose to appeal</a> to the decision. 
-      </p>
-
-      <h3 class="govuk-heading-s">
-        Contact your registrar
-      </h3>
-      <p>We have selected a list of suitable suppliers who can help you with your domain registration. </p>
-        <p>Registrars are suppliers who deal with the domain name setup on DNS servers.
-        After you have <a href="https://www.gov.uk/guidance/appeal-your-rejected-govuk-domain-name-application" class="govuk-link--no-visited-state">download a list of approved registrars</a>, you need to choose a preferred supplier who will assist you, based on your needs. 
+<ol class="govuk-list govuk-list--number govuk-list--spaced">
+  <li>We will contact you either to confirm approval or to ask for more information within five working days.   </li>
+  <li>To confirm approval, we will send you a unique code, which you will need to use to complete the registration. </li>
+  <li>A .gov.uk domain must be registered with the registry operator (Nominet), after it has received approval from the Domains Team.
+  The .gov.uk domain is live on the internet once you have registered.</li>
+</ol>
       
-      <p>
-        <h3 class="govuk-heading-s">
-          Share your domain details with your registrar
-        </h3>
-        <P>
-          <ol class="govuk-list govuk-list--number">
-            <li>Give the share code and your registered office address postcode to the supplier who you have appointed as your registrar.</li>
-            <li>To see that your .gov.uk domain name has been approved, they must enter the share code and your registered office address postcode at <a href="check-domain-start" class="govuk-link--no-visited-state">www.gov.uk/check-gov-uk-domain-details</a></li>
-            <li>Contact your registrar to make sure they have all the information they need. </li>
-          </ol>
-        </P>
+      
+      
+      
+      
+      <h2 class="govuk-heading-s">How appeals work</h2>
+      <p>If the Domains Team rejects an application you can appeal on behalf of your registrant by emailing <code class="govspeak-code">appeals@domains.gov.uk</code>. <br><br>
+        We will forward this appeal with any additional information we request or your registrant wants to provide to the <a href="https://www.gov.uk/government/groups/naming-and-approvals-committee-nac" class="govuk-link">Naming and Approvals Committee (NAC)</a> and keep you up-to-date with progress.
+      </p>
+      <p>The NAC will make a final decision and will give its reasoning.</p>
+
+      
+    
+    
+    
         <p>
         <a href="#">
           What did you think of this service?
         </a> (takes 30 seconds)
       </p>
-
+     
 
     </div>
   </div>

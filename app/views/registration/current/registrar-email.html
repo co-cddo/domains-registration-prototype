@@ -39,10 +39,17 @@
           
           <input class="govuk-input govuk-input--width-20" id="registrar-email" name="registrar-email" type="email" spellcheck="false" aria-describedby="email-hint" autocomplete="email" value="{{ data['registrar-email'] }}">
         </div>
-        {{ govukButton({
-          text: "Continue"
-        }) }}
-
+       
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+          
+          {% if data['COMPLETED'] == true %}
+          <a class="govuk-link govuk-link govuk-link--no-visited-state" href="answers"></a>
+          {% endif %}
+        </div>
+        
       </form>
 
     </div>

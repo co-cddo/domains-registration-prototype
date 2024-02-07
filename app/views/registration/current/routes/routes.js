@@ -47,7 +47,7 @@ router.post('/exemption-answer', function(request, response) {
 router.post('/written-permission-answer', function(request, response) {
 
     var writtenPermission = request.session.data['written-permission']
-    if (writtenPermission == "yes"){
+    if (writtenPermission == "Yes, evidence provided"){
         response.redirect("written-permission-upload")
     } else {
         response.redirect("written-permission-fail")
@@ -61,7 +61,7 @@ router.post('/domain-answer', function(request, response) {
     if (registrantType2 == "Central government department or agency"){
         response.redirect("minister")
     } else {
-        response.redirect("registrant-contact")
+        response.redirect("answers")
     }
 })
 
@@ -72,15 +72,16 @@ router.post('/minister-answer', function(request, response) {
     if (minister == "yes"){
         response.redirect("minister-upload")
     } else {
-        response.redirect("registrant-contact")
+        response.redirect("answers")
     }
 })
 
-// Final: Answers
-router.post('/answers', function(request, response) {
+// Answers
+router.get('/answers', function (req, res) {
     req.session.data.COMPLETED = true
-})
-
+    res.render('./' + req.originalUrl, {
+    })
+  })
 
 module.exports = router
 
