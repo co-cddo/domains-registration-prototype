@@ -42,11 +42,12 @@
       Get approval to use a .gov.uk domain name
     </h1>
 
-    
+    <p>The Domains Team must approve all .gov.uk domain names before they can be registered.</p>
+
     
 
     <h2 class="govuk-heading-s">Who can apply for approval</h2>
-      <p>Use this service if you are a .gov.uk Approved Registrar to apply for a .gov.uk domain on behalf of your registrant.</p>
+      <p>Use this service if you're a .gov.uk Approved Registrar and you want to apply for a .gov.uk domain on behalf of your registrant.</p>
       
       {{ govukInsetText({
         text: "If you are a registrant you must choose a .gov.uk Approved Registrar and pay them to make this application on your behalf."
@@ -57,23 +58,16 @@
     <p>The approval process should take approximately 5 working days. We may ask for more information during this time and this may delay the process. Our processing times will also depend on the volume and complexity of applications currently in progress. 
     </p>
 
-    <h2 class="govuk-heading-s">What happens after approval</h2>
-    <p>A .gov.uk domain must be registered after it has received approval from the Domains Team. <br><br>
-      We will send you a unique token, which you will need to complete the registration. The .gov.uk domain is live on the internet once you register it with Nominet. 
-    </p>
-    
-    <h2 class="govuk-heading-s">How appeals work</h2>
-    <p>If the Domains Team rejects an application you can appeal on behalf of your registrant by emailing <code class="govspeak-code">appeals@domains.gov.uk</code>. 
-      We will forward this appeal with any additional information we request or your registrant wants to provide to the <a href="https://www.gov.uk/government/groups/naming-and-approvals-committee-nac" class="govuk-link">Naming and Approvals Committee (NAC)</a> and keep you up-to-date with progress.
-    </p>
-    <p>The NAC will make a final decision and will give its reasoning. 
 
-    </p>
-    
 
 
     <h2 class="govuk-heading-m">Before you start
     </h2>
+
+    {{ govukWarningText({
+      text: "You must be a .gov.uk Approved Registrar to use this service.",
+      iconFallbackText: "Warning"
+    }) }}
       <p>You will need to:</p>
         <ul class="govuk-list govuk-list--bullet">
           <li><a href="https://www.gov.uk/guidance/check-if-your-organisation-can-get-a-govuk-domain-name" class="govuk-link">check your registrant's organisation can get a .gov.uk domain name          </a></li>
