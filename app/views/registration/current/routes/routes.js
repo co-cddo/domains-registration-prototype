@@ -69,7 +69,7 @@ router.post('/domain-answer', function(request, response) {
 router.post('/minister-answer', function(request, response) {
 
     var minister = request.session.data['minister']
-    if (minister == "yes"){
+    if (minister == "Yes, evidence provided."){
         response.redirect("minister-upload")
     } else {
         response.redirect("answers")

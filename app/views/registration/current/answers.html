@@ -69,7 +69,129 @@
           
         ]
       }) }}
-      <h2 class="govuk-heading-m">Registrant details</h2>
+    <h2 class="govuk-heading-m">Registrant details</h2>
+    {# Alternte summary details, this is 'central' #}
+     {% if (data['registrant-type'] == "Central government department or agency") %}
+     {{ govukSummaryList({
+      rows: [
+        {
+          key: {
+            text: "Organisation type"
+          },
+          value: {
+            html: data['registrant-type']
+            
+          },
+          actions: {
+            items: [
+              {
+                href: "registrant-type",
+                text: "Change",
+                visuallyHiddenText: "Registrant organisation type"
+              }
+            ]
+          }
+        }
+        ,
+        {
+          key: {
+            text: "Organisation name"
+          },
+          value: {
+            html: data['registrant']
+            
+          },
+          actions: {
+            items: [
+              {
+                href: "registrant",
+                text: "Change",
+                visuallyHiddenText: "Registrant organisation"
+              }
+            ]
+          }
+        }
+        ,
+        {
+          key: {
+            text: "Exemption from GOV.UK website"
+          },
+          value: {
+            html: data['exemption']
+            
+          },
+          actions: {
+            items: [
+              {
+                href: "exemption",
+                text: "Change",
+                visuallyHiddenText: "Exemption"
+              }
+            ]
+          }
+        }
+        ,
+        
+        {
+          key: {
+            text: "Registrant's written permission"
+          },
+          value: {
+            html: data['written-permission']
+            
+          },
+          actions: {
+            items: [
+              {
+                href: "written-permission",
+                text: "Change",
+                visuallyHiddenText: "Registrant's written permission"
+              }
+            ]
+          }
+        }
+        ,
+        {
+          key: {
+            text: "Domain name"
+          },
+          value: {
+            html: data['domain']+".gov.uk"
+            
+          },
+          actions: {
+            items: [
+              {
+                href: "domain",
+                text: "Change",
+                visuallyHiddenText: "Domain"
+              }
+            ]
+          }
+        }
+        ,
+        {
+          key: {
+            text: "Minister's support"
+          },
+          value: {
+            html: data['minister']
+            
+          },
+          actions: {
+            items: [
+              {
+                href: "minister",
+                text: "Change",
+                visuallyHiddenText: "Minister's support"
+              }
+            ]
+          }
+        }
+      ]
+    }) }}
+    {% else %}
+     {# Alternte summary details, this is 'parish' #}
       {{ govukSummaryList({
         rows: [
           {
@@ -150,6 +272,8 @@
           
         ]
       }) }}
+    {% endif %}
+
       <h2 class="govuk-heading-m">Contact details</h2>
       {{ govukSummaryList({
         rows: [
@@ -218,7 +342,7 @@
       </h2>
 
       <p>
-        By submitting this application you are confirming that, to the best of your knowledge, the details you are providing are correct.
+        By submitting this application you are confirming the details you are providing are correct to the best of your knowledge.
       </p>
 
       <form action="confirmation" method="post" novalidate>
