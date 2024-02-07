@@ -10,8 +10,7 @@ const router = govukPrototypeKit.requests.setupRouter()
 // Add your routes here
 // Q: Registrant type
 router.post('/registrant-type-answer', function(request, response) {
-    var completedUrl = 'answers'
-
+  
     var registrantType = request.session.data['registrant-type']
     if (registrantType == "none"){
         response.redirect("registrant-type-fail")
@@ -61,7 +60,7 @@ router.post('/domain-answer', function(request, response) {
     if (registrantType2 == "Central government department or agency"){
         response.redirect("minister")
     } else {
-        response.redirect("answers")
+        response.redirect("applicant-details")
     }
 })
 
@@ -72,7 +71,7 @@ router.post('/minister-answer', function(request, response) {
     if (minister == "Yes, evidence provided."){
         response.redirect("minister-upload")
     } else {
-        response.redirect("answers")
+        response.redirect("applicant-details")
     }
 })
 

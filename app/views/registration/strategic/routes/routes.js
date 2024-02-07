@@ -6,13 +6,18 @@
 const govukPrototypeKit = require('govuk-prototype-kit')
 const router = govukPrototypeKit.requests.setupRouter()
 
+  
 // Add your routes here
-// Tactical
-router.use('/registration/current', require('./views/registration/current/routes/routes'))
-
-// Strategic
-router.use('/registration/strategic', require('./views/registration/strategic/routes/routes'))
 
 
+
+
+// Answers
+router.get('/answers', function (req, res) {
+    req.session.data.COMPLETED = true
+    res.render('./' + req.originalUrl, {
+    })
+  })
 
 module.exports = router
+

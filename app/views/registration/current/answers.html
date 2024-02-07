@@ -282,15 +282,15 @@
             text: "Applicant"
           },
           value: {
-            html: "full name, email address, telephone number "
+            html: data['appfullName']+"<br>"+data['appEmail']+"<br>"+data['apptelephoneNumber']
             
           },
           actions: {
             items: [
               {
-                href: "applicant",
+                href: "applicant-details",
                 text: "Change",
-                visuallyHiddenText: "Applicant contact"
+                visuallyHiddenText: "Applicant details"
               }
             ]
           }
@@ -301,13 +301,13 @@
             text: "Registrant"
           },
           value: {
-            html: "full name of a human (to validate identity), email address (any), telephone number (any)"
+            html: data['regfullName']+"<br>"+data['regEmail']+"<br>"+data['regtelephoneNumber']
             
           },
           actions: {
             items: [
               {
-                href: "registrant-contact",
+                href: "registrant-details",
                 text: "Change",
                 visuallyHiddenText: "Registrant contact"
               }
@@ -316,18 +316,18 @@
         },
         {
           key: {
-            text: "Registry data (public)"
+            html: "Registry<br> (public information)"
           },
           value: {
-            html: "Name - role name (mandatory), role-based email address - the role of the human being above (mandatory), telephone number (no personal phone numbers)"
+            html: data['regpubroleName']+"<br>"+data['regpubEmail']+"<br>"+data['apptelephoneNumber']
             
           },
           actions: {
             items: [
               {
-                href: "registrant-contact",
+                href: "registry-details",
                 text: "Change",
-                visuallyHiddenText: "Registrant contact"
+                visuallyHiddenText: "Registry details"
               }
             ]
           }

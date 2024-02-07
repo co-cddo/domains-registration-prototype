@@ -26,7 +26,7 @@
     <div class="govuk-grid-column-two-thirds">
 
       
-      <form class="form" action="registrant-type-answer" method="post">
+      <form class="form" action="registrant-type-answer" id="mainForm" method="post">
         {{ govukRadios({
           name: "registrant-type",
           fieldset: {
@@ -112,8 +112,10 @@
           }) }}
           
           {% if data['COMPLETED'] == true %}
-          <a class="govuk-link govuk-link govuk-link--no-visited-state" href="answers"></a>
-          {% endif %}
+        <button type="submit" onclick="document.getElementById('mainForm').action='answers';"
+        class="govuk-button govuk-button--secondary govuk-!-margin-right-16" data-module="govuk-button">Back to answers
+        </button>
+        {% endif %}
         </div>
 
       </form>
