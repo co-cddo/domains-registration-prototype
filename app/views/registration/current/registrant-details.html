@@ -29,7 +29,7 @@
         Registrant details
       </h1>
       
-      <form class="form" action="registry" id="mainForm" method="post">
+      <form class="form" action="registry-details" id="mainForm" method="post">
       <h2 class="govuk-heading-m">
         Name
       </h2>
@@ -53,21 +53,7 @@
         Contact details
       </h2>
         
-        {{ govukInput({
-          label: {
-            text: "Email address"
-          },
-          hint: {
-            text: "We will use this to check your identity"
-          },
-          id: "regEmail",
-          name: "regEmail",
-          type: "email",
-          autocomplete: "email",
-          spellcheck: false,
-          value: data['regEmail']
-          
-        }) }}
+        
 
         {{ govukInput({
           label: {
@@ -83,6 +69,29 @@
           classes: "govuk-input--width-20",
           value: data['regtelephoneNumber']
         }) }}
+
+        {{ govukInput({
+          label: {
+            text: "Email address"
+          },
+          hint: {
+            text: "We will use this to check your identity"
+          },
+          id: "regEmail",
+          name: "regEmail",
+          type: "email",
+          autocomplete: "email",
+          spellcheck: false,
+          value: data['regEmail']
+          
+        }) }}
+        {{req.session.data['regEmail'] }}
+        
+        <div class="govuk-inset-text">
+          <span class='govuk-hint'>An email to check identity will be sent to:</span><br>
+          <p class="govuk-body govuk-!-font-size-24">{{ data['regEmail'] }} </p>
+          
+        </div>
 
         <div class="govuk-button-group">
           {{ govukButton({

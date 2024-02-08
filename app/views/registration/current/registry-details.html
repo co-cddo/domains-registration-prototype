@@ -56,21 +56,7 @@
           Contact details
         </h2>
           
-          {{ govukInput({
-            label: {
-              text: "Email address"
-            },
-            hint: {
-              text: "Use a role-based email address, like support@romseyparishcouncil.gov.uk"
-            },
-            id: "regpubEmail",
-            name: "regpubEmail",
-            type: "email",
-            autocomplete: "email",
-            spellcheck: false,
-            value: data['regpubEmail']
-            
-          }) }}
+          
   
           {{ govukInput({
             label: {
@@ -87,6 +73,21 @@
             value: data['apptelephoneNumber']
           }) }}
   
+          {{ govukInput({
+            label: {
+              text: "Email address"
+            },
+            hint: {
+              text: "Use a role-based email address, like support@romseyparishcouncil.gov.uk"
+            },
+            id: "regpubEmail",
+            name: "regpubEmail",
+            type: "email",
+            autocomplete: "email",
+            spellcheck: false,
+            value: data['regpubEmail']
+            
+          }) }}
           
           {{ govukWarningText({
             text: "We will show all information collected on this page on the registry, which is open to the general public.",

@@ -53,28 +53,13 @@
         Contact details
       </h2>
         
+       
         {{ govukInput({
           label: {
-            text: "Email address"
+            text: "UK mobile telephone number"
           },
           hint: {
-            text: "We'll only use this to send you a confirmation"
-          },
-          id: "appEmail",
-          name: "appEmail",
-          type: "email",
-          autocomplete: "email",
-          spellcheck: false,
-          value: data['appEmail']
-          
-        }) }}
-
-        {{ govukInput({
-          label: {
-            text: "Mobile number"
-          },
-          hint: {
-            text: "We will use the mobile number to contact you"
+            text: "Your mobile telephone number should be 11 digits. For example, 07012 123456"
           },
           id: "apptelephone-number",
           name: "apptelephoneNumber",
@@ -84,6 +69,33 @@
           value: data['apptelephoneNumber']
         }) }}
 
+        {{ govukInput({
+          label: {
+            text: "Email address"
+          },
+          hint: {
+            text: "This can be any email address that you check frequently"
+          },
+          id: "appEmail",
+          name: "appEmail",
+          type: "email",
+          autocomplete: "email",
+          spellcheck: false,
+          value: data['appEmail']
+          
+        }) }}
+        {{req.session.data['appEmail'] }}
+        
+        <div class="govuk-inset-text">
+          <span class='govuk-hint'>An email to confirm your application will be sent to:</span><br>
+          <p class="govuk-body govuk-!-font-size-24">{{ data['appEmail'] }} </p>
+          
+        </div>
+
+         
+          
+          
+          <span class="govuk-body govuk-!-font-size-24">
         <div class="govuk-button-group">
           {{ govukButton({
             text: "Continue"

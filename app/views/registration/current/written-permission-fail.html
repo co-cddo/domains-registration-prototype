@@ -32,15 +32,19 @@
       {# Alternte hint text, this is 'central' #}
             {% if (data['registrant-type'] == "Central government department or agency") %}
               
-            <p class="govuk-body">Your registrant's application must include written permission to apply for a .gov.uk domain name from a Chief Information Officer or equivalent if it is a central government department or agency.</p>
+            <p class="govuk-body">Your registrant must get written permission from a Chief Information Officer or equivalent you're applying on behalf of a central government department or agency.</p>
               
 
               {% else %}
               {# Alternte hint text, this is 'parish' #}
               
-              <p class="govuk-body">Your registrant must get written permission from the Chair of their parish or town council.<br><br>Your registrant must get written permission from their Chief Executive if they’re applying on behalf of a Local Authority or other public sector organisation.
-              </p>
-              
+              <div id="written-permission-hint" class="govuk-hint">
+                <p class="govuk-body">Your registrant must get written permission from the:</p>
+                  <ul class="govuk-list govuk-list--bullet">
+                    <li>Chair if you're applying on behalf of parish or town councils</li>
+                    <li>Chief Executive if you're applying on behalf of a Local Authority or other public sector organisation</li>
+                  </ul>
+              </div>
             {% endif %}
 
       <p class="govuk-body">

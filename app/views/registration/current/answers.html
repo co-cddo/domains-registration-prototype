@@ -32,7 +32,7 @@
         rows: [
           {
             key: {
-              text: "Organisation name"
+              html: "Organisation name"
             },
             value: {
               html: data['registrar']
@@ -51,7 +51,7 @@
           ,
           {
             key: {
-              text: "Email contact  "
+              text: "Email address"
             },
             value: {
               html: data['registrar-email']
@@ -282,7 +282,7 @@
             text: "Applicant"
           },
           value: {
-            html: data['appfullName']+"<br>"+data['appEmail']+"<br>"+data['apptelephoneNumber']
+            html: (data['appfullName'] | title)+"<br>"+data['apptelephoneNumber']+"<br>"+data['appEmail']
             
           },
           actions: {
@@ -301,7 +301,7 @@
             text: "Registrant"
           },
           value: {
-            html: data['regfullName']+"<br>"+data['regEmail']+"<br>"+data['regtelephoneNumber']
+            html: (data['regfullName'] | title)+"<br>"+data['regtelephoneNumber']+"<br>"+data['regEmail']
             
           },
           actions: {
@@ -319,7 +319,7 @@
             html: "Registry<br> (public information)"
           },
           value: {
-            html: data['regpubroleName']+"<br>"+data['regpubEmail']+"<br>"+data['apptelephoneNumber']
+            html: (data['regpubroleName'] | title)+"<br>"+data['apptelephoneNumber']+"<br>"+data['regpubEmail']
             
           },
           actions: {
