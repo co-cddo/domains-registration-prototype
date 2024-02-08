@@ -27,6 +27,10 @@
       <h1 class="govuk-heading-xl">
         Check your answers 
       </h1>
+      <div id="checkanswers-hint" class="govuk-hint">
+        Make sure your answers are complete and correct. If you need to change any of your details, change them at this stage.
+      </div>
+      
       <h2 class="govuk-heading-m">Registrar details</h2>
       {{ govukSummaryList({
         rows: [
@@ -69,6 +73,7 @@
           
         ]
       }) }}
+    
     <h2 class="govuk-heading-m">Registrant details</h2>
     {# Alternte summary details, this is 'central' #}
      {% if (data['registrant-type'] == "Central government department or agency") %}
@@ -273,6 +278,7 @@
         ]
       }) }}
     {% endif %}
+
 
       <h2 class="govuk-heading-m">Contact details</h2>
       {{ govukSummaryList({
