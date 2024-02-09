@@ -27,7 +27,18 @@ router.post('/registrant-answer', function(request, response) {
     if (registrantType == "Central government department or agency"){
         response.redirect("exemption")
     } else {
-        response.redirect("written-permission")
+        response.redirect("new-website")
+    }
+})
+
+// Q: New Website
+router.post('/new-website-answer', function(request, response) {
+
+    var newWebsite = request.session.data['newWebsite']
+    if (newWebsite == "Yes"){
+        response.redirect("exemption")
+    } else {
+        response.redirect("exemption-fail")
     }
 })
 
