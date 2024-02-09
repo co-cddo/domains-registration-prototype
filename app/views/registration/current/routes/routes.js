@@ -25,23 +25,26 @@ router.post('/registrant-answer', function(request, response) {
 
     var registrantType = request.session.data['registrant-type']
     if (registrantType == "Central government department or agency"){
-        response.redirect("exemption")
+        response.redirect("domain-purpose")
     } else {
-        response.redirect("new-website")
+        response.redirect("written-permission")
     }
 })
 
-// Q: New Website
-router.post('/new-website-answer', function(request, response) {
+// Q: Domain purpose
+router.post('/domain-purpose-answer', function(request, response) {
 
-    var newWebsite = request.session.data['newWebsite']
-    if (newWebsite == "Yes"){
-        response.redirect("exemption")
-    } else {
-        response.redirect("exemption-fail")
-    }
-})
+    var dPurpose = request.session.data['purpose']
 
+    if (dPurpose == "Website and email address"){
+        response.redirect("exemption")}
+
+    else if (dPurpose == "Email address only"){
+        response.redirect("written-permission")}
+    else if (dPurpose == "api" || dPurpose == "service" || dPurpose == "campaign" || dPurpose == "inquiry" || dPurpose == "blog" || dPurpose == "dataset"){
+        response.redirect("domain-purpose-fail") }
+    })
+    
 // Q: Exemption
 router.post('/exemption-answer', function(request, response) {
 

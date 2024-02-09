@@ -1,0 +1,127 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Domain purpose – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+  {{ govukPhaseBanner({
+    tag: {
+    text: "prototype",
+    classes: "govuk-tag--pink"
+    },
+      html: 'This is not a full service. It is not production code and you might experience problems.'
+  }) }}
+ 
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="domain-purpose-answer" id="mainForm" method="post">
+
+        {{ govukRadios({
+          classes: "govuk-radios",
+          name: "purpose",
+          fieldset: {
+            legend: {
+              text: "Why do you want a .gov.uk domain name?",
+                     
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          hint: {
+            html: "Tell us what you plan to use the .gov.uk domain name for. <br>Select one option"
+          },
+          items: [
+          {
+            value: "Website and email address",
+            text: "Website and email address",
+            checked: checked("purpose", "Website and email address")
+          },
+          {
+            value: "Email address only",
+            text: "Email address only",
+            checked: checked("purpose", "Email address only")
+          },
+          {
+            divider: "or"
+          },
+            {
+              value: "api",
+              text: "API",
+              checked: checked("purpose", "api"),
+              hint: {
+                text: "For example, hrmc01application.api.gov.uk"
+              }
+            },
+            {
+              value: "service",
+              text: "Service",
+              checked: checked("purpose", "service"),
+              hint: {
+                text: "For example, get-a-fishing-licence.service.gov.uk"
+              }
+            },
+            {
+              value: "campaign",
+              text: "Campaign",
+              checked: checked("purpose", "campaign"),
+              hint: {
+                text: "For example, helpforhouseholds.campaign.gov.uk"
+              }
+            },
+            {
+              value: "inquiry",
+              text: "Independent inquiry",
+              checked: checked("purpose", "inquiry"),
+              hint: {
+                text: "For example, icai.independent.gov.uk"
+              }
+            },
+            {
+              value: "blog",
+              text: "Blog",
+              checked: checked("purpose", "blog"),
+              hint: {
+                text: "For example, gds.blog.gov.uk"
+              }
+            },
+            {
+              value: "dataset",
+              text: "Publishing a government dataset",
+              checked: checked("purpose", "dataset"),
+              hint: {
+                text: "For example, gds.blog.gov.uk"
+              }
+            }
+            
+          ]
+        }) }}
+
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+          
+          {% if data['COMPLETED'] == true %}
+          <button type="submit" onclick="document.getElementById('mainForm').action='answers';"
+          class="govuk-button govuk-button--secondary govuk-!-margin-right-1" data-module="govuk-button">Back to answers
+          </button>
+          {% endif %}
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

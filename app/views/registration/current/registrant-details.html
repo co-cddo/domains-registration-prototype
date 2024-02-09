@@ -28,18 +28,25 @@
       <h1 class="govuk-heading-l">
         Registrant details
       </h1>
+      <p class="govuk-body govuk-hint">The registrant must be a civil servant or a public servant, and be the person responsible for:</p>
+        <ul class="govuk-list govuk-list--bullet govuk-hint">
+          <li>managing the domain and renewing the domain</li>
+          <li>authorising changes to the domain</li>
+          <li>protecting the domain on behalf of their public sector organisation</li>
+        </ul>
+        <p class="govuk-body govuk-hint">For example, for a parish councils the registrant may be the clerk.
+        </p>
       
       <form class="form" action="registry-details" id="mainForm" method="post">
       <h2 class="govuk-heading-m">
-        Name
+        Registrant name
       </h2>
+
         {{ govukInput({
           label: {
             text: "Full name"
           },
-          hint: {
-            text: "A person of authority, for example a Chief Executive from a Local Authority"
-          },
+          
           id: "regfull-name",
           name: "regfullName",
           autocomplete: "name",
@@ -50,18 +57,16 @@
         }) }}
       
       <h2 class="govuk-heading-m">
-        Contact details
+        Registrant contact details
       </h2>
         
         
 
         {{ govukInput({
           label: {
-            text: "UK telephone number"
+            text: "Telephone number"
           },
-          hint: {
-            text: "We will only use this to contact you about your application"
-          },
+          
           id: "regtelephone-number",
           name: "regtelephoneNumber",
           type: "tel",
@@ -74,9 +79,7 @@
           label: {
             text: "Email address"
           },
-          hint: {
-            text: "We will use this to check your identity"
-          },
+          
           id: "regEmail",
           name: "regEmail",
           type: "email",

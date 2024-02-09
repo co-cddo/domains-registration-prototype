@@ -28,10 +28,16 @@
       <h1 class="govuk-heading-l">
         Applicant details
       </h1>
-      
+      <p class="govuk-body govuk-hint">The applicant is the person from the registrant's organisation who has submitted the application and arranges:</p>
+        <ul class="govuk-list govuk-list--bullet govuk-hint">
+          <li>payment to the.gov.uk Approved Registrar</li>
+          <li>the signing of the Registrant Agreement</li>
+        </ul>
+        <p class="govuk-body govuk-hint">The applicant does not have to be the same person as the registrant.</p>
+
       <form class="form" action="registrant-details" id="mainForm" method="post">
       <h2 class="govuk-heading-m">
-        Name
+        Applicant name
       </h2>
         {{ govukInput({
           label: {
@@ -50,16 +56,16 @@
         }) }}
       
       <h2 class="govuk-heading-m">
-        Contact details
+        Applicant contact details
       </h2>
         
        
         {{ govukInput({
           label: {
-            text: "UK mobile telephone number"
+            text: "Telephone number"
           },
           hint: {
-            text: "Your mobile telephone number should be 11 digits. For example, 07012 123456"
+            text: "Your telephone number should be 11 digits. For example, 01632 960 001"
           },
           id: "apptelephone-number",
           name: "apptelephoneNumber",
@@ -73,9 +79,7 @@
           label: {
             text: "Email address"
           },
-          hint: {
-            text: "This can be any email address that you check frequently"
-          },
+          
           id: "appEmail",
           name: "appEmail",
           type: "email",

@@ -27,14 +27,13 @@
 
       <form class="form" action="answers" id="mainForm" method="post">
         <h1 class="govuk-heading-l">
-          Registry details
+          Registrant details for publishing to the registry 
         </h1>
-                
-        
-        
+        <p class="govuk-body govuk-hint">The registrant wants the following details visible on the registry.<br>
+          The registrant's contact details must be role-based and not personally identifiable information.</p>
         
         <h2 class="govuk-heading-m">
-          Role
+          Registrant role 
         </h2>
           {{ govukInput({
             label: {
@@ -53,24 +52,23 @@
           }) }}
         
         <h2 class="govuk-heading-m">
-          Contact details
+          Registrant contact details 
         </h2>
           
-          
-  
           {{ govukInput({
             label: {
               text: "Telephone number"
             },
             hint: {
-              text: "Use a role-based UK landline number"
+              text: "Give a business telephone number and don't use personal"
             },
-            id: "apptelephone-number",
-            name: "apptelephoneNumber",
+
+            id: "regpubtelephoneNumber",
+            name: "regpubtelephoneNumber",
             type: "tel",
             autocomplete: "tel",
             classes: "govuk-input--width-20",
-            value: data['apptelephoneNumber']
+            value: data['regpubtelephoneNumber']
           }) }}
   
           {{ govukInput({
