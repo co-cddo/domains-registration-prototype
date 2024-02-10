@@ -1,6 +1,6 @@
 # Domains Registration Prototype 
 
-Welcome :wave: to the working prototype for the 'Get approval to use a .gov.uk domain name' service. The prototype aims to assist with the design and research of the registration and approval process.
+Welcome :wave: to the working prototype for the `'Get approval to use a .gov.uk domain name'` service. The prototype aims to assist with the design and research of the registration and approval process.
 
 ## Web access
 
