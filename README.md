@@ -1,9 +1,7 @@
 # Domains Registration Prototype 
-
 Welcome :wave: to the working prototype for the `'Get approval to use a .gov.uk domain name'` service. The prototype aims to assist with the design and research of the registration and approval process.
 
 ## Web access
-
 To access the currently deployed prototype [visit this URL](https://sgs-ddt-01-96c924f9e494.herokuapp.com/).
 
 ## Team contacts
