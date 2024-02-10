@@ -11,7 +11,7 @@ If you need access to information about this prototype, would like to contribute
 
 | Name           | Practice                | Email address                | 
 | -------------- | ---------------------------- | ---------------------------- |
-| Robert Nagy    | Design (XD, SD, IxD) | robert.nagy@digital.cabinet-office.gov.uk |
+| Robert Nagy    | Design (SD, XD, IxD) | robert.nagy@digital.cabinet-office.gov.uk |
 | Katherine Brown| User research (UR) | katherine.brown@digital.cabinet-office.gov.uk |
 
 > [!NOTE]
