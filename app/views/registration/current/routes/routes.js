@@ -5,10 +5,11 @@
 
 const govukPrototypeKit = require('govuk-prototype-kit')
 const router = govukPrototypeKit.requests.setupRouter()
-
   
 // Add your routes here
 // Q: Registrant type
+
+
 router.post('/registrant-type-answer', function(request, response) {
   
     var registrantType = request.session.data['registrant-type']
@@ -95,6 +96,7 @@ router.get('/answers', function (req, res) {
     res.render('./' + req.originalUrl, {
     })
   })
+
 
 module.exports = router
 

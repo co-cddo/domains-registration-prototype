@@ -1,0 +1,48 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Confirmation page – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+ 
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+     
+
+      
+
+      <h2 class="govuk-heading-s">
+        From: 
+      <a href="#">
+        do-not-reply@domains.gov.uk
+      </a>
+    <br>
+    Subject: .gov.uk domain application confirmation
+  </h2>
+
+  {{ govukInsetText({
+    text: "This is an automated email - please do not reply as this inbox is not monitored."
+  }) }}
+
+  <p>
+    Dear  {{ data['appfullName'] }}
+  </p>
+
+  <p>The Cabinet Office has received your .gov.uk domain application.
+  </p>
+      
+  
+    <p>You have applied for  <code class="govspeak-code">{{data['domain']}}.gov.uk</code> domain name. <br><br>
+    We will review your application and either approve your registration, provide a reason for rejecting your application or ask you for more information.<br><br>
+    Kind regards, <br>
+    
+    Cabinet Office Domains Team
+  </p>   
+  
+    </div>
+  </div>
+
+{% endblock %}
