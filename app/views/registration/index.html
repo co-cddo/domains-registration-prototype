@@ -44,11 +44,18 @@
       <div class="proto-admin">
           <h3 class="govuk-heading-l">Design history</h3>
           <p class='govuk-list app-list--definition'>
-            <a href='https://sgs-ddt-01-96c924f9e494.herokuapp.com/registration/current/get-approval-start' class="govuk-link--no-visited-state"><strong>Version 1 (current)</a></strong><br><span class="govuk-body govuk-!-font-size-14">#Last updated on 20 February 2024<br/>
+            <a href='https://sgs-ddt-01-96c924f9e494.herokuapp.com/registration/current/get-approval-start' class="govuk-link--no-visited-state"><strong>Version 1 (current)</a></strong><br><span class="govuk-body govuk-!-font-size-14">#Last updated on 21 February 2024<br/>
             </span><br>
             Baseline design added in preparation for UR Round 1, planned to start on 21 February. Work completed during Sprint 4 and Sprint 5 - which ended on 9 February.<br>
-              </p>
+            <br><span class="govuk-body govuk-!-font-weight-bold">Other updates:</span><Br>
+            - the new official GOV.UK logo featuring the chosen crown of King Charles III added <Br>
+            - task list tags updates added
 
+              </p>
+              {{ govukWarningText({
+                text: "Design and development are now frozen for round 1 of user research, between 9th February and 29th February.",
+                iconFallbackText: "Warning"
+              }) }}
       </div>
       <div class="proto-admin">
         <h2 class="govuk-heading-l">Design thinking</h2>
@@ -61,10 +68,7 @@
 
       {% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
 
-{{ govukWarningText({
-  text: "Design and development are now frozen for round 1 of user research, between 9th February and 29th February.",
-  iconFallbackText: "Warning"
-}) }}
+
                   
 </div>
 </div>
