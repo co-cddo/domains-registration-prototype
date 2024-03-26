@@ -9,7 +9,7 @@ const router = govukPrototypeKit.requests.setupRouter()
 // Add your routes here
 // Tactical
 router.use('/registration/current', require('./views/registration/current/routes/routes'))
-router.use('/registration/v2', require('./views/registration/v2/routes/routes'))
+router.use('/registration/v1', require('./views/registration/v1/routes/routes'))
 
 // Strategic
 router.use('/registration/strategic', require('./views/registration/strategic/routes/routes'))

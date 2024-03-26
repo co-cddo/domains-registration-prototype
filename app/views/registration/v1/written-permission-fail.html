@@ -25,28 +25,24 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <h1 class="govuk-heading-l">
-        Your registrant does not have the evidence required to get a .gov.uk domain name 
+        Your registrant cannot get approval for a .gov.uk domain name
       </h1>
       
       
       {# Alternte hint text, this is 'central' #}
-      {% if (data['registrant-type'] == "Central government department or agency") %}     
-      
-      
-            <p class="govuk-body">Your registrant must get permission to apply for a .gov.uk domain name from the chief information officer or equivalent if you're applying on behalf of a central government department or agency.
-            </p>
-          
+            {% if (data['registrant-type'] == "Central government department or agency") %}
+              
+            <p class="govuk-body">Your registrant's application must include written permission to apply for a .gov.uk domain name from the Chief Information Officer or equivalent you're applying on behalf of a central government department or agency.</p>
+              
 
               {% else %}
               {# Alternte hint text, this is 'parish' #}
               
-          
-                <p class="govuk-body">
-                  Your registrant must get permission to apply for a .gov.uk domain name from the chief executive if you're applying on behalf of any other public sector organisation.
-              </p>
-          
+              <div id="written-permission-hint" class="govuk-hint">
+                <p class="govuk-body">Your registrant must get written permission to apply for a .gov.uk domain name from the Chief Executive if you're applying on behalf of any other  public sector organisation.</p>
+              </div>
             {% endif %}
-            
+
       <p class="govuk-body">
         <a href="https://www.gov.uk/guidance/get-permission-to-apply-for-a-govuk-domain-name" class="govuk-link">Your registrant must get permission to apply</a>.
       </p>

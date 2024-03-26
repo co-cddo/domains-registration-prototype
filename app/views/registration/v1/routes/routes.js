@@ -15,10 +15,21 @@ router.post('/registrant-type-answer', function(request, response) {
     if (registrantType == "none"){
         response.redirect("registrant-type-fail")
     } else {
-        response.redirect("written-permission")
+        response.redirect("registrant")
     }
 })
 
+
+// Q: Registrant
+router.post('/registrant-answer', function(request, response) {
+
+    var registrantType = request.session.data['registrant-type']
+    if (registrantType == "Central government department or agency"){
+        response.redirect("domain-purpose")
+    } else {
+        response.redirect("written-permission")
+    }
+})
 
 // Q: Domain purpose
 router.post('/domain-purpose-answer', function(request, response) {
@@ -63,18 +74,7 @@ router.post('/domain-answer', function(request, response) {
     if (registrantType2 == "Central government department or agency"){
         response.redirect("minister")
     } else {
-        response.redirect("domain-confirm")
-    }
-})
-
-// Q: Domain confirm
-router.post('/domain-confirm-answer', function(request, response) {
-
-    var domainConfirm = request.session.data['domainconfirm']
-    if (domainConfirm == "Yes"){
-        response.redirect("registrant-details")
-    } else {
-        response.redirect("domain")
+        response.redirect("applicant-details")
     }
 })
 
@@ -85,7 +85,7 @@ router.post('/minister-answer', function(request, response) {
     if (minister == "Yes, evidence provided."){
         response.redirect("minister-upload")
     } else {
-        response.redirect("registry-details")
+        response.redirect("applicant-details")
     }
 })
 
