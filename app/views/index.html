@@ -20,6 +20,7 @@ Domains registration prototype    </h1>
           <tr class="govuk-table__row">
             <th class="govuk-table__header" scope="col">Prototype name</th>
             <th class="govuk-table__header" scope="col">Version description</th>
+            <th class="govuk-table__header" scope="col">Status</th>
           </tr>
         </thead>
         <tbody class="govuk-table__body">
@@ -28,12 +29,16 @@ Domains registration prototype    </h1>
             <td class="govuk-table__cell"><a href="registration" class="govuk-lik govuk-link--no-visited-state">Get approval to use a .gov.uk domain name</a>
               </td>
             <td class="govuk-table__cell">Version 1.1 <br><span class="govuk-body govuk-!-font-size-14">last updated on 29 February 2024</span></td>
+            <td class="govuk-table__cell">
+              {{govukTag({
+                text: "Updating",
+                classes: "govuk-tag--yellow"
+              })}}
+            </td>
           </tr>
       
         </tbody>
-      </table>
-
-    
+      </table>    
   </div>
 </div>
 

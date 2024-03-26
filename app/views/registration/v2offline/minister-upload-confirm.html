@@ -1,0 +1,83 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Minister upload confirmation – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+  {{ govukPhaseBanner({
+    tag: {
+    text: "prototype",
+    classes: "govuk-tag--pink"
+    },
+      html: 'This is not a full service. It is not production code and you might experience problems.'
+  }) }}
+
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="applicant-details" id="mainForm" method="post">
+        <h1 class="govuk-heading-l">Upload evidence of the minister’s request 
+        </h1>
+        <div id="file-upload-1-hint" class="govuk-hint">
+          Support file type is .jpeg or .png and the maximum size is 10MB.
+        </div>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <p class="govuk-body govuk-!-display-none" id="refreshPageProgress"><a href="#" class="govuk-link">Refresh page to update file upload progress</a></p>
+
+    <div class="govuk-visually-hidden" aria-live="polite" id="statusInformation">File uploaded.</div>
+   
+
+    {{ govukSummaryList({
+      classes: 'govuk-summary-list--long-key',
+      rows: [
+        {
+          key: {
+            html: '<a class="govuk-link" href="#">minister.pdf</a>'
+          },
+          value: {
+            text: govukTag({ text: "Uploaded", classes: "govuk-tag--green" })
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Remove",
+                visuallyHiddenText: "receipt1.jpg"
+              }
+            ]
+          }
+        }
+      ]
+    }) }}
+
+    <div class="govuk-visually-hidden" aria-live="polite" id="statusInformation">file uploaded.</div>
+  
+      <div class="govuk-button-group">
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+        {% if data['COMPLETED'] == true %}
+        <button type="submit" onclick="document.getElementById('mainForm').action='answers';"
+        class="govuk-button govuk-button--secondary govuk-!-margin-right-1" data-module="govuk-button">Back to answers
+        </button>
+        {% endif %}
+        </div>
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,84 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Domain – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+  {{ govukPhaseBanner({
+    tag: {
+    text: "prototype",
+    classes: "govuk-tag--pink"
+    },
+      html: 'This is not a full service. It is not production code and you might experience problems.'
+  }) }}
+ 
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      
+      <h1 class="govuk-heading-l">
+        What .gov.uk domain name do you want?
+      </h1>
+      <div id="domain-hint">
+        <p class="govuk-body govuk-hint">We approve domain name requests on a first-come first-served basis. <br>You must check if the proposed .gov.uk domain name is available using an EPP check command, the Nominet portal or the <a href="https://www.nominet.uk/lookup/" class="govuk-link--no-visited-state" target="new">Nominet lookup tool (opens in a new tab)</a>.
+
+        </p>
+            
+      </div>
+      <p class="govuk-body">
+        <a href="https://www.gov.uk/guidance/choose-your-govuk-domain-name" class="govuk-link--no-visited-state" target="new">Follow rules on how to choose a .gov.uk domain name (opens in a new tab)</a>.
+      </p>
+      
+      
+
+      <form class="form" action="domain-answer" id="mainForm" method="post">
+
+        {{ govukInput({
+          label: {
+            text: "Enter the .gov.uk domain name"
+          },
+          classes: "govuk-input--width-5",
+          id: "domain",
+          name: "domain",
+          value: data['domain'],
+          classes: "govuk-! -width-three-quarters",
+          suffix: {
+            text: ""
+          },
+          spellcheck: false
+        }) }}
+
+ 
+        
+        {{ govukWarningText({
+          text: "The .gov.uk domain name you submit will be subject to approval from the Domains Team.",
+          iconFallbackText: "Warning"
+        }) }}
+
+        <div class="govuk-button-group">
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+        {% if data['COMPLETED'] == true %}
+        <button type="submit" onclick="document.getElementById('mainForm').action='answers';"
+        class="govuk-button govuk-button--secondary govuk-!-margin-right-1 govuk-!-margin-top-6" data-module="govuk-button">Back to answers
+        </button>
+        {% endif %}
+      </div>
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

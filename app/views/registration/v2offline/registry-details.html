@@ -1,0 +1,89 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Registry details – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+  {{ govukPhaseBanner({
+    tag: {
+    text: "prototype",
+    classes: "govuk-tag--pink"
+    },
+      html: 'This is not a full service. It is not production code and you might experience problems.'
+  }) }}
+ 
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="answers" id="mainForm" method="post">
+        <h1 class="govuk-heading-l">
+          Registrant details for publishing to the registry 
+        </h1>
+        <p class="govuk-body govuk-hint">You must make sure the Registrant provides the appropriate contact details to publish in the Registry. The details on this page must match the details you give to Nominet when creating the domain name.</p>
+        
+        <h2 class="govuk-heading-m">
+          Registrant role 
+        </h2>
+          {{ govukInput({
+            label: {
+              text: "Role name"
+            },
+            hint: {
+              text: ""
+            },
+            id: "regpubrole-name",
+            name: "regpubroleName",
+            autocomplete: "name",
+            spellcheck: false,
+            classes: "govuk-input--width-20",
+            value: data['regpubroleName']
+  
+          }) }}
+        
+        <h2 class="govuk-heading-m">
+          Registrant contact details 
+        </h2>
+          
+          {{ govukInput({
+            label: {
+              text: "Email address"
+            },
+            hint: {
+              text: "Use a role-based email address, like clerk@[yourorganisation].gov.uk"
+            },
+            id: "regpubEmail",
+            name: "regpubEmail",
+            type: "email",
+            autocomplete: "email",
+            spellcheck: false,
+            value: data['regpubEmail']
+            
+          }) }}
+          
+         
+
+        
+
+
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+  
+         
+        </div> 
+        </form>
+    </div>
+  </div>
+
+{% endblock %}
