@@ -45,15 +45,15 @@ Written permission – {{ serviceName }} – GOV.UK Prototype Kit
               <div id="written-permission-hint" class="govuk-hint">
                 <p class="govuk-body">Your registrant must get written permission from the:</p>
                   <ul class="govuk-list govuk-list--bullet">
-                    <li>Chair if you’re applying on behalf of parish or town councils</li>
-                    <li>Chief Executive if you’re applying on behalf of a Local Authority or other public sector organisation</li>
+                    <li>Chair if you're applying on behalf of parish or town councils</li>
+                    <li>Chief Executive if you're applying on behalf of a Local Authority or other public sector organisation</li>
                   </ul>
               </div>
               {% endif %}
 
             <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="written-permission" name="written-permission" type="radio" value="Yes, evidence provided" {{ checked("written-permission", "Yes, evidence provided") }}>
+                <input class="govuk-radios__input" id="written-permission" name="written-permission" type="radio" value="Yes, evidence provided." {{ checked("written-permission", "Yes, evidence provided.") }}>
                 <label class="govuk-label govuk-radios__label" for="written-permission">
                   Yes
                 </label>

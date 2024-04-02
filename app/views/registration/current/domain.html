@@ -30,8 +30,8 @@
         What .gov.uk domain name do you want?
       </h1>
       <div id="domain-hint">
-        <p class="govuk-body govuk-hint">We approve domain name requests on a first-come first-served basis. <br>You must check if the proposed .gov.uk domain name is available using an EPP check command, the Nominet portal or the <a href="https://www.nominet.uk/lookup/" class="govuk-link--no-visited-state" target="new">Nominet lookup tool (opens in a new tab)</a>.
-
+        <p class="govuk-body govuk-hint">A .gov.uk domain name must clearly describe your registrant's organisation or government initiative. <br><br>
+          We approve domain name requests on a first-come first-served basis. You must check the proposed .gov.uk domain name is available manually using the Nominet portal or the <a href="https://www.nominet.uk/lookup/" class="govuk-link--no-visited-state" target="new">Nominet lookup tool (opens in a new tab)</a>, or use the EPP check command if you're using automated tools.
         </p>
             
       </div>
@@ -61,7 +61,8 @@
  
         
         {{ govukWarningText({
-          text: "The .gov.uk domain name you submit will be subject to approval from the Domains Team.",
+          text: "The Domains Team will check if this is available and decide whether to approve it.
+          ",
           iconFallbackText: "Warning"
         }) }}
 
