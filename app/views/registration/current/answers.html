@@ -34,47 +34,58 @@
       <h2 class="govuk-heading-m">Registrar details</h2>
       {{ govukSummaryList({
         rows: [
-          {
-            key: {
-              html: "Organisation name"
-            },
-            value: {
-              html: data['registrar']
-              
-            },
-            actions: {
-              items: [
-                {
-                  href: "registrar",
-                  text: "Change",
-                  visuallyHiddenText: "Registrar"
-                }
-              ]
-            }
+       
+        {
+          key: {
+            text: "Organisation name"
+          },
+          value: {
+            html: data['registrar']
+            
+          },
+          actions: {
+            items: [
+              {
+                href: "registrant-type",
+                text: "Change",
+                visuallyHiddenText: "Registrant organisation type"
+              }
+            ]
           }
-          ,
-          {
-            key: {
-              text: "Email address"
-            },
-            value: {
-              html: data['registrar-email']
-            },
-            actions: {
-              items: [
-                {
-                  href: "registrar-email",
-                  text: "Change",
-                  visuallyHiddenText: "Registrar email"
-                }
-              ]
-            }
+        }
+        ,
+       
+        {
+          key: {
+            text: "Contact details"
+          },
+          value: {
+            html: (data['registrarfullName'] | title)+"<br>"+data['registrarTelNumber']+"<br>"+data['registrarEmail']
+            
+          },
+          actions: {
+            items: [
+              {
+                href: "registrar-details",
+                text: "Change",
+                visuallyHiddenText: "Registrant details"
+              }
+            ]
           }
+        }
+        
+          
           
         ]
       }) }}
-    
-    <h2 class="govuk-heading-m">Registrant details</h2>
+
+
+
+      
+
+
+
+    <h2 class="govuk-heading-m">Domain request details</h2>
     {# Alternte summary details, this is 'central' #}
      {% if (data['registrant-type'] == "Central government department or agency") %}
      {{ govukSummaryList({
@@ -98,25 +109,7 @@
           }
         }
         ,
-        {
-          key: {
-            text: "Organisation name"
-          },
-          value: {
-            html: data['registrant']
-            
-          },
-          actions: {
-            items: [
-              {
-                href: "registrant",
-                text: "Change",
-                visuallyHiddenText: "Registrant organisation"
-              }
-            ]
-          }
-        }
-        ,
+        
         {
           key: {
             text: "Reason for request"
@@ -141,7 +134,7 @@
             text: "Exemption from GOV.UK website"
           },
           value: {
-            html: data['exemption']
+            html: (data['exemption'])+"<br>"+'<a class="govuk-link" href="#">gds0054.pdf</a>'
             
           },
           actions: {
@@ -158,10 +151,10 @@
         
         {
           key: {
-            text: "Registrant's written permission"
+            text: "Permission to apply"
           },
           value: {
-            html: data['written-permission']
+            html: (data['written-permission'])+"<br>"+'<a class="govuk-link" href="#">govcio-letter.pdf</a>'
             
           },
           actions: {
@@ -169,7 +162,7 @@
               {
                 href: "written-permission",
                 text: "Change",
-                visuallyHiddenText: "Registrant's written permission"
+                visuallyHiddenText: "Registrant's permission to apply"
               }
             ]
           }
@@ -194,49 +187,185 @@
           }
         }
         ,
+        
         {
           key: {
             text: "Minister's support"
           },
           value: {
-            html: data['minister']
-            
+            html: (data['minister'])+"<br>"+'<a class="govuk-link" href="#">minister.pdf</a>'
           },
           actions: {
             items: [
               {
                 href: "minister",
                 text: "Change",
-                visuallyHiddenText: "Minister's support"
+                visuallyHiddenText: "Registrant details"
               }
             ]
           }
         }
+        ]
+      }) }}
+
+      <h2 class="govuk-heading-m">Registrant  details</h2>
+      {{ govukSummaryList({
+        rows: [
+
+
+        {
+          key: {
+            text: "Organisation name"
+          },
+          value: {
+            html: data['registrant']
+            
+          },
+          actions: {
+            items: [
+              {
+                href: "registrant",
+                text: "Change",
+                visuallyHiddenText: "registrant"
+              }
+            ]
+          }
+        }
+        ,
+          {
+            key: {
+              text: "Contact details"
+            },
+            value: {
+              html: (data['registrantfullName'] | title)+"<br>"+data['regtelephoneNumber']+"<br>"+data['regEmail']
+              
+            },
+            actions: {
+              items: [
+                {
+                  href: "registrar-details",
+                  text: "Change",
+                  visuallyHiddenText: "Registrant details"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              html: "Registry<br> (public information)"
+            },
+            value: {
+              html: (data['regpubroleName'] | title)+"<br>"+data['regpubEmail']
+              
+            },
+            actions: {
+              items: [
+                {
+                  href: "registry-details",
+                  text: "Change",
+                  visuallyHiddenText: "Registry details"
+                }
+              ]
+            }
+          }
+        
+        
+        
       ]
     }) }}
     {% else %}
      {# Alternte summary details, this is 'parish' #}
       {{ govukSummaryList({
         rows: [
-          {
-            key: {
-              text: "Organisation type"
-            },
-            value: {
-              html: data['registrant-type']
-              
-            },
-            actions: {
-              items: [
-                {
-                  href: "registrant-type",
-                  text: "Change",
-                  visuallyHiddenText: "Registrant organisation type"
-                }
-              ]
-            }
+
+        {
+          key: {
+            text: "Organisation type"
+          },
+          value: {
+            html: data['registrant-type']
+            
+          },
+          actions: {
+            items: [
+              {
+                href: "registrant-type",
+                text: "Change",
+                visuallyHiddenText: "Registrant organisation type"
+              }
+            ]
           }
-          ,
+        }
+        ,
+        
+        {
+          key: {
+            text: "Reason for request"
+          },
+          value: {
+            html: data['purpose']
+            
+          },
+          actions: {
+            items: [
+              {
+                href: "domain-purpose",
+                text: "Change",
+                visuallyHiddenText: "Domain purpose"
+              }
+            ]
+          }
+        }
+        ,
+        {
+          key: {
+            text: "Permission to apply"
+          },
+          value: {
+            html: (data['written-permission'])+"<br>"+'<a class="govuk-link" href="#">govcio-letter.pdf</a>'
+            
+          },
+          actions: {
+            items: [
+              {
+                href: "written-permission",
+                text: "Change",
+                visuallyHiddenText: "Registrant's permission to apply"
+              }
+            ]
+          }
+        }
+        ,
+        {
+          key: {
+            text: "Domain name"
+          },
+          value: {
+            html: data['domain']+".gov.uk"
+            
+          },
+          actions: {
+            items: [
+              {
+                href: "domain",
+                text: "Change",
+                visuallyHiddenText: "Domain"
+              }
+            ]
+          }
+        }
+
+
+        ]
+      }) }}
+
+
+        <h2 class="govuk-heading-m">Registrant  details</h2>
+        {{ govukSummaryList({
+          rows: [
+  
+  
           {
             key: {
               text: "Organisation name"
@@ -250,117 +379,58 @@
                 {
                   href: "registrant",
                   text: "Change",
-                  visuallyHiddenText: "Registrant organisation"
+                  visuallyHiddenText: "registrant"
                 }
               ]
             }
           }
           ,
-          {
-            key: {
-              text: "Registrant's written permission"
-            },
-            value: {
-              html: data['written-permission']
-              
-            },
-            actions: {
-              items: [
-                {
-                  href: "written-permission",
-                  text: "Change",
-                  visuallyHiddenText: "Registrant's written permission"
-                }
-              ]
+            {
+              key: {
+                text: "Contact details"
+              },
+              value: {
+                html: (data['registrantfullName'] | title)+"<br>"+data['regtelephoneNumber']+"<br>"+data['regEmail']
+                
+              },
+              actions: {
+                items: [
+                  {
+                    href: "registrar-details",
+                    text: "Change",
+                    visuallyHiddenText: "Registrant details"
+                  }
+                ]
+              }
             }
-          }
-          ,
-          {
-            key: {
-              text: "Domain name"
-            },
-            value: {
-              html: data['domain']+".gov.uk"
-              
-            },
-            actions: {
-              items: [
-                {
-                  href: "domain",
-                  text: "Change",
-                  visuallyHiddenText: "Domain"
-                }
-              ]
+            ,
+            {
+              key: {
+                html: "Registry<br> (public information)"
+              },
+              value: {
+                html: (data['regpubroleName'] | title)+"<br>"+data['regpubEmail']
+                
+              },
+              actions: {
+                items: [
+                  {
+                    href: "registry-details",
+                    text: "Change",
+                    visuallyHiddenText: "Registry details"
+                  }
+                ]
+              }
             }
-          }
+         
           
         ]
       }) }}
     {% endif %}
+    
+    
 
-
-      <h2 class="govuk-heading-m">Contact details</h2>
-      {{ govukSummaryList({
-        rows: [
-        {
-          key: {
-            text: "Applicant"
-          },
-          value: {
-            html: (data['appfullName'] | title)+"<br>"+data['apptelephoneNumber']+"<br>"+data['appEmail']
-            
-          },
-          actions: {
-            items: [
-              {
-                href: "applicant-details",
-                text: "Change",
-                visuallyHiddenText: "Applicant details"
-              }
-            ]
-          }
-        }
-        ,
-        {
-          key: {
-            text: "Registrant"
-          },
-          value: {
-            html: (data['regfullName'] | title)+"<br>"+data['regtelephoneNumber']+"<br>"+data['regEmail']
-            
-          },
-          actions: {
-            items: [
-              {
-                href: "registrant-details",
-                text: "Change",
-                visuallyHiddenText: "Registrant contact"
-              }
-            ]
-          }
-        },
-        {
-          key: {
-            html: "Registry<br> (public information)"
-          },
-          value: {
-            html: (data['regpubroleName'] | title)+"<br>"+data['regpubEmail']
-            
-          },
-          actions: {
-            items: [
-              {
-                href: "registry-details",
-                text: "Change",
-                visuallyHiddenText: "Registry details"
-              }
-            ]
-          }
-        }
-          
-          
-        ]
-      }) }}
+     
 
       <h2 class="govuk-heading-m">
         Now send your registrant's application 
