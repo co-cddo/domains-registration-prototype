@@ -63,20 +63,6 @@ router.post('/written-permission-answer', function(request, response) {
     }
 })
 
-// Q: Domain confirm
-router.post('/domain-confirm-answer', function(request, response) {
-
-    var domainConfirm = request.session.data['domainconfirm']
-    var registrantType2 = request.session.data['registrant-type']
-    if (domainConfirm == "Yes"){
-        response.redirect("registrant-details")
-    else if (domainConfirm == "No"){
-        response.redirect("domaim")}
-    else if (domainConfirm == "Yes" &&	registrantType2 == "Central government department or agency"){
-            response.redirect("minister") }
-    else if (domainConfirm == "Yes" || registrantType2 == "Non-departmental body - also known as an arm's length body")
-    response.redirect("minister") }
-})
 
 // Q: Minister support
 router.post('/minister-answer', function(request, response) {
