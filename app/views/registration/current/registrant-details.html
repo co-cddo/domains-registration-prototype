@@ -35,9 +35,12 @@
             <li>getting permission to apply for the .gov.uk domain name</li>
             <li>choosing a .gov.uk Approved Registrar</li> 
           </ul>
+
+          {# Insert hint text, this is 'central' #}
+            {% if (data['registrant-type'] == "Central government department or agency") %}
           <p class="govuk-body govuk-hint">For example, for parish councils the registrant must be the clerk.</p>
         </p>
-        
+        {% endif %}
 
         <Br>
       
