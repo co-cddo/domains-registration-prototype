@@ -22,7 +22,7 @@ router.post('/registrant-type-answer', function(request, response) {
     else if (registrantType == "Central government department or agency" || registrantType == "Non-departmental body - also known as an arm's length body" ){
                 response.redirect("domain-purpose")}
     // Q: Route 3
-    else if (registrantType == "Town, county, borough, metropolitan or district council" || registrantType == "Fire service" || registrantType == "Combined or unitary authority" || registrantType == "Police and crime commissioner" || registrantType == "Joint authority" || registrantType == "Joint committee" || registrantType == "Organisation representing a group of public sector bodies" || registrantType == "Organisation representing a profession across public sector bodies" ){
+    else if (registrantType == "Town, county, borough, metropolitan or district council" || registrantType == "Fire service" || registrantType == "Combined or unitary authority" || registrantType == "Police and crime commissioner" || registrantType == "Joint authority" || registrantType == "Joint committee" || registrantType == "Organisation representing a group of public sector bodies" || registrantType == "Organisation representing a profession across public sector bodies"){
         response.redirect("written-permission")}
     })
 
