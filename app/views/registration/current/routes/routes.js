@@ -22,7 +22,7 @@ router.post('/registrant-type-answer', function(request, response) {
     else if (registrantType == "Central government department or agency" || registrantType == "Non-departmental body - also known as an arm's length body" ){
                 response.redirect("domain-purpose")}
     // Q: Route 3
-    else if (registrantType == "Town, county, borough, metropolitan or district council" || registrantType == "Fire service" || registrantType == "Combined or unitary authority" || registrantType == "Police and crime commissioner" || registrantType == "Joint authority" || registrantType == "Joint committee" || registrantType == "Organisation representing a group of public sector bodies" || registrantType == "Organisation across public sector bodies"){
+    else if (registrantType == "Town, county, borough, metropolitan or district council" || registrantType == "Fire service" || registrantType == "Combined or unitary authority" || registrantType == "Police and crime commissioner" || registrantType == "Joint authority" || registrantType == "Joint committee" || registrantType == "Organisation representing a group of public sector bodies" || registrantType == "Organisation representing a profession across public sector bodies"){
         response.redirect("written-permission")}
     })
 
@@ -56,21 +56,10 @@ router.post('/exemption-answer', function(request, response) {
 router.post('/written-permission-answer', function(request, response) {
 
     var writtenPermission = request.session.data['written-permission']
-    if (writtenPermission == "Yes, evidence provided:"){
+    if (writtenPermission == "Yes, evidence provided"){
         response.redirect("written-permission-upload")
     } else {
         response.redirect("written-permission-fail")
-    }
-})
-
-// Q: Domain
-router.post('/domain-answer', function(request, response) {
-
-    var registrantType2 = request.session.data['registrant-type']
-    if (registrantType2 == "Central government department or agency"){
-        response.redirect("minister")
-    } else {
-        response.redirect("domain-confirm")
     }
 })
 
@@ -78,11 +67,15 @@ router.post('/domain-answer', function(request, response) {
 router.post('/domain-confirm-answer', function(request, response) {
 
     var domainConfirm = request.session.data['domainconfirm']
+    var registrantType2 = request.session.data['registrant-type']
     if (domainConfirm == "Yes"){
         response.redirect("registrant-details")
-    } else {
-        response.redirect("domain")
-    }
+    else if (domainConfirm == "No"){
+        response.redirect("domaim")}
+    else if (domainConfirm == "Yes" &&	registrantType2 == "Central government department or agency"){
+            response.redirect("minister") }
+    else if (domainConfirm == "Yes" || registrantType2 == "Non-departmental body - also known as an arm's length body")
+    response.redirect("minister") }
 })
 
 // Q: Minister support
