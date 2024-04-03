@@ -32,10 +32,10 @@ router.post('/domain-purpose-answer', function(request, response) {
 
     var dPurpose = request.session.data['purpose']
 
-    if (dPurpose == "Website and email address"){
+    if (dPurpose == "Website (may include email)"){
         response.redirect("exemption")}
 
-    else if (dPurpose == "Email address only"){
+    else if (dPurpose == "Email only domain"){
         response.redirect("written-permission")}
     else if (dPurpose == "api" || dPurpose == "service" || dPurpose == "campaign" || dPurpose == "inquiry" || dPurpose == "blog" || dPurpose == "dataset"){
         response.redirect("domain-purpose-fail") }
