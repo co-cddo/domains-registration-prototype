@@ -35,7 +35,7 @@ Written permission – {{ serviceName }} – GOV.UK Prototype Kit
             </legend>
 
             {# Alternate hint text, this is 'central' #}
-            {% if (data['registrant-type'] == "Central government department or agency") %}
+            {% if (data['registrant-type'] == "Central government department or agency" || data['registrant-type'] == "Non-departmental body - also known as an arm's length bodyy" ) %}
             
               <div id="written-permission-hint" class="govuk-body govuk-hint">
                 Your registrant must get permission to apply from the chief information officer or equivalent if you're applying on behalf of a central government department or agency.
