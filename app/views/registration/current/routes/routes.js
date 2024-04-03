@@ -56,7 +56,7 @@ router.post('/exemption-answer', function(request, response) {
 router.post('/written-permission-answer', function(request, response) {
 
     var writtenPermission = request.session.data['written-permission']
-    if (writtenPermission == "Yes, evidence provided"){
+    if (writtenPermission == "Yes, evidence provided:"){
         response.redirect("written-permission-upload")
     } else {
         response.redirect("written-permission-fail")
