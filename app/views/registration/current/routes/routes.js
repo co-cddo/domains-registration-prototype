@@ -37,9 +37,9 @@ router.post('/domain-purpose-answer', function(request, response) {
 
     else if (dPurpose == "Email only domain"){
         response.redirect("written-permission")}
-    else if (dPurpose == "api" || dPurpose == "service" || dPurpose == "campaign" || dPurpose == "inquiry" || dPurpose == "blog" || dPurpose == "dataset"){
-        response.redirect("domain-purpose-fail") }
-    })
+    else {response.redirect("domain-purpose-fail") 
+    }
+})
     
 // Q: Exemption
 router.post('/exemption-answer', function(request, response) {
