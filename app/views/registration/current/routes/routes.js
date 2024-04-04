@@ -80,7 +80,7 @@ router.post('/domain-confirm-answer', function(request, response) {
         'Central government department or agency'
       ]
       const regtypeOptions2 = [
-        'Non-departmental body - also known as an arm's length body'
+        "Non-departmental body - also known as an arm's length body"
       ]
 
       const domainConfirmCondition1 =
