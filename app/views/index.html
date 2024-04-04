@@ -31,14 +31,18 @@ Domains registration prototype    </h1>
             <td class="govuk-table__cell">Version 2 <br><span class="govuk-body govuk-!-font-size-14">last updated on 4 April 2024</span></td>
             <td class="govuk-table__cell">
               {{govukTag({
-                text: "Updating",
-                classes: "govuk-tag--yellow"
+                text: "Frozen",
+                classes: "govuk-tag--red"
               })}}
             </td>
           </tr>
       
         </tbody>
       </table>    
+      {{ govukWarningText({
+        text: "Any iteration of the design or content has now been frozen until the round 2 of user research finishes.",
+        iconFallbackText: "Warning"
+      }) }}
   </div>
 </div>
 
