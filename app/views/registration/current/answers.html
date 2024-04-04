@@ -202,7 +202,7 @@
       }) }}
 
       {# Route 2 >> this is 'Non-departmental body' #}
-      {% if (data['registrant-type'] == "Non-departmental body - also known as an arm's length body") %}
+      {% elseif (data['registrant-type'] == "Non-departmental body - also known as an arm's length body") %}
        {{ govukSummaryList({
         rows: [
           {
