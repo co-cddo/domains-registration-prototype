@@ -68,11 +68,50 @@ router.post('/written-permission-answer', function(request, response) {
 router.post('/domain-confirm-answer', function(request, response) {
 
     var domainConf = request.session.data['domainconfirm']
-    if (domainConf == "No"){
-        response.redirect("domain")
-    } else {
-        response.redirect("domain-confirm-minister-check-answer")
-    }
+    const domainOptions1 = [
+        'Yes'
+      ]
+      const domainOptions2 = [
+        'No'
+      ]
+      
+    var regType = request.session.data['registrant-type']
+    const regtypeOptions1 = [
+        'Central government department or agency'
+      ]
+      const regtypeOptions2 = [
+        'Non-departmental body - also known as an arm's length body'
+      ]
+
+      const domainConfirmCondition1 =
+      (domainOptions1.some(item => domainConf.includes(item)
+      ))
+
+      const domainConfirmCondition2 =
+      (domainOptions2.some(item => domainConf.includes(item)
+      ))
+      
+      const regTypeCondition1 =
+      (regtypeOptions1.some(item => regType.includes(item)
+      ))
+
+      const regTypeCondition2 =
+      (regtypeOptions2.some(item => regType.includes(item)
+      ))
+
+      if (domainConfirmCondition1 && regTypeCondition1) {
+        response.redirect ('minister')
+      }
+      if (domainConfirmCondition1 && regTypeCondition2) {
+        response.redirect ('minister')
+      }
+      if (domainConfirmCondition2) {
+        response.redirect ('domain')
+      }
+      if (domainConfirmCondition1) {
+        response.redirect ('registrant-details')
+      }
+
 })
 
 // Q: Domain confirmation - minister check
