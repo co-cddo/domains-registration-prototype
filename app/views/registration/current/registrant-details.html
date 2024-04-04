@@ -36,10 +36,16 @@
             <li>choosing a .gov.uk Approved Registrar</li> 
           </ul>
 
-          {# Insert hint text, this is 'central' #}
-            {% if (data['registrant-type'] == "Central government department or agency") %}
+          {# Insert hint text, this is 'parish' #}
+            {% if (data['registrant-type'] == "Parish or community council") %}
           <p class="govuk-body govuk-hint">For example, for parish councils the registrant must be the clerk.</p>
-        </p>
+          </p>
+          {# Insert hint text, this is 'Neighbourhood' #}
+            {% if else (data['registrant-type'] == "Neighbourhood or village council") %}
+            <p class="govuk-body govuk-hint">For example, for parish councils the registrant must be the clerk.</p>
+          </p>
+            {% else %}
+            {# Don't insert anything. #}
         {% endif %}
 
         <Br>
