@@ -79,7 +79,7 @@
 
     
     <h2 class="govuk-heading-m">Domain request details</h2>
-    {# Scenario 1 >> this is 'central' #}
+    {# Route 2 >> this is 'central' #}
     {% if (data['registrant-type'] == "Central government department or agency") %}
      {{ govukSummaryList({
       rows: [
@@ -201,7 +201,7 @@
         ]
       }) }}
 
-      {# Scenario 2 >> this is 'Non-departmental body' #}
+      {# Route 2 >> this is 'Non-departmental body' #}
       {% if (data['registrant-type'] == "Non-departmental body - also known as an arm's length body") %}
        {{ govukSummaryList({
         rows: [
@@ -324,8 +324,8 @@
         }) }}
 
      
-    {% else %}
-     {# Scenario 3 >> this is 'parish' #}
+    {% elseif %}
+     {# Route 1 >> this is 'parish' #}
       {{ govukSummaryList({
         rows: [
 
@@ -347,46 +347,7 @@
             ]
           }
         }
-        ,
-        
-        {
-          key: {
-            text: "Reason for request"
-          },
-          value: {
-            html: data['purpose']
-            
-          },
-          actions: {
-            items: [
-              {
-                href: "domain-purpose",
-                text: "Change",
-                visuallyHiddenText: "Domain purpose"
-              }
-            ]
-          }
-        }
-        ,
-        {
-          key: {
-            text: "Permission to apply"
-          },
-          value: {
-            html: (data['written-permission'])+"<br>"+'<a class="govuk-link" href="#">govcio-letter.pdf</a>'
-            
-          },
-          actions: {
-            items: [
-              {
-                href: "written-permission",
-                text: "Change",
-                visuallyHiddenText: "Registrant's permission to apply"
-              }
-            ]
-          }
-        }
-        ,
+       ,
         {
           key: {
             text: "Domain name"
@@ -405,9 +366,7 @@
             ]
           }
         }
-
-
-        ]
+      ]
       }) }}
       {% endif %}
       
