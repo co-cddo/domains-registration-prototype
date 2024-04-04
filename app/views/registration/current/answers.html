@@ -201,9 +201,131 @@
         ]
       }) }}
 
+      {# Scenario 2 >> this is 'Non-departmental body' #}
+      {% if (data['registrant-type'] == "Non-departmental body - also known as an arm's length body") %}
+       {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Organisation type"
+            },
+            value: {
+              html: data['registrant-type']
+              
+            },
+            actions: {
+              items: [
+                {
+                  href: "registrant-type",
+                  text: "Change",
+                  visuallyHiddenText: "Registrant organisation type"
+                }
+              ]
+            }
+          }
+          ,
+          
+          {
+            key: {
+              text: "Reason for request"
+            },
+            value: {
+              html: data['purpose']
+              
+            },
+            actions: {
+              items: [
+                {
+                  href: "domain-purpose",
+                  text: "Change",
+                  visuallyHiddenText: "Domain purpose"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "Exemption from GOV.UK website"
+            },
+            value: {
+              html: (data['exemption'])+"<br>"+'<a class="govuk-link" href="#">gds0054.pdf</a>'
+              
+            },
+            actions: {
+              items: [
+                {
+                  href: "exemption",
+                  text: "Change",
+                  visuallyHiddenText: "Exemption"
+                }
+              ]
+            }
+          }
+          ,
+          
+          {
+            key: {
+              text: "Permission to apply"
+            },
+            value: {
+              html: (data['written-permission'])+"<br>"+'<a class="govuk-link" href="#">govcio-letter.pdf</a>'
+              
+            },
+            actions: {
+              items: [
+                {
+                  href: "written-permission",
+                  text: "Change",
+                  visuallyHiddenText: "Registrant's permission to apply"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "Domain name"
+            },
+            value: {
+              html: data['domain']+".gov.uk"
+              
+            },
+            actions: {
+              items: [
+                {
+                  href: "domain",
+                  text: "Change",
+                  visuallyHiddenText: "Domain"
+                }
+              ]
+            }
+          }
+          ,
+          
+          {
+            key: {
+              text: "Minister's support"
+            },
+            value: {
+              html: (data['minister'])+"<br>"+'<a class="govuk-link" href="#">minister.pdf</a>'
+            },
+            actions: {
+              items: [
+                {
+                  href: "minister",
+                  text: "Change",
+                  visuallyHiddenText: "Registrant details"
+                }
+              ]
+            }
+          }
+          ]
+        }) }}
+
      
     {% else %}
-     {# Scenario 2 >> this is 'parish' #}
+     {# Scenario 3 >> this is 'parish' #}
       {{ govukSummaryList({
         rows: [
 
@@ -324,7 +446,7 @@
               actions: {
                 items: [
                   {
-                    href: "registrar-details",
+                    href: "registrant-details",
                     text: "Change",
                     visuallyHiddenText: "Registrant details"
                   }
