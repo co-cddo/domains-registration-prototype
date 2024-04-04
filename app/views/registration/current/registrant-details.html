@@ -41,7 +41,7 @@
           <p class="govuk-body govuk-hint">For example, for parish councils the registrant must be the clerk.</p>
           </p>
           {# Insert hint text, this is 'Neighbourhood' #}
-            {% if else (data['registrant-type'] == "Neighbourhood or village council") %}
+            {% elseif (data['registrant-type'] == "Neighbourhood or village council") %}
             <p class="govuk-body govuk-hint">For example, for parish councils the registrant must be the clerk.</p>
           </p>
             {% else %}
