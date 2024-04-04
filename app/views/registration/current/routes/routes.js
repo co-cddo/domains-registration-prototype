@@ -69,17 +69,15 @@ router.post('/domain-confirm-answer', function(request, response) {
 
     var domainConf = request.session.data['domainconfirm']
     var regType = request.session.data['registrant-type']
-
-   
-    if (domainConf == "No)"){
-        response.redirect("domain")}
-
-    else if (domainConf == "Yes" && regType == "Central government department or agency"){
+  
+    if (domainConf == "Yes" && regType == "Central government department or agency"){
         response.redirect("minister")}
     else if (domainConf == "Yes" && regType == "Non-departmental body - also known as an arm's length body"){
             response.redirect("minister")}
     else if (domainConf == "Yes"){
-                response.redirect("registrant-details")}
+            response.redirect("registrant-details")}
+       else {response.redirect("domain")
+    }
 })
 
 // Q: Domain confirmation - minister check
