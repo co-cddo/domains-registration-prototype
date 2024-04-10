@@ -6,44 +6,53 @@
 
 {% block content %}
  
+<h1 class="govuk-heading-s">
+  From: Domains Team [approvals@domains.gov.uk]
+<br>
+Subject: Your .gov.uk domain application has been approved
+</h1>
+
+<h2 class="govuk-heading-l">Reference number: GOV6B86B2</h2>
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-     
+  <p>
+  Dear  {{ data['appfullName'] }}
+  </p>
+  
+  <p>
+  Thanks for using the 'Get approval a .gov.uk domain name service' and submitting your registrant details to the Domains Team.
+  <br>
+  Based on your answers provided, your .gov.uk domain name has been approved and can now be created.
+</p>
 
-      
+<h3 class="govuk-heading-s">Answers provided</h3>
 
-      <h2 class="govuk-heading-s">
-        From: 
-     
-    <br>
-    Subject: Your .gov.uk domain application has been approved
-  </h2>
 
   <p>
     Domain name approved: {{ data['domain'] }} <br>
-    Reference number: GOV6B86B2 <br>
     Special conditions: Not applicable<br>
     Organisation approved on behalf of: [xxx]<br>
     Registrant contact: </b> [xxx] <br>
-    What domain will be used for: data['purpose'] 
-    Membership token for Nominet: [ 0002-data['domain']-038472-GOV_7780 ]
+    What domain will be used for: {{data['purpose'] }}
+    Membership token for Nominet: [ 0002- {{data['domain']}}-038472-GOV_7780 ]
   </p>
-  <p>
-    Dear  {{ data['appfullName'] }}
-  </p>
+  
 
   <p class="govuk-body">The Domains Team has received your .gov.uk domain application.</p>
   
-    <h2 class="govuk-heading-s">
+    <h4 class="govuk-heading-s">
       What happens next
-    </h2>
+    </h4>
 
       <ol class="govuk-list govuk-list--number govuk-list--spaced">
-        <li>We will contact you within 5 working days to confirm whether your application has been successful. If we need more information we will contact you.</li>
-          <li>Once approved, we will send you a registration Membership Token which is valid for 60 calendar days.</li>
-          <li>You must use the Membership Token to create the domain in the Nominet registry.</li>
+        <li>Use the Membership Token to register the domain in the Nominet portal or using EPP. This token is valid for 60 calendar days. 
+        </li>
+          <li>Make sure the contact details you input into the registry match the details you added in the application for the .gov.uk domain name.
+          </li>
+          <li>Please remind your registrant that they are accountable for their domain names. You can share the get started with your .gov.uk domain name guidance.
+          </li>
       </ol>
 
       
