@@ -31,16 +31,16 @@
       <p class="govuk-body">The registrant must be a civil servant or a public servant, and be the person responsible for: 
 
         
-          <ul class="govuk-list govuk-list--bullet govuk-hint">
+          <ul class="govuk-list govuk-list--bullet">
             <li>getting permission to apply for the .gov.uk domain name</li>
             <li>choosing a .gov.uk Approved Registrar</li> 
           </ul>
 
-          {# Insert hint text, this is 'parish' #}
+          {# Insert text, this is 'parish' #}
             {% if (data['registrant-type'] == "Parish or community council") %}
           <p class="govuk-body">For example, for parish councils the registrant must be the clerk.</p>
           </p>
-          {# Insert hint text, this is 'Neighbourhood' #}
+          {# Insert  text, this is 'Neighbourhood' #}
             {% elseif (data['registrant-type'] == "Neighbourhood or village council") %}
             <p class="govuk-body">For example, for parish councils the registrant must be the clerk.</p>
           </p>
