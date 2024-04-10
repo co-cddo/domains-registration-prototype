@@ -1,0 +1,48 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Confirmation page – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+ 
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+     
+
+      
+
+      <h2 class="govuk-heading-s">
+        From: 
+     
+    <br>
+    Subject: .gov.uk domain application confirmation
+  </h2>
+
+  
+
+  <p>
+    Dear  {{ data['appfullName'] }}
+  </p>
+
+  <p class="govuk-body">The Domains Team has received your .gov.uk domain application.</p>
+  
+    <h2 class="govuk-heading-s">
+      What happens next
+    </h2>
+
+      <ol class="govuk-list govuk-list--number govuk-list--spaced">
+        <li>We will contact you within 5 working days to confirm whether your application has been successful. If we need more information we will contact you.</li>
+          <li>Once approved, we will send you a registration Membership Token which is valid for 60 calendar days.</li>
+          <li>You must use the Membership Token to create the domain in the Nominet registry.</li>
+      </ol>
+
+      
+
+  <p class="govuk-body"> Kind regards, <br>Domains Team </p>
+    </div>
+  </div>
+
+{% endblock %}
