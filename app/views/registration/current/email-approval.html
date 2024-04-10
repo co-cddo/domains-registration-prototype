@@ -21,16 +21,15 @@
     Subject: Your .gov.uk domain application has been approved
   </h2>
 
-  <h3 class="gov.uk govuk-body">
-    <b>Domain name approved:</b> {% data['domain'] %}<br>
-    <b>Reference number:</b> GOV6B86B2 <br>
-    <b>Special conditions: </b> [no condition] or [special condition]<br>
-    <b>Organisation approved on behalf of:</b> [xxx]<br>
-    <b>Registrant contact:</b> [xxx] <br>
-    <b>What domain will be used for:</b>{% data['purpose'] %}
-    <b>Membership token for Nominet:</b> [ 0002-{%data['domain']%}-038472-GOV_7780 ]
-
-</h2>
+  <p>
+    Domain name approved: {{ data['domain'] }} <br>
+    Reference number: GOV6B86B2 <br>
+    Special conditions: Not applicable<br>
+    Organisation approved on behalf of: [xxx]<br>
+    Registrant contact: </b> [xxx] <br>
+    What domain will be used for: data['purpose'] 
+    Membership token for Nominet: [ 0002-data['domain']-038472-GOV_7780 ]
+  </p>
   <p>
     Dear  {{ data['appfullName'] }}
   </p>
