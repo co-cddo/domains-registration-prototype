@@ -186,7 +186,7 @@
             text: "Minister's support"
           },
           value: {
-            html: if data['minister'] == "Yes" data['minister']+"<br>"+"<a class="govuk-link" href="#">minister.pdf</a>" else "No"
+            html: if data['minister'] else 'No'
             
           },
           actions: {
