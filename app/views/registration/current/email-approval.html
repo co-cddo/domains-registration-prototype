@@ -29,8 +29,8 @@ Subject: Your .gov.uk domain application has been approved
 
 <h3 class="govuk-heading-s">Your answers</h3>
 <p>
-  Organisation type: {{ (registrant-type | title) }}<br>
-  Reason for request: {{ (data['purpose'] | title) }}<br>
+  Organisation type: {{ ( data ['registrant-type'] | title) }}<br>
+  Reason for request: {{ data['purpose']  }}<br>
   Exemption from GOV.UK website: Yes<br>
   Permission to apply: Yes<br>
   Domain name: {{ data['domain'] }}.gov.uk <br>

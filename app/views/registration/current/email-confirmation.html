@@ -17,7 +17,7 @@
   <br>
   Subject: .gov.uk domain application confirmation
   </h1>
-  <h2 class="govuk-heading-l">Reference number: GOV6B86B2</h2>
+  <h2 class="govuk-heading-m">Reference number: GOV6B86B2</h2>
   
   <p>
     Dear  {{ data['registrantfullName'] }}
@@ -28,7 +28,7 @@
   <h3 class="govuk-heading-s">Your answers</h3>
 <p>
   Organisation type: {{ (data['registrant-type'] | title) }}<br>
-  Reason for request: {{ (data['purpose'] | title) }}<br>
+  Reason for request: {{ data['purpose'] }}<br>
   Exemption from GOV.UK website: Yes<br>
   Permission to apply: Yes<br>
   Domain name: {{ data['domain'] }}.gov.uk <br>
