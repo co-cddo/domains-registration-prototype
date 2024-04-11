@@ -32,11 +32,11 @@ Subject: Your .gov.uk domain application has been approved
 
   <p>
     Domain name: {{ data['domain'] }}.gov.uk <br>
-    Special conditions: Not applicable<br>
-    Registrant organisation: {{ data['registrant'] }} <br>
-    Registrant contact name: </b> {{ registrantfullName }} <br>
-    Purpose of domain name: {{data['purpose'] }}<br>
-    Membership token for Nominet: [ 0002- {{data['domain']}}.gov.uk-038472-GOV_7780 ]
+    Reason for request: {{ (data['purpose'] | title) }}<br>
+    Special conditions (Minister's support?): No<br>
+    Registrant organisation name: {{ (data['registrant'] | title) }} <br>
+    Registrant contact name: {{ (data['registrantfullName'] | title) }} <br>
+    Membership token for Nominet: [ 0002-{{data['domain']}}-GOV-7780-038472 ]
   </p>
   
 
