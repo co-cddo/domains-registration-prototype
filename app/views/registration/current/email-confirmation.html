@@ -27,15 +27,15 @@
   
   <h3 class="govuk-heading-s">Your answers</h3>
 <p>
-  Organisation type: {{ (registrant-type | title) }}<br>
+  Organisation type: {{ (data['registrant-type'] | title) }}<br>
   Reason for request: {{ (data['purpose'] | title) }}<br>
   Exemption from GOV.UK website: Yes<br>
   Permission to apply: Yes<br>
   Domain name: {{ data['domain'] }}.gov.uk <br>
   Minister's support: No<br>
   Registrant organisation name: {{ (data['registrant'] | title) }} <br>
-  Registrant contact details:<br> {{ (data['registrantfullName'] | title)+"<br>"+data['regtelephoneNumber']+"<br>"+data['regEmail'] }} <br>
-  Registry details: <br>{{ (data['regpubroleName'] | title)+"<br>"+data['regpubEmail'] }}
+  Registrant contact details:<br> {{ (data['registrantfullName'] | title) }} <br> {{ (data['regtelephoneNumber']) }} <br> {{ (data['regEmail']) }} <br>
+  Registry details: <br>{{ (data['regpubroleName'] | title)}} <br> {{(data['regpubEmail']) }}
 </p>
     <h2 class="govuk-heading-s">
       What happens next
