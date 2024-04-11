@@ -34,7 +34,8 @@
   Domain name: {{ data['domain'] }}.gov.uk <br>
   Minister's support: No<br>
   Registrant organisation name: {{ (data['registrant'] | title) }} <br>
-  Registrant contact name: {{ (data['registrantfullName'] | title) }} 
+  Registrant contact details:<br> {{ (data['registrantfullName'] | title)+"<br>"+data['regtelephoneNumber']+"<br>"+data['regEmail'] }} <br>
+  Registry details: <br>{{ (data['regpubroleName'] | title)+"<br>"+data['regpubEmail'] }}
 </p>
     <h2 class="govuk-heading-s">
       What happens next
