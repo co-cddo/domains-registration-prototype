@@ -105,7 +105,7 @@ router.get('/answers', function (req, res) {
 
   // The URL here needs to match the URL of the page that the user is on
 // when they type in their email address
-router.post('/registry-details', function (req, res) {
+router.post('/registry-details-answers', function (req, res) {
 
     notify.sendEmail(
       // this long string is the template ID, copy it from the template
@@ -120,7 +120,7 @@ router.post('/registry-details', function (req, res) {
   
     // This is the URL the users will be redirected to once the email
     // has been sent
-    res.redirect('/confirmation');
+    res.redirect('/answers');
   
   });
 
