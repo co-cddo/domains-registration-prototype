@@ -3,6 +3,9 @@
 // https://prototype-kit.service.gov.uk/docs/create-routes
 //
 
+var NotifyClient = require('notifications-node-client').NotifyClient,
+    notify = new NotifyClient(process.env.NOTIFYAPIKEY);
+    
 const govukPrototypeKit = require('govuk-prototype-kit')
 const router = govukPrototypeKit.requests.setupRouter()
   
@@ -99,6 +102,27 @@ router.get('/answers', function (req, res) {
     })
   })
 
+
+  // The URL here needs to match the URL of the page that the user is on
+// when they type in their email address
+router.post('/registry-details', function (req, res) {
+
+    notify.sendEmail(
+      // this long string is the template ID, copy it from the template
+      // page in GOV.UK Notify. It’s not a secret so it’s fine to put it
+      // in your code.
+      'd749d1a5-366c-4c0b-8e96-488150a62205',
+      // `emailAddress` here needs to match the name of the form field in
+      // your HTML page
+      //Registry email set now
+      req.body.regpubEmail
+    );
+  
+    // This is the URL the users will be redirected to once the email
+    // has been sent
+    res.redirect('/confirmation');
+  
+  });
 
 module.exports = router
 
