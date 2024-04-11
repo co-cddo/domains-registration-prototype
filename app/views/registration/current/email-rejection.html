@@ -28,15 +28,15 @@ Subject: Your .gov.uk domain application has been rejected
 </p>
 
 <h3 class="govuk-heading-s">Your answers</h3>
-
-
-  <p>
-    Domain name: {{ data['domain'] }}.gov.uk <br>
+ <p>
+    Organisation type: {{ (registrant-type | title) }}<br>
     Reason for request: {{ (data['purpose'] | title) }}<br>
-    Special conditions (Minister's support?): No<br>
+    Exemption from GOV.UK website: Yes<br>
+    Permission to apply: Yes<br>
+    Domain name: {{ data['domain'] }}.gov.uk <br>
+    Minister's support: No<br>
     Registrant organisation name: {{ (data['registrant'] | title) }} <br>
-    Registrant contact name: {{ (data['registrantfullName'] | title) }} <br>
-    Membership token for Nominet: [ 0002-{{data['domain']}}-GOV-7780-038472 ]
+    Registrant contact name: {{ (data['registrantfullName'] | title) }} 
   </p>
   
   <h4 class="govuk-heading-s">

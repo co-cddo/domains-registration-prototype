@@ -29,6 +29,17 @@
 
   <p class="govuk-body">The Domains Team has received your .gov.uk domain application.</p>
   
+  <h3 class="govuk-heading-s">Your answers</h3>
+<p>
+  Organisation type: {{ (registrant-type | title) }}<br>
+  Reason for request: {{ (data['purpose'] | title) }}<br>
+  Exemption from GOV.UK website: Yes<br>
+  Permission to apply: Yes<br>
+  Domain name: {{ data['domain'] }}.gov.uk <br>
+  Minister's support: No<br>
+  Registrant organisation name: {{ (data['registrant'] | title) }} <br>
+  Registrant contact name: {{ (data['registrantfullName'] | title) }} 
+</p>
     <h2 class="govuk-heading-s">
       What happens next
     </h2>

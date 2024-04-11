@@ -30,21 +30,27 @@ Subject: Your .gov.uk domain application has been approved
 <h3 class="govuk-heading-s">Your answers</h3>
 
 
-  <p>
-    Domain name: {{ data['domain'] }}.gov.uk <br>
-    Reason for request: {{ (data['purpose'] | title) }}<br>
-    Special conditions (Minister's support?): No<br>
-    Registrant organisation name: {{ (data['registrant'] | title) }} <br>
-    Registrant contact name: {{ (data['registrantfullName'] | title) }} <br>
-    Membership token for Nominet: [ 0002-{{data['domain']}}-GOV-7780-038472 ]
-  </p>
-  
+<p>
+  Organisation type: {{ (registrant-type | title) }}<br>
+  Reason for request: {{ (data['purpose'] | title) }}<br>
+  Exemption from GOV.UK website: Yes<br>
+  Permission to apply: Yes<br>
+  Domain name: {{ data['domain'] }}.gov.uk <br>
+  Minister's support: No<br>
+  Registrant organisation name: {{ (data['registrant'] | title) }} <br>
+  Registrant contact name: {{ (data['registrantfullName'] | title) }} 
+</p>
+
+<h4 class="govuk-heading-s">
+  Membership token for Nominet
+</h4>
+<p>[ 0002-{{data['domain']}}-GOV-7780-038472 ]</p>  
 
   
   
-    <h4 class="govuk-heading-s">
+    <h5 class="govuk-heading-s">
       What happens next
-    </h4>
+    </h5>
 
       <ol class="govuk-list govuk-list--number govuk-list--spaced">
         <li>Use the Membership Token to register the domain in the Nominet portal or using EPP. This token is valid for 60 calendar days. 
