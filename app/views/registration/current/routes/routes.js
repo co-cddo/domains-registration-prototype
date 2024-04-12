@@ -105,29 +105,6 @@ router.get('/answers', function (req, res) {
 
 
 
-
-
-  // The URL here needs to match the URL of the page that the user is on
-// when they type in their email address
-router.post('/registry-details', function (req, res) {
-
-    notify.sendEmail(
-      // this long string is the template ID, copy it from the template
-      // page in GOV.UK Notify. It’s not a secret so it’s fine to put it
-      // in your code.
-      '01992f67-0e0b-41b9-9191-ea1e878d018a',
-      // `emailAddress` here needs to match the name of the form field in
-      // your HTML page
-      //Registry email set now
-      req.body.registrarEmail
-    );
-  
-    // This is the URL the users will be redirected to once the email
-    // has been sent
-    res.redirect('answers');
-  
-  });
-
 // The URL here needs to match the URL of the page that the user is on
 // when they type in their email address
 router.post('/email-address-page', function (req, res) {
