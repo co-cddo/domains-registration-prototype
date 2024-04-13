@@ -186,7 +186,7 @@
             text: "Minister's support"
           },
           value: {
-            html: (data['minister'])
+            html: data['minister']
             
           },
           actions: {
@@ -250,7 +250,9 @@
               text: "Exemption from GOV.UK website"
             },
             value: {
-              html: (data['exemption'])+"<br>"+'<a class="govuk-link" href="#">gds0054.pdf</a>'
+              html: if data['exemption'] !=
+              
+              (data['exemption'])+"<br>"+'<a class="govuk-link" href="#">gds0054.pdf</a>'
               
             },
             actions: {
@@ -309,7 +311,7 @@
               text: "Minister's support"
             },
             value: {
-              html: (data['minister'])+"<br>"+'<a class="govuk-link" href="#">minister.pdf</a>'
+              html: data['minister']
             },
             actions: {
               items: [
