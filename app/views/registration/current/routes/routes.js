@@ -88,7 +88,7 @@ router.post('/domain-confirm-answer', function(request, response) {
 router.post('/minister-answer', function(request, response) {
 
     var minister = request.session.data['minister']
-    if (minister == "Yes, evidence provided:"){
+    if (minister == "Yes"){
         response.redirect("minister-upload")
     } else {
         response.redirect("registrant-details")
