@@ -48,10 +48,7 @@
       <h1 class="govuk-heading-xl">
         {{ serviceName }}
       </h1>
-      {{ govukWarningText({
-        text: "You must be a .gov.uk Approved Registrar to use this service.",
-        iconFallbackText: "Warning"
-      }) }}
+      
       <p>The Protecting Public Sector Domains Team is responsible for approving all .gov.uk domain names. We have built this service to increase the security of the approvals process and help with our identity checks. <br><br>We will continuously improve the service.
       </p>
 
@@ -70,11 +67,12 @@
       </p>
       
   
-  
-  
       <h2 class="govuk-heading-m">Before you start
       </h2>
-  
+      {{ govukWarningText({
+        text: "You must be a .gov.uk Approved Registrar to use this service.",
+        iconFallbackText: "Warning"
+      }) }}
      
         <p>You will need to:</p>
           <ul class="govuk-list govuk-list--bullet">
