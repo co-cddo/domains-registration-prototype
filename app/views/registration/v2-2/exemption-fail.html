@@ -1,0 +1,41 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Exemption elimination – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+  {{ govukPhaseBanner({
+    tag: {
+    text: "prototype",
+    classes: "govuk-tag--pink"
+    },
+      html: 'This is not a full service. It is not production code and you might experience problems.'
+  }) }}
+ 
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">
+        Your registrant cannot get approval for a .gov.uk domain name
+      </h1>
+      <p class="govuk-body">As a central government organisation, your registrant's content must be published on the GOV.UK website unless they have a good reason not to do this and have received an exemption from the Government Digital Service.
+      </p>
+      
+  
+         
+      <p class="govuk-body">
+        <a href="https://www.gov.uk/guidance/request-an-exemption-from-using-the-govuk-website" class="govuk-link">Check if your registrant can request an exemption from using the GOV.UK website</a>
+      </p>
+    </div>
+  </div>
+
+{% endblock %}

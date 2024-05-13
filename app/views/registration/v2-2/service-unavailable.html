@@ -1,0 +1,41 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Service is unavailable – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+  {{ govukPhaseBanner({
+    tag: {
+    text: "prototype",
+    classes: "govuk-tag--pink"
+    },
+      html: 'This is not a full service. It is not production code and you might experience problems.'
+  }) }}
+ 
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+{% set mainClasses = "govuk-main-wrapper--l" %}
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-l">Sorry, the service is unavailable</h1>
+        <p class="govuk-body">
+          You will be able to use the service from 12 noon on Monday 17 June 2024.</p>
+        
+        <p class="govuk-body">
+        Email <code class="govspeak-code">approvals@domains.gov.uk</code> if you need support with your .gov.uk domain name registration. </p>
+       
+       
+        
+        
+    </div>
+  </div>
+{% endblock %}

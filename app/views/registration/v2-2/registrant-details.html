@@ -111,9 +111,7 @@
           label: {
             text: "Email address"
           },
-          hint: {
-            text: "Use a current work email address for the registrant"
-          },          
+                    
           id: "regEmail",
           name: "regEmail",
           type: "email",
@@ -121,6 +119,11 @@
           spellcheck: false,
           value: data['regEmail']
           
+        }) }}
+
+        {{ govukWarningText({
+          text: "You must not publish personal contact details on the registry.",
+          iconFallbackText: "Warning"
         }) }}
 
         <div class="govuk-button-group">

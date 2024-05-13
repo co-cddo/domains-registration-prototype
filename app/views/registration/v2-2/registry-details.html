@@ -54,13 +54,11 @@
             value: data['regpubroleName']
   
           }) }}
-      
-          <h2 class="govuk-heading-m">
+        
+        <h2 class="govuk-heading-m">
           Registrant contact details 
         </h2>
-        {# Route 1 >> this is 'parish' #}
-        {% if (data['registrant-type'] == "Parish or community council") %}
-             
+          
           {{ govukInput({
             label: {
               text: "Email address"
@@ -77,43 +75,9 @@
             
           }) }}
           
-          {# Route 1 >> this is 'Neighbourhood' #}
-          {% elseif (data['registrant-type'] == "Neighbourhood or village council") %}
-          {{ govukInput({
-            label: {
-              text: "Email address"
-            },
-            hint: {
-              text: "Use a role-based email address, like clerk@[yourorganisation].gov.uk"
-            },
-            id: "regpub-email",
-            name: "regpubEmail",
-            type: "email",
-            autocomplete: "email",
-            spellcheck: false,
-            value: data['regpubEmail']
-            
-          }) }}
+        
 
-          {# Remaining routes >> Anything else other than those two #}
-          {% else %}
-          {{ govukInput({
-            label: {
-              text: "Email address"
-            },
-            hint: {
-              text: "Use a role-based email address, like itsupport@[yourorganisation].gov.uk"
-            },
-            id: "regpub-email",
-            name: "regpubEmail",
-            type: "email",
-            autocomplete: "email",
-            spellcheck: false,
-            value: data['regpubEmail']
-            
-          }) }}
-          
-          {% endif %}
+
         <div class="govuk-button-group">
           {{ govukButton({
             text: "Continue"

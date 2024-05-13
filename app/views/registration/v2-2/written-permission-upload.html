@@ -1,0 +1,58 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Written permission upload – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+  {{ govukPhaseBanner({
+    tag: {
+    text: "prototype",
+    classes: "govuk-tag--pink"
+    },
+      html: 'This is not a full service. It is not production code and you might experience problems.'
+  }) }}
+ 
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      
+      <h1 class="govuk-heading-l">
+        Upload evidence of permission to apply
+      </h1>
+      <div id="exemption-upload-hint" class="govuk-hint">
+        
+      </div>
+      
+      <form class="form" action="written-permission-upload-confirm" method="post">
+
+      {{ govukFileUpload({
+          id: "written-permission-upload",
+          name: "written-permission-upload",
+          hint: {
+            text: "We support JPEG, PNG or PDF files. The maximum upload size is 10MB."
+          },
+          label: {
+            text: "Upload a file"
+          }
+      }) }}
+
+        {{ govukButton({
+          text: "Upload evidence"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
