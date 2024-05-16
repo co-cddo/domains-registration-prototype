@@ -10,20 +10,12 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-{% set stringToCheck = data['domain'] %}
-  {% if (stringToCheck.includes('.gov.uk')) %}
-    <h1 class="govuk-heading-s">
-      From: Domains Team [approvals@domains.gov.uk]
-    <br>
-    Subject: Subject: {{ data['domain'] }} application received
-    </h1>
-  {% else %}
     <h1 class="govuk-heading-s">
       From: Domains Team [approvals@domains.gov.uk]
     <br>
     Subject: Subject: {{ data['domain'] }}.gov.uk application received
     </h1>
-  {% endif %}
+
   
   <h2 class="govuk-heading-m">Reference number: GOV6B86B2</h2>
   
@@ -39,13 +31,7 @@
   Reason for request: {{ data['purpose'] }}<br>
   Exemption from GOV.UK website: Yes<br>
   Permission to apply: Yes<br>
-  
-  {% if (stringToCheck.includes('.gov.uk')) %}
-      Domain name: {{ data['domain'] }} <br>  
-    {% else %}
-      Domain name: {{ data['domain'] }}.gov.uk <br>
-    {% endif %}
-  
+  Domain name: {{ data['domain'] }}.gov.uk <br>
   Minister's support: No<br>
   Registrant organisation name: {{ (data['registrant'] | title) }} <br>
   Registrant contact name: {{ (data['registrantfullName'] | title) }} <br> 
