@@ -45,18 +45,18 @@ Written permission – {{ serviceName }} – GOV.UK Prototype Kit
 
               {% elseif (data['registrant-type'] == "Non-departmental body - also known as an arm's length body" ) %}
               {# Alternate hint text, this is 'other central' #}
-              <div id="written-permission-hint" class="govuk-body govuk-hint">
+              <div id="written-permission-hint" class="govuk-body">
                 Your registrant must get permission to apply from the chief information officer or equivalent if you're applying on behalf of a central government department or agency.
                 </div>
 
               {% else %}
               
-                  <div id="written-permission-hint2" class="govuk-hint">Your registrant must get written permission from the chief executive or equivalent.
+                  <div id="written-permission-hint2" class="govuk-body">Your registrant must get written permission from the chief executive or equivalent.
                   </div>
             
               {% endif %}
 
-              <div id="written-permission-hint2" class="govuk-hint">Acceptable proof can be a screenshot of an email or a PDF file, which includes approval from the person who has authority to request the domain name. This person's work email address must be visible. </div>
+              <div id="written-permission-hint2" class="govuk-body">Acceptable proof can be a screenshot of an email or a PDF file, which includes approval from the person who has authority to request the domain name. This person's work email address must be visible. </div>
 
             <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
               <div class="govuk-radios__item">
