@@ -52,17 +52,17 @@
       
       <form class="form" action="registry-details" id="mainForm" method="post">
         <h2 class="govuk-heading-m">
-          Organisation name
+          Organisation details
         </h2>
+        <p>You must provide the formal legal name of your registrant's organisation. <br>The Domains Team will reject applications if the registrant's organisation name does not match official records or is spelled incorrectly.</p>
   
         {{ govukInput({
           label: {
-            
-            classes: "govuk-label--l",
+            text: "Organisation name",
             isPageHeading: false
           },
           hint: {
-            html: "You must provide the formal legal name of your registrant's organisation. <br>The Domains Team will reject applications if the registrant's organisation name does not match official records or is spelled incorrectly."
+            html: ""
           },
           id: "registrant",
           name: "registrant",
@@ -75,7 +75,7 @@
       <h2 class="govuk-heading-m">
         Contact details 
       </h2>
-      <p class="govuk-body govuk-hint">We are collecting the registrant's personal contact details to confirm their identity.</p>
+      <p class="govuk-body">We are collecting the registrant's personal contact details to confirm their identity.</p>
 
         {{ govukInput({
           label: {
