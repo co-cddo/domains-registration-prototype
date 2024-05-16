@@ -20,7 +20,7 @@
   <h2 class="govuk-heading-m">Reference number: GOV6B86B2</h2>
   
   <p>
-    Dear  {{ data['registrantfullName'] }}
+    Dear  {{ data['appfullName'] }}
   </p>
 
   <p class="govuk-body">The Domains Team has received your {{ data['domain'] }}.gov.uk application.</p>
@@ -50,9 +50,7 @@
           <li>You must use the Membership Token to create the domain in the Nominet registry.</li>
       </ol>
 
-      {{ govukInsetText({
-        html: 'If you have any questions you can email <code class="govspeak-code">approvals@domains.gov.uk</code>.'
-      }) }}
+      
 
   <p class="govuk-body"> Kind regards, <br>Domains Team </p>
     </div>
