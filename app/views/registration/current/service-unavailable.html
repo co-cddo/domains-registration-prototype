@@ -14,11 +14,7 @@ Service is unavailable – {{ serviceName }} – GOV.UK Prototype Kit
       html: 'This is not a full service. It is not production code and you might experience problems.'
   }) }}
  
-  {{ govukBackLink({
-  text: "Back",
-  href: "javascript:window.history.back()"
-}) }}
-{% endblock %}
+  {% endblock %}
 
 {% block content %}
 {% set mainClasses = "govuk-main-wrapper--l" %}
@@ -29,11 +25,14 @@ Service is unavailable – {{ serviceName }} – GOV.UK Prototype Kit
         <h1 class="govuk-heading-l">Sorry, the service is unavailable</h1>
         <p class="govuk-body">
           You will be able to use the service from 12 noon on Monday 17 June 2024.</p>
-        
+
+                 
         <p class="govuk-body">
         Email <code class="govspeak-code">approvals@domains.gov.uk</code> if you need support with your .gov.uk domain name registration. </p>
        
-       
+        <p class="govuk-body">
+          <a href="https://dev-get-approval.domains.gov.uk/" class="govuk-link--no-visited-state">You can go back to the service's home page</a>.
+        </p> 
         
         
     </div>

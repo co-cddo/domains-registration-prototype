@@ -14,11 +14,7 @@
       html: 'This is not a full service. It is not production code and you might experience problems.'
   }) }}
  
-  {{ govukBackLink({
-  text: "Back",
-  href: "javascript:window.history.back()"
-}) }}
-{% endblock %}
+  {% endblock %}
 
 {% block content %}
 {% set mainClasses = "govuk-main-wrapper--l" %}
@@ -42,7 +38,9 @@
           If the web address is correct or you selected a link or button, email <code class="govspeak-code">approvals@domains.gov.uk</code> for help.
         </p>
        
-       
+        <p class="govuk-body">
+          <a href="https://dev-get-approval.domains.gov.uk/" class="govuk-link--no-visited-state">You can go back to the service's home page</a>.
+        </p> 
         
         
     </div>
