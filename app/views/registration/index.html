@@ -1,5 +1,4 @@
 {% extends "layouts/main.html" %}
-
 {% block beforeContent %}
 {% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
   {{ govukPhaseBanner({
@@ -15,6 +14,9 @@
   text: "Back",
   href: "javascript:window.history.back()"
 }) }}
+{% from "govuk/components/cookie-banner/macro.njk" import govukCookieBanner %}
+
+
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
@@ -29,12 +31,20 @@
     <div class="govuk-grid-column-two-thirds">
       
       <div class="proto-admin">
-        <h2 class="govuk-heading-l">Footer links</h2>
-        <p class='govuk-heading-m'>Privacy policy, cookies page and accessibility statement</p>
+        <h2 class="govuk-heading-l">Cookies and footer links</h2>
+        <p class='govuk-heading-m'>Cookies page and banner, privacy policy and accessibility statement</p>
+        <p class='govuk-list app-list--definition'>
+          <a href='https://sgs-ddt-01-96c924f9e494.herokuapp.com/registration/current/cookies' class="govuk-link--no-visited-state" target="new">Cookies page and banner</a><br>
+          The cookie banner shows up on your first visit, you can accept/reject cookies, form will save your preferences. Cookies page also shows what type of cookies we'll collect.</p>
+        </p>  
+        <p class='govuk-list app-list--definition'>
+          <a href='https://sgs-ddt-01-96c924f9e494.herokuapp.com/registration/current/privacy' class="govuk-link--no-visited-state" target="new">Privacy policy</a><br>
+          About the privacy policy.</p>
+        </p>
         <p class='govuk-list app-list--definition'>
           <a href='https://sgs-ddt-01-96c924f9e494.herokuapp.com/registration/current/accessibility-statement' class="govuk-link--no-visited-state" target="new">Accessibility statement</a><br>
           The Accessibility statement sits on a footer link, shown on all pages.</p>
-        </p>                
+        </p>        
       </div>
 
       

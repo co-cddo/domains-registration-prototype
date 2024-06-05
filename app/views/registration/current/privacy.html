@@ -1,0 +1,56 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Accessibility statement – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        Privacy policy
+      </h1>
+      <p>
+        Description of the privacy policy.
+      </p>
+      
+
+    </div>
+  </div>
+
+{% endblock %}
+{% block footer %}
+ {{ govukFooter({
+   meta: {
+     items: [
+       {
+         href: "https://sgs-ddt-01-96c924f9e494.herokuapp.com/registration/current/privacy",
+         text: "Privacy"
+       },
+       {
+         href: "https://sgs-ddt-01-96c924f9e494.herokuapp.com/registration/current/accessibility-statement",
+         text: "Accessibility statement"
+       },
+       {
+        href: "https://sgs-ddt-01-96c924f9e494.herokuapp.com/registration/current/cookies",
+        text: "Cookies"
+      },
+       {
+         href: "/manage-prototype/clear-data",
+         text: "Clear data"
+       }
+     ],
+     visuallyHiddenTitle: "Footer links"
+   }
+ }) }}
+{% endblock %}
+
