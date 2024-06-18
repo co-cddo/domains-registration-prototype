@@ -17,15 +17,7 @@ Service currently down for maintenance – {{ serviceName }} – GOV.UK Prototyp
   {% endblock %}
 
 {% block content %}
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-0BGZRYCHLW"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-0BGZRYCHLW');
-</script>
 {% set mainClasses = "govuk-main-wrapper--l" %}
 <form class="form" action="start" id="mainForm" method="post">
   <div class="govuk-grid-row">
