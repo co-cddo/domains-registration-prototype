@@ -11,6 +11,15 @@ const router = govukPrototypeKit.requests.setupRouter()
   
 // Add your routes here
 // Q: Registrant type
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0BGZRYCHLW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-0BGZRYCHLW');
+</script>
 
 router.post('/registrant-type-answer', function(request, response) {
   
