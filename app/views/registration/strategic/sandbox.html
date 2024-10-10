@@ -1,0 +1,78 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Sandbox page – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+  <!-- Blank header with no service name for the start page -->
+  {{ govukHeader() }}
+{% endblock %}
+
+{% block beforeContent %}
+{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+  {{ govukPhaseBanner({
+    tag: {
+    text: "prototype",
+    classes: "govuk-tag--pink"
+    },
+      html: 'This is not a full service. It is not production code and you might experience problems.'
+  }) }}
+ 
+
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Home",
+      href: "/index.html"
+    },
+    
+    {
+      text: "Sandbox"
+    }
+  ]
+}) }}
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+      Sandbox for patterns and components to test
+      </h1>
+      
+
+      <p>We're playing here in the sandbox, to see what works or doesn't for the current journey.</p>
+      <p>Using the <a href="https://design-patterns.service.justice.gov.uk/components/" class="govuk-link--no-visited-state">MOJ</a> design system and <a href="https://github.com/ctdesign/gov-design-systems-list" class="govuk-link--no-visited-state">others</a> here.</p>
+      <p>Currently working with insights from<a href="https://app.mural.co/t/cabinetoffice5801/m/cabinetoffice5801/1727358854528/646fe7da116986b73a7c50db17da89c6d7992a99?sender=uff076402a683fa06d46d5048" class="govuk-link--no-visited-state"> this Mural. </a></p>
+      
+      <h2 class="govuk-heading-l">
+        Admin interface
+        </h2>
+        <p>We have several user needs that we want to try out and test. These include:
+        </p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>Epic 1: New dashboard</li>
+          <li>Epic 2: Designed history</li>
+          <li>Epic 3: Tailored export</li>
+          <li>Epic 4: ID verification</li>
+          <li>Epic 5: Front end improvements</li>
+          <li>Epic 6: Evidence recording for actions</li>
+        </ul>
+
+       
+  
+
+
+  
+                
+
+ </div>
+</div>
+
+
+
+{% endblock %}
