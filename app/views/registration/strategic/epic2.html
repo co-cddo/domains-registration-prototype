@@ -62,28 +62,40 @@
   {%- from "moj/components/timeline/macro.njk" import mojTimeline -%}
 
   {%- set confirmationHtml %}
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras non felis risus. Curabitur nec ante vitae felis ullamcorper tincidunt.</p>
-    <a class="govuk-button govuk-!-margin-bottom-0" href="#">Continue</a>
-  {% endset -%}
-  
-  {%- set detailsHtml %}
   <details class="govuk-details govuk-!-margin-bottom-0">
     <summary class="govuk-details__summary">
       <span class="govuk-details__summary-text">
-        Application details
+        Membership Token details
       </span>
     </summary>
     <div class="govuk-details__text">
-      Ut quam nunc, vulputate ac metus pharetra, posuere maximus velit. <a class="govuk-link" href="#">Etiam nec interdum velit.</a> Suspendisse molestie lectus in eros ornare
+      00002-GOV-7790-0386472 
     </div>
   </details>
+  <br>
+    <p>Use the Membership Token to register the domain in the Nominet portal or using EPP. This token is valid for 60 calendar days. </p>
+    <a class="govuk-button govuk-!-margin-bottom-0" href="#">Copy Membership Token</a>
+  {% endset -%}
+  
+  {%- set detailsHtml %}
+  <p>Your application has been received – reference GOVUK25092024TXJP<br>
+    <a class="govuk-link" href="#">View summary</a> </p>
+
+  
   {% endset -%}
   
   {%- set listHtml %}
-    <ul class="govuk-list govuk-list--bullet">
-      <li><a class="govuk-link" href="#">Item 1</a></li>
-      <li><a class="govuk-link" href="#">Item 2</a></li>
-    </ul>
+    
+    <details class="govuk-details govuk-!-margin-bottom-0">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+          Application details
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+        Ut quam nunc, vulputate ac metus pharetra, posuere maximus velit. <a class="govuk-link" href="#">Etiam nec interdum velit.</a> Suspendisse molestie lectus in eros ornare
+      </div>
+    </details>
   {% endset -%}
       
   {%- set documentsHtml %}
@@ -93,7 +105,7 @@
           <svg class="moj-timeline__document-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 20" width="20" height="16">
             <path d="M9 7V1.5L14.5 7H9zM2 0C.9 0 0 .9 0 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V6l-6-6H2z"/>
           </svg>
-          Document 1
+          Exemption from GOV.UK website
         </a>
       </li>
       <li class="moj-timeline__document-item">
@@ -101,7 +113,15 @@
           <svg class="moj-timeline__document-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 20" width="20" height="16">
             <path d="M9 7V1.5L14.5 7H9zM2 0C.9 0 0 .9 0 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V6l-6-6H2z"/>
           </svg>
-          Document 2
+          Permission to apply
+        </a>
+      </li>
+      <li class="moj-timeline__document-item">
+        <a class="govuk-link" href="#">
+          <svg class="moj-timeline__document-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 20" width="20" height="16">
+            <path d="M9 7V1.5L14.5 7H9zM2 0C.9 0 0 .9 0 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V6l-6-6H2z"/>
+          </svg>
+          Minister's support
         </a>
       </li>
     </ul>
@@ -111,41 +131,41 @@
     items: [
       {
         label: {
-          text: "Application requires confirmation"
+          text: "Application approved"
         },
         html: confirmationHtml,
         datetime: {
-          timestamp: "2019-06-14T14:01:00.000Z",
+          timestamp: "2024-10-25T14:01:00.000Z",
           type: "datetime"
         },
         byline: {
-          text: "Joe Bloggs"
+          text: "Nigel Williams"
         }
       },
       {
         label: {
-          text:  "Application review in progress"
+          text:  "Application is under 2i review"
         },
-        text: "Your application is being reviewed by one of our case workers.",
+        
         datetime: {
-          timestamp: "2019-06-07T12:32:00.000Z",
+          timestamp: "2024-10-24T10:15:00.000Z",
           type: "datetime"
         },
         byline: {
-          text: "Caseworker 1"
+          text: "Khidr Suleman"
         }
       },
       {
         label: {
-          text:  "Application received"
+          text:  "Application review started"
         },
-        text: "Your application has been received – reference MOJ-1234-5678",
+        
         datetime: {
-          timestamp: "2019-06-06T09:12:00.000Z",
+          timestamp: "2024-10-23T10:15:00.000Z",
           type: "datetime"
         },
         byline: {
-          text: "Caseworker 1"
+          text: "Mohammed Hussain "
         }
       },
       {
@@ -154,37 +174,37 @@
         },
         html: detailsHtml,
         datetime: {
-          timestamp: "2019-05-28T10:45:00.000Z",
+          timestamp: "2024-10-22T10:15:00.000Z",
           type: "datetime"
         },
         byline: {
-          text: "Joe Bloggs"
+          text: "Joe Bidden "
         }
       },
       {
         label: {
-          text:  "Documents uploaded"
+          text:  "Uploaded evidence details"
         },
         html: documentsHtml,
         datetime: {
-          timestamp: "2019-05-28T10:15:00.000Z",
+          timestamp: "2024-10-22T10:15:00.000Z",
           type: "datetime"
         },
         byline: {
-          text: "Joe Bloggs"
+          text: "Joe Bidden"
         }
       },
       {
         label: {
           text:  "Application started"
         },
-        html: listHtml,
+        
         datetime: {
-          timestamp: "2019-05-21T13:15:00.000Z",
+          timestamp: "2024-10-21T13:15:00.000Z",
           type: "datetime"
         },
         byline: {
-          text: "Joe Bloggs"
+          text: "Joe Bidden"
         }
       }
     ]
