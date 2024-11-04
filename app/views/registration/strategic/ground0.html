@@ -1,0 +1,79 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Content prototype – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+  <!-- Blank header with no service name for the start page -->
+  {{ govukHeader() }}
+{% endblock %}
+
+{% block beforeContent %}
+{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+  {{ govukPhaseBanner({
+    tag: {
+    text: "prototype",
+    classes: "govuk-tag--pink"
+    },
+      html: 'This is not a full service. It is not production code and you might experience problems.'
+  }) }}
+ 
+
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Home",
+      href: "/index.html"
+    },
+    
+    {
+      text: "Content prototype master"
+    }
+  ]
+}) }}
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+      Content prototype master
+      </h1>
+      
+      
+    
+    
+          <div class="proto-admin">
+            <h2 class="govuk-heading-l">A/B testing on two different flows</h2>
+            <h3 class="govuk-heading-m"></h3>
+            <p class='govuk-list app-list--definition'>
+              <a href='g0-moving-pc' class="govuk-link--no-visited-state" target="new">Moving your parish council to a .gov.uk domain
+              </a><br>
+              One pager - all content in one purpose built GOV.UK guidance page</p>
+           
+             <p class='govuk-list app-list--definition'>
+              <a href='g1-moving-pc' class="govuk-link--no-visited-state">Moving your parish council to a .gov.uk domain</a><br>
+                    Two-page content navigation - built on a GOV.UK guidance page</p>
+                
+             
+          </div> 
+
+     
+
+       
+  
+
+
+  
+                
+
+ </div>
+</div>
+
+
+
+{% endblock %}
