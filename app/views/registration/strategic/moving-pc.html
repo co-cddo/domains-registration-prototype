@@ -1,0 +1,376 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Moving your parish council to a .gov.uk domain
+
+{% endblock %}
+
+{% block header %}
+  <!-- Blank header with no service name for this page -->
+  {{ govukHeader() }}
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+        href: "#"
+      },
+      {
+        text: "Parish Council Helper Service",
+        href: "#"
+      },
+      {
+        text: "Moving your parish council to a .gov.uk domain"
+      }
+    ]
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        Moving your parish council to a .gov.uk domain
+
+      </h1>
+
+      <aside class="govuk-prototype-kit-common-templates-mainstream-guide-contents-list" role="complementary">
+        <nav class="govuk-prototype-kit-common-templates-contents-list" aria-label="Pages in this guide" role="navigation">
+          <h2 class="govuk-prototype-kit-common-templates-contents-list__title">
+            Contents
+          </h2>
+          <ol class="govuk-prototype-kit-common-templates-contents-list__list">
+            <li aria-current="true" class="govuk-prototype-kit-common-templates-contents-list__list-item govuk-prototype-kit-common-templates-contents-list__list-item--dashed">
+              Moving your parish council to a .gov.uk domain
+
+            </li>
+            <li class="govuk-prototype-kit-common-templates-contents-list__list-item govuk-prototype-kit-common-templates-contents-list__list-item--dashed govuk-prototype-kit-common-templates-contents-list__list-item--active">
+              <a href="#" class="govuk-link--no-visited-state">
+                Choosing a .gov.uk Approved Registrar for your parish council 
+
+              </a>
+            </li>
+            
+            
+          </ol>
+        </nav>
+      </aside>
+
+    </div>
+
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds govuk-prototype-kit-common-templates-mainstream-guide-body">
+      
+    <h2 class="govuk-heading-m">
+        Moving your parish council to a .gov.uk domain
+    </h2>
+      
+      <p>This guide is for parish council clerks who want to set up or move their council to a .gov.uk domain. </p>
+      <p>A domain is a unique address on the internet. All internet-based services such as websites, emails, video calling, document storage and mapping services need a domain to work. 
+      </p>
+      <p>Every domain is designed for a specific use. For example, there are many domains in use including:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>.com for businesses</li>
+        <li>.co.uk for UK businesses</li>
+        <li>.org or .org.uk for non-profit organisations</li>
+        <li>.info for educational and informational purposes</li>
+        <li>.net.uk for internet service providers</li>
+      </ul>
+      <p>Many parish councils wrongly use one of the above or similar domains for their websites instead of a .gov.uk domain, which was specifically created for use by central, devolved and local UK public sector organisations.</p>
+      <p>Almost all councils have also used free email services at some point, which is not recommended. Free email accounts do not look professional and some providers use email scanning for ad personalisation in exchange for providing services for free. These email accounts are also in control of the individuals using them and not under the control of the council.</p>
+      <p>CDDO recommends using .gov.uk domains for both council websites and emails. </p>
+    <h3 class="govuk-heading-m">
+      The benefits of a gov.uk domain for parish councils
+    </h3>
+    <p>Parish councils can get the benefits of using a gov.uk domain including having:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>the trusted .gov.uk brand that people will recognise</li>
+      <li>improved rankings in search engines</li>
+      <li>continuous central government monitoring for potential security vulnerabilities</li>
+      <li>the ability to better control email accounts by removing staff when they leave</li>
+      <li>better legal protection because it's based in a UK jurisdiction</li>
+      <li>increased transparency and security compared to personal email accounts </li>
+    </ul>
+    <p>Read more on the <a href="https://www.gov.uk/guidance/benefits-of-getting-a-govuk-domain" class="govuk-link--no-visited-state">benefits of using a gov.uk domain</a>.</p>
+    
+    <h4 class="govuk-heading-m">
+      Get help from the Parish Council Domain Helper Service
+    </h4>
+    <p>If applying for a .gov.uk domain is new to you, the Parish Council Domains Helper Service can help you through the process step-by-step. You can email <a href="mailto:parish-helper@domains.gov.uk" class="govuk-link--no-visited-state">parish-helper@domains.gov.uk</a> to get started. </p>
+    <p>This service offers: </p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>workshops to help build your knowledge so you can move to a .gov.uk domain</li>
+        <li>information about your role in securing the domain name as the registrant</li>
+        <li>how to maintain best working practices for the future</li>
+        <li>information about available funding! Councils can receive a £100 plus VAT discount for the first year when they move to a .gov.uk domain during the 2024 to 2025 financial year. If you already have a gov.uk domain, you can use the funding to move to a .gov.uk website or use .gov.uk email addresses.</li>
+      </ul>
+      <p>To be eligible for this financial support, councils must use one of the .gov.uk Approved Registrars that are part of the Parish Council Domains Helper Service. 
+      </p>
+    <h5 class="govuk-heading-m">
+      Check the services you need
+    </h5>
+    <p>When you understand the services you need, you can plan your budget and take advantage of the financial support available. This will help your council make a smooth and cost-effective move to a .gov.uk domain.
+    </p>
+    {{ govukInsetText({
+      text: "All parish councils moving to a .gov.uk domain can use the checklist below to decide what services they need.",
+      iconFallbackText: "Warning"
+    }) }}
+
+    {% from "govuk/components/table/macro.njk" import govukTable %}
+
+{{ govukTable({
+  caption: "Checklist to compare .gov.uk domain services",
+  captionClasses: "govuk-table__caption--m",
+  firstCellIsHeader: false,
+  head: [
+    {
+      text: "Service"
+    },
+    {
+      text: "Do you need this?"
+    },
+    {
+      text: "What this will provide"
+    }
+  ],
+  rows: [
+    [
+      {
+        text: ".gov.uk domain"
+      },
+      {
+        text: "Yes"
+      },
+      {
+        text: "You must have a domain to have any digital services such as a website and emails."
+      }
+    ],
+    [
+      {
+        text: ".gov.uk website"
+      },
+      {
+        text: "Yes"
+      },
+      {
+        html: "You need this as you are legally required to publish information on a free to access website.<br><br>Currently, Parish Meetings are not legally required to have a website."
+      }
+    ],
+    [
+      {
+        text: "Renewing existing domain name"
+      },
+      {
+        text: "Yes"
+      },
+      {
+        html: "You will need to continue renewing your existing domain name so that someone else does not buy this and pretend to be from your organisation."
+      }
+    ],
+    [
+      {
+        text: "Website hosting"
+      },
+      {
+        text: "Yes"
+      },
+      {
+        html: "You will need this to make your website available on the internet."
+      }
+    ],
+    [
+      {
+        text: "Website accessibility"
+      },
+      {
+        text: "Yes"
+      },
+      { html: 'All public sector websites must publish an accessibility statement to meet your legal requirements. This can include details of what you know needs fixing. <br>Read more guidance on how to <a href="#" class="govuk-link--no-visited-state">make your website accessible and publish an accessibility statement.</a>
+      <br><br>You can do a <a href="#" class="govuk-link--no-visited-state">basic accessibility check</a> to see if there are improvements needed to your current website. If you buy a new .gov.uk website, you should expect it to be fully accessible.
+      <br><br> You do not have to buy or build a fully accessible website if you can prove your council cannot afford it. This is known as a <a href="#" class="govuk-link--no-visited-state">disproportionate burden</a>. '
+      }
+    ],
+    [
+      {
+        text: "Email addresses"
+      },
+      {
+        text: "Yes"
+      },
+      { html: 'The clerk must have a role-based .gov.uk email.<br>To meet your legal Freedom of Information and transparency obligations, we recommend having separate email addresses for each councillor and any other permanent staff members.'
+      }
+    ],
+    [
+      {
+        text: "Moving email data"
+      },
+      {
+        text: "Optional"
+      },
+      { html: 'You may need this if you are moving from another domain and want to still have access to your email history.'
+      }
+    ],
+    [
+      {
+        text: "Transfer your old website"
+      },
+      {
+        text: "Optional"
+      },
+      { html: 'You will only need this if you have a current website you want to move from a different domain. '
+      }
+    ],
+    [
+      {
+        text: "Design of a new website"
+      },
+      {
+        text: "Optional"
+      },
+      { html: 'You will only need this if you want to completely redesign your website for the move to .gov.uk.'
+      }
+    ],
+    [
+      {
+        text: "Document storage"
+      },
+      {
+        text: "Optional"
+      },
+      { html: 'You may need this if you want to share documents with your councillors using cloud storage. But you may only need one document storage account.<br><br>For example, if you as the clerk have a document storage account you can put all documents in there and share with councillors. This saves the cost of having individual storage for councillors. 
+      '
+      }
+    ]
+  ]
+}) }}
+
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <nav class="govuk-prototype-kit-common-templates-pagination" role="navigation" aria-label="Pagination">
+
+      {{ govukPagination({
+        previous: {
+          labelText: "Page 1 title",
+          href: "#"
+        },
+        next: {
+          labelText: "Page 3 title",
+          href: "#"
+        }
+      }) }}
+
+      <p>
+        <a href="#" class="govuk-link--no-visited-state">
+          View a printable version of the whole guide
+        </a>
+      </p>
+
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+
+      <aside class="govuk-prototype-kit-common-templates-related-items" role="complementary">
+        <h2 class="govuk-heading-m" id="subsection-title">
+          Subsection
+        </h2>
+        <nav role="navigation" aria-labelledby="subsection-title">
+          <ul class="govuk-list govuk-!-font-size-16">
+            <li>
+              <a href="#" class="govuk-link--no-visited-state">
+                Get approval to use a .gov.uk domain name
+
+              </a>
+            </li>
+            <li>
+              <a href="#" class="govuk-link--no-visited-state">
+                Apply for a .gov.uk domain name: step by step
+
+              </a>
+            </li>
+            <li>
+              <a href="#"  class="govuk-!-font-weight-bold govuk-link--no-visited-state">
+                More <span class="govuk-visually-hidden">in Subsection</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+    </div>
+
+  </main>
+</div>
+
+
+
+
+
+    </div>
+  </div>
+
+{% endblock %}
