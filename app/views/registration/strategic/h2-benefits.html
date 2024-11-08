@@ -1,0 +1,149 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Choosing a .gov.uk Approved Registrar for your parish council 
+
+{% endblock %}
+
+{% block header %}
+  <!-- Blank header with no service name for this page -->
+  {{ govukHeader() }}
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+        href: "#"
+      },
+      {
+        text: "Content prototype master",
+        href: "ground0"
+      },
+      {
+        text: "Moving your parish council to a .gov.uk domain"
+      }
+    ]
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        Moving your parish council to a .gov.uk domain
+
+      </h1>
+
+      <aside class="govuk-prototype-kit-common-templates-mainstream-guide-contents-list" role="complementary">
+        <nav class="govuk-prototype-kit-common-templates-contents-list" aria-label="Pages in this guide" role="navigation">
+          <h2 class="govuk-prototype-kit-common-templates-contents-list__title">
+            Contents
+          </h2>
+          <ol class="govuk-prototype-kit-common-templates-contents-list__list">
+            <li class="govuk-prototype-kit-common-templates-contents-list__list-item govuk-prototype-kit-common-templates-contents-list__list-item--dashed govuk-prototype-kit-common-templates-contents-list__list-item--active">
+              <a href="h1-moving-pc" class="govuk-link--no-visited-state">
+                What is a domain and which one is right for parish councils</a>
+            </li>
+            <li aria-current="true" class="govuk-prototype-kit-common-templates-contents-list__list-item govuk-prototype-kit-common-templates-contents-list__list-item--dashed">
+              The benefits of a gov.uk domain for parish councils
+            </li>
+            <li class="govuk-prototype-kit-common-templates-contents-list__list-item govuk-prototype-kit-common-templates-contents-list__list-item--dashed govuk-prototype-kit-common-templates-contents-list__list-item--active">
+              <a href="h2-apply" class="govuk-link--no-visited-state">
+                How parish councils can apply for a .gov.uk domain name</a>
+            </li>
+            <li class="govuk-prototype-kit-common-templates-contents-list__list-item govuk-prototype-kit-common-templates-contents-list__list-item--dashed govuk-prototype-kit-common-templates-contents-list__list-item--active">
+              <a href="h2-contact" class="govuk-link--no-visited-state">
+                Contact</a>
+            </li>
+          </ol>
+        </nav>
+      </aside>
+
+    </div>
+
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds govuk-prototype-kit-common-templates-mainstream-guide-body">
+
+  <h3 class="govuk-heading-l">
+    The benefits of a gov.uk domain for parish councils
+  </h3>
+  <p>Parish councils can get the benefits of using a gov.uk domain including having:</p>
+  <ul class="govuk-list govuk-list--bullet">
+    <li>the trusted .gov.uk brand that people will recognise</li>
+    <li>improved rankings in search engines</li>
+    <li>continuous central government monitoring for potential security vulnerabilities</li>
+    <li>the ability to better control email accounts by removing staff when they leave</li>
+    <li>better legal protection because it's based in a UK jurisdiction</li>
+    <li>increased transparency and security compared to personal email accounts </li>
+  </ul>
+  <p>Read more on the <a href="https://www.gov.uk/guidance/benefits-of-getting-a-govuk-domain" class="govuk-link--no-visited-state">benefits of using a gov.uk domain</a>.</p>
+  
+ 
+      <nav class="govuk-prototype-kit-common-templates-pagination" role="navigation" aria-label="Pagination">
+
+      
+        {{ govukPagination({
+          previous: {
+            labelText: "What is a domain and which one is right for parish councils",
+            href: "h1-moving-pc"
+          },
+          next: {
+          labelText: "How parish councils can apply for a .gov.uk domain name",
+          href: "h2-apply"
+        }
+      }) }}
+
+      
+
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+
+      <aside class="govuk-prototype-kit-common-templates-related-items" role="complementary">
+        <h2 class="govuk-heading-s" id="subsection-title">
+          Related content
+        </h2>
+        <nav role="navigation" aria-labelledby="subsection-title">
+          <ul class="govuk-list govuk-!-font-size-16">
+            <li>
+              <a href="#" class="govuk-link--no-visited-state">
+                Get approval to use a .gov.uk domain name
+
+              </a>
+            </li>
+            <li>
+              <a href="#" class="govuk-link--no-visited-state">
+                Apply for a .gov.uk domain name: step by step
+
+              </a>
+            </li>
+            <li>
+              <a href="#"  class="govuk-!-font-weight-bold govuk-link--no-visited-state">
+                More <span class="govuk-visually-hidden">in Subsection</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+    </div>
+
+  </main>
+</div>
+
+
+
+
+
+    </div>
+  </div>
+
+{% endblock %}
