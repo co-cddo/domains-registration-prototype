@@ -12,9 +12,11 @@ const router = govukPrototypeKit.requests.setupRouter()
 // Tactical
 router.use('/registration/current', require('./views/registration/current/routes/routes'))
 router.use('/registration/v1', require('./views/registration/v1/routes/routes'))
+router.use('/registration/v2-2', require('./views/registration/v2-2/routes/routes'))
 
 // Strategic
 router.use('/registration/strategic', require('./views/registration/strategic/routes/routes'))
+router.use('/registration/strategic/g0-moving-pc', require('./views/registration/strategic/routes/routes'))
 
 
 
