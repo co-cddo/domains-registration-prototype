@@ -1,0 +1,276 @@
+{% extends "layouts/main.html" %}
+{% block bodyStart %}
+
+
+ <form action="?">
+  {% set html %}
+  <p class="govuk-body">We use some essential cookies to make this service work.</p>
+  <p class="govuk-body">We'd like to set additional cookies so we can remember your settings, understand how people use the service and make improvements.</p>
+{% endset %}
+
+{% set acceptHtml %}
+  <p class="govuk-body">You've accepted additional cookies. You can <a class="govuk-link" href="#">change your cookie settings</a> at any time.</p>
+{% endset %}
+
+{% set rejectedHtml %}
+  <p class="govuk-body">You've rejected additional cookies. You can <a class="govuk-link" href="#">change your cookie settings</a> at any time.</p>
+{% endset %}
+
+{{ govukCookieBanner({
+  ariaLabel: "Cookies on Get approval to use a .gov.uk domain name",
+  messages: [
+    {
+      headingText: "Cookies on Get approval to use a .gov.uk domain name",
+      html: html,
+      actions: [
+        {
+          text: "Accept additional cookies",
+          type: "submit",
+          name: "cookies[additional]",
+          value: "yes"
+        },
+        {
+          text: "Reject additional cookies",
+          type: "submit",
+          name: "cookies[additional]",
+          value: "no"
+        },
+        {
+          text: "View cookies",
+          href: "https://sgs-ddt-01-96c924f9e494.herokuapp.com/registration/current/cookies"
+        }
+      ]
+    },
+    {
+      html: acceptHtml,
+      actions: [
+        {
+          text: "Hide cookie message",
+          type: "submit",
+          name: "cookies[hide]",
+          value: "yes"
+        }
+      ],
+      hidden: true
+    },
+    {
+      html: rejectedHtml,
+      actions: [
+        {
+          text: "Hide cookie message",
+          type: "submit",
+          name: "cookies[hide]",
+          value: "yes"
+        }
+      ],
+      hidden: true
+    }
+  ]
+}) }}
+
+
+ </form>
+ {% endblock %}
+
+{% block pageTitle %}
+  Cookies – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        Cookies on the Get approval to use a .gov.uk domain name service
+      </h1>
+      <form class="form" action="cookies-updated" id="mainForm" method="post">
+      <p>We use some essential cookies to make this service work.
+      </p>
+      <p>We'd like to set additional cookies to remember your settings, understand how people use the service, and make improvements.
+      </p>
+      <h2 class="govuk-heading-l">
+        Cookies
+      </h2>
+        <p>
+        Small files (known as 'cookies') are put onto your computer to collect information about how you browse the site.
+      </p>
+      <p class="govuk-body">Cookies are used to:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>measure how you use the website so it can be updated and improved based on your needs</li>
+          <li>remember the notifications you've seen so that you're not shown them again</li>
+        </ul>
+      {{ govukInsetText({
+        text: " The cookies on this service are not used to identify you personally."
+      }) }}
+      <p>
+        You'll normally see a message on the site before a cookie is stored on your computer.
+      </p>
+      <p>
+        Find out more about <a href="https://www.aboutcookies.org/" target="new" class="govuk-link">how to manage cookies (opens in a new tab)</a> .
+      </p>
+      <p>
+        We use cookies to collect information about how you use our service.
+      </p>
+      
+      <table class="govuk-table">
+        <caption class="govuk-table__caption govuk-table__caption--m">Essential cookies</caption>
+        <p>
+          Essential cookies keep your information secure while you use this service. We do not need to ask permission to use them.
+        </p>
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Name</th>
+            <th scope="col" class="govuk-table__header">Purpose</th>
+            <th scope="col" class="govuk-table__header">Expires</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">_getapproval_session</th>
+            <td class="govuk-table__cell">Used to save your session data</td>
+            <td class="govuk-table__cell">30 mins</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">cookie_policy</th>
+            <td class="govuk-table__cell">Saves your cookie consent settings</td>
+            <td class="govuk-table__cell">1 year</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3 class="govuk-heading-l">
+        Government services and external websites
+      </h3>
+      <p>
+        Most services we link to are run by different government departments, or external websites for example Government Digital Service (GDS) or the Nominet website. These services may set additional cookies and, if so, will have their own cookies policy. 
+      </p>
+
+
+      <h3 class="govuk-heading-l">
+        Measuring website usage (Google Analytics)
+      </h3>
+      <table class="govuk-table">
+        <caption class="govuk-table__caption govuk-table__caption--m">Analytics cookies (optional)</caption>
+        <p>
+          With your permission, we use Google Analytics to collect data about how you use this service. This information helps us to improve our service.
+        </p>
+        <p class="govuk-body">Google Analytics stores information about:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>the pages you visit - how long you spend on each page</li>
+          <li>how you got to the site</li>
+          <li>what you click on while you're visiting the site</li>
+          <li>any errors you see while using</li>
+        </ul>
+        <p>
+          With your permission, we use Google Analytics to collect data about how you use this service. This information helps us to improve our service.
+        </p>
+        <p>
+          We don't collect or store your personal information (eg your name or address) so this information can't be used to identify who you are.
+        </p>
+        <p>
+          Google isn't allowed to use or share our analytics data.
+        </p>
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Name</th>
+            <th scope="col" class="govuk-table__header">Purpose</th>
+            <th scope="col" class="govuk-table__header">Expires</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">_ga</th>
+            <td class="govuk-table__cell">Checks if you've visited the Get approval to use a .gov.uk domain name service before. This helps us count how many people visit our site.	
+          </td>
+            <td class="govuk-table__cell">2 years</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">wsc</th>
+            <td class="govuk-table__cell">Stores session data</td>
+            <td class="govuk-table__cell">When you close your browser</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">_gid</th>
+            <td class="govuk-table__cell">Checks if you've visited the Get approval to use a .gov.uk domain anime service before. This helps us count how many people visit our site.	
+            </td>
+            <td class="govuk-table__cell">24 hours</td>
+          </tr>
+          
+        </tbody>
+      </table>
+ 
+      {{ govukRadios({
+        classes: "govuk-radios--inline",
+        name: "cookies",
+        fieldset: {
+          legend: {
+            text: "Do you want to accept analytics cookies?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--m"
+          }
+        },
+        items: [
+          {
+            value: "yes",
+            text: "Yes",
+            checked: checked("cookies", "yes")
+          },
+          {
+            value: "no",
+            text: "No",
+            checked: checked("cookies", "no")
+          }
+        ]
+      }) }}
+      <div class="govuk-button-group">
+        {{ govukButton({
+          text: "Save cookie preferences"
+        }) }}
+      </div>
+    </form>
+
+
+    </div>
+  </div>
+
+{% endblock %}
+{% block footer %}
+ {{ govukFooter({
+   meta: {
+     items: [
+       {
+         href: "https://sgs-ddt-01-96c924f9e494.herokuapp.com/registration/current/privacy",
+         text: "Privacy"
+       },
+       {
+        href: "https://sgs-ddt-01-96c924f9e494.herokuapp.com/registration/current/cookies",
+        text: "Cookies"
+      },
+       {
+         href: "https://sgs-ddt-01-96c924f9e494.herokuapp.com/registration/current/accessibility-statement",
+         text: "Accessibility statement"
+       },
+       {
+        href: "https://sgs-ddt-01-96c924f9e494.herokuapp.com/registration/current/terms-of-use",
+        text: "Terms of use"
+      },
+       
+       {
+         href: "/manage-prototype/clear-data",
+         text: "Clear data"
+       }
+     ],
+     visuallyHiddenTitle: "Footer links"
+   }
+ }) }}
+{% endblock %}
+

@@ -26,9 +26,6 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       
-      
-
-
       {% set stringToCheck = data['domain'] %}
         {% if (stringToCheck.includes('.gov.uk')) %}
         <h1 class="govuk-heading-l">
@@ -36,7 +33,7 @@
           </h1>
        {% else %}
        <h1 class="govuk-heading-l">
-       {{data['domain']}}.gov.uk is available for approval
+       Is {{data['domain']}}.gov.uk the correct domain name?
        </h1>
        {% endif %}
 
@@ -47,13 +44,14 @@
           name: "domainconfirm",
           fieldset: {
             legend: {
-              html: "Is this .gov.uk domain name correct?",       
+              text: "",
+                     
               isPageHeading: false,
               classes: "govuk-fieldset__legend--m"
             }
           },
           hint: {
-            html: "Your choice has passed some domain rules and it is likely to be approved"
+            html: "The Domains Team will check if this is available and decide whether to approve it."
           },
           items: [
             {

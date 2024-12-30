@@ -1,0 +1,59 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Confirmation page – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-s">
+      From: Domains Team [approvals@domains.gov.uk]
+    <br>
+    Subject: Subject: {{ data['domain'] }}.gov.uk application received
+    </h1>
+
+  
+  <h2 class="govuk-heading-m">Reference number: GOV6B86B2</h2>
+  
+  <p>
+    Dear  {{ data['registrantfullName'] }}
+  </p>
+
+  <p class="govuk-body">The Domains Team has received your {{ data['domain'] }}.gov.uk application.</p>
+  
+  <h3 class="govuk-heading-s">Your answers</h3>
+<p>
+  Organisation type: {{ (data['registrant-type'] | title) }}<br>
+  Reason for request: {{ data['purpose'] }}<br>
+  Exemption from GOV.UK website: Yes<br>
+  Permission to apply: Yes<br>
+  Domain name: {{ data['domain'] }}.gov.uk <br>
+  Minister's support: No<br>
+  Registrant organisation name: {{ (data['registrant'] | title) }} <br>
+  Registrant contact name: {{ (data['registrantfullName'] | title) }} <br> 
+  Registrant contact telephone: {{ (data['regtelephoneNumber']) }} <br> 
+  Registrant contact email: {{ (data['regEmail']) }} <br>
+  Registry role name (public information): {{ (data['regpubroleName'] | title)}} <br> 
+  Registry email (public information): {{(data['regpubEmail']) }}
+</p>
+    <h2 class="govuk-heading-s">
+      What happens next
+    </h2>
+
+      <ol class="govuk-list govuk-list--number govuk-list--spaced">
+        <li>We will contact you within 5 working days to confirm whether your application has been successful. If we need more information we will contact you.</li>
+          <li>Once approved, we will send you a registration Membership Token which is valid for 60 calendar days.</li>
+          <li>You must use the Membership Token to create the domain in the Nominet registry.</li>
+      </ol>
+
+      {{ govukInsetText({
+        html: 'If you have any questions you can email <code class="govspeak-code">approvals@domains.gov.uk</code>.'
+      }) }}
+
+  <p class="govuk-body"> Kind regards, <br>Domains Team </p>
+    </div>
+  </div>
+
+{% endblock %}

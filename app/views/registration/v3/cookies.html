@@ -1,0 +1,126 @@
+{% extends "layouts/main.html" %}
+
+ 
+{% block pageTitle %}
+  Cookies – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        Cookies on the Get approval to use a .gov.uk domain name service
+      </h1>
+      <form class="form" action="cookies-updated" id="mainForm" method="post">
+      
+      
+      <h2 class="govuk-heading-l">
+        Cookies
+      </h2>
+        <p>
+        Small files (known as 'cookies') are put onto your computer to collect information about how you browse the site.
+      </p>
+      <p class="govuk-body">Cookies are used to:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>measure how you use the website so it can be updated and improved based on your needs</li>
+          <li>remember the notifications you've seen so that you're not shown them again</li>
+        </ul>
+      {{ govukInsetText({
+        text: " The cookies on this service are not used to identify you personally."
+      }) }}
+      
+      <p>
+        Find out more about <a href="https://www.aboutcookies.org/" target="new" class="govuk-link">how to manage cookies (opens in a new tab)</a> .
+      </p>
+      
+      <h2 class="govuk-heading-m">
+        Essential cookies
+      </h2>
+      <p>We use some essential cookies to make this service work.
+      </p>
+      <p>
+        Essential cookies keep your information secure while you use this service. We do not need to ask permission to use them.
+      </p>
+      
+      <table class="govuk-table">
+        <caption class="govuk-table__caption govuk-table__caption--s">Types of essential cookies</caption>
+        
+        <thead class="govuk-table__head">
+        
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Name</th>
+            <th scope="col" class="govuk-table__header">Purpose</th>
+            <th scope="col" class="govuk-table__header">Expires</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">sessionid</th>
+            <td class="govuk-table__cell">Used to save your session data</td>
+            <td class="govuk-table__cell">14 days</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">csrftoken</th>
+            <td class="govuk-table__cell">Prevents submitting invalid data</td>
+            <td class="govuk-table__cell">1 year</td>
+          </tr>
+        </tbody>
+      </table>
+
+      
+      <h3 class="govuk-heading-l">
+        Government services and external websites
+      </h3>
+      <p>
+        Most services we link to are run by different government departments, or external websites for example Government Digital Service (GDS) or the Nominet website. These services may set additional cookies and, if so, will have their own cookies policy. 
+      </p>
+
+
+
+    </div>
+  </div>
+
+{% endblock %}
+{% block footer %}
+ {{ govukFooter({
+   meta: {
+     items: [
+       {
+         href: "https://sgs-ddt-01-96c924f9e494.herokuapp.com/registration/current/privacy",
+         text: "Privacy"
+       },
+       {
+        href: "https://sgs-ddt-01-96c924f9e494.herokuapp.com/registration/current/cookies",
+        text: "Cookies"
+      },
+       {
+         href: "https://sgs-ddt-01-96c924f9e494.herokuapp.com/registration/current/accessibility-statement",
+         text: "Accessibility statement"
+       },
+       {
+        href: "https://sgs-ddt-01-96c924f9e494.herokuapp.com/registration/current/terms-of-use",
+        text: "Terms of use"
+      },
+       
+       {
+         href: "/manage-prototype/clear-data",
+         text: "Clear data"
+       }
+     ],
+     visuallyHiddenTitle: "Footer links"
+   }
+ }) }}
+{% endblock %}
+

@@ -1,0 +1,82 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Privacy policy – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        Privacy policy: how we use your data</h1>
+        
+      
+      <h2 class="govuk-heading-l">
+        Who we are
+      </h2>
+      <p>
+        The Protecting Public Sector Domains Team at the Central Digital and Data Office (CDDO) is responsible for approving all .gov.uk domain names on behalf of the Cabinet Office.
+      </p>
+      <p>The Get approval to use a .gov.uk domain name is a service that lets eligible public sector organisations apply to use a .gov.uk domain name.</p>
+        <p>There are three parties involved in the registration of a .gov.uk domain name:
+        </p>
+        <ul class="govuk-list govuk-list--number">
+          <li>Registrants who wish to apply for a domain name are data controllers.</li>
+          <li>The .gov.uk Approved Registrars who submit domain applications on behalf of registrants are data processors.</li>
+          <li>CDDO, which processes applications and is a data controller.
+          </li>
+        </ul>
+
+      
+      <h2 class="govuk-heading-m">
+        CDDO domain management privacy notice
+      </h2>
+      <p>The Get approval to use a .gov.uk domain name service is part of a wider suite of services run by the CDDO Protecting Public Sector Domains Team.
+      </p>
+      <p>You can <a class="govuk-link" href="https://www.gov.uk/government/publications/gds-cross-government-domain-management-privacy-notice/gds-domain-management-privacy-notice">read the full CDDO domain management privacy notice here</a>.</p>
+      
+    </div>
+  </div>
+
+{% endblock %}
+{% block footer %}
+ {{ govukFooter({
+   meta: {
+     items: [
+       {
+         href: "https://sgs-ddt-01-96c924f9e494.herokuapp.com/registration/current/privacy",
+         text: "Privacy"
+       },
+       {
+        href: "https://sgs-ddt-01-96c924f9e494.herokuapp.com/registration/current/cookies",
+        text: "Cookies"
+      },
+       {
+         href: "https://sgs-ddt-01-96c924f9e494.herokuapp.com/registration/current/accessibility-statement",
+         text: "Accessibility statement"
+       },
+       {
+        href: "https://sgs-ddt-01-96c924f9e494.herokuapp.com/registration/current/terms-of-use",
+        text: "Terms of use"
+      },
+       
+       {
+         href: "/manage-prototype/clear-data",
+         text: "Clear data"
+       }
+     ],
+     visuallyHiddenTitle: "Footer links"
+   }
+ }) }}
+{% endblock %}
+

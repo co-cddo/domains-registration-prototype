@@ -1,0 +1,38 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Service currently down for maintenance – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+  {{ govukPhaseBanner({
+    tag: {
+    text: "prototype",
+    classes: "govuk-tag--pink"
+    },
+      html: 'This is not a full service. It is not production code and you might experience problems.'
+  }) }}
+ 
+  {% endblock %}
+
+{% block content %}
+{% set mainClasses = "govuk-main-wrapper--l" %}
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-l">Sorry, the service is unavailable</h1>
+        <p class="govuk-body">
+          We are currently carrying out routine maintenance on the Get approval to use a .gov.uk domain name service. You will be able to make applications when the service is back online.</p>
+
+                 
+        <p class="govuk-body">
+        Email <code class="govspeak-code">approvals@domains.gov.uk</code> if you have any questions. </p>
+       
+        
+        
+    </div>
+  </div>
+{% endblock %}

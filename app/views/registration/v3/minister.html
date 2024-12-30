@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  Domain name confirmation – {{ serviceName }} – GOV.UK Prototype Kit
+  Minister support – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}
@@ -25,46 +25,42 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      
-      
-
 
       {% set stringToCheck = data['domain'] %}
         {% if (stringToCheck.includes('.gov.uk')) %}
         <h1 class="govuk-heading-l">
-          Is {{data['domain']}} the correct domain name?
+          Has a central government minister requested the {{data['domain']}} domain name?
           </h1>
        {% else %}
        <h1 class="govuk-heading-l">
-       {{data['domain']}}.gov.uk is available for approval
+        Has a central government minister requested the {{data['domain']}}.gov.uk domain name?
        </h1>
        {% endif %}
 
-      <form class="form" action="domain-confirm-answer" id="mainForm" method="post">
+      <form class="form" action="minister-answer" id="mainForm" method="post">
 
         {{ govukRadios({
-          classes: "govuk-radios",
-          name: "domainconfirm",
+          classes: "govuk-radios--inline",
+          name: "minister",
           fieldset: {
             legend: {
-              html: "Is this .gov.uk domain name correct?",       
-              isPageHeading: false,
-              classes: "govuk-fieldset__legend--m"
+              
+              classes: "govuk-fieldset__legend--l"
             }
           },
           hint: {
-            html: "Your choice has passed some domain rules and it is likely to be approved"
+            html: "If the requested .gov.uk domain does not meet the domain naming rules, it could still be approved if it has ministerial support. For example, the domain is needed to support the creation of a new government department or body."
           },
           items: [
             {
               value: "Yes",
-              text: "Yes, I confirm this is correct",
-              checked: checked("domainconfirm", "Yes")
+              text: "Yes",
+              checked: checked("minister", "Yes")
             },
             {
               value: "No",
-              text: "No, I want to change it",
-              checked: checked("domainconfirm", "No")
+              text: "No",
+              checked: checked("minister", "No")
             }
           ]
         }) }}

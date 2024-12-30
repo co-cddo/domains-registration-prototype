@@ -13,6 +13,7 @@ const router = govukPrototypeKit.requests.setupRouter()
 router.use('/registration/current', require('./views/registration/current/routes/routes'))
 router.use('/registration/v1', require('./views/registration/v1/routes/routes'))
 router.use('/registration/v2-2', require('./views/registration/v2-2/routes/routes'))
+router.use('/registration/v3', require('./views/registration/v3/routes/routes'))
 
 // Strategic
 router.use('/registration/ver1', require('./views/registration/ver1/routes/routes'))

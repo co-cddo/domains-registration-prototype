@@ -27,44 +27,36 @@
     <div class="govuk-grid-column-two-thirds">
       
       
+      
 
-
-      {% set stringToCheck = data['domain'] %}
-        {% if (stringToCheck.includes('.gov.uk')) %}
-        <h1 class="govuk-heading-l">
-          Is {{data['domain']}} the correct domain name?
-          </h1>
-       {% else %}
-       <h1 class="govuk-heading-l">
-       {{data['domain']}}.gov.uk is available for approval
-       </h1>
-       {% endif %}
-
-      <form class="form" action="domain-confirm-answer" id="mainForm" method="post">
+      
+      
+      
+      <form class="form" action="domain-available-confirm-answer" id="mainForm" method="post">
 
         {{ govukRadios({
           classes: "govuk-radios",
-          name: "domainconfirm",
+          name: "domainavconfirm",
           fieldset: {
             legend: {
-              html: "Is this .gov.uk domain name correct?",       
-              isPageHeading: false,
-              classes: "govuk-fieldset__legend--m"
+              html: "Is "+data['parishavailabledomains']+" domain name correct?",       
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
             }
           },
           hint: {
-            html: "Your choice has passed some domain rules and it is likely to be approved"
+            html: "We have suggested your .gov.uk domain name based on some rules and it is likely to be approved"
           },
           items: [
             {
               value: "Yes",
               text: "Yes, I confirm this is correct",
-              checked: checked("domainconfirm", "Yes")
+              checked: checked("domainavconfirm", "Yes")
             },
             {
               value: "No",
               text: "No, I want to change it",
-              checked: checked("domainconfirm", "No")
+              checked: checked("domainavconfirm", "No")
             }
           ]
         }) }}

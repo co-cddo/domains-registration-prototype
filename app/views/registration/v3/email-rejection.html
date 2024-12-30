@@ -1,0 +1,74 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Confirmation page – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+
+    <h1 class="govuk-heading-s">
+      From: Domains Team [approvals@domains.gov.uk]
+    <br>
+    Subject: {{ data['domain'] }}.gov.uk application rejected
+    </h1>
+
+
+
+
+<h2 class="govuk-heading-m">Reference number: GOV6B86B2</h2>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+  <p>
+  Dear  {{ data['registrarfullName'] }},
+  </p>
+  
+  <p>
+  Thanks for using the 'Get approval to use a gov.uk domain name' service and submitting your registrant's request to the Domains Team.
+  <br><br>
+  Based on the answers you have provided, the requested {{ data['domain'] }}.gov.uk has been rejected.
+</p>
+
+<h3 class="govuk-heading-s">Your answers</h3>
+ <p>
+    Organisation type: {{ ( data['registrant-type'] | title) }}<br>
+    Reason for request: {{ data['purpose'] }}<br>
+    Exemption from GOV.UK website: Yes<br>
+    Permission to apply: Yes<br>
+    Minister's support: No<br>
+    Registrant organisation name: {{ (data['registrant'] | title) }} <br>
+    Registrant contact name: {{ (data['registrantfullName'] | title) }} <br> 
+    Registrant contact telephone: {{ (data['regtelephoneNumber']) }} <br> 
+    Registrant contact email: {{ (data['regEmail']) }} <br>
+    Registry role name (public information): {{ (data['regpubroleName'] | title)}} <br> 
+    Registry email (public information): {{(data['regpubEmail']) }}
+  </p>
+  
+  <h4 class="govuk-heading-s">
+    Reason for rejection
+  </h4>
+  <p>[free text or templated response] </p>
+
+  
+  
+    <h5 class="govuk-heading-s">
+      What happens next
+    </h5>
+
+      <ol class="govuk-list govuk-list--number govuk-list--spaced">
+        <li>You can appeal on behalf of your registrant. You should provide any reasons why you think your domain should be approved and any supporting information in an email to  by emailing <code class="govspeak-code">appeals@domains.gov.uk</code>. 
+        </li>
+          <li>We will forward your appeal to the <a href="https://www.gov.uk/government/groups/naming-and-approvals-committee-nac" class="govuk-link govuk-link--no-visited-state">Naming and Approvals Committee</a> and keep you up-to-date with progress.</li>
+          <li>The NAC will make a final decision and will give its reasoning.
+          </li>
+      </ol>
+
+      
+
+  <p class="govuk-body"> Kind regards, <br>Domains Team </p>
+    </div>
+  </div>
+
+{% endblock %}
