@@ -1,0 +1,550 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Moving your parish council to a .gov.uk domain
+
+{% endblock %}
+
+{% block header %}
+  <!-- Blank header with no service name for this page -->
+  {{ govukHeader() }}
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+        href: "#"
+      },
+      {
+        text: "Content prototype master",
+        href: "ground0"
+      },
+      {
+        text: "Moving your parish council to a .gov.uk domain"
+      }
+    ]
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      
+    
+
+      <span class="govuk-caption-xl">Guidance</span>
+  <h1 class="govuk-heading-xl">
+    Moving your parish council to a .gov.uk domain
+  </h1>
+     
+  <p class="govuk-body-l">This guide is for parish council clerks who want to set up or move their council to a .gov.uk domain. </p>
+</div>
+</div>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one">
+      <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+</div>
+<p class="govuk-body-s govuk-!-margin-bottom-1">
+  From: <a href="#" class="govuk-link--no-visited-state"><b>Central Digital and Data Office</b></a> and <a href="#" class="govuk-link--no-visited-state"><b>Department for Science, Innovation and Technology</b></a>
+  <br>
+ Published 9 November 2024<br>
+Last updated 11 December 2024 — <a href="/registration/strategic/ground0" class="govuk-link--no-visited-state"><b>See all updates</a></p>
+</h2>
+<!-- Numbered list removed -->
+
+<div class="govuk-grid-row">
+<div class="govuk-grid-column-two-thirds govuk-prototype-kit-common-templates-mainstream-guide-body">  
+
+<p>The .gov.uk domain was specifically created for use by central, devolved and local UK public sector organisations. Parish councils are eligible to use the .gov.uk domain name for websites and emails.</p>
+<p>Your first step is to get council approval to use a .gov.uk domain name. If you've already done this, you can start at step 2 - Check the services you need.</p>
+<h2 class="govuk-heading-l">
+  1. Get council approval to buy a .gov.uk domain
+</h2>
+  <p>Get council approval to apply for a .gov.uk domain name during one of your official meetings so that it is recorded in your minutes.</p>
+  <h2 class="govuk-heading-m">
+    Explain the benefits of a .gov.uk domain name to your council
+  </h2>
+  <p>The benefits for parish councils include having:</p>
+  <ul class="govuk-list govuk-list--bullet">
+    <li>the trusted and professional .gov.uk brand that people will recognise</li>
+    <li>increased transparency and security compared to personal email accounts</li>
+    <li>the ability to manage email accounts by removing staff when they leave</li>
+    <li>easy access to staff email accounts to fulfil FOI obligations </li>
+    <li>continuous central government monitoring for potential security vulnerabilities</li>
+    <li>better legal protection because it’s based in a UK jurisdiction</li>
+  </ul>
+  {{ govukWarningText({
+    text: "All permanent staff and councillors must use individual .gov.uk email accounts rather than free personal email accounts to improve professionalism, maintain transparency and to increase security within the parish council sector.",
+    iconFallbackText: "Warning"
+  }) }}
+
+  <p>Read more on <a href="https://www.gov.uk/guidance/benefits-of-getting-a-govuk-domain" class="govuk-link--no-visited-state">the benefits of using a gov.uk domain</a>.</p>
+
+  <h3 class="govuk-heading-l">
+    2. Check the services you need
+  </h3>
+  <p>You will need to buy a domain, web hosting, email accounts and possibly get a new website. </p>
+  <p>The costs will vary depending on the services you are buying, the size of your council and which supplier you choose. For example, the more councillors you have the more email accounts you will need to buy.</p>
+  <p>When you understand the services you need, you can plan your budget. This will help your council make a smooth and cost-effective move to a .gov.uk domain.</p>
+  <p>Use the checklist below to decide what services your parish council needs.</p>
+  {% from "govuk/components/table/macro.njk" import govukTable %}
+
+  {{ govukTable({
+  caption: "Checklist to compare .gov.uk domain services",
+  captionClasses: "govuk-table__caption--m",
+  firstCellIsHeader: false,
+  head: [
+  {
+    text: "Service"
+  },
+  {
+    text: "Do you need this?"
+  },
+  {
+    text: "What this will provide"
+  }
+  ],
+  rows: [
+  [
+    {
+      text: ".gov.uk domain"
+    },
+    {
+      text: "Yes"
+    },
+    {
+      text: "You must have a domain to have any digital services such as a website and emails."
+    }
+  ],
+  [
+    {
+      text: "Email addresses"
+    },
+    {
+      text: "Yes"
+    },
+    { html: 'The parish clerk must have a role-based .gov.uk email.
+    <br><br>To meet your FOI and transparency obligations, you must give email addresses to each councillor and to any permanent staff. 
+    <br><br> Free email accounts do not look professional and some providers will scan emails to personalise and target advertising.'
+    }
+  ],
+  [
+    {
+      text: ".gov.uk website"
+    },
+    {
+      text: "Yes"
+    },
+    {
+      html: "You need this as you are legally required to publish information on a website.
+      <br><br>Currently the smallest councils, known as Parish Meetings, are not legally required to have a website."
+    }
+  ],
+  [
+    {
+      text: "Renewing existing domain name"
+    },
+    {
+      text: "Yes"
+    },
+    {
+      html: 'Because it is an asset, you will need to continue renewing your old domain name annually. This will prevent anyone else from registering it and impersonating your organisation.<br>Read more guidance on how to <a href="#" class="govuk-link--no-visited-state">stop using your non-government domain name</a>.'
+    }
+  ],
+  [
+    {
+      text: "Website hosting"
+    },
+    {
+      text: "Yes"
+    },
+    {
+      text: "You will need this to make your website available on the internet."
+    }
+  ],
+  [
+    {
+      text: "Website accessibility"
+    },
+    {
+      text: "Yes"
+    },
+    { html: 'All public sector websites must publish an accessibility statement to meet their legal requirements.
+    <br><br>This can include details of what you know needs fixing. <br>Read more guidance on how to <a href="#" class="govuk-link--no-visited-state">make your website accessible and publish an accessibility statement.</a>
+    <br><br>You can do a <a href="#" class="govuk-link--no-visited-state">basic accessibility check</a> to see if there are improvements needed to your current website. 
+    <br><br>If you buy a new .gov.uk website, you should expect it to be fully accessible.
+    <br><br>You do not have to buy or build a fully accessible website if you can prove your council cannot afford it. This is known as a <a href="#" class="govuk-link--no-visited-state">disproportionate burden</a>. '
+    }
+  ],
+  
+  [
+    {
+      text: "Moving email data"
+    },
+    {
+      text: "Optional"
+    },
+    { text: 'You may need this if you are moving from another domain and want to still have access to your email history.'
+    }
+  ],
+  [
+    {
+      text: "Transfer your old website"
+    },
+    {
+      text: "Discuss with your registrar"
+    },
+    { text: "You may want this if you have a current website you want to move from a different domain."
+    }
+  ],
+  [
+    {
+      text: "Design of a new website"
+    },
+    {
+      text: "Discuss with your registrar"
+    },
+    { text: "You may need this if you want to create a new site that is suitable for the .gov.uk. domain. For example, if you currently have a page on another organisation's site."
+    }
+  ]
+  ]
+  }) }}
+
+    
+  <h2 class="govuk-heading-l">
+    3. Understand your role as a registrant
+  </h2>
+  <p>As the clerk of the parish council you are the registrant. This role means you have control over the domain name and all related services, such as emails and the website. The supplier who registers and manages your gov.uk domain is called a .gov.uk Approved Registrar.
+</p>
+  <p>As the registrant you are accountable for:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>contacting a registrar to apply for and manage your domain name</li>
+      <li>making sure you follow the <a href="#" class="govuk-link--no-visited-state">rules for using a .gov.uk domain name</a></li>
+    </ul>
+  <p>When your parish council has agreed to move to a gov.uk domain, you can start to look for a registrar to work with and send the application for you.</p>
+  <p>Email <a class="govuk-link--no-visited-state" href="#">support@domains.gov.uk</a> if you have any questions about being a registrant.</p>
+
+  <h2 class="govuk-heading-l">
+    4. Choose a registrar to buy your services
+  </h2>
+
+<p>Suppliers who have agreed to the criteria to provide .gov.uk domains are called Approved Registrars. There are nearly 200 .gov.uk Approved Registrars available.</p>
+<p>
+  A number of these suppliers have experience working with parish councils and have agreed to provide extra support to help you move to or set up a .gov.uk domain. We refer to them as Parish Council Helper Service Registrars on this page.
+</p>
+<h3 class="govuk-heading-m">
+  What to expect from Parish Council Helper Service Registrars
+</h3>
+<p>When you choose a Parish Council Helper Service Registrar from the list on this page you can expect:</p>
+  <ul class="govuk-list govuk-list--bullet">
+    <li>helpful support in non-technical language</li>
+    <li>the safe movement of any existing services to your new domain</li>
+    <li>help with .gov.uk email and device set up</li>
+    <li>a technical point of contact to promptly resolve problems</li>
+    <li>active ongoing support including telephone, online ticket or video call support</li>
+    <li>minimal disruption during the set up of your new domain and services</li>
+    
+  </ul>
+  <p>Your .gov.uk Approved Registrar will manage the technical aspects of the domain for you. You will have a long-term working relationship with the registrar you use, so it’s important you feel you are comfortable communicating with them. 
+  </p>
+
+  <h2 class="govuk-heading-m">
+    The list of Parish Council Helper Service Registrars
+</h2>
+<p>CDDO cannot recommend a particular Parish Council Helper Service Registrar. However, you can ask for recommendations and discuss pricing with other parish councils or on forums such as the <a href="#" class="govuk-link--no-visited-state">Facebook Community Clerks’ Network</a>
+</p>
+
+
+<table class="govuk-table">
+<caption class="govuk-table__caption govuk-table__caption--m">List of Parish Council Helper Service Registrars</caption>
+<thead class="govuk-table__head">
+  <tr class="govuk-table__row">
+    <th scope="col" class="govuk-table__header">Parish Council Helper Service Registrar</th>
+    <th scope="col" class="govuk-table__header">Contact details</th>
+  </tr>
+</thead>
+<tbody class="govuk-table__body">
+  <tr class="govuk-table__row">
+    <td class="govuk-table__cell"><a class="govuk-link--no-visited-state" href="#">Active Council</a></td>
+    <th scope="row" class="govuk-table__header">
+      <ul class="govuk-list">
+      <li>01677 392001</li>
+      <li><a class="govuk-link--no-visited-state" href="#">hello@activecouncil.co.uk</a></li>
+    </ul>
+    </th>
+  </tr>
+  <tr class="govuk-table__row">
+    <td class="govuk-table__cell"><a class="govuk-link--no-visited-state" href="#">Albany Web Design </a></td>
+    <th scope="row" class="govuk-table__header">
+      <ul class="govuk-list">
+      <li>01709 551255</li>
+      <li><a class="govuk-link--no-visited-state" href="#">https://www.albany-computers.co.uk/content/contact-us </a></li>
+    </ul>
+    </th>
+  </tr>
+  <tr class="govuk-table__row">
+    <td class="govuk-table__cell"><a class="govuk-link--no-visited-state" href="#">Alchemy Systems (Western) Ltd</a></td>
+    <th scope="row" class="govuk-table__header">
+      <ul class="govuk-list">
+      <li>01392 248498</li>
+      <li><a class="govuk-link--no-visited-state" href="#">hello@alchemysys.co.uk</a></li>
+    </ul>
+    </th>
+  </tr>
+  <tr class="govuk-table__row">
+    <td class="govuk-table__cell"><a class="govuk-link--no-visited-state" href="#">Aubergine </a></td>
+    <th scope="row" class="govuk-table__header">
+      <ul class="govuk-list">
+      <li>01525 373020</li>
+      <li><a class="govuk-link--no-visited-state" href="#">thestudio@aubergine262.com </a></li>
+    </ul>
+    </th>
+  </tr>
+  <tr class="govuk-table__row">
+    <td class="govuk-table__cell"><a class="govuk-link--no-visited-state" href="#">Black Nova Designs Ltd </a></td>
+    <th scope="row" class="govuk-table__header">
+      <ul class="govuk-list">
+      <li>01793 210 045</li>
+      <li><a class="govuk-link--no-visited-state" href="#">sales@blacknovadesigns.co.uk</a></li>
+    </ul>
+    </th>
+  </tr>
+
+
+  <tr class="govuk-table__row">
+    <td class="govuk-table__cell"><a class="govuk-link--no-visited-state" href="#">Cloud Next</a></td>
+    <th scope="row" class="govuk-table__header">
+      <ul class="govuk-list">
+      <li>0333 202 1032</li>
+      <li><a class="govuk-link--no-visited-state" href="#">sales@cloudnext.uk</a></li>
+    </ul>
+    </th>
+  </tr>
+  <tr class="govuk-table__row">
+    <td class="govuk-table__cell"><a class="govuk-link--no-visited-state" href="#">Cloudy IT</a></td>
+    <th scope="row" class="govuk-table__header">
+      <ul class="govuk-list">
+      <li>01280 814684</li>
+      <li><a class="govuk-link--no-visited-state" href="#">hello@cloudyit.co.uk</a></li>
+    </ul>
+    </th>
+  </tr>
+  <tr class="govuk-table__row">
+    <td class="govuk-table__cell"><a class="govuk-link--no-visited-state" href="#">Cuttlefish</a></td>
+    <th scope="row" class="govuk-table__header">
+      <ul class="govuk-list">
+      <li>01509 462727</li>
+      <li><a class="govuk-link--no-visited-state" href="#">localcouncils@cuttlefish.com</a></li>
+    </ul>
+    </th>
+  </tr>
+  <tr class="govuk-table__row">
+    <td class="govuk-table__cell"><a class="govuk-link--no-visited-state" href="#">Easy Internet Solutions (NetNerd)</a></td>
+    <th scope="row" class="govuk-table__header">
+      <ul class="govuk-list">
+      <li>0333 2224080</li>
+      <li><a class="govuk-link--no-visited-state" href="#">sales@netnerd.com</a></li>
+    </ul>
+    </th>
+  </tr>
+  <tr class="govuk-table__row">
+    <td class="govuk-table__cell"><a class="govuk-link--no-visited-state" href="#">Easyspace</a></td>
+    <th scope="row" class="govuk-table__header">
+      <ul class="govuk-list">
+      <li>0370 7555088</li>
+      <li><a class="govuk-link--no-visited-state" href="#">hostmaster@easyspace.com</a></li>
+    </ul>
+    </th>
+  </tr>
+
+
+  <tr class="govuk-table__row">
+    <td class="govuk-table__cell"><a class="govuk-link--no-visited-state" href="#">Freethought</a></td>
+    <th scope="row" class="govuk-table__header">
+      <ul class="govuk-list">
+      <li>03300882130</li>
+      <li><a class="govuk-link--no-visited-state" href="#">sales@freethought.uk</a></li>
+    </ul>
+    </th>
+  </tr>
+  <tr class="govuk-table__row">
+    <td class="govuk-table__cell"><a class="govuk-link--no-visited-state" href="#">Force 36</a></td>
+    <th scope="row" class="govuk-table__header">
+      <ul class="govuk-list">
+      <li>0345 166 7136</li>
+      <li><a class="govuk-link--no-visited-state" href="#">improved.it@force36.net</a></li>
+    </ul>
+    </th>
+  </tr>
+  <tr class="govuk-table__row">
+    <td class="govuk-table__cell"><a class="govuk-link--no-visited-state" href="#">Hugo Fox</a></td>
+    <th scope="row" class="govuk-table__header">
+      <ul class="govuk-list">
+      <li>01635 888442</li>
+      <li><a class="govuk-link--no-visited-state" href="#">team@hugofox.com</a></li>
+    </ul>
+    </th>
+  </tr>
+  <tr class="govuk-table__row">
+    <td class="govuk-table__cell"><a class="govuk-link--no-visited-state" href="#">JNR Computer Services</a></td>
+    <th scope="row" class="govuk-table__header">
+      <ul class="govuk-list">
+      <li>01903 718188</li>
+      <li><a class="govuk-link--no-visited-state" href="#">jmaund@jnrcomputers.co.uk</a></li>
+    </ul>
+    </th>
+  </tr>
+  <tr class="govuk-table__row">
+    <td class="govuk-table__cell"><a class="govuk-link--no-visited-state" href="#">Macintosh Electronics Ltd</a></td>
+    <th scope="row" class="govuk-table__header">
+      <ul class="govuk-list">
+      <li>0161 7965272</li>
+      <li><a class="govuk-link--no-visited-state" href="#">karl@macintoshelectronics.com</a></li>
+    </ul>
+    </th>
+  </tr>
+
+
+  <tr class="govuk-table__row">
+    <td class="govuk-table__cell"><a class="govuk-link--no-visited-state" href="#">NetWise UK</a></td>
+    <th scope="row" class="govuk-table__header">
+      <ul class="govuk-list">
+      <li>0151 2720104</li>
+      <li><a class="govuk-link--no-visited-state" href="#">info@netwiseuk.com</a></li>
+    </ul>
+    </th>
+  </tr>
+  <tr class="govuk-table__row">
+    <td class="govuk-table__cell"><a class="govuk-link--no-visited-state" href="#">Openstrike</a></td>
+    <th scope="row" class="govuk-table__header">
+      <ul class="govuk-list">
+      <li>01722 770036</li>
+      <li><a class="govuk-link--no-visited-state" href="#">domains@openstrike.co.uk</a></li>
+    </ul>
+    </th>
+  </tr>
+  <tr class="govuk-table__row">
+    <td class="govuk-table__cell"><a class="govuk-link--no-visited-state" href="#">Parish Council Website</a></td>
+    <th scope="row" class="govuk-table__header">
+      <ul class="govuk-list">
+      <li>01494 438904</li>
+      <li><a class="govuk-link--no-visited-state" href="#">webmaster@parishcouncilwebsite.net</a></li>
+    </ul>
+    </th>
+  </tr>
+  <tr class="govuk-table__row">
+    <td class="govuk-table__cell"><a class="govuk-link--no-visited-state" href="#">Parish Council Websites (BWP Creative)</a></td>
+    <th scope="row" class="govuk-table__header">
+      <ul class="govuk-list">
+      <li>01922 606 556</li>
+      <li><a class="govuk-link--no-visited-state" href="#">info@parishcouncilwebsites.co.uk</a></li>
+    </ul>
+    </th>
+  </tr>
+  <tr class="govuk-table__row">
+    <td class="govuk-table__cell"><a class="govuk-link--no-visited-state" href="#">Parish Online</a></td>
+    <th scope="row" class="govuk-table__header">
+      <ul class="govuk-list">
+      <li>01256 805102</li>
+      <li><a class="govuk-link--no-visited-state" href="#">support@parish-online.co.uk</a></li>
+    </ul>
+    </th>
+  </tr>
+  <tr class="govuk-table__row">
+    <td class="govuk-table__cell"><a class="govuk-link--no-visited-state" href="#">reCoded Solutions Ltd</a></td>
+    <th scope="row" class="govuk-table__header">
+      <ul class="govuk-list">
+      <li>07841 424720</li>
+      <li><a class="govuk-link--no-visited-state" href="#">support@recodedsolutions.com</a></li>
+    </ul>
+    </th>
+  </tr>
+  <tr class="govuk-table__row">
+    <td class="govuk-table__cell"><a class="govuk-link--no-visited-state" href="#">Somerset Web Services</a></td>
+    <th scope="row" class="govuk-table__header">
+      <ul class="govuk-list">
+      <li>01823 353760</li>
+      <li><a class="govuk-link--no-visited-state" href="#">info@somersetwebservices.co.uk</a></li>
+    </ul>
+    </th>
+  </tr>
+  <tr class="govuk-table__row">
+    <td class="govuk-table__cell"><a class="govuk-link--no-visited-state" href="#">Vision ICT</a></td>
+    <th scope="row" class="govuk-table__header">
+      <ul class="govuk-list">
+      <li>01392 669497</li>
+      <li><a class="govuk-link--no-visited-state" href="#">info@VisionICT.com</a></li>
+    </ul>
+    </th>
+  </tr>
+  <tr class="govuk-table__row">
+    <td class="govuk-table__cell"><a class="govuk-link--no-visited-state" href="#">X-Net</a></td>
+    <th scope="row" class="govuk-table__header">
+      <ul class="govuk-list">
+      <li>01202 755302</li>
+      <li><a class="govuk-link--no-visited-state" href="#">engage@x-net.co.uk</a></li>
+    </ul>
+    </th>
+  </tr>
+</tbody>
+</table>
+
+<h2 class="govuk-heading-l">
+  5. What to do when you've set up your domain
+</h2>
+<h2 class="govuk-heading-m">
+  Start using your domain
+</h2>
+<p>Your Parish Council Helper Service Registrar will usually manage the domain for you but it is good to familiarise yourself with guidance on <a href="#" class="govuk-link--no-visited-state">getting started with your .gov.uk domain name</a>.</p>
+<p>It's also good practice to test emails and your website to make sure everything is working as expected before sending out any launch communications to your users.</p>
+<h2 class="govuk-heading-m">
+  Get staff to sign an IT policy 
+</h2>
+<p>To support you in managing your .gov.uk domain and services, it's good practice for your council to have an IT policy in place. Everyone working for the council should be aware of and comply with the IT policy.</p>
+  <p>Your IT policy can cover:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>acceptable use of IT resources including devices and software</li>
+      <li>appropriate use of email</li>
+      <li>data management and security</li>
+      <li>network and internet use</li>
+      <li>good practice account security including passwords</li>
+      <li>staying secure when using mobile devices and remote working</li>
+      <li>how to report security incidents</li>
+    </ul>
+    <p>
+  Download this <a class="govuk-link--no-visited-state" href="#">template IT policy</a> and adapt it for your parish council.</p>
+
+<h2 class="govuk-heading-l">
+  Who to contact if you need help
+</h2>
+<p>In most cases, the .gov.uk Approved Registrars on the shortlist will be able to answer your questions and guide you through the process of setting up and using your .gov.uk domain name.</p>
+<p>However, you can email <a class="govuk-link--no-visited-state" href="#">parish-helper@domains.gov.uk</a> if you need any impartial advice.</p>
+     
+
+      <p>
+        <a href="#" class="govuk-link--no-visited-state">
+          View a printable version of the whole guide
+        </a>
+      </p>
+
+    </div>
+
+    
+
+  </main>
+</div>
+
+
+
+
+
+    </div>
+  </div>
+
+{% endblock %}

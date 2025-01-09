@@ -16,9 +16,10 @@ router.use('/registration/v2-2', require('./views/registration/v2-2/routes/route
 router.use('/registration/v3', require('./views/registration/v3/routes/routes'))
 
 // Strategic
-router.use('/registration/ver1', require('./views/registration/ver1/routes/routes'))
-router.use('/registration/strategic', require('./views/registration/strategic/routes/routes'))
-router.use('/registration/strategic/g0-moving-pc', require('./views/registration/strategic/routes/routes'))
+
+router.use('/registration/strategic/', require('./views/registration/strategic/routes/routes'))
+router.use('/registration/strategic/ver1/moving-your-parish', require('./views/registration/strategic/ver1/routes/routes'))
+router.use('/registration/strategic/ver2/g0-moving-pc', require('./views/registration/strategic/ver2/routes/routes'))
 
 
 
