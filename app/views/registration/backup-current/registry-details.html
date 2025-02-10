@@ -1,0 +1,129 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Registry details – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+  {{ govukPhaseBanner({
+    tag: {
+    text: "prototype",
+    classes: "govuk-tag--pink"
+    },
+      html: 'This is not a full service. It is not production code and you might experience problems.'
+  }) }}
+ 
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" id="mainForm" action="answers" method="post">
+        <h1 class="govuk-heading-l">
+          Registrant details for publishing to the registry 
+        </h1>
+        <p class="govuk-body">These are the details the registrant wants to appear on the registry. The details  must: 
+        </p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>have role-based contact details, not personally identifiable information</li>
+          <li>match the details you give to Nominet when creating the domain name</li> 
+        </ul>
+        
+        <h2 class="govuk-heading-m">
+          Registrant role 
+        </h2>
+          {{ govukInput({
+            label: {
+              text: "Role name"
+            },
+            hint: {
+              text: ""
+            },
+            id: "regpubrole-name",
+            name: "regpubroleName",
+            autocomplete: "name",
+            spellcheck: false,
+            classes: "govuk-input--width-20",
+            value: data['regpubroleName']
+  
+          }) }}
+      
+          <h2 class="govuk-heading-m">
+          Registrant contact details 
+        </h2>
+        {# Route 1 >> this is 'parish' #}
+        {% if (data['registrant-type'] == "Parish or community council") %}
+             
+          {{ govukInput({
+            label: {
+              text: "Email address"
+            },
+            hint: {
+              text: "Use a role-based email address, like clerk@[yourorganisation].gov.uk"
+            },
+            id: "regpub-email",
+            name: "regpubEmail",
+            type: "email",
+            autocomplete: "email",
+            spellcheck: false,
+            value: data['regpubEmail']
+            
+          }) }}
+          
+          {# Route 1 >> this is 'Neighbourhood' #}
+          {% elseif (data['registrant-type'] == "Neighbourhood or village council") %}
+          {{ govukInput({
+            label: {
+              text: "Email address"
+            },
+            hint: {
+              text: "Use a role-based email address, like clerk@[yourorganisation].gov.uk"
+            },
+            id: "regpub-email",
+            name: "regpubEmail",
+            type: "email",
+            autocomplete: "email",
+            spellcheck: false,
+            value: data['regpubEmail']
+            
+          }) }}
+
+          {# Remaining routes >> Anything else other than those two #}
+          {% else %}
+          {{ govukInput({
+            label: {
+              text: "Email address"
+            },
+            hint: {
+              text: "Use a role-based email address, like itsupport@[yourorganisation].gov.uk"
+            },
+            id: "regpub-email",
+            name: "regpubEmail",
+            type: "email",
+            autocomplete: "email",
+            spellcheck: false,
+            value: data['regpubEmail']
+            
+          }) }}
+          
+          {% endif %}
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+  
+         
+        </div> 
+        </form>
+    </div>
+  </div>
+
+{% endblock %}

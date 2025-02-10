@@ -1,0 +1,206 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Registrar details – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+  {{ govukPhaseBanner({
+    tag: {
+    text: "prototype",
+    classes: "govuk-tag--pink"
+    },
+      html: 'This is not a full service. It is not production code and you might experience problems.'
+  }) }}
+ 
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+<script type="text/javascript" src="assets/js/accessible-autocomplete.min.js"></script>
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+          
+
+      <h1 class="govuk-heading-l">
+        Registrar details
+      </h1>
+      <p class="govuk-body">You must be listed as a .gov.uk Approved Registrar on <a href="https://registrars.nominet.uk/registry/dot-gov-uk/registrars/" class="govuk-link--no-visited-state" target="new">Nominet's website (opens in new tab)</a>, otherwise you cannot use this service. <br><br>Email <code class="govspeak-code">support@domains.gov.uk</code> for more information.
+      </p>
+      <br>
+    
+      <form class="form" action="registrant-type" id="mainForm" method="post">
+     
+        <h2 class="govuk-heading-m">
+          Organisation name
+        </h2>
+        
+        
+        <link rel="stylesheet" href="../dist/location-autocomplete.min.css" />
+        <style>
+        html {
+          color: #111;
+          background: #FFF;
+          font-family: -apple-system, BlinkMacSystemFont, 'avenir next', avenir, 'helvetica neue', helvetica, ubuntu, roboto, noto, 'segoe ui', arial, sans-serif;
+          font-size: 16px;
+          line-height: 1.5;
+        }
+  
+        body {
+          padding-left: 1rem;
+          padding-right: 1rem;
+        }
+  
+        h1, h2, h3, h4, h5, h6 {
+          line-height: normal;
+        }
+  
+        label {
+          display: block;
+          margin-bottom: .5rem;
+        }
+  
+        .autocomplete-wrapper {
+          max-width: 40em;
+          margin-bottom: 4rem;
+        }
+      </style>
+         <div class="govuk-form-group autocomplete-wrapper">
+         <label class="govuk-label" for="default">
+            Select your organisation from the list.
+          </label>
+          <select class="govuk-select" id="default" name="registrar" value="{{ data['registrar'] }}">
+            
+            <option value="choose" selected>Start typing...</option>
+            <option value="1 Click Services Limited">1 Click Services Limited</option>
+            <option value="eastofengland">East of England</option>
+            <option value="20i Ltd">20i Ltd</option>
+            <option value="34SP.com">34SP.com</option>
+            <option value="AIMES Management Services Ltd">AIMES Management Services Ltd</option>
+            <option value="Aubergine 262 Ltd">Aubergine 262 Ltd</option>
+            <option value="Black Nova Designs Ltd">Black Nova Designs Ltd</option>
+            <option value="BWP Creative Limited">BWP Creative Limited</option>
+            <option value="Cloud Next">Cloud Next</option>
+            <option value="Consider IT Limited">Consider IT Limited</option>
+            <option value="Defra - Department for Environment Food and Rural Affairs">Defra - Department for Environment Food and Rural Affairs</option>
+            <option value="Durham Associates Limited">Durham Associates Limited</option>
+            <option value="Fasthosts Internet Ltd">Fasthosts Internet Ltd</option>
+            <option value="Force36 Ltd">Force36 Ltd</option>
+            <option value="Freethought Internet Limited">Freethought Internet Limited</option>
+            <option value="Geoxphere Ltd">Geoxphere Ltd</option>
+            <option value="Macintosh Electronics Ltd">Macintosh Electronics Ltd</option>
+            <option value="Ministry of Justice">Ministry of Justice</option>
+            <option value="NetWise UK">NetWise UK</option>
+            <option value="Openstrike">Openstrike</option>
+            <option value="Parish Council Website">Parish Council Website</option>
+            <option value="reCoded Solutions Ltd">reCoded Solutions Ltd</option>
+            <option value="WJP Software Limited">WJP Software Limited</option>
+            <option value="Other">Other</option>
+            
+
+
+
+          </select>
+  </div>
+        
+      <h2 class="govuk-heading-m">
+        Contact details
+      </h2>
+        
+     
+        {{ govukInput({
+          label: {
+            text: "Full name"
+          },
+          hint: {
+            text: ""
+          },
+          id: "registrarfullName",
+          name: "registrarfullName",
+          autocomplete: "name",
+          spellcheck: false,
+          classes: "govuk-input--width-20",
+          value: data['registrarfullName']
+
+        }) }}
+       
+        {{ govukInput({
+          label: {
+            text: "Telephone number"
+          },
+          hint: {
+            text: ""
+          },
+          id: "registrarTel-number",
+          name: "registrarTelNumber",
+          type: "tel",
+          autocomplete: "tel",
+          classes: "govuk-input--width-20",
+          value: data['registrarTelNumber']
+        }) }}
+
+        {{ govukInput({
+          label: {
+            text: "Email address"
+          },
+          hint: {
+            text: "We will use this email to contact you about the application."
+          },
+          id: "registrarEmail",
+          name: "registrarEmail",
+          type: "email",
+          autocomplete: "email",
+          spellcheck: false,
+          value: data['registrarEmail']
+          
+        }) }}
+    
+          
+          <span class="govuk-body govuk-!-font-size-24">
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+
+          {% if data['COMPLETED'] == true %}
+          <button type="submit" onclick="document.getElementById('mainForm').action='answers';"
+          class="govuk-button govuk-button--secondary govuk-!-margin-right-1" data-module="govuk-button">Back to answers
+          </button>
+          {% endif %}
+        
+        
+    
+        
+        </form>
+
+        <script type="text/javascript" src="https://alphagov.github.io/govuk-country-and-territory-autocomplete/dist/location-autocomplete.min.js"></script>
+        <script type="text/javascript">
+          openregisterLocationPicker({
+            additionalSynonyms: [
+              { name: 'Albion', code: 'country:GB' }
+            ],
+            defaultValue: '',
+            selectElement: document.getElementById('default'),
+            url: '../dist/location-autocomplete-graph.json'
+          })
+    
+          openregisterLocationPicker({
+            additionalSynonyms: [
+              { name: 'Albion', code: 'country:GB' }
+            ],
+            defaultValue: 'country:GB',
+            selectElement: document.getElementById('preselected'),
+            url: '../dist/location-autocomplete-graph.json'
+          })
+        </script>
+    
+  </div> 
+  </div> 
+
+{% endblock %}

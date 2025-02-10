@@ -1,0 +1,86 @@
+{% extends "layouts/main.html" %}
+
+
+
+{% block pageTitle %}
+  Phase banner (Beta)  – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+  <!-- Blank header with no service name for the start page -->
+  {{ govukHeader() }}
+{% endblock %}
+
+{% block beforeContent %}
+{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+  {{ govukPhaseBanner({
+    tag: {
+    text: "prototype",
+    classes: "govuk-tag--pink"
+    },
+      html: 'This is not a full service. It is not production code and you might experience problems.'
+  }) }}
+ 
+
+{% endblock %}
+
+{% block content %}
+
+
+<h1 class="govuk-heading-xl">
+  Phase banners</h1>
+  <p class="govuk-body govuk-!-font-size-16">Last updated on 18 June 2024
+  </p>
+
+<h2 class="govuk-heading-l">
+  Dev and Test environments
+</h2>
+<p>
+  For our prototyping purposes, we're happy to keep the following banner.
+</p>
+
+{{ govukPhaseBanner({
+  tag: {
+  text: "prototype",
+  classes: "govuk-tag--pink"
+  },
+    html: 'This is not a full service. It is not production code and you might experience problems.'
+}) }}
+<br><br>
+
+<h2 class="govuk-heading-l">
+  Stage and Production environments
+</h2>
+
+<h3 class="govuk-heading-m">
+  Going live on 17 June 2024
+</h3>
+<p>
+  Initially, we would have a flat text in the banner like this.
+</p>
+{{ govukPhaseBanner({
+  tag: {
+    text: "Beta"
+  },
+  html: 'This is a new service: your feedback will help us to improve it</a>.'
+}) }}
+
+<br><br>
+
+<h3 class="govuk-heading-m">
+  During June 2024
+</h3>
+<p>
+  Post-live, after we have managed to sort out the Survey  (behind the text link)
+</p>
+
+
+{{ govukPhaseBanner({
+  tag: {
+    text: "Beta"
+  },
+  html: 'This is a new service. Help us improve it, <a class="govuk-link" href="https://surveys.domains.gov.uk/s/VCVZSB/" target="new">report a problem or give your feedback (opens in new tab)</a>.'
+}) }}
+
+{% endblock %}
+

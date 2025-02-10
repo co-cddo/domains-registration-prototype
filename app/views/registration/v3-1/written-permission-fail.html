@@ -1,0 +1,56 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Written permission elimination – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+  {{ govukPhaseBanner({
+    tag: {
+    text: "prototype",
+    classes: "govuk-tag--pink"
+    },
+      html: 'This is not a full service. It is not production code and you might experience problems.'
+  }) }}
+ 
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">
+        Your registrant does not have the evidence required to get a .gov.uk domain name 
+      </h1>
+      
+      
+      {# Alternte hint text, this is 'central' #}
+      {% if (data['registrant-type'] == "Central government department or agency") %}     
+      
+      
+            <p class="govuk-body">Your registrant must get permission to apply for a .gov.uk domain name from the chief information officer or equivalent.
+            </p>
+          
+
+              {% else %}
+              {# Alternte hint text, this is 'parish' #}
+              
+          
+                <p class="govuk-body">
+                  Your registrant must get written permission from the chief executive or equivalent.
+                </p>
+          
+            {% endif %}
+            
+      <p class="govuk-body">
+        <a href="https://www.gov.uk/guidance/get-permission-to-apply-for-a-govuk-domain-name" class="govuk-link">Your registrant must get permission to apply</a>.
+      </p>
+    </div>
+  </div>
+
+{% endblock %}

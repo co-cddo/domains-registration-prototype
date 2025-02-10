@@ -1,0 +1,570 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Check your answers – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+  {{ govukPhaseBanner({
+    tag: {
+    text: "prototype",
+    classes: "govuk-tag--pink"
+    },
+      html: 'This is not a full service. It is not production code and you might experience problems.'
+  }) }}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <h1 class="govuk-heading-xl">
+        Check your answers 
+      </h1>
+      <div id="checkanswers-hint" class="govuk-hint">
+        Make sure your answers are complete and correct. If you need to change any of your details, change them at this stage. 
+      </div>
+      {# Registrar details starts. #}
+      {# Registrar details are the same for all scenarios, all user types. #}
+      <h2 class="govuk-heading-m">Registrar details</h2>
+      {{ govukSummaryList({
+        rows: [
+        {
+          key: {
+            text: "Organisation name"
+          },
+          value: {
+            html: data['registrar']
+          },
+          actions: {
+            items: [
+              {
+                href: "registrar-details",
+                text: "Change",
+                visuallyHiddenText: "Registrant organisation type"
+              }
+            ]
+          }
+        }
+        ,
+       
+        {
+          key: {
+            text: "Contact details"
+          },
+          value: {
+            html: (data['registrarfullName'] | title)+"<br>"+data['registrarTelNumber']+"<br>"+data['registrarEmail']
+            
+          },
+          actions: {
+            items: [
+              {
+                href: "registrar-details",
+                text: "Change",
+                visuallyHiddenText: "Registrant details"
+              }
+            ]
+          }
+        }
+        ]
+      }) }}
+
+      {# Registrar details ends. #}
+
+    
+    <h2 class="govuk-heading-m">Domain request details</h2>
+    {# Route 2 >> this is 'central' #}
+    {% if (data['registrant-type'] == "Central government department or agency") %}
+     {{ govukSummaryList({
+      rows: [
+        {
+          key: {
+            text: "Organisation type"
+          },
+          value: {
+            html: data['registrant-type']
+            
+          },
+          actions: {
+            items: [
+              {
+                href: "registrant-type",
+                text: "Change",
+                visuallyHiddenText: "Registrant organisation type"
+              }
+            ]
+          }
+        }
+        ,
+        
+        {
+          key: {
+            text: "Reason for request"
+          },
+          value: {
+            html: data['purpose']
+            
+          },
+          actions: {
+            items: [
+              {
+                href: "domain-purpose",
+                text: "Change",
+                visuallyHiddenText: "Domain purpose"
+              }
+            ]
+          }
+        }
+        ,
+        {
+          key: {
+            text: "Exemption from GOV.UK website"
+          },
+          value: {
+            html: (data['exemption'])+"<br>"+'<a class="govuk-link" href="#">gds0054.pdf</a>'
+            
+          },
+          actions: {
+            items: [
+              {
+                href: "exemption",
+                text: "Change",
+                visuallyHiddenText: "Exemption"
+              }
+            ]
+          }
+        }
+        ,
+        
+        {
+          key: {
+            text: "Permission to apply"
+          },
+          value: {
+            html: (data['written-permission'])+"<br>"+'<a class="govuk-link" href="#">govcio-letter.pdf</a>'
+            
+          },
+          actions: {
+            items: [
+              {
+                href: "written-permission",
+                text: "Change",
+                visuallyHiddenText: "Registrant's permission to apply"
+              }
+            ]
+          }
+        }
+        ,
+        {
+          key: {
+            text: "Domain name"
+          },
+          value: {
+            html: data['domain']
+            
+          },
+          actions: {
+            items: [
+              {
+                href: "domain",
+                text: "Change",
+                visuallyHiddenText: "Domain"
+              }
+            ]
+          }
+        }
+        ,
+        
+        {
+          key: {
+            text: "Minister's support"
+          },
+          value: {
+            html: data['minister']
+            
+          },
+          actions: {
+            items: [
+              {
+                href: "minister",
+                text: "Change",
+                visuallyHiddenText: "Registrant details"
+              }
+            ]
+          }
+        }
+        ]
+      }) }}
+
+      {# Route 2 >> this is 'Non-departmental body' #}
+      {% elseif (data['registrant-type'] == "Non-departmental body - also known as an arm's length body") %}
+       {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Organisation type"
+            },
+            value: {
+              html: data['registrant-type']
+              
+            },
+            actions: {
+              items: [
+                {
+                  href: "registrant-type",
+                  text: "Change",
+                  visuallyHiddenText: "Registrant organisation type"
+                }
+              ]
+            }
+          }
+          ,
+          
+          {
+            key: {
+              text: "Reason for request"
+            },
+            value: {
+              html: data['purpose']
+              
+            },
+            actions: {
+              items: [
+                {
+                  href: "domain-purpose",
+                  text: "Change",
+                  visuallyHiddenText: "Domain purpose"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "Exemption from GOV.UK website"
+            },
+            value: {
+              html: (data['exemption'])+"<br>"+'<a class="govuk-link" href="#">gds0054.pdf</a>'
+              
+            },
+            actions: {
+              items: [
+                {
+                  href: "exemption",
+                  text: "Change",
+                  visuallyHiddenText: "Exemption"
+                }
+              ]
+            }
+          }
+          ,
+          
+          {
+            key: {
+              text: "Permission to apply"
+            },
+            value: {
+              html: (data['written-permission'])+"<br>"+'<a class="govuk-link" href="#">govcio-letter.pdf</a>'
+              
+            },
+            actions: {
+              items: [
+                {
+                  href: "written-permission",
+                  text: "Change",
+                  visuallyHiddenText: "Registrant's permission to apply"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "Domain name"
+            },
+            value: {
+              html: data['domain']
+              
+            },
+            actions: {
+              items: [
+                {
+                  href: "domain",
+                  text: "Change",
+                  visuallyHiddenText: "Domain"
+                }
+              ]
+            }
+          }
+          ,
+          
+          {
+            key: {
+              text: "Minister's support"
+            },
+            value: {
+              html: data['minister']
+            },
+            actions: {
+              items: [
+                {
+                  href: "minister",
+                  text: "Change",
+                  visuallyHiddenText: "Registrant details"
+                }
+              ]
+            }
+          }
+          ]
+        }) }}
+
+     
+    
+    {% elseif (data['registrant-type'] == "Parish or community council") %}
+     {# Route 1 >> this is 'parish' #}
+      {{ govukSummaryList({
+        rows: [
+
+        {
+          key: {
+            text: "Organisation type"
+          },
+          value: {
+            html: data['registrant-type']
+            
+          },
+          actions: {
+            items: [
+              {
+                href: "registrant-type",
+                text: "Change",
+                visuallyHiddenText: "Registrant organisation type"
+              }
+            ]
+          }
+        }
+       ,
+        {
+          key: {
+            text: "Domain name"
+          },
+          value: {
+            html: data['domain']
+            
+          },
+          actions: {
+            items: [
+              {
+                href: "domain",
+                text: "Change",
+                visuallyHiddenText: "Domain"
+              }
+            ]
+          }
+        }
+      ]
+      }) }}
+
+     {% elseif (data['registrant-type'] == "Neighbourhood or village council") %}
+     {# Route 1 >> this is 'Neighbourhood' #}
+      {{ govukSummaryList({
+        rows: [
+
+        {
+          key: {
+            text: "Organisation type"
+          },
+          value: {
+            html: data['registrant-type']
+            
+          },
+          actions: {
+            items: [
+              {
+                href: "registrant-type",
+                text: "Change",
+                visuallyHiddenText: "Registrant organisation type"
+              }
+            ]
+          }
+        }
+       ,
+        {
+          key: {
+            text: "Domain name"
+          },
+          value: {
+            html: data['domain']
+            
+          },
+          actions: {
+            items: [
+              {
+                href: "domain",
+                text: "Change",
+                visuallyHiddenText: "Domain"
+              }
+            ]
+          }
+        }
+      ]
+      }) }}
+
+      {% else %}
+      {# Route 3 >> all other cases. #}
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Organisation type"
+            },
+            value: {
+              html: data['registrant-type']
+              
+            },
+            actions: {
+              items: [
+                {
+                  href: "registrant-type",
+                  text: "Change",
+                  visuallyHiddenText: "Registrant organisation type"
+                }
+              ]
+            }
+          }
+          ,
+          
+          {
+            key: {
+              text: "Permission to apply"
+            },
+            value: {
+              html: (data['written-permission'])+"<br>"+'<a class="govuk-link" href="#">govcio-letter.pdf</a>'
+              
+            },
+            actions: {
+              items: [
+                {
+                  href: "written-permission",
+                  text: "Change",
+                  visuallyHiddenText: "Registrant's permission to apply"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "Domain name"
+            },
+            value: {
+              html: data['domain']
+
+            },
+            actions: {
+              items: [
+                {
+                  href: "domain",
+                  text: "Change",
+                  visuallyHiddenText: "Domain"
+                }
+              ]
+            }
+          }
+          ]
+        }) }}
+      
+      {% endif %}
+      
+        <h2 class="govuk-heading-m">Registrant  details</h2>
+        {{ govukSummaryList({
+          rows: [
+  
+  
+          {
+            key: {
+              text: "Organisation name"
+            },
+            value: {
+              html: data['registrant']
+              
+            },
+            actions: {
+              items: [
+                {
+                  href: "registrant-details",
+                  text: "Change",
+                  visuallyHiddenText: "registrant"
+                }
+              ]
+            }
+          }
+          ,
+            {
+              key: {
+                text: "Contact details"
+              },
+              value: {
+                html: (data['registrantfullName'] | title)+"<br>"+data['regtelephoneNumber']+"<br>"+data['regEmail']
+                
+              },
+              actions: {
+                items: [
+                  {
+                    href: "registrant-details",
+                    text: "Change",
+                    visuallyHiddenText: "Registrant details"
+                  }
+                ]
+              }
+            }
+            ,
+            {
+              key: {
+                html: "Registry<br> (public information)"
+              },
+              value: {
+                html: (data['regpubroleName'] | title)+"<br>"+data['regpubEmail']
+                
+              },
+              actions: {
+                items: [
+                  {
+                    href: "registry-details",
+                    text: "Change",
+                    visuallyHiddenText: "Registry details"
+                  }
+                ]
+              }
+            }
+         
+          
+        ]
+      }) }}
+    
+      <h2 class="govuk-heading-m">
+        Now send your registrant's application 
+      </h2>
+
+      <p>
+        By submitting this application you are confirming the details you are providing are correct to the best of your knowledge.
+      </p>
+
+      
+        <form class="form" action="confirmation" method="post">
+
+        {{ govukButton({
+          text: "Accept and send"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

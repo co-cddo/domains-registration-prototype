@@ -1,0 +1,77 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Confirmation page – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+
+<h1 class="govuk-heading-s">
+  From: Domains Team [approvals@domains.gov.uk]
+<br>
+Subject: Subject: {{ data['domain'] }}.gov.uk application approved
+</h1>
+
+
+
+<h2 class="govuk-heading-m">Reference number: GOV6B86B2</h2>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+  <p>
+  Dear  {{ data['registrarfullName'] }},
+  </p>
+  
+  <p>
+  Thanks for using the 'Get approval to use a gov.uk domain name' service and submitting your registrant's request to the Domains Team.
+  <br><br>
+  Based on the answers you have provided, the requested {{ data['domain'] }}.gov.uk has now been approved.
+</p>
+
+<h3 class="govuk-heading-s">Your answers</h3>
+<p>
+  Organisation type: {{ ( data ['registrant-type'] | title) }}<br>
+  Reason for request: {{ data['purpose']  }}<br>
+  Exemption from GOV.UK website: Yes<br>
+  Permission to apply: Yes<br>
+  Domain name: {{ data['domain'] }} <br>  
+  Minister's support: No<br>
+  Registrant organisation name: {{ (data['registrant'] | title) }} <br>
+  Registrant contact name: {{ (data['registrantfullName'] | title) }} <br> 
+  Registrant contact telephone: {{ (data['regtelephoneNumber']) }} <br> 
+  Registrant contact email: {{ (data['regEmail']) }} <br>
+  Registry role name (public information): {{ (data['regpubroleName'] | title)}} <br> 
+  Registry email (public information): {{(data['regpubEmail']) }}
+</p>
+
+<h4 class="govuk-heading-s">
+  Membership token for Nominet
+</h4>
+<p>[ 0002-{{data['domain']}}-GOV-7780-038472 ]</p>  
+
+  
+  
+    <h5 class="govuk-heading-s">
+      What happens next
+    </h5>
+
+      <ol class="govuk-list govuk-list--number govuk-list--spaced">
+        <li>Use the Membership Token to register the domain in the Nominet portal or using EPP. This token is valid for 60 calendar days. 
+        </li>
+          <li>Make sure the contact details you input into the registry match the details you added in the application for the .gov.uk domain name.
+          </li>
+          <li>Please remind your registrant that they are accountable for their domain names. You can share the get started with your .gov.uk domain name guidance.
+          </li>
+      </ol>
+
+      {{ govukInsetText({
+        html: 'If you have any questions you can email <code class="govspeak-code">approvals@domains.gov.uk</code>.'
+      }) }}
+
+  <p class="govuk-body"> Kind regards, <br>Domains Team </p>
+    </div>
+  </div>
+
+{% endblock %}

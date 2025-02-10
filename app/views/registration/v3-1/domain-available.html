@@ -1,0 +1,135 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Domain – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+  {{ govukPhaseBanner({
+    tag: {
+    text: "prototype",
+    classes: "govuk-tag--pink"
+    },
+      html: 'This is not a full service. It is not production code and you might experience problems.'
+  }) }}
+ 
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form class="form" action="domain-available-answer" id="mainForm" method="post">
+
+
+    {# Parish council suggested domains #}
+      {% if (data['registrant-type'] == "Parish or community council") %}
+      {{ govukRadios({
+      name: "parishavailabledomains",
+      fieldset: {
+        legend: {
+          text: "Which domain are you planning to use?",
+          isPageHeading: true,
+          classes: "govuk-fieldset__legend--l"
+        }
+      },
+      hint: {
+        text: "Based on your organisation details we have a list of available domain names for you"
+      },
+      
+      items: [     
+      {
+          value: data['registrant']+"parishcouncil.gov.uk",
+          html: data['registrant']+"parishcouncil.gov.uk",
+          checked: checked("parishavailabledomains", data['registrant']+"parishcouncil.gov.uk")
+        },
+        {
+          value: data['registrant']+"parish.gov.uk",
+          html: data['registrant']+"parish.gov.uk",
+          checked: checked("parishavailabledomains", data['registrant']+"parish.gov.uk")
+          
+        },
+      
+        {
+          value: data['registrant']+"-pc.gov.uk",
+          html: data['registrant']+"-pc.gov.uk",
+          checked: checked("parishavailabledomains", data['registrant']+"-pc.gov.uk")
+        
+        },
+        {
+          divider: "or"
+        },
+        {
+          value: "choose",
+          text: "Choose my own",
+          checked: checked("parishavailabledomains", "choose")
+        }
+      ]
+    }) }}
+    {% else %}
+    {{ govukRadios({
+      name: "townavailabledomains",
+      fieldset: {
+        legend: {
+          text: "Which domain are you planning to use?",
+          isPageHeading: true,
+          classes: "govuk-fieldset__legend--l"
+        }
+      },
+      hint: {
+        text: "Based on your organisation details the following is available for you"
+      },
+      items: [     
+      {
+          value: data['registrant']+"towncouncil.gov.uk",
+          html: data['registrant']+"towncouncil.gov.uk",
+          checked: checked("townavailabledomains", data['registrant']+"towncouncil.gov.uk")
+        },
+        {
+          value: data['registrant']+"town.gov.uk",
+          html: data['registrant']+"town.gov.uk",
+          checked: checked("townavailabledomains", data['registrant']+"town.gov.uk")
+          
+        },
+      
+        {
+          value: data['registrant']+"-tc.gov.uk",
+          html: data['registrant']+"-tc.gov.uk",
+          checked: checked("townavailabledomains", data['registrant']+"-tc.gov.uk")
+        
+        },
+        {
+          divider: "or"
+        },
+        {
+          value: "choose2",
+          text: "Choose my own",
+          checked: checked("townavailabledomains", "choose2")
+        }
+      ]
+    }) }}
+    {% endif %}
+     
+    
+        <div class="govuk-button-group">
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+        {% if data['COMPLETED'] == true %}
+        <button type="submit" onclick="document.getElementById('mainForm').action='answers';"
+        class="govuk-button govuk-button--secondary govuk-!-margin-right-1 govuk-!-margin-top-6" data-module="govuk-button">Back to answers
+        </button>
+        {% endif %}
+      </div>
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

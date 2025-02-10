@@ -1,0 +1,129 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Registrant organisation type – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+  {{ govukPhaseBanner({
+    tag: {
+    text: "prototype",
+    classes: "govuk-tag--pink"
+    },
+      html: 'This is not a full service. It is not production code and you might experience problems.'
+  }) }}
+ 
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      
+      <form class="form" action="registrant-type-answer" id="mainForm" method="post">
+        {{ govukRadios({
+          name: "registrant-type",
+          fieldset: {
+            legend: {
+              text: "Who is this domain name for?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          hint: {
+            text: "Your registrant must be from an eligible organisation to get a .gov.uk domain name."
+          },
+          items: [
+            {
+              value: "Central government department or agency",
+              text: "Central government department or agency",
+              checked: checked("registrant-type", "Central government department or agency")
+            },
+            {
+              value: "Non-departmental body - also known as an arm's length body",
+              text: "Non-departmental body - also known as an arm's length body",
+              checked: checked("registrant-type", "Non-departmental body - also known as an arm's length body")
+            },
+            {
+              value: "Parish or community council",
+              text: "Parish or community council",
+              checked: checked("registrant-type", "Parish or community council")
+            },
+            {
+              value: "Town",
+              text: "Town council",
+              checked: checked("registrant-type", "Town")
+            },
+            {
+              value: "Town, county, borough, metropolitan or district council",
+              text: "District, borough, city or county council",
+              checked: checked("registrant-type", "Town, county, borough, metropolitan or district council")
+            },
+            {
+              value: "Fire service",
+              text: "Fire service",
+              checked: checked("registrant-type", "Fire service")
+            },
+            {
+              value: "Combined or unitary authority",
+              text: "Combined or unitary authority",
+              checked: checked("registrant-type", "Combined or unitary authority")
+            },
+            {
+              value: "Police and crime commissioner",
+              text: "Police and crime commissioner",
+              checked: checked("registrant-type", "Police and crime commissioner")
+            },
+            {
+              value: "Joint authority",
+              text: "Joint authority",
+              checked: checked("registrant-type", "Joint authority")
+            },
+            {
+              value: "Joint committee",
+              text: "Joint committee",
+              checked: checked("registrant-type", "Joint committee")
+            },
+            {
+              value: "Organisation representing a group of public sector bodies",
+              text: "Organisation representing a group of public sector bodies",
+              checked: checked("registrant-type", "Organisation representing a group of public sector bodies")
+            },
+            {
+              value: "Organisation across public sector bodies",
+              text: "Organisation representing a profession across public sector bodies",
+              checked: checked("registrant-type", "Organisation across public sector bodies")
+            },
+            {
+              divider: "or"
+            },
+            {
+              value: "none",
+              text: "None of the above",
+              checked: checked("registrant-type", "none")
+            }
+          ]
+        }) }}
+        
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+          
+         
+        
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
