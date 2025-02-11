@@ -31,17 +31,8 @@
         Choose a .gov.uk domain name
       </h1>
       <div>
-        <p class="govuk-body">A .gov.uk domain name must clearly describe your registrant's organisation or government initiative. For example: <br>
-          <ul class="govuk-list govuk-list--bullet">
-            <li>central department can use <code class="govspeak-code">hmrc.gov.uk</code></li>
-            <li>county council can use <code class="govspeak-code">northamptonshire.gov.uk</code></li>
-            <li>town council can use <code class="govspeak-code">biggleswadetowncouncil.gov.uk</code>or <code class="govspeak-code">biggleswadetown.gov.uk</code></li>
-            <li>parish councils can use <code class="govspeak-code">bonbyparishcouncil.gov.uk</code>, <code class="govspeak-code">bonbyparish.gov.uk</code> or <code class="govspeak-code">bonby-pc.gov.uk</code></li>
-          </ul>
-          </p>
-          <p>If your council uses an established abbreviation in its current domain name, you may be able to use it for a .gov.uk domain. Any domain names using an abbreviation must end with <code class="govspeak-code">-pc.gov.uk</code>.
-          <p>
-          We approve domain name requests on a first-come first-served basis. 
+        <p class="govuk-body">A .gov.uk domain name must clearly describe your registrant's organisation or government initiative. <br><br>
+          We approve domain name requests on a first-come first-served basis. You must check if the proposed .gov.uk domain name is available manually using the Nominet portal or the <a href="#" class="govuk-link--no-visited-state" target="new">Nominet lookup tool (opens in new tab)</a>, or use the EPP check command if you're using automated tools.
         </p>
             
       </div>
@@ -53,25 +44,53 @@
 
       <form class="form" action="domain-confirm" id="mainForm" method="post">
 
+        
+
         {{ govukInput({
           label: {
-            text: "Enter the .gov.uk domain name"
+            text: "Enter a town council .gov.uk domain name"
           },
-          classes: "govuk-input--width-5",
-          id: "domain",
-          name: "domain",
-          value: data['domain'],
-          classes: "govuk-! -width-three-quarters",
+          classes: "govuk-input",
+          id: "weight",
+          name: "weight",
           suffix: {
-            text: ""
+            text: "towncouncil.gov.uk"
           },
           spellcheck: false
         }) }}
 
+
+        {{ govukInput({
+          label: {
+            text: "Enter a town council .gov.uk domain name"
+          },
+          classes: "govuk-input",
+          id: "weight",
+          name: "weight",
+          suffix: {
+            text: "-tc.gov.uk"
+          },
+          spellcheck: false
+        }) }}
+
+        {{ govukInput({
+          label: {
+            text: "Enter a town council .gov.uk domain name"
+          },
+          classes: "govuk-input",
+          id: "weight",
+          name: "weight",
+          suffix: {
+            text: "town.gov.uk"
+          },
+          spellcheck: false
+        }) }}
+
+        
  
         
         {{ govukWarningText({
-          text: "The service checks if the chosen domain name is available for you.
+          text: "The serviece checks if the chosen domain name is available for you.
           ",
           iconFallbackText: "Warning"
         }) }}

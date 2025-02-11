@@ -22,86 +22,58 @@
 
 {% block content %}
 
-<form class="form" action="domain-confirm-answer" id="mainForm" method="post">
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-        <div class="govuk-form-group">
+
+ 
+         
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-two-thirds">
+              {% set stringToCheck = data['domain'] %}
+              {% if (stringToCheck.includes('.gov.uk')) %}
+              <h1 class="govuk-heading-l">
+               {{data['domain']}} is available 
+                </h1>
+             {% else %}
+             <h1 class="govuk-heading-l">
+             {{data['domain']}}.gov.uk is available
+             </h1>
+             {% endif %}
+            
+
+                    
           
-          <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
-            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-              <h1 class="govuk-heading-l">This domain name is available</h1>
-            {% set stringToCheck = data['domain'] %}
-            {% if data['registrant-type'] == "Town" %}
-            <h1 class="govuk-heading-m">
-              Is {{data['domain']}}towncouncil.gov.uk the correct domain name?
-              </h1>
-           {% elseif data['registrant-type'] == "Parish or communty council" %}
-           <h1 class="govuk-heading-m">
-           Is {{data['domain']}}parishcouncil.gov.uk the correct domain name?
-           </h1>
-           {% else %}
-           Is {{data['domain']}}.gov.uk the correct domain name?
-           {% endif %}
-          </legend>
+            <form class="form" action="domain-confirm-answer" id="mainForm" method="post">
 
-            <div id="changedName-hint" class="govuk-hint">
-              You can change your domain name suffix, based on the availability below
-
-            </div>
-            <div class="govuk-radios govuk-radios" data-module="govuk-radios">
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="domainconfirm" name="domainconfirm" type="radio" value="yes">
-                <label class="govuk-label govuk-radios__label" for="domainconfirm">
-                   Yes, this is correct
-                </label>
-              </div>
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="domainconfirm-0" name="domainconfirm" type="radio" value="parish">
-                {% if data['registrant-type'] == "Town"  %}
-                <label class="govuk-label govuk-radios__label" for="domainconfirm-0">
-                  Yes, but change to {{data['domain']}}town.gov.uk
-                </label>
-                {% else %}
-                <label class="govuk-label govuk-radios__label" for="domainconfirm-0">
-                  Yes, but change to {{data['domain']}}parish.gov.uk
-                </label>
-              {% endif %}
-              </div>
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="domainconfirm-1" name="domainconfirm" type="radio" value="pc">
-                {% if data['registrant-type'] == "Town"  %}
-
-                <label class="govuk-label govuk-radios__label" for="domainconfirm-1">
-                  Yes, but change to {{data['domain']}}-tc.gov.uk
-                </label>
-                {% else %}
-                <label class="govuk-label govuk-radios__label" for="domainconfirm-1">
-                  Yes, but change to {{data['domain']}}-pc.gov.uk
-                </label>
-                {% endif %}
-
-              </div>
-              <div class="govuk-radios__divider">or</div>
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="domainconfirm-2" name="domainconfirm" type="radio" value="no">
-                <label class="govuk-label govuk-radios__label" for="domainconfirm-2">
-                  No, I want to start again
-                </label>
-              </div>
-            </div>
-          </fieldset>
-        </div>
-
-        {{ govukWarningText({
-          text: "The Cyber and Protection Domains Team will decide whether to approve your chosen domain name.
-          ",
-          iconFallbackText: "Warning"
-        }) }}
-
-        <div class="govuk-button-group">
-        {{ govukButton({
-          text: "Continue"
-        }) }}
+              {{ govukRadios({
+                classes: "govuk-radios",
+                name: "domainconfirm",
+                fieldset: {
+                  legend: {
+                    html: "Would you like to get approval for this domain name?",       
+                    isPageHeading: false,
+                    classes: "govuk-fieldset__legend--m"
+                  }
+                },
+                hint: {
+                  html: "The Cyber and Protection Domains Team will decide whether to approve your chosen domain name"
+                },
+                items: [
+                  {
+                    value: "Yes",
+                    text: "Yes, continue to get approval",
+                    checked: checked("domainconfirm", "Yes")
+                  },
+                  {
+                    value: "No",
+                    text: "No, I want to change it",
+                    checked: checked("domainconfirm", "No")
+                  }
+                ]
+              }) }}
+      
+              <div class="govuk-button-group">
+              {{ govukButton({
+                text: "Continue"
+              }) }}
 
         {% if data['COMPLETED'] == true %}
         <button type="submit" onclick="document.getElementById('mainForm').action='answers';"

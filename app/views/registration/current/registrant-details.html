@@ -124,53 +124,22 @@
           value: data['regEmail']
         }) }}
 
-        <h3 class="govuk-heading-m">
-          Identity details 
-        </h3>
-        <p class="govuk-body">
-          You will be asked to enter a URL to confirm the registrant's contact identity details. For example, the council website, parish meeting notes or the principal authority website</a>
-        </p>
-        {% set url %}
-{{ govukInput({
-  id: "url",
-  name: "url",
-  type: "text",
-  autocomplete: "text",
-  spellcheck: false,
-  
-  label: {
-    text: "Enter website URL"
-  }
-}) }}
-{% endset -%}
+       
+        {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
 
-{{ govukRadios({
-  name: "contact",
-  fieldset: {
-    legend: {
-      text: "Can you provide a URL to confirm the registrant's contact identity?",
-      isPageHeading: true,
-      classes: "govuk-fieldset__legend--s"
-    }
-  },
-  hint: {
-    text: ""
-  },
-  items: [
-    {
-      value: "Yes",
-      text: "Yes, I can",
-      conditional: {
-        html: url
-      }
-    },
-    {
-      value: "No",
-      text: "No, I can't because the clerk is not listed online"
-    }
-    
-  ]
-}) }}
+        {{ govukTextarea({
+          name: "moreDetail",
+          id: "more-detail",
+          label: {
+            text: "Provide identity details",
+            classes: "govuk-label--m",
+            isPageHeading: true
+          },
+          hint: {
+            html: "We need evidence to confirm the registrant's contact identity details. Enter a URL for the principal authority website, council website or parish meeting notes. You might be asked for further information"
+          }
+          
+        }) }}
 
 
 
