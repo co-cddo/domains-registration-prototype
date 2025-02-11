@@ -31,14 +31,16 @@
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
               <h1 class="govuk-heading-l">This domain name is available</h1>
             {% set stringToCheck = data['domain'] %}
-            {% if (stringToCheck.includes('.gov.uk')) %}
+            {% if data['registrant-type'] == "Town" %}
             <h1 class="govuk-heading-m">
-              Is {{data['domain']}} the correct domain name?
+              Is {{data['domain']}}towncouncil.gov.uk the correct domain name?
               </h1>
-           {% else %}
+           {% elseif data['registrant-type'] == "Parish or communty council" %}
            <h1 class="govuk-heading-m">
            Is {{data['domain']}}parishcouncil.gov.uk the correct domain name?
            </h1>
+           {% else %}
+           Is {{data['domain']}}.gov.uk the correct domain name?
            {% endif %}
           </legend>
 
@@ -55,15 +57,29 @@
               </div>
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="domainconfirm-0" name="domainconfirm" type="radio" value="parish">
+                {% if data['registrant-type'] == "Town"  %}
+                <label class="govuk-label govuk-radios__label" for="domainconfirm-0">
+                  Yes, but change to {{data['domain']}}town.gov.uk
+                </label>
+                {% else %}
                 <label class="govuk-label govuk-radios__label" for="domainconfirm-0">
                   Yes, but change to {{data['domain']}}parish.gov.uk
                 </label>
+              {% endif %}
               </div>
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="domainconfirm-1" name="domainconfirm" type="radio" value="pc">
+                {% if data['registrant-type'] == "Town"  %}
+
+                <label class="govuk-label govuk-radios__label" for="domainconfirm-1">
+                  Yes, but change to {{data['domain']}}-tc.gov.uk
+                </label>
+                {% else %}
                 <label class="govuk-label govuk-radios__label" for="domainconfirm-1">
                   Yes, but change to {{data['domain']}}-pc.gov.uk
                 </label>
+                {% endif %}
+
               </div>
               <div class="govuk-radios__divider">or</div>
               <div class="govuk-radios__item">
