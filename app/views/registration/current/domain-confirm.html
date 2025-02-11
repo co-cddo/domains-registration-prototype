@@ -22,49 +22,64 @@
 
 {% block content %}
 
-
+<form class="form" action="domain-confirm-answer" id="mainForm" method="post">
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      
-      {% set stringToCheck = data['domain'] %}
-        {% if (stringToCheck.includes('.gov.uk')) %}
-        <h1 class="govuk-heading-l">
-          Is {{data['domain']}} the correct domain name?
-          </h1>
-       {% else %}
-       <h1 class="govuk-heading-l">
-       Is {{data['domain']}}.gov.uk the correct domain name?
-       </h1>
-       {% endif %}
+        <div class="govuk-form-group">
+          
+          <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <h1 class="govuk-heading-l">This domain name is available</h1>
+            {% set stringToCheck = data['domain'] %}
+            {% if (stringToCheck.includes('.gov.uk')) %}
+            <h1 class="govuk-heading-m">
+              Is {{data['domain']}} the correct domain name?
+              </h1>
+           {% else %}
+           <h1 class="govuk-heading-m">
+           Is {{data['domain']}}parishcouncil.gov.uk the correct domain name?
+           </h1>
+           {% endif %}
+          </legend>
 
-      <form class="form" action="domain-confirm-answer" id="mainForm" method="post">
+            <div id="changedName-hint" class="govuk-hint">
+              You can change your domain name suffix, based on the availability below
 
-        {{ govukRadios({
-          classes: "govuk-radios",
-          name: "domainconfirm",
-          fieldset: {
-            legend: {
-              text: "",
-                     
-              isPageHeading: false,
-              classes: "govuk-fieldset__legend--m"
-            }
-          },
-          hint: {
-            html: "The Domains Team will check if this is available and decide whether to approve it."
-          },
-          items: [
-            {
-              value: "Yes",
-              text: "Yes, I confirm this is correct",
-              checked: checked("domainconfirm", "Yes")
-            },
-            {
-              value: "No",
-              text: "No, I want to change it",
-              checked: checked("domainconfirm", "No")
-            }
-          ]
+            </div>
+            <div class="govuk-radios govuk-radios" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="domainconfirm" name="domainconfirm" type="radio" value="yes">
+                <label class="govuk-label govuk-radios__label" for="domainconfirm">
+                   Yes, this is correct
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="domainconfirm-0" name="domainconfirm" type="radio" value="parish">
+                <label class="govuk-label govuk-radios__label" for="domainconfirm-0">
+                  Yes, but change to {{data['domain']}}parish.gov.uk
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="domainconfirm-1" name="domainconfirm" type="radio" value="pc">
+                <label class="govuk-label govuk-radios__label" for="domainconfirm-1">
+                  Yes, but change to {{data['domain']}}-pc.gov.uk
+                </label>
+              </div>
+              <div class="govuk-radios__divider">or</div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="domainconfirm-2" name="domainconfirm" type="radio" value="no">
+                <label class="govuk-label govuk-radios__label" for="domainconfirm-2">
+                  No, I want to start again
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+        {{ govukWarningText({
+          text: "The Cyber and Protection Domains Team will decide whether to approve your chosen domain name.
+          ",
+          iconFallbackText: "Warning"
         }) }}
 
         <div class="govuk-button-group">

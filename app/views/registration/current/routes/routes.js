@@ -77,7 +77,7 @@ router.post('/domain-confirm-answer', function(request, response) {
         response.redirect("minister")}
     else if (domainConf == "Yes" && regType == "Non-departmental body - also known as an arm's length body"){
             response.redirect("minister")}
-    else if (domainConf == "Yes"){
+    else if (domainConf == "yes" || domainConf == "parish" || domainConf == "pc"){
             response.redirect("registrant-details")}
        else {response.redirect("domain")
     }

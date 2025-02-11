@@ -122,7 +122,6 @@
           autocomplete: "email",
           spellcheck: false,
           value: data['regEmail']
-          
         }) }}
 
         <h3 class="govuk-heading-m">
@@ -131,12 +130,12 @@
         <p class="govuk-body">
           You will be asked to enter a URL to confirm the registrant's contact identity details. For example, the council website, parish meeting notes or the principal authority website</a>
         </p>
-        {% set emailHtml %}
+        {% set url %}
 {{ govukInput({
-  id: "contact-by-email",
-  name: "contactByEmail",
-  type: "email",
-  autocomplete: "email",
+  id: "url",
+  name: "url",
+  type: "text",
+  autocomplete: "text",
   spellcheck: false,
   
   label: {
@@ -162,7 +161,7 @@
       value: "Yes",
       text: "Yes, I can",
       conditional: {
-        html: emailHtml
+        html: url
       }
     },
     {
