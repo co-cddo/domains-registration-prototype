@@ -31,31 +31,25 @@
         Choose a .gov.uk domain name
       </h1>
       <div>
-        <p class="govuk-body">A .gov.uk domain name must clearly describe your registrant's organisation or government initiative. For example: <br>
+        <p class="govuk-body">A .gov.uk domain name must clearly describe your registrant's organisation or government initiative. For example a: <br>
           <ul class="govuk-list govuk-list--bullet">
             <li>central department can use <code class="govspeak-code">hmrc.gov.uk</code></li>
             <li>county council can use <code class="govspeak-code">northamptonshire.gov.uk</code></li>
-            <li>town council can use <code class="govspeak-code">biggleswadetowncouncil.gov.uk</code>or <code class="govspeak-code">biggleswadetown.gov.uk</code></li>
-            <li>parish councils can use <code class="govspeak-code">bonbyparishcouncil.gov.uk</code>, <code class="govspeak-code">bonbyparish.gov.uk</code> or <code class="govspeak-code">bonby-pc.gov.uk</code></li>
+            <li>town council can use <code class="govspeak-code">biggleswadetowncouncil.gov.uk</code>or <code class="govspeak-code">biggleswadetown.gov.uk</code>or <code class="govspeak-code">biggleswade-tc.gov.uk</code></li>
+            <li>parish councils can use <code class="govspeak-code">kirkbymalzeardparishcouncil.gov.uk</code>, <code class="govspeak-code">kirkbymalzeardparish.gov.uk</code>, <code class="govspeak-code">kirkbymalzeard-pc.gov.uk</code></li>
           </ul>
           </p>
-          <p>If your council uses an established abbreviation in its current domain name, you may be able to use it for a .gov.uk domain. Any domain names using an abbreviation must end with <code class="govspeak-code">-pc.gov.uk</code>.
+          <p>If your parish council uses an established abbreviation in its current domain, you may be able to use it for a .gov.uk domain. Any domain applications using an abbreviation must end with <code class="govspeak-code">-pc.gov.uk</code>. For example, <code class="govspeak-code"> kmld-pc.gov.uk</code>
           <p>
-          We approve domain name requests on a first-come first-served basis. 
+            We approve domains on a first come first serviced basis.
         </p>
-            
       </div>
-      <p class="govuk-body">
-        <a href="https://www.gov.uk/guidance/choose-your-govuk-domain-name" class="govuk-link--no-visited-state" target="new">Follow rules on how to choose a .gov.uk domain name (opens in new tab)</a>.
-      </p>
       
-      
-
       <form class="form" action="domain-confirm" id="mainForm" method="post">
 
         {{ govukInput({
           label: {
-            text: "Enter the .gov.uk domain name"
+            text: "Enter domain name"
           },
           classes: "govuk-input--width-5",
           id: "domain",
@@ -71,7 +65,7 @@
  
         
         {{ govukWarningText({
-          text: "The service checks if the chosen domain name is available for you.
+          text: "This service will check if your chosen domain is available
           ",
           iconFallbackText: "Warning"
         }) }}

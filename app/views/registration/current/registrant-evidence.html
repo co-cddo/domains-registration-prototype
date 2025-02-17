@@ -1,0 +1,86 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Registrant evidence details
+      </h1>
+      <p>You need to give us evidence that the registrant's identity is correct. You might be asked for further information</p>
+
+      <form class="form" action="registrant-evidence-answer" method="post">
+        {% set emailHtml %}
+        {{ govukTextarea({
+          name: "websiteURL",
+          id: "websiteURL",
+          label: {
+            text: "",
+            classes: "govuk-label",
+            isPageHeading: true
+          },
+          hint: {
+            text: "Provide evidence to principal authority website, council website or parish meeting notes"
+          }
+        }) }}
+        
+        {% endset -%}
+
+        {{ govukRadios({
+          classes: "govuk-radios",
+          name: "registrantevidence",
+          fieldset: {
+            legend: {
+              text: "How are you going to provide this?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          hint: { 
+            text:""
+          },
+          items: [
+            {
+              value: "website",
+              text: "Website URL",
+              conditional: {
+                html: emailHtml
+              },
+              checked: checked("registrantevidence", "website"),
+              hint: {
+                text: ""
+              }
+            },
+            {
+              value: "upload",
+              text: "Upload evidence",
+              checked: checked("registrantevidence", "upload"),
+              hint: {
+                text: ""
+              }
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

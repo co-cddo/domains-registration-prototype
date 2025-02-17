@@ -20,7 +20,7 @@ router.post('/registrant-type-answer', function(request, response) {
         response.redirect("registrant-type-fail")}
     // Q: Route 1
         else if (registrantType == "Parish or community council" || registrantType == "Town" ){
-            response.redirect("domain")}
+            response.redirect("parish-size")}
     // Q: Route 2
     else if (registrantType == "Central government department or agency" || registrantType == "Non-departmental body - also known as an arm's length body" ){
                 response.redirect("domain-purpose")}
@@ -77,9 +77,31 @@ router.post('/domain-confirm-answer', function(request, response) {
         response.redirect("minister")}
     else if (domainConf == "Yes" && regType == "Non-departmental body - also known as an arm's length body"){
             response.redirect("minister")}
-    else if (domainConf == "yes" || domainConf == "parish" || domainConf == "pc"){
+    else if (domainConf == "Yes" || domainConf == "Parish or community council" || domainConf == "Town"){
             response.redirect("registrant-details")}
        else {response.redirect("domain")
+    }
+})
+
+// Q: Registrant answer 
+router.post('/registrant-answer', function(request, response) {
+    var registrantAnswerType = request.session.data['registrant-type']
+    
+    if (registrantAnswerType == "Parish or community council" || registrantType == "Town"){
+        response.redirect("registrant-evidence")
+    } else {
+        response.redirect("registry-details")
+    }
+})
+
+// Q: Registrant evidence details (Parish and Town only)
+router.post('/registrant-evidence-answer', function(request, response) {
+
+    var registrantEvidence = request.session.data['registrantevidence']
+    if (registrantEvidence == "upload"){
+        response.redirect("registrant-evidence-upload")
+    } else {
+        response.redirect("registry-details")
     }
 })
 

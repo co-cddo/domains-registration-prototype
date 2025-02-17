@@ -51,7 +51,7 @@
 
         <Br>
       
-      <form class="form" action="registry-details" id="mainForm" method="post">
+      <form class="form" action="registrant-answer" id="mainForm" method="post">
         <h2 class="govuk-heading-m">
           Organisation details
         </h2>
@@ -125,21 +125,6 @@
         }) }}
 
        
-        {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
-
-        {{ govukTextarea({
-          name: "moreDetail",
-          id: "more-detail",
-          label: {
-            text: "Provide identity details",
-            classes: "govuk-label--m",
-            isPageHeading: true
-          },
-          hint: {
-            html: "We need evidence to confirm the registrant's contact identity details. Enter a URL for the principal authority website, council website or parish meeting notes. You might be asked for further information"
-          }
-          
-        }) }}
 
 
 
