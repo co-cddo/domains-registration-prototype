@@ -28,8 +28,13 @@
 
       
       <h1 class="govuk-heading-l">
-        Choose a .gov.uk domain name
+        Check availability of a .gov.uk domain name
       </h1>
+      
+      <h1 class="govuk-heading-m">
+        1. Choose a domain name
+      </h1>
+      
       <div>
         <p class="govuk-body">A .gov.uk domain name must clearly describe your registrant's organisation or government initiative. For example a: <br>
           <ul class="govuk-list govuk-list--bullet">
@@ -40,9 +45,20 @@
           </ul>
           </p>
           <p>If your parish council uses an established abbreviation in its current domain, you may be able to use it for a .gov.uk domain. Any domain applications using an abbreviation must end with <code class="govspeak-code">-pc.gov.uk</code>. For example, <code class="govspeak-code"> kmld-pc.gov.uk</code>
-          <p>
-            We approve domains on a first come first serviced basis.
+          
+            <h1 class="govuk-heading-m">
+              2. Check if  available
+            </h1>
+            {{ govukWarningText({
+              text: "This service will check if your chosen domain is available and approve it on a first come first serviced basis.
+              ",
+              iconFallbackText: "Warning"
+            }) }}
+            <p>
+            
         </p>
+          
+        
       </div>
       
       <form class="form" action="domain-confirm" id="mainForm" method="post">
@@ -63,16 +79,11 @@
         }) }}
 
  
-        
-        {{ govukWarningText({
-          text: "This service will check if your chosen domain is available
-          ",
-          iconFallbackText: "Warning"
-        }) }}
+      
 
         <div class="govuk-button-group">
         {{ govukButton({
-          text: "Continue"
+          text: "Check if available"
         }) }}
 
         {% if data['COMPLETED'] == true %}
