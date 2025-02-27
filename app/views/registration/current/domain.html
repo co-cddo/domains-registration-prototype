@@ -31,9 +31,7 @@
         Check availability of a .gov.uk domain name
       </h1>
       
-      <h1 class="govuk-heading-m">
-        1. Choose a domain name
-      </h1>
+      
       
       <div>
         <p class="govuk-body">A .gov.uk domain name must clearly describe your registrant's organisation or government initiative. For example a: <br>
@@ -44,16 +42,9 @@
             <li>parish councils can use <code class="govspeak-code">kirkbymalzeardparishcouncil.gov.uk</code>, <code class="govspeak-code">kirkbymalzeardparish.gov.uk</code>, <code class="govspeak-code">kirkbymalzeard-pc.gov.uk</code></li>
           </ul>
           </p>
-          <p>If your parish council uses an established abbreviation in its current domain, you may be able to use it for a .gov.uk domain. Any domain applications using an abbreviation must end with <code class="govspeak-code">-pc.gov.uk</code>. For example, <code class="govspeak-code"> kmld-pc.gov.uk</code>
-          
-            <h1 class="govuk-heading-m">
-              2. Check if  available
-            </h1>
-            {{ govukWarningText({
-              text: "This service will check if your chosen domain is available and approve it on a first come first serviced basis.
-              ",
-              iconFallbackText: "Warning"
-            }) }}
+          <p>If your parish council uses an established abbreviation in its current domain, you may be able to use it for a .gov.uk domain. Any domain applications using an abbreviation must end with -pc.gov.uk, -parish.gov.uk, <Br>-parishcouncil.gov.uk or -tc.gov.uk, -town.gov.uk, -towncouncil.gov.uk. For example, <code class="govspeak-code"> kmld-pc.gov.uk</code>or <code class="govspeak-code"> bgw-tc.gov.uk</code>
+            <br><br>We approve domains on a first come first serviced basis.
+
             <p>
             
         </p>
@@ -77,10 +68,11 @@
           },
           spellcheck: false
         }) }}
-
- 
-      
-
+        {{ govukWarningText({
+          text: "This service will check if your chosen domain is available.
+          ",
+          iconFallbackText: "Warning"
+        }) }}
         <div class="govuk-button-group">
         {{ govukButton({
           text: "Check if available"
@@ -91,6 +83,7 @@
         class="govuk-button govuk-button--secondary govuk-!-margin-right-1 govuk-!-margin-top-6" data-module="govuk-button">Back to answers
         </button>
         {% endif %}
+        
       </div>
       </form>
 
