@@ -28,7 +28,7 @@
 
       
       <h1 class="govuk-heading-l">
-        Check availability of a .gov.uk domain name
+        Choose a .gov.uk domain name
       </h1>
       
       
@@ -42,8 +42,9 @@
             <li>parish councils can use <code class="govspeak-code">kirkbymalzeardparishcouncil.gov.uk</code>, <code class="govspeak-code">kirkbymalzeardparish.gov.uk</code>, <code class="govspeak-code">kirkbymalzeard-pc.gov.uk</code></li>
           </ul>
           </p>
-          <p>If your parish council uses an established abbreviation in its current domain, you may be able to use it for a .gov.uk domain. Any domain applications using an abbreviation must end with -pc.gov.uk, -parish.gov.uk, <Br>-parishcouncil.gov.uk or -tc.gov.uk, -town.gov.uk, -towncouncil.gov.uk. For example, <code class="govspeak-code"> kmld-pc.gov.uk</code>or <code class="govspeak-code"> bgw-tc.gov.uk</code>
-            <br><br>We approve domains on a first come first serviced basis.
+          <p>If your parish council uses an established abbreviation in its current domain, you may be able to use it for a .gov.uk domain. Any domain name requests using an abbreviation must end with -pc.gov.uk, -parish.gov.uk, <Br>-parishcouncil.gov.uk or -tc.gov.uk, -town.gov.uk, -towncouncil.gov.uk. For example, <code class="govspeak-code"> kmld-pc.gov.uk</code>or <code class="govspeak-code"> bgw-tc.gov.uk</code>
+            <p class="govuk-body">We approve domain name requests on a first-come first-served basis. You must check if the proposed .gov.uk domain name is available manually using the Nominet portal or the <a href="#" class="govuk-link--no-visited-state" target="new">Nominet lookup tool (opens in new tab)</a>, or use the EPP check command if you're using automated tools.
+            </p>
 
             <p>
             
@@ -56,7 +57,7 @@
 
         {{ govukInput({
           label: {
-            text: "Enter domain name"
+            text: "Enter the .gov.uk domain name"
           },
           classes: "govuk-input--width-5",
           id: "domain",
@@ -69,13 +70,13 @@
           spellcheck: false
         }) }}
         {{ govukWarningText({
-          text: "This service will check if your chosen domain is available.
+          text: "The Domains Team will check if this is available and decide whether to approve it.
           ",
           iconFallbackText: "Warning"
         }) }}
         <div class="govuk-button-group">
         {{ govukButton({
-          text: "Check if available"
+          text: "Continue"
         }) }}
 
         {% if data['COMPLETED'] == true %}
