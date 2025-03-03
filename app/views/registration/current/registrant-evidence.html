@@ -20,7 +20,9 @@
         Confirm registrant is in the role
 
       </h1>
-      <p>You need to confirm who has requested the .gov.uk domain. In most cases this will be the clerk. You might be asked for further information if details do not match those in the application.
+      <p>You need to confirm who has asked for the .gov.uk domain. In most cases this will be the clerk.
+      </p>   
+      <p>In most cases this will be the clerk. You might be asked for further information if details do not match those in the application.
       </p>
 
       <form class="form" action="registrant-evidence-answer" method="post">
@@ -34,7 +36,13 @@
             isPageHeading: true
           },
           hint: {
-            text: "Provide a link that shows the clerk’s name and position from one of the following sources: Principle Authority website, Parish council contact page or Parish Council meeting notes. If there is no online source you can upload evidence."
+            html: "Provide a link that shows the clerk’s name and position from one of the following sources: 
+            <ul class='govuk-list govuk-list--bullet govuk-hint'>
+              <li>Principle Authority website</li>
+              <li>Parish council contact page</li>
+              <li>Parish Council meeting notes</li>
+            </ul>
+            If there is no online source you can upload evidence."
           }
         }) }}
         

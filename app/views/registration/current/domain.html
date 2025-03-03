@@ -34,7 +34,7 @@
       
       
       <div>
-        <p class="govuk-body">A .gov.uk domain name must clearly describe your registrant's organisation or government initiative. For example a: <br>
+        <p class="govuk-body">We approve domain name requests on a first-come first-served basis. <br><br>A .gov.uk domain name must clearly describe your registrant's organisation or government initiative. For example a: <br>
           <ul class="govuk-list govuk-list--bullet">
             <li>central department can use <code class="govspeak-code">hmrc.gov.uk</code></li>
             <li>county council can use <code class="govspeak-code">northamptonshire.gov.uk</code></li>
@@ -43,10 +43,7 @@
           </ul>
           </p>
           <p>If your parish council uses an established abbreviation in its current domain, you may be able to use it for a .gov.uk domain. Any domain name requests using an abbreviation must end with -pc.gov.uk, -parish.gov.uk, <Br>-parishcouncil.gov.uk or -tc.gov.uk, -town.gov.uk, -towncouncil.gov.uk. For example, <code class="govspeak-code"> kmld-pc.gov.uk</code>or <code class="govspeak-code"> bgw-tc.gov.uk</code>
-            <p class="govuk-body">We approve domain name requests on a first-come first-served basis. You must check if the proposed .gov.uk domain name is available manually using the Nominet portal or the <a href="#" class="govuk-link--no-visited-state" target="new">Nominet lookup tool (opens in new tab)</a>, or use the EPP check command if you're using automated tools.
-            </p>
-
-            <p>
+          <p>
             
         </p>
           
@@ -70,8 +67,7 @@
           spellcheck: false
         }) }}
         {{ govukWarningText({
-          text: "The Domains Team will check if this is available and decide whether to approve it.
-          ",
+          html: 'Warning text: You must check if the proposed .gov.uk domain name is available manually using the <a href="#" class="govuk-link--no-visited-state" target="new">Nominet lookup tool (opens in new tab)</a> or the EPP check command.',
           iconFallbackText: "Warning"
         }) }}
         <div class="govuk-button-group">
