@@ -527,7 +527,26 @@
             ,
             {
               key: {
-                html: "Registry<br> (public information)"
+                html: "Registrant in role"
+              },
+              value: {
+                html: "Yes, evidence provided:<br>"+data['websiteURL'] 
+                
+              },
+              actions: {
+                items: [
+                  {
+                    href: "registrant-evidence",
+                    text: "Change",
+                    visuallyHiddenText: "Registry details"
+                  }
+                ]
+              }
+             
+            },
+            {
+              key: {
+                html: "Registry details<br>(public information)"
               },
               value: {
                 html: (data['regpubroleName'] | title)+"<br>"+data['regpubEmail']
@@ -542,6 +561,7 @@
                   }
                 ]
               }
+             
             }
          
           

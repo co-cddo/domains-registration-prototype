@@ -87,7 +87,7 @@ router.post('/domain-confirm-answer', function(request, response) {
 router.post('/registrant-answer', function(request, response) {
     var registrantAnswerType = request.session.data['registrant-type']
     
-    if (registrantAnswerType == "Parish or community council" || registrantType == "Town"){
+    if (registrantAnswerType == "Parish or community council" || registrantAnswerType == "Town"){
         response.redirect("registrant-evidence")
     } else {
         response.redirect("registry-details")

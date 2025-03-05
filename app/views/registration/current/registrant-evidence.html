@@ -24,12 +24,15 @@
       </p>   
       <p>We may ask you to clarify the details you provide  in the application if they do not match other published information about the parish council. For example, on their current website or in minutes.
       </p>
-
+      
       <form class="form" action="registrant-evidence-answer" method="post">
         {% set emailHtml %}
         {{ govukTextarea({
           name: "websiteURL",
           id: "websiteURL",
+          autocomplete: "name",
+          spellcheck: false,
+          value: data['websiteURL'],
           label: {
             text: "",
             classes: "govuk-label",
