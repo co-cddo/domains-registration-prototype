@@ -20,7 +20,7 @@ router.post('/registrant-type-answer', function(request, response) {
         response.redirect("registrant-type-fail")}
     // Q: Route 1
         else if (registrantType == "Parish or community council" || registrantType == "Town" ){
-            response.redirect("parish-size")}
+            response.redirect("domain")}
     // Q: Route 2
     else if (registrantType == "Central government department or agency" || registrantType == "Non-departmental body - also known as an arm's length body" ){
                 response.redirect("domain-purpose")}

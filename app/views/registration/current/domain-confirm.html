@@ -23,57 +23,54 @@
 {% block content %}
 
 
- 
-         
-        <div class="govuk-grid-row">
-          <div class="govuk-grid-column-two-thirds">
-              {% set stringToCheck = data['domain'] %}
-              {% if (stringToCheck.includes('.gov.uk')) %}
-              <h1 class="govuk-heading-l">
-               {{data['domain']}} is available 
-                </h1>
-             {% else %}
-             <h1 class="govuk-heading-l">
-             {{data['domain']}}.gov.uk is available
-             </h1>
-             {% endif %}
-            
-
-                    
-          
-            <form class="form" action="domain-confirm-answer" id="mainForm" method="post">
-
-              {{ govukRadios({
-                classes: "govuk-radios",
-                name: "domainconfirm",
-                fieldset: {
-                  legend: {
-                    html: "Would you like to get approval for this domain name?",       
-                    isPageHeading: false,
-                    classes: "govuk-fieldset__legend--m"
-                  }
-                },
-                hint: {
-                  html: "The Cyber and Domains Protection team will decide whether to approve your chosen domain name"
-                },
-                items: [
-                  {
-                    value: "Yes",
-                    text: "Yes, continue to get approval",
-                    checked: checked("domainconfirm", "Yes")
-                  },
-                  {
-                    value: "No",
-                    text: "No, I want to change it",
-                    checked: checked("domainconfirm", "No")
-                  }
-                ]
-              }) }}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
       
-              <div class="govuk-button-group">
-              {{ govukButton({
-                text: "Continue"
-              }) }}
+      {% set stringToCheck = data['domain'] %}
+        {% if (stringToCheck.includes('.gov.uk')) %}
+        <h1 class="govuk-heading-l">
+          Is {{data['domain']}} the correct domain name?
+          </h1>
+       {% else %}
+       <h1 class="govuk-heading-l">
+       Is {{data['domain']}}.gov.uk the correct domain name?
+       </h1>
+       {% endif %}
+
+      <form class="form" action="domain-confirm-answer" id="mainForm" method="post">
+
+        {{ govukRadios({
+          classes: "govuk-radios",
+          name: "domainconfirm",
+          fieldset: {
+            legend: {
+              text: "",
+                     
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          hint: {
+            html: "The Protecting Public Sector Domains Team will check if this is available and decide whether to approve it."
+          },
+          items: [
+            {
+              value: "Yes",
+              text: "Yes, I confirm this is correct",
+              checked: checked("domainconfirm", "Yes")
+            },
+            {
+              value: "No",
+              text: "No, I want to change it",
+              checked: checked("domainconfirm", "No")
+            }
+          ]
+        }) }}
+
+        <div class="govuk-button-group">
+        {{ govukButton({
+          text: "Continue"
+        }) }}
 
         {% if data['COMPLETED'] == true %}
         <button type="submit" onclick="document.getElementById('mainForm').action='answers';"
