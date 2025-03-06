@@ -1,0 +1,163 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "registrant-type"
+}) }}
+<script type="text/javascript" src="assets/js/accessible-autocomplete.min.js"></script>
+{% endblock %}
+
+{% block content %}
+<h1 class="govuk-heading-l">
+  About the registrant
+</h1>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <p class="govuk-body">We would like to ask some questions about the registrant. 
+       <form class="form" action="domain" method="post">
+        {{ govukRadios({
+          name: "parishsize",
+          fieldset: {
+            legend: {
+              text: "What was the parish council's precept this year?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          items: [
+            {
+              value: "Less than £5,000",
+              text: "Less than £5,000"
+            },
+            {
+              value: "Between £5,001 and £10,000",
+              text: "Between £5,001 and £10,000"
+            },
+            {
+              value: "Between £10,001 and £20,000",
+              text: "Between £10,001 and £20,000"
+            },
+            {
+              value: "Between £20,001 and £60,000",
+              text: "Between £20,001 and £60,000"
+            },
+            {
+              value: "More than £60,001",
+              text: "More than £60,001"
+            }
+          ]
+        }) }}
+
+        {{ govukInput({
+          label: {
+            text: "How many .gov.uk email addresses are you planning to create?",
+            classes: "govuk-label--m",
+            isPageHeading: true
+          },
+          classes: "govuk-input--width-3",
+          id: "width-3",
+          name: "width3"
+        }) }}
+
+
+        <h1 class="govuk-heading-m">
+          Which Association of Local Councils (ALC) are you part of?</h1>
+        
+        <link rel="stylesheet" href="../dist/location-autocomplete.min.css" />
+        <style>
+        html {
+          color: #111;
+          background: #FFF;
+          font-family: -apple-system, BlinkMacSystemFont, 'avenir next', avenir, 'helvetica neue', helvetica, ubuntu, roboto, noto, 'segoe ui', arial, sans-serif;
+          font-size: 16px;
+          line-height: 1.5;
+        }
+  
+        body {
+          padding-left: 1rem;
+          padding-right: 1rem;
+        }
+  
+        h1, h2, h3, h4, h5, h6 {
+          line-height: normal;
+        }
+  
+        label {
+          display: block;
+          margin-bottom: .5rem;
+        }
+  
+        .autocomplete-wrapper {
+          max-width: 40em;
+          margin-bottom: 4rem;
+        }
+      </style>
+      <form class="form" action="registrant-type" id="mainForm" method="post"></form>
+      <div class="govuk-form-group autocomplete-wrapper">
+         <label class="govuk-label" for="default">
+            Select your organisation from the list.
+          </label>
+          <select class="govuk-select" id="default" name="alc" value="{{ data['alc'] }}">
+            
+            <option value="choose" selected>Start typing...</option>
+            <option value="Avon">Avon</option>
+            <option value="Bedfordshire">Bedfordshire</option>
+            <option value="Berkshire">Berkshire</option>
+            <option value="Buckinghamshire and Milton Keynes">Buckinghamshire and Milton Keynes</option>
+            <option value="Cambridgeshire and Peterborough">Cambridgeshire and Peterborough</option>
+            <option value="Cheshire">Cheshire</option>
+            <option value="Cleveland">Cleveland</option>
+            <option value="Cornwall">Cornwall</option>
+            <option value="County Durham">County Durham</option>
+            <option value="Cumbria">Cumbria</option>
+            <option value="Derbyshire">Derbyshire</option>
+            <option value="Devon">Devon</option>
+            <option value="Dorset">Dorset</option>
+            <option value="East Riding and Northern Lincolnshire">East Riding and Northern Lincolnshire</option>
+            <option value="East Sussex">East Sussex</option>
+            <option value="Essex">Essex</option>
+            <option value="Gloucestershire">Gloucestershire</option>
+            <option value="Hampshire">Hampshire</option>
+            <option value="Herefordshire">Herefordshire</option>
+            <option value="Hertfordshire">Hertfordshire</option>
+            <option value="Isle of Wight">Isle of Wight</option>
+            <option value="Kent">Kent</option>
+            <option value="Lancashire and Merseyside">Lancashire and Merseyside</option>
+            <option value="Leicestershire and Rutland">Leicestershire and Rutland</option>
+            <option value="Lincolnshire">Lincolnshire</option>
+            <option value="Norfolk">Norfolk</option>
+            <option value="Northamptonshire">Northamptonshire</option>
+            <option value="Northumberland">Northumberland</option>
+            <option value="Oxfordshire">Oxfordshire</option>
+            <option value="Shropshire">Shropshire</option>
+            <option value="Somerset">Somerset</option>
+            <option value="Staffordshire">Staffordshire</option>
+            <option value="Suffolk">Suffolk</option>
+            <option value="Surrey">Surrey</option>
+            <option value="Warwickshire and West Midlands">Warwickshire and West Midlands</option>
+            <option value="West Sussex">West Sussex</option>
+            <option value="Wiltshire">Wiltshire</option>
+            <option value="Worcestershire">Worcestershire</option>
+            <option value="Yorkshire (North)">Yorkshire (North)</option>
+            <option value="Yorkshire (South)">Yorkshire (South)</option>
+            <option value="Yorkshire (West)">Yorkshire (West)</option>
+            <option value="Other">Other</option>
+          </select>
+          </div>
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
