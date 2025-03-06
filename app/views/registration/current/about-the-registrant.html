@@ -19,7 +19,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <p class="govuk-body">We would like to ask some questions about the registrant. 
+      <p class="govuk-body">When it comes to information, qualititive data really helps us to design better services. We would like to ask a few questions about the registrant organisation related to its size, memebership to ALCs and their plans to create .gov.uk mailboxes. 
        <form class="form" action="domain" method="post">
         {{ govukRadios({
           name: "parishsize",
@@ -52,17 +52,6 @@
               text: "More than £60,001"
             }
           ]
-        }) }}
-
-        {{ govukInput({
-          label: {
-            text: "How many .gov.uk email addresses are you planning to create?",
-            classes: "govuk-label--m",
-            isPageHeading: true
-          },
-          classes: "govuk-input--width-3",
-          id: "width-3",
-          name: "width3"
         }) }}
 
 
@@ -98,7 +87,7 @@
           margin-bottom: 4rem;
         }
       </style>
-      <form class="form" action="registrant-type" id="mainForm" method="post"></form>
+      
       <div class="govuk-form-group autocomplete-wrapper">
          <label class="govuk-label" for="default">
             Select your organisation from the list.
@@ -150,6 +139,21 @@
             <option value="Other">Other</option>
           </select>
           </div>
+
+          <h1 class="govuk-heading-m">
+            How many .gov.uk email addresses are you planning to create?
+          </h1>
+          {{ govukInput({
+            label: {
+              text: "Enter planned number of .gov.uk email addresses",
+              classes: "govuk-body",
+              isPageHeading: false
+            },
+            classes: "govuk-input--width-3",
+            id: "width-3",
+            name: "width3"
+          }) }}
+  
 
         {{ govukButton({
           text: "Continue"
