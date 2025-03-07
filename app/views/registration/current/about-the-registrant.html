@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  About the registrant – {{ serviceName }} – GOV.UK Prototype Kit
+About the registrant's organisation  – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}
@@ -13,15 +13,15 @@
 {% endblock %}
 
 {% block content %}
-<span class="govuk-caption-l">Questionaire</span>
+
 <h1 class="govuk-heading-l">
-  About the registrant
+  About the registrant's organisation 
 </h1>
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <p class="govuk-body">When it comes to information, qualititive data really helps us to design better services. We would like to ask a few questions about the registrant organisation related to its size, memebership to ALCs and their plans to create .gov.uk mailboxes. 
+      <p class="govuk-body">Qualitative data helps us to design better services. We would like to ask a few questions about the registrant organisation related to its size, membership and their plans to create .gov.uk mailboxes. 
        <form class="form" action="domain" method="post">
         {{ govukRadios({
           name: "parishsize",
@@ -42,12 +42,12 @@
               text: "Between £5,001 and £10,000"
             },
             {
-              value: "Between £10,001 and £20,000",
-              text: "Between £10,001 and £20,000"
+              value: "Between £10,001 and £25,000",
+              text: "Between £10,001 and £25,000"
             },
             {
-              value: "Between £20,001 and £60,000",
-              text: "Between £20,001 and £60,000"
+              value: "Between £25,001 and £60,000",
+              text: "Between £25,001 and £60,000"
             },
             {
               value: "More than £60,001",
@@ -58,7 +58,7 @@
 
 
         <h1 class="govuk-heading-m">
-          Which Association of Local Councils (ALC) are you part of?</h1>
+          Which Association of Local Councils (ALC) is the council part of?</h1>
         
         <link rel="stylesheet" href="../dist/location-autocomplete.min.css" />
         <style>
@@ -143,7 +143,7 @@
           </div>
 
           <h1 class="govuk-heading-m">
-            How many .gov.uk email addresses are you planning to create?
+            How many .gov.uk email addresses does the council want?
           </h1>
           {{ govukInput({
             label: {
