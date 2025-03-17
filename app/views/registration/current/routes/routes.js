@@ -98,7 +98,7 @@ router.post('/registrant-answer', function(request, response) {
 router.post('/registrant-evidence-answer', function(request, response) {
 
     var registrantEvidence = request.session.data['registrantevidence']
-    if (registrantEvidence == "upload"){
+    if (registrantEvidence == "Yes, evidence provided:"){
         response.redirect("registrant-evidence-upload")
     } else {
         response.redirect("registry-details")

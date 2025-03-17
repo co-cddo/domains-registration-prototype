@@ -482,6 +482,8 @@
       
       {% endif %}
       
+        {# Evidence is an upload #}
+        {% if (data['registrantevidence'] == "Yes, evidence provided:") %}
         <h2 class="govuk-heading-m">Registrant  details</h2>
         {{ govukSummaryList({
           rows: [
@@ -504,70 +506,154 @@
                 }
               ]
             }
-          }
-          ,
-            {
-              key: {
-                text: "Contact details"
-              },
-              value: {
-                html: (data['registrantfullName'] | title)+"<br>"+data['regtelephoneNumber']+"<br>"+data['regEmail']
-                
-              },
-              actions: {
-                items: [
-                  {
-                    href: "registrant-details",
-                    text: "Change",
-                    visuallyHiddenText: "Registrant details"
-                  }
-                ]
-              }
-            }
-            ,
-            {
-              key: {
-                html: "Registrant in role"
-              },
-              value: {
-                html: "Yes, evidence provided:<br>"+data['websiteURL'] 
-                
-              },
-              actions: {
-                items: [
-                  {
-                    href: "registrant-evidence",
-                    text: "Change",
-                    visuallyHiddenText: "Registry details"
-                  }
-                ]
-              }
-             
+          },
+        
+          {
+            key: {
+              text: "Contact details"
             },
-            {
-              key: {
-                html: "Registry details<br>(public information)"
-              },
-              value: {
-                html: (data['regpubroleName'] | title)+"<br>"+data['regpubEmail']
-                
-              },
-              actions: {
-                items: [
-                  {
-                    href: "registry-details",
-                    text: "Change",
-                    visuallyHiddenText: "Registry details"
-                  }
-                ]
-              }
-             
+            value: {
+              html: (data['registrantfullName'] | title)+"<br>"+data['regtelephoneNumber']+"<br>"+data['regEmail']
+              
+            },
+            actions: {
+              items: [
+                {
+                  href: "registrant-details",
+                  text: "Change",
+                  visuallyHiddenText: "Registrant details"
+                }
+              ]
             }
-         
+          },
+          {
+            key: {
+              html: "Registrant in role"
+            },
+            value: {
+              html: (data['registrantevidence'])+"<br>"+'<a class="govuk-link" href="#">registrant-evidence.pdf</a>'
+              
+            },
+            actions: {
+              items: [
+                {
+                  href: "registrant-evidence",
+                  text: "Change",
+                  visuallyHiddenText: "Evidence details"
+                }
+              ]
+            }
+           
+          },
           
+          {
+            key: {
+              html: "Registry details<br>(public information)"
+            },
+            value: {
+              html: (data['regpubroleName'] | title)+"<br>"+data['regpubEmail']
+              
+            },
+            actions: {
+              items: [
+                {
+                  href: "registry-details",
+                  text: "Change",
+                  visuallyHiddenText: "Registry details"
+                }
+              ]
+            }
+           
+          }  
         ]
       }) }}
-    
+      {% else %}
+      {# If Evidence is a hyperlink #}
+      <h2 class="govuk-heading-m">Registrant  details</h2>
+        {{ govukSummaryList({
+          rows: [
+  
+  
+          {
+            key: {
+              text: "Organisation name"
+            },
+            value: {
+              html: data['registrant']
+              
+            },
+            actions: {
+              items: [
+                {
+                  href: "registrant-details",
+                  text: "Change",
+                  visuallyHiddenText: "registrant"
+                }
+              ]
+            }
+          },
+        
+          {
+            key: {
+              text: "Contact details"
+            },
+            value: {
+              html: (data['registrantfullName'] | title)+"<br>"+data['regtelephoneNumber']+"<br>"+data['regEmail']
+              
+            },
+            actions: {
+              items: [
+                {
+                  href: "registrant-details",
+                  text: "Change",
+                  visuallyHiddenText: "Registrant details"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              html: "Registrant in role"
+            },
+            value: {
+              html: "Yes, evidence provided:<br>"+data['websiteURL'] 
+              
+            },
+            actions: {
+              items: [
+                {
+                  href: "registrant-evidence",
+                  text: "Change",
+                  visuallyHiddenText: "Evidence details"
+                }
+              ]
+            }
+           
+          },
+          
+          {
+            key: {
+              html: "Registry details<br>(public information)"
+            },
+            value: {
+              html: (data['regpubroleName'] | title)+"<br>"+data['regpubEmail']
+              
+            },
+            actions: {
+              items: [
+                {
+                  href: "registry-details",
+                  text: "Change",
+                  visuallyHiddenText: "Registry details"
+                }
+              ]
+            }
+           
+          }  
+        ]
+      }) }}
+
+      {% endif %}
       <h2 class="govuk-heading-m">
         Now send your registrant's application 
       </h2>

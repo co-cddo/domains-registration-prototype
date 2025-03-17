@@ -66,20 +66,20 @@
           },
           items: [
             {
-              value: "website",
-              text: "Website URL",
+              value: "websiteURL",
+              text: "Website URL (primary)",
               conditional: {
                 html: emailHtml
               },
-              checked: checked("registrantevidence", "website"),
+              checked: checked("registrantevidence", "websiteURL"),
               hint: {
                 text: ""
               }
             },
             {
-              value: "upload",
-              text: "Upload evidence",
-              checked: checked("registrantevidence", "upload"),
+              value: "Yes, evidence provided:",
+              text: "Upload evidence (secondary)",
+              checked: checked("registrantevidence", "Yes, evidence provided:"),
               hint: {
                 text: ""
               }
