@@ -1,0 +1,162 @@
+{% extends "layouts/main.html" %}
+
+
+
+{% block pageTitle %}
+  Webcaf - Test  – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+  <!-- Blank header with no service name for the start page -->
+  {{ govukHeader() }}
+{% endblock %}
+
+
+ 
+{% block beforeContent %}
+ 
+
+{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+  {{ govukPhaseBanner({
+    tag: {
+    text: "prototype",
+    classes: "govuk-tag--pink"
+    },
+      html: 'This is not a full service. It is not production code and you might experience problems.'
+  }) }}
+   {{ govukBackLink({
+    text: "Back to Objective A overview",
+    href: "javascript:window.history.back()"
+  }) }}
+
+  
+  
+{% endblock %}
+{% block content %}
+<div class="proto-admin">
+   <div id="changedName-hint" class="govuk-hint">
+      Section 1 of 5<br>
+      <strong>Principle A1 Governance</strong>
+    </div>     
+         <p id="progress-pages"><strong>Page 2 of 27</strong></p>
+         <div class="progress-inactive"><div class="progress-active" style="width: 7%"></div></div>
+      </div>
+  
+  
+  
+    
+      
+    
+    
+       
+
+      
+<div class="govuk-grid-row">
+
+      <div class="govuk-grid-column-two-thirds">
+<h1 class="govuk-heading-l">A1.a Board Direction</h1>
+<h1 class="govuk-heading-m">Outcome status: Not achieved</h1>
+
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{{ govukRadios({
+  classes: "govuk-radios--inline",
+  name: "changedName",
+  fieldset: {
+    legend: {
+      text: "",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  hint: {
+    text: "You have not achieved this outcome, because one of the 'Not achieved' statements were true."
+  },
+  items: [
+    {
+      value: "yes",
+      text: "Confirm"
+    },
+    {
+      value: "no",
+      text: "Change to Achieved"
+    }
+  ]
+}) }}
+
+  <h3 class="govuk-heading-m">Supporting comments</h3>
+            
+      
+
+{{ govukCharacterCount({
+  id: "label-as-page-heading",
+  name: "labelAsPageHeading",
+  maxlength: 200,
+  label: {
+    text: "You must provide here comments that support your outcome."
+  }
+}) }}      
+       
+<h3 class="govuk-heading-m">Upload evidence</h3>
+
+{{ govukRadios({
+  classes: "govuk-radios--inline",
+  name: "signIn",
+  fieldset: {
+    legend: {
+      text: "Do you have evidence to support your self-assessment?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--s"
+    }
+  },
+  hint: {
+    text: " "
+  },
+  items: [
+    {
+      value: "government-gateway",
+      text: "Yes",
+      hint: {
+        text: ""
+      }
+    },
+    {
+      value: "govuk-one-login",
+      text: "No",
+      hint: {
+        text: ""
+      }
+    }
+  ]
+}) }}
+     
+
+        
+
+      
+      
+      
+     
+    
+    
+
+  
+
+
+
+<div class="govuk-button-group">
+  {{ govukButton({
+    text: "Save outcome and continue"
+  }) }}
+  </form>
+
+  <a class="govuk-link" href="#">Back to statements </a>
+</div>
+
+    
+
+
+    </div>    
+  </div>
+
+{% endblock %}

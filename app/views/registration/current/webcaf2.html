@@ -1,0 +1,179 @@
+{% extends "layouts/main.html" %}
+
+
+
+{% block pageTitle %}
+  Webcaf - Test  – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+  <!-- Blank header with no service name for the start page -->
+  {{ govukHeader() }}
+{% endblock %}
+
+{% block beforeContent %}
+{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+  {{ govukPhaseBanner({
+    tag: {
+    text: "prototype",
+    classes: "govuk-tag--pink"
+    },
+      html: 'This is not a full service. It is not production code and you might experience problems.'
+  }) }}
+ 
+
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+        href: "/index.html"
+      },
+      {
+        text: "CAF Objective A - Managing Security Risk
+        ",
+        href: "/registration/index"
+      },
+      {
+        text: "Principle A1 Governance
+        "
+      }
+    ]
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h2 class="govuk-heading-l">Principle A1 Governance</h2>
+      <p>Putting in place the policies, processes and procedures which govern your organisation’s approach to the security of network and information systems.
+      </p>
+      <h3 class="govuk-heading-m">A1.a Board Direction</h3>
+        <p>You have effective organisational security management led at board level and articulated clearly in corresponding policies.
+        </p>
+
+      {% set pastDayHtml %}
+      
+      
+      {{ govukWarningText({
+        text: "You have 'Not achieved' status, if at least one of the following statements is true for your organisation."
+      }) }}
+
+      <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
+        <li>
+          The security of network and information systems related to the operation of essential function(s) is not discussed or reported on regularly at board-level.
+        </li>
+        <li>
+          Board-level discussions on the security of network and information systems are based on partial or out-of-date information, without the benefit of expert guidance.
+        </li>
+        <li>
+          The security of network and information systems supporting your essential function(s) are not driven effectively by the direction set at board-level.
+        </li>
+      </ul>
+
+      {% endset -%}
+      
+      {% set pastWeekHtml %}
+      
+      {{ govukWarningText({
+        text: "You have 'Achieved' status, if all the following statements are true for your organisation."
+      }) }}
+
+      <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
+        <li>
+          Your organisation's approach and policy relating to the security of network and information systems supporting the operation of essential function(s) are owned and managed at board-level. These are communicated, in a meaningful way, to risk management decision-makers across the organisation.
+        </li>
+        <li>
+          Regular board-level discussions on the security of network and information systems supporting the operation of your essential function(s) take place, based on timely and accurate information and informed by expert guidance.
+        </li>
+        <li>
+          There is a board-level individual who has overall accountability for the security of network and information systems and drives regular discussion at board-level.
+        </li>
+        <li>Direction set at board-level is translated into effective organisational practices that direct and control the security of the network and information systems supporting your essential functions(s).
+        </li>
+      </ul>
+      {% endset -%}
+       {{ govukTabs({
+        items: [
+          {
+            label:  "Not achieved",
+            id: "past-day",
+            panel: {
+              html: pastDayHtml
+            }
+          },
+          {
+            label: "Achieved",
+            id: "past-week",
+            panel: {
+              html: pastWeekHtml
+            }
+          }
+        ]
+      }) }}
+      
+       
+    
+      <h3 class="govuk-heading-m">Evidence and comments</h3>
+            
+      
+
+{{ govukCharacterCount({
+  id: "label-as-page-heading",
+  name: "labelAsPageHeading",
+  maxlength: 200,
+  label: {
+    text: "Summarise the evidence towards this outcome"
+  }
+}) }}              
+           
+{{ govukRadios({
+  classes: "govuk-radios--inline",
+  name: "changedName",
+  fieldset: {
+    legend: {
+      text: "Which achievement level is true for your organisation?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  hint: {
+    html: 'Use appropriate judgement to summarise the achievement level.'
+  },
+  items: [
+    {
+      value: "yes",
+      text: "Not achieved"
+    },
+    {
+      value: "no",
+      text: "Achieved"
+    }
+  ]
+}) }}
+      
+
+      
+
+    
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+<div class="govuk-button-group">
+  {{ govukButton({
+    text: "Save and continue"
+  }) }}
+
+  <a class="govuk-link" href="#">Back to Objective A </a>
+</div>
+{{govukTag({
+  text: "Achieved",
+  classes: "govuk-tag--green"
+})}}
+
+    </div>    
+  </div>
+
+{% endblock %}

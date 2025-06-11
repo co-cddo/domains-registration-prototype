@@ -1,0 +1,173 @@
+{% extends "layouts/main.html" %}
+
+
+
+{% block pageTitle %}
+  Webcaf - Test  – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+  <!-- Blank header with no service name for the start page -->
+  {{ govukHeader() }}
+{% endblock %}
+
+{% block beforeContent %}
+{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+  {{ govukPhaseBanner({
+    tag: {
+    text: "prototype",
+    classes: "govuk-tag--pink"
+    },
+      html: 'This is not a full service. It is not production code and you might experience problems.'
+  }) }}
+  
+
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+        href: "/index.html"
+      },
+      {
+        text: "CAF Objective A - Managing Security Risk
+        ",
+        href: "/registration/index"
+      },
+      {
+        text: "Principle A1 Governance
+        ",
+        href: "/registration/index"
+      },
+      {
+        text: "A1.a Board Direction
+        "
+      }
+    ]
+  }) }}
+  
+{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h3 class="govuk-heading-l">1. Read each statement and select yes if the statement is true about your system.</h3>
+    
+    <h3 class="govuk-heading-m">Not achieved type of questions</h3>
+    <form class="form" action="webcaf3-answer" id="mainForm" method="post">
+  
+  
+ 
+
+    {{ govukRadios({
+      classes: "govuk-radios--inline",
+      name: "webcaf3-na",
+      fieldset: {
+        legend: {
+          html: "Key roles are missing, left vacant, or fulfilled on an ad-hoc or informal basis. (A1.b1)  
+
+          ",
+          isPageHeading: false,
+          classes: "govuk-fieldset__legend--"
+        }
+      },
+      hint: {
+        html: '<strong>Is this true for your organisation or system?</strong>'
+      },
+      items: [
+        {
+          value: "yes",
+          text: "Yes",
+          checked: checked("webcaf3-na", "yes")
+          
+        },
+        {
+          value: "no",
+          text: "No",
+          checked: checked("webcaf3-na", "no")
+        }
+      ]
+
+    }) }}
+
+    {{ govukRadios({
+      classes: "govuk-radios--inline",
+      name: "webcaf3-na1",
+      fieldset: {
+        legend: {
+          html: "Staff are assigned security responsibilities but without adequate authority or resources to fulfil them.(A1.b2)",
+          isPageHeading: false,
+          classes: "govuk-fieldset__legend--"
+        }
+      },
+      hint: {
+        html: '<strong>Is this true for your organisation or system?</strong>'
+      },
+      items: [
+        {
+          value: "yes",
+          text: "Yes",
+          checked: checked("webcaf3-na1", "yes")
+        },
+        {
+          value: "no",
+          text: "No",
+          checked: checked("webcaf3-na1", "no")
+        }
+      ]
+    }) }}
+    {{ govukRadios({
+      classes: "govuk-radios--inline",
+      name: "webcaf-na2",
+      fieldset: {
+        legend: {
+          html: "Staff are unsure what their responsibilities are for the security of the essential function(s). (A1.b3)
+
+
+
+          ",
+          isPageHeading: false,
+          classes: "govuk-fieldset__legend--"
+        }
+      },
+      hint: {
+        html: '<strong>Is this true for your organisation or system?</strong>'
+      },
+      items: [
+        {
+          value: "yes",
+          text: "Yes",
+          checked: checked("webcaf3-na2", "yes")
+        },
+        {
+          value: "no",
+          text: "No",
+          checked: checked("webcaf3-na2", "no")
+        }
+      ]
+    }) }}
+      
+     
+
+
+
+
+
+
+
+
+<div class="govuk-button-group">
+  {{ govukButton({
+    text: "Save and continue"
+  }) }}
+  </form>
+
+  <a class="govuk-link" href="#">Back to A1.a Board Direction </a>
+</div>
+
+    
+
+
+    </div>    
+  </div>
+
+{% endblock %}

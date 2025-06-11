@@ -1,0 +1,229 @@
+{% extends "layouts/main.html" %}
+
+
+
+{% block pageTitle %}
+  Webcaf - Test  – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+  <!-- Blank header with no service name for the start page -->
+  {{ govukHeader() }}
+{% endblock %}
+
+
+ 
+{% block beforeContent %}
+ 
+
+{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+  {{ govukPhaseBanner({
+    tag: {
+    text: "prototype",
+    classes: "govuk-tag--pink"
+    },
+      html: 'This is not a full service. It is not production code and you might experience problems.'
+  }) }}
+   {{ govukBackLink({
+    text: "Back to A1.a Board Direction",
+    href: "javascript:window.history.back()"
+  }) }}
+
+  
+  
+{% endblock %}
+{% block content %}
+<div class="govuk-grid-row">
+
+      <div class="govuk-grid-column-two-thirds">
+     
+<h1 class="govuk-heading-l">A1.a Board Direction</h1>
+<h1 class="govuk-heading-m">Read each group of statements and select what's true about your system.</h1>
+
+
+
+
+{{ govukWarningText({
+  text: "To achieve this outcome, you must meet all achieved statements.",
+  iconFallbackText: "Warning"
+}) }}
+<h1 class="govuk-heading-m">Achieved statements</h1>
+
+{% set emailHtml %}
+{{ govukInput({
+  id: "contact-by-email",
+  name: "contactByEmail",
+  type: "email",
+  autocomplete: "email",
+  spellcheck: false,
+  classes: "govuk-!-width-one-third",
+  label: {
+    text: "Email address"
+  }
+}) }}
+{% endset -%}
+
+{% set phoneHtml %}
+{{ govukInput({
+  id: "contact-by-phone",
+  name: "contactByPhone",
+  type: "tel",
+  autocomplete: "tel",
+  classes: "govuk-!-width-one-third",
+  label: {
+    text: "Phone number"
+  }
+}) }}
+{% endset -%}
+
+{% set textHtml %}
+
+{{ govukCharacterCount({
+  id: "label-as-page-heading",
+  name: "labelAsPageHeading",
+  maxlength: 200,
+  label: {
+    text: "You must provide here comments that supports your selection. You can include any references like filenames or links that supports your outcome.
+"
+  }
+}) }}      
+{% endset -%}
+
+{{ govukRadios({
+  name: "contact",
+  fieldset: {
+    legend: {
+      html: "A1.a.1: Your organisation's approach and policy relating to the security of networks and information systems supporting the operation of essential functions are owned and managed at board level. These are communicated, in a meaningful way, to risk management decision-makers across the organisation. ",
+      isPageHeading: true,
+      classes: "govuk"
+    }
+  },
+  hint: {
+    text: "Select one option
+"
+  },
+  items: [
+    {
+      value: "email",
+      text: "Yes"
+    },
+    {
+      value: "phone",
+      text: "No"
+    },
+    {
+      value: "text",
+      text: "Not assessed",
+      conditional: {
+        html: textHtml
+      }
+    }
+  ]
+}) }}
+
+
+{% set emailHtml %}
+{{ govukInput({
+  id: "contact-by-email",
+  name: "contactByEmail",
+  type: "email",
+  autocomplete: "email",
+  spellcheck: false,
+  classes: "govuk-!-width-one-third",
+  label: {
+    text: "Email address"
+  }
+}) }}
+{% endset -%}
+
+{% set phoneHtml %}
+{{ govukInput({
+  id: "contact-by-phone",
+  name: "contactByPhone",
+  type: "tel",
+  autocomplete: "tel",
+  classes: "govuk-!-width-one-third",
+  label: {
+    text: "Phone number"
+  }
+}) }}
+{% endset -%}
+
+{% set textHtml %}
+
+{{ govukCharacterCount({
+  id: "label-as-page-heading",
+  name: "labelAsPageHeading",
+  maxlength: 200,
+  label: {
+    text: "You must provide here comments that supports your selection. You can include any references like filenames or links that supports your outcome.
+"
+  }
+}) }}      
+{% endset -%}
+
+{{ govukRadios({
+  name: "contact2",
+  fieldset: {
+    legend: {
+      text: "A1.a.5: The security of network and information systems related to the operation of essential functions is not discussed or reported on regularly at board-level.",
+      isPageHeading: true,
+      classes: "govuk"
+    }
+  },
+  hint: {
+    text: "Select one option"
+  },
+  items: [
+    {
+      value: "email",
+      text: "Yes"
+    },
+    {
+      value: "phone",
+      text: "No"
+    },
+    {
+      value: "text",
+      text: "Not assessed",
+      conditional: {
+        html: textHtml
+      }
+    }
+  ]
+}) }}
+
+  
+       
+
+     
+
+        
+
+      
+      
+      
+     
+    
+    
+
+  
+
+
+
+<div class="govuk-button-group">
+  {{ govukButton({
+    text: "Save outcome and continue"
+  }) }}
+  </form>
+
+  <a class="govuk-link" href="#">Back to statements </a>
+</div>
+
+    
+
+
+    </div>    
+  </div>
+
+{% endblock %}

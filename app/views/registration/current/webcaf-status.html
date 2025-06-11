@@ -1,0 +1,131 @@
+{% extends "layouts/main.html" %}
+
+
+
+{% block pageTitle %}
+  Webcaf - Test  – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+  <!-- Blank header with no service name for the start page -->
+  {{ govukHeader() }}
+{% endblock %}
+
+{% block beforeContent %}
+{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+  {{ govukPhaseBanner({
+    tag: {
+    text: "prototype",
+    classes: "govuk-tag--pink"
+    },
+      html: 'This is not a full service. It is not production code and you might experience problems.'
+  }) }}
+ 
+
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+        href: "/index.html"
+      },
+      {
+        text: "CAF Objective A - Managing Security Risk
+        ",
+        href: "/registration/index"
+      },
+      {
+        text: "Principle A1 Governance
+        "
+      }
+    ]
+  }) }}
+
+{% endblock %}
+{% block content %}
+
+
+
+
+  
+  
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{{ govukRadios({
+  name: "signIn",
+  fieldset: {
+    legend: {
+      text: "How do you rate your outcome?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  hint: {
+    text: "You must review how many 'Achieved' and 'Not achieved' statements you've answered with yes and no."
+  },
+  items: [
+    {
+      value: "government-gateway",
+      text: "Not achieved",
+      hint: {
+        text: "At least one of the 'Achieved' statements is true	"
+      }
+    },
+    {
+      value: "govuk-one-login",
+      text: "Achieved",
+      hint: {
+        text: "All 'Achieved' statements are true
+        "
+      }
+    }
+  ]
+}) }}
+
+       
+        
+
+        
+
+      
+      
+      
+     
+    
+      <h3 class="govuk-heading-m">Comments</h3>
+            
+      
+
+{{ govukCharacterCount({
+  id: "label-as-page-heading",
+  name: "labelAsPageHeading",
+  maxlength: 200,
+  label: {
+    text: "Summarise the evidence towards this outcome"
+  }
+}) }}              
+           
+
+      
+
+      
+
+    
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+<div class="govuk-button-group">
+  {{ govukButton({
+    text: "Save and continue"
+  }) }}
+
+  <a class="govuk-link" href="#">Back to Objective A </a>
+</div>
+{{govukTag({
+  text: "Achieved",
+  classes: "govuk-tag--green"
+})}}
+
+    </div>    
+  </div>
+
+{% endblock %}

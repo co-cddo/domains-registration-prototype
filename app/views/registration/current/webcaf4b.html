@@ -1,0 +1,166 @@
+{% extends "layouts/main.html" %}
+
+
+
+{% block pageTitle %}
+  Webcaf - Test  – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+  <!-- Blank header with no service name for the start page -->
+  {{ govukHeader() }}
+{% endblock %}
+ 
+{% block beforeContent %}
+{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+  {{ govukPhaseBanner({
+    tag: {
+    text: "prototype",
+    classes: "govuk-tag--pink"
+    },
+      html: 'This is not a full service. It is not production code and you might experience problems.'
+  }) }}
+  
+
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+        href: "/index.html"
+      },
+      {
+        text: "CAF Objective A - Managing Security Risk
+        ",
+        href: "/registration/index"
+      },
+      {
+        text: "Principle A1 Governance
+        ",
+        href: "/registration/index"
+      },
+      {
+        text: "A1.b Roles and Responsibilities
+        "
+      }
+    ]
+  }) }}
+  
+{% endblock %}
+
+{% block content %}
+<h3 class="govuk-heading-l">A1.b Roles and responsibilities</h3>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+     {{ govukDetails({
+  summaryText: "Help with this outcome",
+  text: "We need to know your nationality so we can work out which elections you’re entitled to vote in. If you cannot provide your nationality, you’ll have to send copies of identity documents through the post."
+}) }}
+    <h3 class="govuk-heading-m">Read each group of statements and select all that apply about your system.</h3>
+    
+    <div id="signIn-hint" class="govuk-hint">
+
+
+
+    </div>
+    
+    
+    <form class="form" action="webcaf3-answer" id="mainForm" method="post">
+  
+  {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+{{ govukCheckboxes({
+  name: "not-achieved",
+  fieldset: {
+    legend: {
+      text: "Not achieved",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--s"
+    }
+  },
+  hint: {
+    text: "If you select any of the following statements it means that you have not achieved this outcome."
+  },
+  items: [
+    {
+      value: "carcasses",
+      text: "Key roles are missing, left vacant, or fulfilled on an ad-hoc or informal basis"
+    },
+    {
+      value: "mines",
+      text: "Staff are assigned security responsibilities but without adequate authority or resources to fulfil them"
+    },
+    {
+      value: "farm",
+      text: "Staff are unsure what their responsibilities are for the security of the essential function(s)"
+    },
+    {
+      divider: "or"
+    },
+    {
+      value: "none",
+      text: "None of the above",
+      behaviour: "exclusive"
+    }
+  ]
+}) }}
+
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+{{ govukCheckboxes({
+  name: "waste",
+  fieldset: {
+    legend: {
+      text: "Achieved",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--s"
+    }
+  },
+  hint: {
+    text: "To achieve this outcome, all the following statements must be selected."
+  },
+  items: [
+    {
+      value: "achieved",
+      text: "Key roles and responsibilities for the security of network and information systems supporting your essential function(s) have been identified. These are reviewed regularly to ensure they remain fit for purpose"
+    },
+    {
+      value: "mines",
+      text: "Appropriately capable and knowledgeable staff fill those roles and are given the time, authority, and resources to carry out their duties"
+    },
+    {
+      value: "farm",
+      text: "There is clarity on who in your organisation has overall accountability for the security of the network and information systems supporting your essential function(s)"
+    },
+    {
+      divider: "or"
+    },
+    {
+      value: "none",
+      text: "None of the above",
+      behaviour: "exclusive"
+    }
+
+  ]
+}) }}
+      
+ 
+  
+
+
+
+<div class="govuk-button-group">
+  {{ govukButton({
+    text: "Save and continue"
+  }) }}
+  </form>
+
+  <a class="govuk-link" href="#">Back to Principle A1 Governance </a>
+</div>
+
+    
+
+
+    </div>    
+  </div>
+
+{% endblock %}
