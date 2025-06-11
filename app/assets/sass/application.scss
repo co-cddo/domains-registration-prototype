@@ -48,3 +48,19 @@
     background-color: #00703c;  
     border-right: 3.3333333333px #ffffff solid;
 }
+
+@media (min-width: 61.875em) {
+    .dfe-header__navigation {
+        background-color: #003a69;
+        display: block;
+        margin: 0 auto;
+        max-width: 1264px;
+    }
+}
+
+.dfe-header__navigation {
+    background-color: #ffffff;
+    clear: both;
+    display: none;
+    overflow: hidden;
+}
