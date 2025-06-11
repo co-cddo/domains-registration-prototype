@@ -54,7 +54,7 @@
 {% endblock %}
 {% block content %}
 
-<h3 class="govuk-heading-l">A1.a Board Direction</h3>
+<h3 class="govuk-heading-l">A1.a Board direction</h3>
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     {{ govukDetails({
@@ -75,7 +75,7 @@
   {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
 
 {{ govukCheckboxes({
-  name: "not-achieved",
+  name: "webcaf4-not-achieved",
   fieldset: {
     legend: {
       text: "Not achieved",
@@ -88,16 +88,19 @@
   },
   items: [
     {
-      value: "carcasses",
-      text: "Key roles are missing, left vacant, or fulfilled on an ad-hoc or informal basis"
+      value: "object1",
+      text: "Key roles are missing, left vacant, or fulfilled on an ad-hoc or informal basis",
+      checked: checked("webcaf4-not-achieved", "object1")
     },
     {
-      value: "mines",
-      text: "Staff are assigned security responsibilities but without adequate authority or resources to fulfil them"
+      value: "object2",
+      text: "Staff are assigned security responsibilities but without adequate authority or resources to fulfil them",
+      checked: checked("webcaf4-not-achieved", "object2")
     },
     {
-      value: "farm",
-      text: "Staff are unsure what their responsibilities are for the security of the essential function(s)"
+      value: "object3",
+      text: "Staff are unsure what their responsibilities are for the security of the essential function(s)",
+      checked: checked("webcaf4-not-achieved", "object3")
     },
     {
       divider: "or"
@@ -113,7 +116,7 @@
 {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
 
 {{ govukCheckboxes({
-  name: "waste",
+  name: "webcaf4-achieved",
   fieldset: {
     legend: {
       text: "Achieved",
@@ -126,16 +129,19 @@
   },
   items: [
     {
-      value: "achieved",
-      text: "Key roles and responsibilities for the security of network and information systems supporting your essential function(s) have been identified. These are reviewed regularly to ensure they remain fit for purpose"
+      value: "object5",
+      text: "Key roles and responsibilities for the security of network and information systems supporting your essential function(s) have been identified. These are reviewed regularly to ensure they remain fit for purpose",
+      checked: checked("webcaf4-achieved", "object5")
     },
     {
-      value: "mines",
-      text: "Appropriately capable and knowledgeable staff fill those roles and are given the time, authority, and resources to carry out their duties"
+      value: "object6",
+      text: "Appropriately capable and knowledgeable staff fill those roles and are given the time, authority, and resources to carry out their duties",
+      checked: checked("webcaf4-achieved", "object6")
     },
     {
-      value: "farm",
-      text: "There is clarity on who in your organisation has overall accountability for the security of the network and information systems supporting your essential function(s)"
+      value: "object7",
+      text: "There is clarity on who in your organisation has overall accountability for the security of the network and information systems supporting your essential function(s)",
+      checked: checked("webcaf4-achieved", "object7")
     },
     {
       divider: "or"

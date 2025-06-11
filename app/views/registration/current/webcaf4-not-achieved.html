@@ -25,22 +25,22 @@
       html: 'This is not a full service. It is not production code and you might experience problems.'
   }) }}
    {{ govukBackLink({
-    text: "Back to Objective A overview",
+    text: "Back to A1.a Board direction",
     href: "javascript:window.history.back()"
   }) }}
-
-  
-  
-{% endblock %}
-{% block content %}
 <div class="proto-admin">
    <div id="changedName-hint" class="govuk-hint">
       Section 1 of 5<br>
       <strong>Principle A1 Governance</strong>
     </div>     
-         <p id="progress-pages"><strong>Page 2 of 27</strong></p>
-         <div class="progress-inactive"><div class="progress-active" style="width: 7%"></div></div>
+         <p id="progress-pages"><strong>Page 2b of 27</strong></p>
+         <div class="progress-inactive"><div class="progress-active" style="width: 8%"></div></div>
       </div>
+  
+  
+{% endblock %}
+{% block content %}
+
   
   
   
@@ -54,8 +54,8 @@
 <div class="govuk-grid-row">
 
       <div class="govuk-grid-column-two-thirds">
-<h1 class="govuk-heading-l">A1.a Board Direction</h1>
-<h1 class="govuk-heading-m">Outcome status: Not achieved</h1>
+<h1 class="govuk-heading-l">A1.a Board direction outcome</h1>
+<h1 class="govuk-heading-m">Status: Not achieved</h1>
 
 {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
@@ -70,7 +70,7 @@
     }
   },
   hint: {
-    text: "You have not achieved this outcome, because one of the 'Not achieved' statements were true."
+    text: "Based on your selections, ygit ou have not achieved this outcome, because one of the 'Not achieved' statements were true."
   },
   items: [
     {

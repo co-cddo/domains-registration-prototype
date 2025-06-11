@@ -154,9 +154,9 @@ router.post('/webcaf3-answer', function(request, response) {
     var webcaf3na1 = request.session.data['webcaf3-na1']
     var webcaf3na2 = request.session.data['webcaf3-na2']
     if (webcaf3na == "yes" || webcaf3na1 == "yes" || webcaf3na1 == "yes") {
-        response.redirect("review-not-achieved")
+        response.redirect("webcaf4-not-achieved")
     } else {
-        response.redirect("webcaf3b")
+        response.redirect("webcaf4-achieved")
     }
 })
 
