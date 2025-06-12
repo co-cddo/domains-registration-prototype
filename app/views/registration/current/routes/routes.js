@@ -150,10 +150,9 @@ router.post('/email-address-page', function (req, res) {
   // Q: Webcaf3 to Webcaf3b - routing
 router.post('/webcaf3-answer', function(request, response) {
 
-    var webcaf3na = request.session.data['webcaf3-na']
-    var webcaf3na1 = request.session.data['webcaf3-na1']
-    var webcaf3na2 = request.session.data['webcaf3-na2']
-    if (webcaf3na == "yes" || webcaf3na1 == "yes" || webcaf3na1 == "yes") {
+    var webcaf3na = request.session.data['webcaf4-not-achieved']
+    
+    if (webcaf3na == "yes" ) {
         response.redirect("webcaf4-not-achieved")
     } else {
         response.redirect("webcaf4-achieved")
