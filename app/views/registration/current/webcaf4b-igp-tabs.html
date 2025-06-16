@@ -67,7 +67,10 @@
   text: "We need to know your nationality so we can work out which elections you’re entitled to vote in. If you cannot provide your nationality, you’ll have to send copies of identity documents through the post."
 }) }}
     <h3 class="govuk-heading-m">Read each group of statement and select what's true for your system.</h3>
-    
+
+      {% set pastDayHtml %}
+      
+     
     
 <h1 class="govuk-heading-s">Not achieved statements</h1>
 <div id="signIn-hint" class="govuk-hint">If you select yes to any of the following statements it means that you have not achieved this outcome.
@@ -154,7 +157,11 @@
   ]
 }) }}
 
-  
+
+      {% endset -%}
+      
+      {% set pastWeekHtml %}
+       
           
 <h1 class="govuk-heading-s">Achieved statements</h1>
 <div id="signIn-hint" class="govuk-hint">You must answer with 'Yes' to all statements to achieve this outcome.
@@ -237,6 +244,36 @@
   ]
 }) }}
 
+     
+      {% endset -%}
+       {{ govukTabs({
+        items: [
+          {
+            label:  "Not achieved",
+            id: "past-day",
+            panel: {
+              html: pastDayHtml
+            }
+          },
+          {
+            label: "Achieved",
+            id: "past-week",
+            panel: {
+              html: pastWeekHtml
+            }
+          }
+        ]
+      }) }}
+
+
+
+
+
+
+
+
+
+ 
  
 
       
