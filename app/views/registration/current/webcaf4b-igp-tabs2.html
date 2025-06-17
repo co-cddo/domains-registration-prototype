@@ -67,7 +67,10 @@
   text: "We need to know your nationality so we can work out which elections you’re entitled to vote in. If you cannot provide your nationality, you’ll have to send copies of identity documents through the post."
 }) }}
     <h3 class="govuk-heading-m">Read each group of statement and select what's true for your system.</h3>
-    
+
+      {% set pastDayHtml %}
+      
+     
     
 <h1 class="govuk-heading-s">Not achieved statements</h1>
 <div id="signIn-hint" class="govuk-hint">If you select yes to any of the following statements it means that you have not achieved this outcome.
@@ -81,13 +84,14 @@
   classes: "govuk-radios--inline",
   fieldset: {
     legend: {
-      html: "<strong>1</strong><span class='govuk-!-margin-left-3'>Key roles are missing, left vacant, or fulfilled on an ad-hoc or informal basis.",
+      html: "<strong>1</strong><span class='govuk-!-margin-left-3'></span>Key roles are missing, left vacant, or fulfilled on an ad-hoc or informal basis.",
       isPageHeading: true,
       classes: "govuk"
     }
   },
   hint: {
-    text: ""
+    text: "
+"
   },
   items: [
     {
@@ -108,7 +112,7 @@
   classes: "govuk-radios--inline",
   fieldset: {
     legend: {
-      html: "<strong>2</strong><span class='govuk-!-margin-left-3'>Staff are assigned security responsibilities but without adequate authority or resources to fulfil them.",
+      html: "<strong>2</strong><span class='govuk-!-margin-left-3'></span>Staff are assigned security responsibilities but without adequate authority or resources to fulfil them.",
       isPageHeading: true,
       classes: "govuk"
     }
@@ -133,7 +137,7 @@
   classes: "govuk-radios--inline",
   fieldset: {
     legend: {
-      html: "<strong>3</strong><span class='govuk-!-margin-left-3'>Staff are unsure what their responsibilities are for the security of the essential function(s)</span>",
+      html: "<strong>3</strong><span class='govuk-!-margin-left-3'></span>Staff are unsure what their responsibilities are for the security of the essential function(s)",
       isPageHeading: true,
       classes: "govuk"
     }
@@ -153,7 +157,11 @@
   ]
 }) }}
 
-  
+
+      {% endset -%}
+      
+      {% set pastWeekHtml %}
+       
           
 <h1 class="govuk-heading-s">Achieved statements</h1>
 <div id="signIn-hint" class="govuk-hint">You must answer with 'Yes' to all statements to achieve this outcome.
@@ -166,13 +174,13 @@
   classes: "govuk-radios--inline",
   fieldset: {
     legend: {
-      text: "Key roles and responsibilities for the security of network and information systems supporting your essential function(s) have been identified. These are reviewed regularly to ensure they remain fit for purpose.",
+      html: "<strong>4</strong><span class='govuk-!-margin-left-3'></span>Key roles and responsibilities for the security of network and information systems supporting your essential function(s) have been identified. These are reviewed regularly to ensure they remain fit for purpose.",
       isPageHeading: true,
       classes: "govuk"
     }
   },
   hint: {
-    text: "(A1.a4)"
+    text: ""
   },
   items: [
     {
@@ -191,13 +199,13 @@
   classes: "govuk-radios--inline",
   fieldset: {
     legend: {
-      text: "Appropriately capable and knowledgeable staff fill those roles and are given the time, authority, and resources to carry out their duties",
+      htmnl: "<strong>5</strong><span class='govuk-!-margin-left-3'></span>Appropriately capable and knowledgeable staff fill those roles and are given the time, authority, and resources to carry out their duties",
       isPageHeading: true,
       classes: "govuk"
     }
   },
   hint: {
-    text: "(A1.a5)"
+    text: ""
   },
   items: [
     {
@@ -216,13 +224,13 @@
   classes: "govuk-radios--inline",
   fieldset: {
     legend: {
-      text: "There is clarity on who in your organisation has overall accountability for the security of the network and information systems supporting your essential function(s)",
+      html: "<strong>6</strong><span class='govuk-!-margin-left-3'></span>There is clarity on who in your organisation has overall accountability for the security of the network and information systems supporting your essential function(s)",
       isPageHeading: true,
       classes: "govuk"
     }
   },
   hint: {
-    text: "(A1.a6)"
+    text: ""
   },
   items: [
     {
@@ -236,6 +244,36 @@
   ]
 }) }}
 
+     
+      {% endset -%}
+       {{ govukTabs({
+        items: [
+          {
+            label:  "Not achieved",
+            id: "past-day",
+            panel: {
+              html: pastDayHtml
+            }
+          },
+          {
+            label: "Achieved",
+            id: "past-week",
+            panel: {
+              html: pastWeekHtml
+            }
+          }
+        ]
+      }) }}
+
+
+
+
+
+
+
+
+
+ 
  
 
       
