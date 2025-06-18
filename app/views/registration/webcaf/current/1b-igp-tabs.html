@@ -29,7 +29,7 @@
     items: [
       {
         text: "Home",
-        href: "/index.html"
+        href: "/registration/webcaf/current"
       },
       {
         text: "Create a new assessment
@@ -80,40 +80,15 @@
     </div>
 
 
+
 {{ govukRadios({
-  name: "contact",
+  name: "outcome1-not-achieved",
   classes: "govuk-radios--inline",
   fieldset: {
     legend: {
-      html: "1. Key roles are missing, left vacant, or fulfilled on an ad-hoc or informal basis.",
-      isPageHeading: true,
-      classes: "govuk"
-    }
-  },
-  hint: {
-    text: "
-"
-  },
-  items: [
-    {
-      value: "email",
-      text: "Yes"
-    },
-    {
-      value: "phone",
-      text: "No"
-    }
-  ]
-}) }}
-
-
-
-{{ govukRadios({
-  name: "contact2",
-  classes: "govuk-radios--inline",
-  fieldset: {
-    legend: {
-      html: "2. Staff are assigned security responsibilities but without adequate authority or resources to fulfil them.",
+      html: "1. The security of network and information systems related to the
+                  operation of essential function(s) is not discussed or reported
+                  on regularly at board- level.",
       isPageHeading: true,
       classes: "govuk"
     }
@@ -123,22 +98,28 @@
   },
   items: [
     {
-      value: "email",
-      text: "Yes"
+      value: "yes",
+      text: "Yes",
+      checked: checked("outcome1-not-achieved", "yes")
     },
     {
-      value: "phone",
-      text: "No"
+      value: "no",
+      text: "No",
+      checked: checked("outcome1-not-achieved", "no")
     }
   ]
 }) }}
 
+
+
 {{ govukRadios({
-  name: "contact3",
+  name: "outcome2-not-achieved",
   classes: "govuk-radios--inline",
   fieldset: {
     legend: {
-      html: "3. Staff are unsure what their responsibilities are for the security of the essential function(s)",
+      html: "2. Board-level discussions on the security of network and information
+                  systems are based on partial or out-of-date information, without
+                  the benefit of expert guidance.",
       isPageHeading: true,
       classes: "govuk"
     }
@@ -148,12 +129,72 @@
   },
   items: [
     {
-      value: "email",
-      text: "Yes"
+      value: "yes",
+      text: "Yes",
+      checked: checked("outcome2-not-achieved", "yes")
     },
     {
-      value: "phone",
-      text: "No"
+      value: "no",
+      text: "No",
+      checked: checked("outcome2-not-achieved", "no")
+    }
+  ]
+}) }}
+
+{{ govukRadios({
+  name: "outcome3-not-achieved",
+  classes: "govuk-radios--inline",
+  fieldset: {
+    legend: {
+      html: "3. The security of network and information systems supporting your
+                  essential function(s) are not driven effectively by the direction
+                  set at board-level.</span>",
+      isPageHeading: true,
+      classes: "govuk"
+    }
+  },
+  hint: {
+    text: ""
+  },
+  items: [
+    {
+      value: "yes",
+      text: "Yes",
+      checked: checked("outcome3-not-achieved", "yes")
+    },
+    {
+      value: "no",
+      text: "No",
+      checked: checked("outcome3-not-achieved", "no")
+    }
+  ]
+}) }}
+
+{{ govukRadios({
+  name: "outcome4-not-achieved",
+  classes: "govuk-radios--inline",
+  fieldset: {
+    legend: {
+      html: "4. Senior management or other pockets of the organisation consider
+                  themselves exempt from some policies or expect special accommodations
+                  to be made.</span>",
+      isPageHeading: true,
+      classes: "govuk"
+    }
+  },
+  hint: {
+    text: ""
+  },
+  items: [
+    {
+      value: "yes",
+      text: "Yes",
+      checked: checked("outcome4-not-achieved", "yes")
+    },
+    {
+      value: "no",
+      text: "No",
+      checked: checked("outcome3-not-achieved", "no")
     }
   ]
 }) }}
@@ -171,11 +212,15 @@
     </div> 
 
      {{ govukRadios({
-  name: "contact4",
+  name: "outcome5-achieved",
   classes: "govuk-radios--inline",
   fieldset: {
     legend: {
-      html: "4. Key roles and responsibilities for the security of network and information systems supporting your essential function(s) have been identified. These are reviewed regularly to ensure they remain fit for purpose.",
+      text: "5. Your organisation's approach and policy relating to the security
+                  of network and information systems supporting the operation of your
+                  essential function(s) are owned and managed at board-level. These are
+                  communicated, in a meaningful way, to risk management decision-makers
+                  across the organisation.",
       isPageHeading: true,
       classes: "govuk"
     }
@@ -185,22 +230,27 @@
   },
   items: [
     {
-      value: "email",
-      text: "Yes"
+      value: "yes",
+      text: "Yes",
+      checked: checked("outcome5-achieved", "yes")
     },
     {
-      value: "phone",
-      text: "No"
+      value: "no",
+      text: "No",
+      checked: checked("outcome5-achieved", "no")
     }
   ]
 }) }}
 
  {{ govukRadios({
-  name: "contact5",
+  name: "outcome6-achieved",
   classes: "govuk-radios--inline",
   fieldset: {
     legend: {
-      html: "5. Appropriately capable and knowledgeable staff fill those roles and are given the time, authority, and resources to carry out their duties",
+      text: "6. Regular board-level discussions on the security of network and
+                  information systems supporting the operation of your essential function(s)
+                  take place, based on timely and accurate information and informed
+                  by expert guidance.",
       isPageHeading: true,
       classes: "govuk"
     }
@@ -210,22 +260,26 @@
   },
   items: [
     {
-      value: "email",
-      text: "Yes"
+      value: "yes",
+      text: "Yes",
+      checked: checked("outcome6-achieved", "yes")
     },
     {
-      value: "phone",
-      text: "No"
+      value: "no",
+      text: "No",
+      checked: checked("outcome6-achieved", "no")
     }
   ]
 }) }}
 
  {{ govukRadios({
-  name: "contact6",
+  name: "outcome7-achieved",
   classes: "govuk-radios--inline",
   fieldset: {
     legend: {
-      html: "6. There is clarity on who in your organisation has overall accountability for the security of the network and information systems supporting your essential function(s)",
+      text: "7. There is a board-level individual who has overall accountability
+                  for the security of network and information systems and drives regular
+                  discussion at board-level.",
       isPageHeading: true,
       classes: "govuk"
     }
@@ -235,12 +289,43 @@
   },
   items: [
     {
-      value: "email",
-      text: "Yes"
+      value: "yes",
+      text: "Yes",
+      checked: checked("outcome7-achieved", "yes")
     },
     {
-      value: "phone",
-      text: "No"
+      value: "no",
+      text: "No",
+      checked: checked("outcome7-achieved", "no")
+    }
+  ]
+}) }}
+
+{{ govukRadios({
+  name: "outcome8-achieved",
+  classes: "govuk-radios--inline",
+  fieldset: {
+    legend: {
+      text: "8. Direction set at board-level is translated into effective organisational
+                  practices that direct and control the security of the network and
+                  information systems supporting your essential function(s).",
+      isPageHeading: true,
+      classes: "govuk"
+    }
+  },
+  hint: {
+    text: ""
+  },
+  items: [
+    {
+      value: "yes",
+      text: "Yes",
+      checked: checked("outcome8-achieved", "yes")
+    },
+    {
+      value: "no",
+      text: "No",
+      checked: checked("outcome8-achieved", "no")
     }
   ]
 }) }}

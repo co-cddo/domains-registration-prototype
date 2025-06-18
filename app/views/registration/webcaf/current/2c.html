@@ -10,8 +10,12 @@
   <!-- Blank header with no service name for the start page -->
   {{ govukHeader() }}
 {% endblock %}
+
+
  
 {% block beforeContent %}
+ 
+
 {% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
   {{ govukPhaseBanner({
     tag: {
@@ -20,132 +24,244 @@
     },
       html: 'This is not a full service. It is not production code and you might experience problems.'
   }) }}
-  
 
-  {{ govukBreadcrumbs({
+   {{ govukBreadcrumbs({
     items: [
       {
         text: "Home",
-        href: "/index.html"
+        href: "/registration/webcaf/current"
       },
       {
-        text: "CAF Objective A - Managing Security Risk
+        text: "Create a new assessment
         ",
         href: "/registration/index"
       },
       {
-        text: "Principle A1 Governance
+        text: "Objective A - Managing risk
         ",
         href: "/registration/index"
       },
+      
       {
-        text: "A1.b Roles and Responsibilities
-        "
+        text: "A1.b Roles and responsibilities"
       }
     ]
   }) }}
+  <div class="proto-admin">
+   <div id="changedName-hint" class="govuk-hint">
+      Objective 1 of 4<br>
+      <strong>A1.b Roles and responsibilities</strong>
+    </div>     
+         <p id="progress-pages"><strong>You're on outcome 2 of 3</strong></p>
+         <div class="progress-inactive"><div class="progress-active" style="width: 66%"></div></div>
+      </div>
   
 {% endblock %}
-
 {% block content %}
+
 <h3 class="govuk-heading-l">A1.b Roles and responsibilities</h3>
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-     {{ govukDetails({
+    {{ govukDetails({
   summaryText: "Help with this outcome",
   text: "We need to know your nationality so we can work out which elections you’re entitled to vote in. If you cannot provide your nationality, you’ll have to send copies of identity documents through the post."
 }) }}
-    <h3 class="govuk-heading-m">Read each group of statements and select all that apply about your system.</h3>
-    
-    <div id="signIn-hint" class="govuk-hint">
+    <h3 class="govuk-heading-m">Read each statement and select what's true about your system.</h3>
 
+    <form class="form" action="webcaf4-answer" id="mainForm" method="post">
+    
+    
+<h1 class="govuk-heading-s">Not achieved statements</h1>
+<div id="signIn-hint" class="govuk-hint">If you select 'Yes' to any of the following statements it means that you have not achieved this outcome.
 
 
     </div>
-    
-    
-    <form class="form" action="webcaf3-answer" id="mainForm" method="post">
+
+
+{{ govukRadios({
+  name: "outcome9-not-achieved",
+  classes: "govuk-radios--inline",
+  fieldset: {
+    legend: {
+      html: "9. Key roles are missing, left vacant, or fulfilled on an ad-hoc
+                  or informal basis.",
+      isPageHeading: true,
+      classes: "govuk"
+    }
+  },
+  hint: {
+    text: ""
+  },
+  items: [
+    {
+      value: "yes",
+      text: "Yes",
+      checked: checked("outcome9-not-achieved", "yes")
+    },
+    {
+      value: "no",
+      text: "No",
+      checked: checked("outcome9-not-achieved", "no")
+    }
+  ]
+}) }}
+
+
+
+{{ govukRadios({
+  name: "outcome10-not-achieved",
+  classes: "govuk-radios--inline",
+  fieldset: {
+    legend: {
+      html: "10. Staff are assigned security responsibilities but without adequate
+                  authority or resources to fulfil them.",
+      isPageHeading: true,
+      classes: "govuk"
+    }
+  },
+  hint: {
+    text: ""
+  },
+  items: [
+    {
+      value: "yes",
+      text: "Yes",
+      checked: checked("outcome10-not-achieved", "yes")
+    },
+    {
+      value: "no",
+      text: "No",
+      checked: checked("outcome10-not-achieved", "no")
+    }
+  ]
+}) }}
+
+{{ govukRadios({
+  name: "outcome11-not-achieved",
+  classes: "govuk-radios--inline",
+  fieldset: {
+    legend: {
+      html: "11. Staff are unsure what their responsibilities are for the security
+                  of the essential function(s).",
+      isPageHeading: true,
+      classes: "govuk"
+    }
+  },
+  hint: {
+    text: ""
+  },
+  items: [
+    {
+      value: "yes",
+      text: "Yes",
+      checked: checked("outcome11-not-achieved", "yes")
+    },
+    {
+      value: "no",
+      text: "No",
+      checked: checked("outcome11-not-achieved", "no")
+    }
+  ]
+}) }}
+
   
-  {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+          
+<h1 class="govuk-heading-s">Achieved statements</h1>
+<div id="signIn-hint" class="govuk-hint">You must answer with 'Yes' to all statements to achieve this outcome.
 
-{{ govukCheckboxes({
-  name: "not-achieved",
+
+    </div> 
+
+     {{ govukRadios({
+  name: "outcome12-achieved",
+  classes: "govuk-radios--inline",
   fieldset: {
     legend: {
-      text: "Not achieved",
+      text: "12. Key roles and responsibilities for the security of
+                    network and information systems supporting your
+                    essential function(s) have been identified. These
+                    are reviewed regularly to ensure they remain fit for
+                    purpose.",
       isPageHeading: true,
-      classes: "govuk-fieldset__legend--s"
+      classes: "govuk"
     }
   },
   hint: {
-    text: "If you select any of the following statements it means that you have not achieved this outcome."
+    text: ""
   },
   items: [
     {
-      value: "carcasses",
-      text: "Key roles are missing, left vacant, or fulfilled on an ad-hoc or informal basis"
+      value: "yes",
+      text: "Yes",
+      checked: checked("outcome12-achieved", "yes")
     },
     {
-      value: "mines",
-      text: "Staff are assigned security responsibilities but without adequate authority or resources to fulfil them"
-    },
-    {
-      value: "farm",
-      text: "Staff are unsure what their responsibilities are for the security of the essential function(s)"
-    },
-    {
-      divider: "or"
-    },
-    {
-      value: "none",
-      text: "None of the above",
-      behaviour: "exclusive"
+      value: "no",
+      text: "No",
+      checked: checked("outcome12-achieved", "no")
     }
   ]
 }) }}
 
-{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
-
-{{ govukCheckboxes({
-  name: "waste",
+ {{ govukRadios({
+  name: "outcom13-achieved",
+  classes: "govuk-radios--inline",
   fieldset: {
     legend: {
-      text: "Achieved",
+      text: "13. Appropriately capable and knowledgeable staff fill those roles
+                  and are given the time, authority, and resources to carry out their
+                  duties.",
       isPageHeading: true,
-      classes: "govuk-fieldset__legend--s"
+      classes: "govuk"
     }
   },
   hint: {
-    text: "To achieve this outcome, all the following statements must be selected."
+    text: ""
   },
   items: [
     {
-      value: "achieved",
-      text: "Key roles and responsibilities for the security of network and information systems supporting your essential function(s) have been identified. These are reviewed regularly to ensure they remain fit for purpose"
+      value: "yes",
+      text: "Yes",
+      checked: checked("outcome13-achieved", "yes")
     },
     {
-      value: "mines",
-      text: "Appropriately capable and knowledgeable staff fill those roles and are given the time, authority, and resources to carry out their duties"
-    },
-    {
-      value: "farm",
-      text: "There is clarity on who in your organisation has overall accountability for the security of the network and information systems supporting your essential function(s)"
-    },
-    {
-      divider: "or"
-    },
-    {
-      value: "none",
-      text: "None of the above",
-      behaviour: "exclusive"
+      value: "no",
+      text: "No",
+      checked: checked("outcome13-achieved", "no")
     }
-
   ]
 }) }}
-      
+
+ {{ govukRadios({
+  name: "outcome14-achieved",
+  classes: "govuk-radios--inline",
+  fieldset: {
+    legend: {
+      text: "14. There is clarity on who in your organisation has overall accountability
+                  for the security of the network and information systems supporting
+                  your essential function(s).",
+      isPageHeading: true,
+      classes: "govuk"
+    }
+  },
+  hint: {
+    text: ""
+  },
+  items: [
+    {
+      value: "yes",
+      text: "Yes",
+      checked: checked("outcome14-achieved", "yes")
+    },
+    {
+      value: "no",
+      text: "No",
+      checked: checked("outcome14-achieved", "no")
+    }
+  ]
+}) }}
+
  
-  
-
 
 
 <div class="govuk-button-group">
@@ -154,7 +270,7 @@
   }) }}
   </form>
 
-  <a class="govuk-link" href="#">Back to Principle A1 Governance </a>
+  <a class="govuk-link" href="#">Back to Objective A - Managing risk </a>
 </div>
 
     
