@@ -161,9 +161,9 @@ router.post('/webcaf3-answer', function(request, response) {
     
     
     if (igp1 == "yes" || igp2 == "yes" || igp3 == "yes" || igp4 == "yes" ) {
-        response.redirect("outcome-not-achieved")
+        response.redirect("outcome-not-achieved2")
     } else {
-        response.redirect("outcome-achieved")
+        response.redirect("outcome-achieved2")
     }
 })
 
