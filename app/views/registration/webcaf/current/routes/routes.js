@@ -150,12 +150,18 @@ router.post('/email-address-page', function (req, res) {
   // Q: Webcaf3 to Webcaf3b - routing
 router.post('/webcaf3-answer', function(request, response) {
 
-    var webcaf3na = request.session.data['outcome-not-achieved']
+    var igp1 = request.session.data['outcome1-not-achieved']
+    var igp2 = request.session.data['outcome2-not-achieved']
+    var igp3 = request.session.data['outcome3-not-achieved']
+    var igp4 = request.session.data['outcome6-achieved']
+    var igp5 = request.session.data['outcome7-achieved']
+    var igp6 = request.session.data['outcome8-achieved']
     
-    if (webcaf3na == "yes" ) {
+    
+    if (igp1 == "yes" || igp2 == "yes" || igp3 == "yes" ) {
         response.redirect("outcome-not-achieved")
     } else {
-        response.redirect("webcaf4-achieved")
+        response.redirect("outcome-achieved")
     }
 })
 

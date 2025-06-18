@@ -68,6 +68,8 @@
   text: "We need to know your nationality so we can work out which elections you’re entitled to vote in. If you cannot provide your nationality, you’ll have to send copies of identity documents through the post."
 }) }}
     <h3 class="govuk-heading-m">Read each statement and select what's true about your system.</h3>
+
+    <form class="form" action="webcaf3-answer" id="mainForm" method="post">
     
     
 <h1 class="govuk-heading-s">Not achieved statements</h1>
@@ -78,7 +80,7 @@
 
 
 {{ govukRadios({
-  name: "outcome-achieved1",
+  name: "outcome1-not-achieved",
   classes: "govuk-radios--inline",
   fieldset: {
     legend: {
@@ -92,12 +94,14 @@
   },
   items: [
     {
-      value: "email",
-      text: "Yes"
+      value: "yes",
+      text: "Yes",
+      checked: checked("outcome1-not-achieved", "yes")
     },
     {
-      value: "phone",
-      text: "No"
+      value: "no",
+      text: "No",
+      checked: checked("outcome1-not-achieved", "no")
     }
   ]
 }) }}
@@ -105,7 +109,7 @@
 
 
 {{ govukRadios({
-  name: "outcome-achieved2",
+  name: "outcome2-not-achieved",
   classes: "govuk-radios--inline",
   fieldset: {
     legend: {
@@ -119,18 +123,20 @@
   },
   items: [
     {
-      value: "email",
-      text: "Yes"
+      value: "yes",
+      text: "Yes",
+      checked: checked("outcome2-not-achieved", "yes")
     },
     {
-      value: "phone",
-      text: "No"
+      value: "no",
+      text: "No",
+      checked: checked("outcome2-not-achieved", "no")
     }
   ]
 }) }}
 
 {{ govukRadios({
-  name: "outcome-achieved3",
+  name: "outcome3-not-achieved",
   classes: "govuk-radios--inline",
   fieldset: {
     legend: {
@@ -144,12 +150,14 @@
   },
   items: [
     {
-      value: "email",
-      text: "Yes"
+      value: "yes",
+      text: "Yes",
+      checked: checked("outcome3-not-achieved", "yes")
     },
     {
-      value: "phone",
-      text: "No"
+      value: "no",
+      text: "No",
+      checked: checked("outcome3-not-achieved", "no")
     }
   ]
 }) }}
@@ -163,7 +171,7 @@
     </div> 
 
      {{ govukRadios({
-  name: "outcome-achieved4",
+  name: "outcome4-achieved",
   classes: "govuk-radios--inline",
   fieldset: {
     legend: {
@@ -177,18 +185,20 @@
   },
   items: [
     {
-      value: "email",
-      text: "Yes"
+      value: "yes",
+      text: "Yes",
+      checked: checked("outcome1-achieved", "yes")
     },
     {
-      value: "phone",
-      text: "No"
+      value: "no",
+      text: "No",
+      checked: checked("outcome1-achieved", "no")
     }
   ]
 }) }}
 
  {{ govukRadios({
-  name: "outcome-achieved5",
+  name: "outcome5-achieved",
   classes: "govuk-radios--inline",
   fieldset: {
     legend: {
@@ -202,18 +212,20 @@
   },
   items: [
     {
-      value: "email",
-      text: "Yes"
+      value: "yes",
+      text: "Yes",
+      checked: checked("outcome5-achieved", "yes")
     },
     {
-      value: "phone",
-      text: "No"
+      value: "no",
+      text: "No",
+      checked: checked("outcome5-achieved", "no")
     }
   ]
 }) }}
 
  {{ govukRadios({
-  name: "outcome-achieved6",
+  name: "outcome6-achieved",
   classes: "govuk-radios--inline",
   fieldset: {
     legend: {
@@ -227,27 +239,19 @@
   },
   items: [
     {
-      value: "email",
-      text: "Yes"
+      value: "yes",
+      text: "Yes",
+      checked: checked("outcome6-achieved", "yes")
     },
     {
-      value: "phone",
-      text: "No"
+      value: "no",
+      text: "No",
+      checked: checked("outcome6-achieved", "no")
     }
   ]
 }) }}
 
  
-
-      
-      
-      
-     
-    
-    
-
-  
-
 
 
 <div class="govuk-button-group">
