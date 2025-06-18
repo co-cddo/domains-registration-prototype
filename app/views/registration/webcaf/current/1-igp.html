@@ -32,17 +32,18 @@
         href: "/index.html"
       },
       {
+        text: "Create a new assessment
+        ",
+        href: "/registration/index"
+      },
+      {
         text: "Objective A - Managing risk
         ",
         href: "/registration/index"
       },
+      
       {
         text: "Principle: A1 Governance
-        ",
-        href: "/registration/index"
-      },
-      {
-        text: "A1.a Board direction
         "
       }
     ]
@@ -52,8 +53,8 @@
       Principles 1 of 4<br>
       <strong>Principle: A1 Governance</strong>
     </div>     
-         <p id="progress-pages"><strong>Page 2 of 27</strong></p>
-         <div class="progress-inactive"><div class="progress-active" style="width: 7%"></div></div>
+         <p id="progress-pages"><strong>You're on outcome 1 of 3</strong></p>
+         <div class="progress-inactive"><div class="progress-active" style="width: 33%"></div></div>
       </div>
   
 {% endblock %}
@@ -66,11 +67,8 @@
   summaryText: "Help with this outcome",
   text: "We need to know your nationality so we can work out which elections you’re entitled to vote in. If you cannot provide your nationality, you’ll have to send copies of identity documents through the post."
 }) }}
-    <h3 class="govuk-heading-m">Read each group of statement and select what's true for your system.</h3>
-
-      {% set pastDayHtml %}
-      
-     
+    <h3 class="govuk-heading-m">Read each statement and select what's true about your system.</h3>
+    
     
 <h1 class="govuk-heading-s">Not achieved statements</h1>
 <div id="signIn-hint" class="govuk-hint">If you select yes to any of the following statements it means that you have not achieved this outcome.
@@ -80,18 +78,17 @@
 
 
 {{ govukRadios({
-  name: "contact",
+  name: "outcome-not-achieved",
   classes: "govuk-radios--inline",
   fieldset: {
     legend: {
-      html: "<strong>1</strong><span class='govuk-!-margin-left-3'></span>Key roles are missing, left vacant, or fulfilled on an ad-hoc or informal basis.",
+      html: "<strong>1</strong><span class='govuk-!-margin-left-3'>Key roles are missing, left vacant, or fulfilled on an ad-hoc or informal basis.",
       isPageHeading: true,
       classes: "govuk"
     }
   },
   hint: {
-    text: "
-"
+    text: ""
   },
   items: [
     {
@@ -112,7 +109,7 @@
   classes: "govuk-radios--inline",
   fieldset: {
     legend: {
-      html: "<strong>2</strong><span class='govuk-!-margin-left-3'></span>Staff are assigned security responsibilities but without adequate authority or resources to fulfil them.",
+      html: "<strong>2</strong><span class='govuk-!-margin-left-3'>Staff are assigned security responsibilities but without adequate authority or resources to fulfil them.",
       isPageHeading: true,
       classes: "govuk"
     }
@@ -137,7 +134,7 @@
   classes: "govuk-radios--inline",
   fieldset: {
     legend: {
-      html: "<strong>3</strong><span class='govuk-!-margin-left-3'></span>Staff are unsure what their responsibilities are for the security of the essential function(s)",
+      html: "<strong>3</strong><span class='govuk-!-margin-left-3'>Staff are unsure what their responsibilities are for the security of the essential function(s)</span>",
       isPageHeading: true,
       classes: "govuk"
     }
@@ -157,11 +154,7 @@
   ]
 }) }}
 
-
-      {% endset -%}
-      
-      {% set pastWeekHtml %}
-       
+  
           
 <h1 class="govuk-heading-s">Achieved statements</h1>
 <div id="signIn-hint" class="govuk-hint">You must answer with 'Yes' to all statements to achieve this outcome.
@@ -174,13 +167,13 @@
   classes: "govuk-radios--inline",
   fieldset: {
     legend: {
-      html: "<strong>4</strong><span class='govuk-!-margin-left-3'></span>Key roles and responsibilities for the security of network and information systems supporting your essential function(s) have been identified. These are reviewed regularly to ensure they remain fit for purpose.",
+      text: "Key roles and responsibilities for the security of network and information systems supporting your essential function(s) have been identified. These are reviewed regularly to ensure they remain fit for purpose.",
       isPageHeading: true,
       classes: "govuk"
     }
   },
   hint: {
-    text: ""
+    text: "(A1.a4)"
   },
   items: [
     {
@@ -199,13 +192,13 @@
   classes: "govuk-radios--inline",
   fieldset: {
     legend: {
-      html: "<strong>5</strong><span class='govuk-!-margin-left-3'></span>Appropriately capable and knowledgeable staff fill those roles and are given the time, authority, and resources to carry out their duties",
+      text: "Appropriately capable and knowledgeable staff fill those roles and are given the time, authority, and resources to carry out their duties",
       isPageHeading: true,
       classes: "govuk"
     }
   },
   hint: {
-    text: ""
+    text: "(A1.a5)"
   },
   items: [
     {
@@ -224,13 +217,13 @@
   classes: "govuk-radios--inline",
   fieldset: {
     legend: {
-      html: "<strong>6</strong><span class='govuk-!-margin-left-3'></span>There is clarity on who in your organisation has overall accountability for the security of the network and information systems supporting your essential function(s)",
+      text: "There is clarity on who in your organisation has overall accountability for the security of the network and information systems supporting your essential function(s)",
       isPageHeading: true,
       classes: "govuk"
     }
   },
   hint: {
-    text: ""
+    text: "(A1.a6)"
   },
   items: [
     {
@@ -244,36 +237,6 @@
   ]
 }) }}
 
-     
-      {% endset -%}
-       {{ govukTabs({
-        items: [
-          {
-            label:  "Not achieved",
-            id: "past-day",
-            panel: {
-              html: pastDayHtml
-            }
-          },
-          {
-            label: "Achieved",
-            id: "past-week",
-            panel: {
-              html: pastWeekHtml
-            }
-          }
-        ]
-      }) }}
-
-
-
-
-
-
-
-
-
- 
  
 
       
@@ -289,11 +252,11 @@
 
 <div class="govuk-button-group">
   {{ govukButton({
-    text: "Save outcome and continue"
+    text: "Save and continue"
   }) }}
   </form>
 
-  <a class="govuk-link" href="#">Back to statements </a>
+  <a class="govuk-link" href="#">Back to Objective A - Managing risk </a>
 </div>
 
     

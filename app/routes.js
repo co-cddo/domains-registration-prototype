@@ -15,12 +15,14 @@ router.use('/registration/v1', require('./views/registration/v1/routes/routes'))
 router.use('/registration/v2-2', require('./views/registration/v2-2/routes/routes'))
 router.use('/registration/v3', require('./views/registration/v3/routes/routes'))
 
+
 // Strategic
 
 router.use('/registration/strategic/', require('./views/registration/strategic/routes/routes'))
 router.use('/registration/strategic/ver1/moving-your-parish', require('./views/registration/strategic/ver1/routes/routes'))
 router.use('/registration/strategic/ver2/g0-moving-pc', require('./views/registration/strategic/ver2/routes/routes'))
 
-
+// Webcaf
+router.use('/registration/webcaf/current', require('./views/registration/webcaf/current/routes/routes'))
 
 module.exports = router

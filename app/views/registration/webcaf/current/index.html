@@ -1,0 +1,76 @@
+{% extends "layouts/main.html" %}
+{% block beforeContent %}
+{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+  {{ govukPhaseBanner({
+    tag: {
+    text: "prototype",
+    classes: "govuk-tag--pink"
+    },
+      html: 'This is not a full service. It is not production code and you might experience problems.'
+  }) }}
+  
+{% set pageName="Home" %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% from "govuk/components/cookie-banner/macro.njk" import govukCookieBanner %}
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h2 class="govuk-heading-xl">
+      Webcaf admin prototype
+    </h2>
+  </div>
+</div>
+
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <div class="proto-admin">
+        <h2 class="govuk-heading-l">Initial design work</h2>
+          <p class='govuk-list app-list--definition'>
+            <a href='https://sgs-ddt-01-96c924f9e494.herokuapp.com/registration/webcaf/current/1-igp' class="govuk-link--no-visited-state">IGP statements on Outcome level (radios) </a>
+            <br>Variant 1 - scrolling list of statements - shows numbers and codings
+          </p>
+          <p class='govuk-list app-list--definition'>
+            <a href='https://sgs-ddt-01-96c924f9e494.herokuapp.com/registration/webcaf/current/1-igp-tabs' class="govuk-link--no-visited-state">IGP statements on Outcome level (radios in tabs) </a>
+            <br>Variant 2 - grouped statements in tabs - shows codings only
+          </p>
+          <p class='govuk-list app-list--definition'>
+            <a href='https://sgs-ddt-01-96c924f9e494.herokuapp.com/registration/webcaf/current/1b-igp' class="govuk-link--no-visited-state">IGP statements on Outcome level (radios) </a>
+            <br>Variant 1 - scrolling list of statements - shows new numbering design
+          </p>
+          <p class='govuk-list app-list--definition'>
+            <a href='https://sgs-ddt-01-96c924f9e494.herokuapp.com/registration/webcaf/current/1b-igp-tabs' class="govuk-link--no-visited-state">IGP statements on Outcome level (radios in tabs) </a>
+            <br>Variant 2 - grouped statements in tabs - shows new numbering design
+          </p>
+     </div>
+
+     
+     
+      <div class="proto-admin">
+        <h2 class="govuk-heading-l">Design thinking</h2>
+          <p class='govuk-heading-m'>User journeys, user-flows and wireframes</p>
+          <p class='govuk-list app-list--definition'>
+          
+            <p class='govuk-list app-list--definition'>
+              <a href='https://sgs-ddt-01-96c924f9e494.herokuapp.com/registration/current/tactical-step-by-step' class="govuk-link--no-visited-state" target="new">Guidance: Apply for a .gov.uk domain name: step by step</a>
+            </p>
+      </div>
+
+
+
+
+
+      {% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
+
+
+                  
+</div>
+</div>
+
+{% endblock %}
