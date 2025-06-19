@@ -65,25 +65,39 @@
   <div class="govuk-grid-column-two-thirds">
     {{ govukDetails({
   summaryText: "Help with this outcome",
-  text: "We need to know your nationality so we can work out which elections you’re entitled to vote in. If you cannot provide your nationality, you’ll have to send copies of identity documents through the post."
+  text: "We need to know your nationality so we can work out which elections you're entitled to vote in. If you cannot provide your nationality, you'll have to send copies of identity documents through the post."
 }) }}
-    <h3 class="govuk-heading-m">Read all the statements on both tabs. Select true or false as an answer to the statement.</h3>
+    <h3 class="govuk-heading-m">Read all the statements on both tabs. Select true or false as an answer to the statement. </h3>
+    {{ govukInsetText({
+  html: "If you believe a statement is not applicable to your organisation or system you can select not applicable. You must explain the reason why the statement does not apply.<br> <br>The assessor will decide if your reason is acceptable."
+}) }}
+    <p></p>
+    <p></p>
+</h3>
 
       {% set pastDayHtml %}
       
  <form class="form" action="webcaf3-answer" id="mainForm" method="post">
     
 <h1 class="govuk-heading-s">Not achieved statements</h1>
-<div id="signIn-hint" class="govuk-hint">If you select yes to any of the following statements it means that you have not achieved this outcome.
-
-
+<div id="signIn-hint" class="govuk-hint">If you select true to any of the following statements it means that you have not achieved this outcome.
     </div>
 
+   
+{% set giveReason %}
+{{ govukTextarea({
+  name: "giveReason",
+  id: "giveReason",
+  label: {
+    text: "Explain your reason for saying this statement is not applicable to your system or organisation."
+  }
+}) }}
+{% endset -%}
 
 
 {{ govukRadios({
   name: "outcome1-not-achieved",
-  classes: "govuk-radios--inline",
+  
   fieldset: {
     legend: {
       html: "1. The security of network and information systems related to the
@@ -106,6 +120,14 @@
       value: "no",
       text: "False",
       checked: checked("outcome1-not-achieved", "no")
+    },
+    {
+      value: "na",
+      text: "Not applicable",
+      conditional: {
+        html: giveReason
+      },
+      checked: checked("outcome1-not-achieved", "na")
     }
   ]
 }) }}
@@ -114,7 +136,7 @@
 
 {{ govukRadios({
   name: "outcome2-not-achieved",
-  classes: "govuk-radios--inline",
+  
   fieldset: {
     legend: {
       html: "2. Board-level discussions on the security of network and information
@@ -137,13 +159,24 @@
       value: "no",
       text: "False",
       checked: checked("outcome2-not-achieved", "no")
+    },
+    {
+      value: "na",
+      text: "Not applicable",
+      {
+      value: "na",
+      text: "Not applicable",
+      conditional: {
+        html: giveReason
+      },
+      checked: checked("outcome1-not-achieved", "na")
     }
   ]
 }) }}
 
 {{ govukRadios({
   name: "outcome3-not-achieved",
-  classes: "govuk-radios--inline",
+  
   fieldset: {
     legend: {
       html: "3. The security of network and information systems supporting your
@@ -166,13 +199,24 @@
       value: "no",
       text: "False",
       checked: checked("outcome3-not-achieved", "no")
+    },
+    {
+      value: "na",
+      text: "Not applicable",
+      {
+      value: "na",
+      text: "Not applicable",
+      conditional: {
+        html: giveReason
+      },
+      checked: checked("outcome1-not-achieved", "na")
     }
   ]
 }) }}
 
 {{ govukRadios({
   name: "outcome4-not-achieved",
-  classes: "govuk-radios--inline",
+  
   fieldset: {
     legend: {
       html: "4. Senior management or other pockets of the organisation consider
@@ -195,6 +239,17 @@
       value: "no",
       text: "False",
       checked: checked("outcome3-not-achieved", "no")
+    },
+    {
+      value: "na",
+      text: "Not applicable",
+      {
+      value: "na",
+      text: "Not applicable",
+      conditional: {
+        html: giveReason
+      },
+      checked: checked("outcome1-not-achieved", "na")
     }
   ]
 }) }}
@@ -205,7 +260,7 @@
        
           
 <h1 class="govuk-heading-s">Achieved statements</h1>
-<div id="signIn-hint" class="govuk-hint">You must answer with 'Yes' to all statements to achieve this outcome.
+<div id="signIn-hint" class="govuk-hint">You must answer with yes to all statements to achieve this outcome.
 
 
     </div> 
