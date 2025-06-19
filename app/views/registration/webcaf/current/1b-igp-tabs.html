@@ -50,7 +50,7 @@
   }) }}
   <div class="proto-admin">
    <div id="changedName-hint" class="govuk-hint">
-      Objective 1 of 4<br>
+      Principle 1 of 4<br>
       <strong>Principle: A1 Governance</strong>
     </div>     
          <p id="progress-pages"><strong>You're on outcome 1 of 3</strong></p>
@@ -67,7 +67,7 @@
   summaryText: "Help with this outcome",
   text: "We need to know your nationality so we can work out which elections you’re entitled to vote in. If you cannot provide your nationality, you’ll have to send copies of identity documents through the post."
 }) }}
-    <h3 class="govuk-heading-m">Read each group of statements on both tabs. Select what's true about your system.</h3>
+    <h3 class="govuk-heading-m">Read all the statements on both tabs. Select true or false as an answer to the statement.</h3>
 
       {% set pastDayHtml %}
       
@@ -99,12 +99,12 @@
   items: [
     {
       value: "yes",
-      text: "Yes",
+      text: "True",
       checked: checked("outcome1-not-achieved", "yes")
     },
     {
       value: "no",
-      text: "No",
+      text: "False",
       checked: checked("outcome1-not-achieved", "no")
     }
   ]
@@ -130,12 +130,12 @@
   items: [
     {
       value: "yes",
-      text: "Yes",
+      text: "True",
       checked: checked("outcome2-not-achieved", "yes")
     },
     {
       value: "no",
-      text: "No",
+      text: "False",
       checked: checked("outcome2-not-achieved", "no")
     }
   ]
@@ -159,12 +159,12 @@
   items: [
     {
       value: "yes",
-      text: "Yes",
+      text: "True",
       checked: checked("outcome3-not-achieved", "yes")
     },
     {
       value: "no",
-      text: "No",
+      text: "False",
       checked: checked("outcome3-not-achieved", "no")
     }
   ]
@@ -188,17 +188,16 @@
   items: [
     {
       value: "yes",
-      text: "Yes",
+      text: "True",
       checked: checked("outcome4-not-achieved", "yes")
     },
     {
       value: "no",
-      text: "No",
+      text: "False",
       checked: checked("outcome3-not-achieved", "no")
     }
   ]
 }) }}
-
 
       {% endset -%}
       
@@ -329,7 +328,6 @@
     }
   ]
 }) }}
-
      
       {% endset -%}
        {{ govukTabs({
