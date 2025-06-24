@@ -74,7 +74,7 @@
   name: "CommentPartialAchieved",
   id: "CommentPartialAchieved",
   label: {
-    text: "Explain reasons or supporting evidence why you're agreeing with a statement. List out which 'Partially achieved' statement you're referring to. For example: 3."
+    text: "If you want to comment on any of the statements, please tell us here."
   }
 }) }}
 {% endset -%}
@@ -85,7 +85,7 @@
   name: "CommentAchieved",
   id: "CommentAchieved",
   label: {
-    text: "Explain reasons or supporting evidence why you're agreeing with a statement. List out which 'Achieved' statement you're referring to. For example: 1."
+    text: "If you want to comment on any of the statements, please tell us here."
   }
 }) }}
 {% endset -%}
@@ -94,7 +94,7 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
    
-    <h3 class="govuk-heading-m">Read all the statements on all tabs. Select what's true to your organisation or system as an answer to the statement.</h3>
+    <h3 class="govuk-heading-m">Read all the statements on all tabs. Select which statements are true about your organisation or system.</h3>
 
       {% set notachievedHtml %}
       {{ govukCheckboxes({
@@ -177,7 +177,7 @@
             }
           },
           hint: {
-            text: "To partially achieve this outcome, all the following statements must be selected."
+            text: "To partially achieve this outcome, you must select all the statements"
           },
           items: [
             {
@@ -217,7 +217,7 @@
             },
             {
               value: "none",
-              text: "I want to make a comment",
+              text: "Make a comment about a statement",
               conditional: {
               html: CommentPartiallyAchievedHtml
                }
@@ -245,7 +245,7 @@
             }
           },
           hint: {
-            text: "To achieve this outcome, all the following statements must be selected."
+            text: "To achieve this outcome you must select all the statements"
           },
            items: [
             {
@@ -285,7 +285,7 @@
             },
             {
               value: "none",
-              text: "I want to make a comment",
+              text: "Make a comment about a statement",
               conditional: {
               html: CommentAchievedHtml
                }
