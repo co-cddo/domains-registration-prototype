@@ -10,8 +10,6 @@
   <!-- Blank header with no service name for the start page -->
   {{ govukHeader() }}
 {% endblock %}
-
-
  
 {% block beforeContent %}
  
@@ -65,22 +63,32 @@
   name: "giveReason",
   id: "giveReason",
   label: {
-    text: "Explain your reason for saying this statement is not applicable to your system or organisation."
+    text: "Explain your reason why you're agreeing with this statement"
   }
 }) }}
 {% endset -%}
-{% set giveReasonCommentNotAchievedHtml %}
+
+
+{% set CommentPartiallyAchievedHtml %}
 {{ govukTextarea({
-  name: "giveReason",
-  id: "giveReason",
+  name: "CommentPartialAchieved",
+  id: "CommentPartialAchieved",
   label: {
-    text: "Explain your reason for saying this statement is not applicable to your system or organisation."
+    text: "Explain reasons or supporting evidence why you're agreeing with a statement. List out which 'Partially achieved' statement you're referring to. For example: 3."
   }
 }) }}
 {% endset -%}
 
 
-
+{% set CommentAchievedHtml %}
+{{ govukTextarea({
+  name: "CommentAchieved",
+  id: "CommentAchieved",
+  label: {
+    text: "Explain reasons or supporting evidence why you're agreeing with a statement. List out which 'Achieved' statement you're referring to. For example: 1."
+  }
+}) }}
+{% endset -%}
 
 <h3 class="govuk-heading-l">A1.a Board direction</h3>
 <div class="govuk-grid-row">
@@ -108,7 +116,7 @@
                   operation of essential function(s) is not discussed or reported
                   on regularly at board- level.",
       conditional: {
-      html: giveReason
+      html: giveReasonCommentHtml
       },
       checked: checked("webcaf4-not-achieved", "object1")
     },
@@ -117,6 +125,9 @@
       text: "2. Board-level discussions on the security of network and information
                   systems are based on partial or out-of-date information, without
                   the benefit of expert guidance.",
+                  conditional: {
+      html: giveReasonCommentHtml
+      },
       checked: checked("webcaf4-not-achieved", "object2")
     },
     {
@@ -124,6 +135,9 @@
       text: "3. The security of network and information systems supporting your
                   essential function(s) are not driven effectively by the direction
                   set at board-level.",
+                  conditional: {
+      html: giveReasonCommentHtml
+      },
       checked: checked("webcaf4-not-achieved", "object3")
     },
     {
@@ -131,17 +145,19 @@
       text: "4. Senior management or other pockets of the organisation consider
                   themselves exempt from some policies or expect special accommodations
                   to be made.",
+                  conditional: {
+      html: giveReasonCommentHtml
+      },
       checked: checked("webcaf4-not-achieved", "object4")
     },
-            {
-              divider: "or"
-            },
-            {
-              value: "none",
-              text: "None of the above",
-              behaviour: "exclusive"
-            }
-    
+    {
+      divider: "or"
+    },
+    {
+      value: "none",
+      text: "None of the above",
+      behaviour: "exclusive"
+    }
   ]
         }) }}      
       {% endset -%} 
@@ -150,9 +166,9 @@
       
       
       
-      {% set PartiallyachievedHtml %}
+      {% set partiallyachievedHtml %}
         {{ govukCheckboxes({
-          name: "webcaf4-achieved",
+          name: "webcaf4-partiallyachieved",
           fieldset: {
             legend: {
               text: "Partially achieved statements",
@@ -161,7 +177,7 @@
             }
           },
           hint: {
-            text: "To achieve this outcome, all the following statements must be selected."
+            text: "To partially achieve this outcome, all the following statements must be selected."
           },
           items: [
             {
@@ -171,7 +187,7 @@
                   essential function(s) are owned and managed at board-level. These are
                   communicated, in a meaningful way, to risk management decision-makers
                   across the organisation.",
-              checked: checked("webcaf4-achieved", "object5")
+              checked: checked("webcaf4-partiallyachieved", "object5")
             },
             {
               value: "object6",
@@ -179,23 +195,33 @@
                   information systems supporting the operation of your essential function(s)
                   take place, based on timely and accurate information and informed
                   by expert guidance.",
-              checked: checked("webcaf4-achieved", "object6")
+              checked: checked("webcaf4-partiallyachieved", "object6")
             },
             {
               value: "object7",
               text: "3. There is a board-level individual who has overall accountability
                   for the security of network and information systems and drives regular
                   discussion at board-level.",
-              checked: checked("webcaf4-achieved", "object7")
+              checked: checked("webcaf4-partiallyachieved", "object7")
             },
             {
               value: "object8",
               text: "4. Direction set at board-level is translated into effective organisational
                   practices that direct and control the security of the network and
                   information systems supporting your essential function(s).",
-              checked: checked("webc  §af4-achieved", "object8")
+              checked: checked("webcaf4-partiallyachieved", "object8")
             },
 
+            {
+              divider: "and"
+            },
+            {
+              value: "none",
+              text: "I want to make a comment",
+              conditional: {
+              html: CommentPartiallyAchievedHtml
+               }
+              },
             {
               divider: "or"
             },
@@ -251,10 +277,20 @@
               text: "4. Direction set at board-level is translated into effective organisational
                   practices that direct and control the security of the network and
                   information systems supporting your essential function(s).",
-              checked: checked("webc  §af4-achieved", "object8")
+              checked: checked("webcaf4-achieved", "object8")
             },
 
             {
+              divider: "and"
+            },
+            {
+              value: "none",
+              text: "I want to make a comment",
+              conditional: {
+              html: CommentAchievedHtml
+               }
+              },
+              {
               divider: "or"
             },
             {
@@ -262,216 +298,37 @@
               text: "None of the above",
               behaviour: "exclusive"
             }
+            
           ]    
         }) }}
       {% endset -%}
 
-
-
-
-
-{% set notapplicableachievedstatementsHtml %}
-{{ govukCheckboxes({
-          name: "notapplicableachieved",
-          fieldset: {
-            legend: {
-              text: "",
-              isPageHeading: true,
-              classes: "govuk-fieldset__legend--s"
-            }
-          },
-          hint: {
-            text: ""
-          },
-          items: [
-    {
-      value: "object1",
-      text: "1. Your organisation's approach and policy relating to the security
-                  of network and information systems supporting the operation of your
-                  essential function(s) are owned and managed at board-level. These are
-                  communicated, in a meaningful way, to risk management decision-makers
-                  across the organisation.",
-      conditional: {
-      html: giveReasonCommentHtml
-      },
-      checked: checked("webcaf4-not-achieved", "object1")
-    },
-    {
-      value: "object2",
-      text: "2. 2. Regular board-level discussions on the security of network and
-                  information systems supporting the operation of your essential function(s)
-                  take place, based on timely and accurate information and informed
-                  by expert guidance.",
-      conditional: {
-      html: giveReasonCommentHtml
-      },
-      checked: checked("webcaf4-not-achieved", "object2")
-    },
-    {
-      value: "object3",
-      text: "3. There is a board-level individual who has overall accountability
-                  for the security of network and information systems and drives regular
-                  discussion at board-level.",
-      conditional: {
-      html: giveReasonCommentHtml
-      },
-      checked: checked("webcaf4-not-achieved", "object3")
-    },
-    {
-      value: "object4",
-      text: "4. Direction set at board-level is translated into effective organisational
-                  practices that direct and control the security of the network and
-                  information systems supporting your essential function(s).",
-      conditional: {
-      html: giveReasonCommentHtml
-      },
-      checked: checked("webcaf4-not-achieved", "object4")
-    }
-    
-  ]
-        }) }}
-
-{% endset -%}
-
-{% set notapplicablenotachievedstatementsHtml %}
-{{ govukCheckboxes({
-          name: "partially-achieved",
-          fieldset: {
-            legend: {
-              text: "",
-              isPageHeading: true,
-              classes: "govuk-fieldset__legend--s"
-            }
-          },
-          hint: {
-            text: ""
-          },
-          items: [
-    {
-      value: "object1",
-      text: "1. The security of network and information systems related to the
-                  operation of essential function(s) is not discussed or reported
-                  on regularly at board- level.",
-      conditional: {
-      html: giveReasonCommentNotAchievedHtml
-      },
-      checked: checked("webcaf4-not-achieved", "object1")
-    },
-    {
-      value: "object2",
-      text: "2. Board-level discussions on the security of network and information
-                  systems are based on partial or out-of-date information, without
-                  the benefit of expert guidance.",
-      conditional: {
-      html: giveReasonCommentNotAchievedHtml
-      },
-      checked: checked("webcaf4-not-achieved", "object2")
-    },
-    {
-      value: "object3",
-      text: "3. The security of network and information systems supporting your
-                  essential function(s) are not driven effectively by the direction
-                  set at board-level.",
-      conditional: {
-      html: giveReasonCommentNotAchievedHtml
-      },
-      checked: checked("webcaf4-not-achieved", "object3")
-    },
-    {
-      value: "object4",
-      text: "4. Senior management or other pockets of the organisation consider
-                  themselves exempt from some policies or expect special accommodations
-                  to be made.",
-      conditional: {
-      html: giveReasonCommentNotAchievedHtml
-      },
-      checked: checked("webcaf4-not-achieved", "object4")
-    }
-    
-  ]
-        }) }}
-
-{% endset -%}
-
-
-
-
-
-
-{% set notapplicableHtml %}
-       <h3 class="govuk-heading-s">Not applicable statements</h3>
-{% from "govuk/components/radios/macro.njk" import govukRadios %}
-
-
-{{ govukCheckboxes({
-  
-  name: "changedName",
-  fieldset: {
-    legend: {
-      text: "",
-      isPageHeading: true,
-      classes: "govuk-fieldset__legend--s"
-    }
-  },
-  hint: {
-    html: "Select which statement you believe is not relevant to your organisation or system. You must explain the reason why the statement does not apply."
-  },
-  items: [
-    {
-      value: "yes",
-      text: "Not achieved statements",
-      conditional: {
-        html: notapplicablenotachievedstatementsHtml
-      }
-    },
-    {
-      value: "yes",
-      text: "Achieved statements",
-      conditional: {
-        html: notapplicableachievedstatementsHtml
-      }
-    },
-            {
-              divider: "or"
-            },
-            {
-              value: "none",
-              text: "I don't need this",
-              behaviour: "exclusive"
-            }
-    
-  ]
-}) }}
-      {% endset -%}
-      
-       
       {{ govukTabs({
         items: [
-          {
+         {
             label:  "Not achieved",
             id: "not-achieved",
             panel: {
               html: notachievedHtml
             }
+          }, 
+          {
+            label: "Partially achieved",
+            id: "partiallyachieved",
+            panel: {
+              html: partiallyachievedHtml
+            }
           },
          {
             label: "Achieved",
-            id: "partiallyachieved",
+            id: "achieved",
             panel: {
               html: achievedHtml
             }
-          },
-          {
-            label: "Not applicable",
-            id: "not-applicable",
-            panel: {
-              html: notapplicableHtml
-            }
           }
+          
         ]
       }) }}
-
-
 
 <div class="govuk-button-group">
   {{ govukButton({

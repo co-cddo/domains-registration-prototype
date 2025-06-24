@@ -10,12 +10,7 @@
   <!-- Blank header with no service name for the start page -->
   {{ govukHeader() }}
 {% endblock %}
-
-
- 
 {% block beforeContent %}
- 
-
 {% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
   {{ govukPhaseBanner({
     tag: {
@@ -68,8 +63,6 @@
     {{ govukInsetText({
   html: "You can select not applicable if you believe this statement is not relevant to your organisation or system. <br><br>You must explain the reason why the statement does not apply."
 }) }}
-    <p></p>
-    <p></p>
 </h3>
 
       {% set notachievedHtml %}
@@ -97,9 +90,9 @@
   classes: "govuk-radios--inline",
   fieldset: {
     legend: {
-      html: "1. The security of network and information systems related to the
-                  operation of essential function(s) is not discussed or reported
-                  on regularly at board- level.",
+      html: "Which of the following happens at your organisation?
+                  
+              ",
       isPageHeading: true,
       classes: "govuk"
     }
@@ -110,12 +103,13 @@
   items: [
     {
       value: "yes",
-      text: "True",
+      text: "Your organisation's approach and policy relating to the security of network and information systems supporting the operation of your essential function(s) are owned and managed at board-level. These are communicated, in a meaningful way, to risk management decision-makers across the organisation.
+",
       checked: checked("outcome1-not-achieved", "yes")
     },
     {
       value: "no",
-      text: "False",
+      text: "The security of network and information systems related to the operation of essential function(s) is not discussed or reported on regularly at board- level.",
       checked: checked("outcome1-not-achieved", "no")
     },
     {
