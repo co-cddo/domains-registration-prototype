@@ -305,11 +305,11 @@
 
       {{ govukTabs({
         items: [
-         {
-            label:  "Not achieved",
-            id: "not-achieved",
+          {
+            label: "Achieved",
+            id: "achieved",
             panel: {
-              html: notachievedHtml
+              html: achievedHtml
             }
           }, 
           {
@@ -319,13 +319,14 @@
               html: partiallyachievedHtml
             }
           },
-         {
-            label: "Achieved",
-            id: "achieved",
+          {
+            label:  "Not achieved",
+            id: "not-achieved",
             panel: {
-              html: achievedHtml
+              html: notachievedHtml
             }
           }
+         
           
         ]
       }) }}
