@@ -86,7 +86,7 @@
   name: "giveReason",
   id: "giveReason",
   label: {
-    text: "Explain your reason for saying this statement is not applicable to your system or organisation."
+    text: "Explain your reason for choosing other. For example, the statement might not be applicable, you may have alternative processes in place or the statement is superseded by a higher achievement IGP."
   }
 }) }}
 {% endset -%}
@@ -111,16 +111,22 @@
     {
       value: "yes",
       text: "True",
+      hint: {
+        text:"It means that you have not achieved this outcome"
+      },
       checked: checked("outcome1-not-achieved", "yes")
     },
     {
       value: "no",
-      text: "False",
+      text: "False ",
       checked: checked("outcome1-not-achieved", "no")
     },
     {
       value: "na",
-      text: "Not applicable",
+      text: "Other ",
+       hint: {
+        text:"This statement is not applicable to your system"
+      },
       conditional: {
         html: giveReason
       },
