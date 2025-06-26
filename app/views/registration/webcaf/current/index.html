@@ -1,4 +1,8 @@
 {% extends "layouts/main.html" %}
+{% block header %}
+  <!-- Blank header with no service name for the start page -->
+  {{ govukHeader() }}
+{% endblock %}
 {% block beforeContent %}
 {% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
   {{ govukPhaseBanner({
@@ -34,11 +38,11 @@
         <h2 class="govuk-heading-l">Initial design work</h2>
           
           <p class='govuk-list app-list--definition'>
-            <a href="https://sgs-ddt-01-96c924f9e494.herokuapp.com/registration/webcaf/current/2b-tabs">Variant 2: Checkboxes in tabs (preferred)</a>
+            <a href="https://sgs-ddt-01-96c924f9e494.herokuapp.com/registration/webcaf/current/2b-tabs">Checkboxes in tabs (preferred)</a>
             <br>Shows new numbering design (updated on 24 June)
           </p> 
          <p class='govuk-list app-list--definition'>
-            <a href='https://sgs-ddt-01-96c924f9e494.herokuapp.com/registration/webcaf/current/outcome-achieved2' class="govuk-link--no-visited-state">Variant 1: outcome with summary only (preferred) </a>
+            <a href='https://sgs-ddt-01-96c924f9e494.herokuapp.com/registration/webcaf/current/outcome-achieved2' class="govuk-link--no-visited-state">Outcome status (preferred) </a>
             <br>Shows new outcome page with no evidencing
           </p>
           <p class='govuk-list app-list--definition'>
