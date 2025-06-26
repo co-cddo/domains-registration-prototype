@@ -90,7 +90,7 @@
   }
 }) }}
 {% endset -%}
-
+<form class="form" action="outcome-achieved2" id="mainForm" method="post">
 <h3 class="govuk-heading-l">A1.a Board direction</h3>
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
@@ -99,7 +99,7 @@
 
       {% set notachievedHtml %}
       {{ govukCheckboxes({
-        name: "webcaf4-not-achieved",
+        name: "statement-not-achieved",
         fieldset: {
           legend: {
             text: "Not achieved statements",
@@ -112,44 +112,44 @@
         },
         items: [
     {
-      value: "object1",
+      value: "no",
       text: "1. The security of network and information systems related to the
                   operation of essential function(s) is not discussed or reported
                   on regularly at board- level.",
       conditional: {
       html: giveReasonCommentHtml
       },
-      checked: checked("webcaf4-not-achieved", "object1")
+      checked: checked("statement-not-achieved", "no")
     },
     {
-      value: "object2",
+      value: "objective1",
       text: "2. Board-level discussions on the security of network and information
                   systems are based on partial or out-of-date information, without
                   the benefit of expert guidance.",
                   conditional: {
       html: giveReasonCommentHtml
       },
-      checked: checked("webcaf4-not-achieved", "object2")
+      checked: checked("statement-not-achieved", "objective1")
     },
     {
-      value: "object3",
+      value: "objective2",
       text: "3. The security of network and information systems supporting your
                   essential function(s) are not driven effectively by the direction
                   set at board-level.",
                   conditional: {
       html: giveReasonCommentHtml
       },
-      checked: checked("webcaf4-not-achieved", "object3")
+      checked: checked("statement-not-achieved", "objective2")
     },
     {
-      value: "object4",
+      value: "objective3",
       text: "4. Senior management or other pockets of the organisation consider
                   themselves exempt from some policies or expect special accommodations
                   to be made.",
                   conditional: {
       html: giveReasonCommentHtml
       },
-      checked: checked("webcaf4-not-achieved", "object4")
+      checked: checked("statement-not-achieved", "objective3")
     },
     {
       divider: "or"
@@ -237,7 +237,7 @@
       
       {% set achievedHtml %}
         {{ govukCheckboxes({
-          name: "webcaf4-achieved",
+          name: "statement-achieved",
           fieldset: {
             legend: {
               text: "Achieved statements",
@@ -256,7 +256,7 @@
                   essential function(s) are owned and managed at board-level. These are
                   communicated, in a meaningful way, to risk management decision-makers
                   across the organisation.",
-              checked: checked("webcaf4-achieved", "object5")
+              checked: checked("statement-achieved", "object5")
             },
             {
               value: "object6",
@@ -264,21 +264,21 @@
                   information systems supporting the operation of your essential function(s)
                   take place, based on timely and accurate information and informed
                   by expert guidance.",
-              checked: checked("webcaf4-achieved", "object6")
+              checked: checked("statement-achieved", "object6")
             },
             {
               value: "object7",
               text: "3. There is a board-level individual who has overall accountability
                   for the security of network and information systems and drives regular
                   discussion at board-level.",
-              checked: checked("webcaf4-achieved", "object7")
+              checked: checked("statement-achieved", "object7")
             },
             {
               value: "object8",
               text: "4. Direction set at board-level is translated into effective organisational
                   practices that direct and control the security of the network and
                   information systems supporting your essential function(s).",
-              checked: checked("webcaf4-achieved", "object8")
+              checked: checked("statement-achieved", "object8")
             },
 
             {
@@ -338,11 +338,12 @@
   }) }}
   </form>
 
-  <a class="govuk-link" href="#">Back to statements </a>
+  <a class="govuk-link" href="#">Back to Objective A - Managing risk summary </a>
 </div>
 
     
 
+  
 
     </div>    
   </div>
