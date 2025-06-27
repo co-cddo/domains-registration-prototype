@@ -64,367 +64,542 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
  
-    <h3 class="govuk-heading-m">Read all the statements on both tabs. Select true or false as an answer to the statement. </h3>
-    {{ govukInsetText({
-  html: "You can select not applicable if you believe this statement is not relevant to your organisation or system. <br><br>You must explain the reason why the statement does not apply."
-}) }}
+    <h3 class="govuk-heading-m">Read all the statements.</h3>
+    
     <p></p>
     <p></p>
 </h3>
-
-      {% set notachievedHtml %}
-      
- <form class="form" action="webcaf3-answer" id="mainForm" method="post">
-    
-<h1 class="govuk-heading-s">Not achieved statements</h1>
-<div id="signIn-hint" class="govuk-hint">If you select true to any of the following statements it means that you have not achieved this outcome.
-    </div>
-
-   
-{% set giveReason %}
-{{ govukTextarea({
-  name: "giveReason",
-  id: "giveReason",
-  label: {
-    text: "Explain your reason for choosing other. For example, the statement might not be applicable, you may have alternative processes in place or the statement is superseded by a higher achievement IGP."
-  }
-}) }}
-{% endset -%}
+          {% set giveReason %}
+          {{ govukTextarea({
+            name: "give",
+            id: "give",
+            label: {
+              text: "Tell us your reasons or justifications"
+            }
+          }) }}
+          {% endset -%}
 
 
-{{ govukRadios({
-  name: "outcome1-not-achieved",
-  
-  fieldset: {
-    legend: {
-      html: "1. The security of network and information systems related to the
-                  operation of essential function(s) is not discussed or reported
-                  on regularly at board- level.",
-      isPageHeading: true,
-      classes: "govuk"
-    }
-  },
-  hint: {
-    text: ""
-  },
-  items: [
-    {
-      value: "yes",
-      text: "True",
-      hint: {
-        text:"It means that you have not achieved this outcome"
-      },
-      checked: checked("outcome1-not-achieved", "yes")
-    },
-    {
-      value: "no",
-      text: "False ",
-      checked: checked("outcome1-not-achieved", "no")
-    },
-    {
-      value: "na",
-      text: "Other ",
-       hint: {
-        text:"This statement is not applicable to your system"
-      },
-      conditional: {
-        html: giveReason
-      },
-      checked: checked("outcome1-not-achieved", "na")
-    }
-  ]
-}) }}
+            {% set achievedHtml %}
 
 
+              <h1 class="govuk-heading-s">Achieved statements</h1>
+              <div id="signIn-hint" class="govuk-hint">To achieve this outcome you must answer true to all statements.
+              </div> 
+              {% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
 
-{{ govukRadios({
-  name: "outcome2-not-achieved",
-  
-  fieldset: {
-    legend: {
-      html: "2. Board-level discussions on the security of network and information
-                  systems are based on partial or out-of-date information, without
-                  the benefit of expert guidance.",
-      isPageHeading: true,
-      classes: "govuk"
-    }
-  },
-  hint: {
-    text: ""
-  },
-  items: [
-    {
-      value: "yes",
-      text: "True",
-      checked: checked("outcome2-not-achieved", "yes")
-    },
-    {
-      value: "no",
-      text: "False",
-      checked: checked("outcome2-not-achieved", "no")
-    },
-    {
-      value: "na",
-      text: "Not applicable",
-      conditional: {
-        html: giveReason
-      },
-      checked: checked("outcome1-not-achieved", "na")
-    }
-  ]
-}) }}
+              {{ govukWarningText({
+                text: "If you cannot select true for a statement, you must select not true and provide your reasons or justifications.",
+                iconFallbackText: "Warning"
+              }) }}
+               
+                  
+              {{ govukRadios({
+              name: "outcome1-achieved",  
+              fieldset: {
+                legend: {
+                  text: "1. Your organisation's approach and policy relating to the security
+                              of network and information systems supporting the operation of your
+                              essential function(s) are owned and managed at board-level. These are
+                              communicated, in a meaningful way, to risk management decision-makers
+                              across the organisation.",
+                  isPageHeading: true,
+                  classes: "govuk"
+                }
+              },
+              hint: {
+                text: ""
+              },
+              items: [
+                {
+                  value: "yes",
+                  text: "True ",
+                  checked: checked("outcome1-achieved", "yes")
+                },
+                {
+                  value: "na",
+                  text: "Not true, but I do have reasons or justifications",
+                  conditional: {
+                    html: giveReason
+                  },
+                  checked: checked("outcome1-achieved", "na")
+                },
+                {
+                  value: "no",
+                  text: " Not true and I have no reasons or justifications",
+                  checked: checked("outcome1-achieved", "no")
+                }
+              ]
+            }) }}
 
-{{ govukRadios({
-  name: "outcome3-not-achieved",
-  
-  fieldset: {
-    legend: {
-      html: "3. The security of network and information systems supporting your
-                  essential function(s) are not driven effectively by the direction
-                  set at board-level.</span>",
-      isPageHeading: true,
-      classes: "govuk"
-    }
-  },
-  hint: {
-    text: ""
-  },
-  items: [
-    {
-      value: "yes",
-      text: "True",
-      checked: checked("outcome3-not-achieved", "yes")
-    },
-    {
-      value: "no",
-      text: "False",
-      checked: checked("outcome3-not-achieved", "no")
-    },
-    {
-      value: "na",
-      text: "Not applicable",
-      conditional: {
-        html: giveReason
-      },
-      checked: checked("outcome1-not-achieved", "na")
-    }
-  ]
-}) }}
+            {{ govukRadios({
+              name: "outcome2-achieved",
+              
+              fieldset: {
+                legend: {
+                  text: "2. Regular board-level discussions on the security of network and
+                              information systems supporting the operation of your essential function(s)
+                              take place, based on timely and accurate information and informed
+                              by expert guidance.",
+                  isPageHeading: true,
+                  classes: "govuk"
+                }
+              },
+              hint: {
+                text: ""
+              },
+              items: [
+                {
+                  value: "yes",
+                  text: "True",
+                  checked: checked("outcome6-achieved", "yes")
+                },
+                {
+                  value: "na",
+                  text: "Not true, but I do have reasons or justifications",
+                  conditional: {
+                    html: giveReason
+                  },
+                  checked: checked("outcome2-achieved", "na")
+                },
+                {
+                  value: "no",
+                  text: "Not true and I have no reasons or justifications",
+                  checked: checked("outcome2-achieved", "no")
+                }
+                
+              ]
+            }) }}
 
-{{ govukRadios({
-  name: "outcome4-not-achieved",
-  
-  fieldset: {
-    legend: {
-      html: "4. Senior management or other pockets of the organisation consider
-                  themselves exempt from some policies or expect special accommodations
-                  to be made.</span>",
-      isPageHeading: true,
-      classes: "govuk"
-    }
-  },
-  hint: {
-    text: ""
-  },
-  items: [
-    {
-      value: "yes",
-      text: "True",
-      checked: checked("outcome4-not-achieved", "yes")
-    },
-    {
-      value: "no",
-      text: "False",
-      checked: checked("outcome3-not-achieved", "no")
-    },
-    {
-      value: "na",
-      text: "Not applicable",
-      conditional: {
-        html: giveReason
-      },
-      checked: checked("outcome1-not-achieved", "na")
-    }
-  ]
-}) }}
+            {{ govukRadios({
+              name: "outcome3-achieved",
+              
+              fieldset: {
+                legend: {
+                  text: "3. There is a board-level individual who has overall accountability
+                              for the security of network and information systems and drives regular
+                              discussion at board-level.",
+                  isPageHeading: true,
+                  classes: "govuk"
+                }
+              },
+              hint: {
+                text: ""
+              },
+              items: [
+                {
+                  value: "yes",
+                  text: "True",
+                  checked: checked("outcome7-achieved", "yes")
+                },
+                
+                {
+                  value: "na",
+                  text: "Not true, but I do have reasons or justifications",
+                  conditional: {
+                    html: giveReason
+                  },
+                  checked: checked("outcome3-achieved", "na")
+                },
+                {
+                  value: "no",
+                  text: "Not true and I have no reasons or justifications",
+                  checked: checked("outcome3-achieved", "no")
+                }
+              ]
+            }) }}
 
-      {% endset -%}
-      
-      {% set achievedHtml %}
-       
-          
-<h1 class="govuk-heading-s">Achieved statements</h1>
-<div id="signIn-hint" class="govuk-hint">You must answer with yes to all statements to achieve this outcome.
+            {{ govukRadios({
+              name: "outcome4-achieved",
+              
+              fieldset: {
+                legend: {
+                  text: "4. Direction set at board-level is translated into effective organisational
+                              practices that direct and control the security of the network and
+                              information systems supporting your essential function(s).",
+                  isPageHeading: true,
+                  classes: "govuk"
+                }
+              },
+              hint: {
+                text: ""
+              },
+              items: [
+                {
+                  value: "yes",
+                  text: "True",
+                  checked: checked("outcome8-achieved", "yes")
+                },
+                {
+                  value: "na",
+                  text: "Not true, but I do have reasons or justifications",
+                  conditional: {
+                    html: giveReason
+                  },
+                  checked: checked("outcome4-achieved", "na")
+                },
+                {
+                  value: "no",
+                  text: "Not true and I have no reasons or justifications",
+                  checked: checked("outcome4-achieved", "no")
+                }
+                
+              ]
+            }) }}
+                
+            {% endset -%}
+{% set partiallyachievedHtml %}
+<h1 class="govuk-heading-s">Partially achieved statements</h1>
+<div id="signIn-hint" class="govuk-hint">To partially achieve this outcome you must answer true to all statements.
+</div>
+{% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
 
-
-    </div> 
-
-     {{ govukRadios({
-  name: "outcome5-achieved",
-  
-  fieldset: {
-    legend: {
-      text: "1. Your organisation's approach and policy relating to the security
-                  of network and information systems supporting the operation of your
-                  essential function(s) are owned and managed at board-level. These are
-                  communicated, in a meaningful way, to risk management decision-makers
-                  across the organisation.",
-      isPageHeading: true,
-      classes: "govuk"
-    }
-  },
-  hint: {
-    text: ""
-  },
-  items: [
-    {
-      value: "yes",
-      text: "True",
-      checked: checked("outcome5-achieved", "yes")
-    },
-    {
-      value: "no",
-      text: "False",
-      checked: checked("outcome5-achieved", "no")
-    },
-    {
-      value: "na",
-      text: "Not applicable",
-      conditional: {
-        html: giveReason
-      },
-      checked: checked("outcome5-achieved", "na")
-    }
-  ]
+{{ govukWarningText({
+text: "If you cannot select true for a statement, you must select not true and provide your reasons or justifications. ",
+iconFallbackText: "Warning"
 }) }}
 
  {{ govukRadios({
-  name: "outcome6-achieved",
-  
-  fieldset: {
-    legend: {
-      text: "2. Regular board-level discussions on the security of network and
-                  information systems supporting the operation of your essential function(s)
-                  take place, based on timely and accurate information and informed
-                  by expert guidance.",
-      isPageHeading: true,
-      classes: "govuk"
-    }
-  },
-  hint: {
-    text: ""
-  },
-  items: [
-    {
-      value: "yes",
-      text: "True",
-      checked: checked("outcome6-achieved", "yes")
-    },
-    {
-      value: "no",
-      text: "False",
-      checked: checked("outcome6-achieved", "no")
-    },
-    {
-      value: "na",
-      text: "Not applicable",
-      conditional: {
-        html: giveReason
-      },
-      checked: checked("outcome6-achieved", "na")
-    }
-  ]
-}) }}
+              name: "outcome5-partiallyachieved",  
+              fieldset: {
+                legend: {
+                  text: "1. Your organisation's approach and policy relating to the security
+                              of network and information systems supporting the operation of your
+                              essential function(s) are owned and managed at board-level. These are
+                              communicated, in a meaningful way, to risk management decision-makers
+                              across the organisation.",
+                  isPageHeading: true,
+                  classes: "govuk"
+                }
+              },
+              hint: {
+                text: ""
+              },
+              items: [
+                {
+                  value: "yes",
+                  text: "True ",
+                  checked: checked("outcome5-partiallyachieved", "yes")
+                },
+                {
+                  value: "na",
+                  text: "Not true, but I do have reasons or justifications",
+                  conditional: {
+                    html: giveReason
+                  },
+                  checked: checked("outcome5-partiallyachieved", "na")
+                },
+                {
+                  value: "no",
+                  text: " Not true and I have no reasons or justifications",
+                  checked: checked("outcome5-partiallyachieved", "no")
+                }
+              ]
+            }) }}
 
- {{ govukRadios({
-  name: "outcome7-achieved",
-  
-  fieldset: {
-    legend: {
-      text: "3. There is a board-level individual who has overall accountability
-                  for the security of network and information systems and drives regular
-                  discussion at board-level.",
-      isPageHeading: true,
-      classes: "govuk"
-    }
-  },
-  hint: {
-    text: ""
-  },
-  items: [
-    {
-      value: "yes",
-      text: "True",
-      checked: checked("outcome7-achieved", "yes")
-    },
-    {
-      value: "no",
-      text: "False",
-      checked: checked("outcome7-achieved", "no")
-    },
-    {
-      value: "na",
-      text: "Not applicable",
-      conditional: {
-        html: giveReason
-      },
-      checked: checked("outcome7-achieved", "na")
-    }
-  ]
-}) }}
+            {{ govukRadios({
+              name: "outcome6-partiallyachieved",
+              
+              fieldset: {
+                legend: {
+                  text: "2. Regular board-level discussions on the security of network and
+                              information systems supporting the operation of your essential function(s)
+                              take place, based on timely and accurate information and informed
+                              by expert guidance.",
+                  isPageHeading: true,
+                  classes: "govuk"
+                }
+              },
+              hint: {
+                text: ""
+              },
+              items: [
+                {
+                  value: "yes",
+                  text: "True",
+                  checked: checked("outcome6-partiallyachieved", "yes")
+                },
+                {
+                  value: "na",
+                  text: "Not true, but I do have reasons or justifications",
+                  conditional: {
+                    html: giveReason
+                  },
+                  checked: checked("outcome6-partiallyachieved", "na")
+                },
+                {
+                  value: "no",
+                  text: "Not true and I have no reasons or justifications",
+                  checked: checked("outcome6-partiallyachieved", "no")
+                }
+                
+              ]
+            }) }}
 
-{{ govukRadios({
-  name: "outcome8-achieved",
-  
-  fieldset: {
-    legend: {
-      text: "4. Direction set at board-level is translated into effective organisational
-                  practices that direct and control the security of the network and
-                  information systems supporting your essential function(s).",
-      isPageHeading: true,
-      classes: "govuk"
-    }
-  },
-  hint: {
-    text: ""
-  },
-  items: [
-    {
-      value: "yes",
-      text: "True",
-      checked: checked("outcome8-achieved", "yes")
-    },
-    {
-      value: "no",
-      text: "False",
-      checked: checked("outcome8-achieved", "no")
-    },
-    {
-      value: "na",
-      text: "Not applicable",
-      conditional: {
-        html: giveReason
-      },
-      checked: checked("outcome8-achieved", "na")
-    }
-  ]
-}) }}
-     
-      {% endset -%}
+            {{ govukRadios({
+              name: "outcome7-partiallyachieved",
+              
+              fieldset: {
+                legend: {
+                  text: "3. There is a board-level individual who has overall accountability
+                              for the security of network and information systems and drives regular
+                              discussion at board-level.",
+                  isPageHeading: true,
+                  classes: "govuk"
+                }
+              },
+              hint: {
+                text: ""
+              },
+              items: [
+                {
+                  value: "yes",
+                  text: "True",
+                  checked: checked("outcome7-partiallyachieved", "yes")
+                },
+                
+                {
+                  value: "na",
+                  text: "Not true, but I do have reasons or justifications",
+                  conditional: {
+                    html: giveReason
+                  },
+                  checked: checked("outcome7-partiallyachieved", "na")
+                },
+                {
+                  value: "no",
+                  text: "Not true and I have no reasons or justifications",
+                  checked: checked("outcome7-partiallyachieved", "no")
+                }
+              ]
+            }) }}
+
+            {{ govukRadios({
+              name: "outcome8-partiallyachieved",
+              
+              fieldset: {
+                legend: {
+                  text: "4. Direction set at board-level is translated into effective organisational
+                              practices that direct and control the security of the network and
+                              information systems supporting your essential function(s).",
+                  isPageHeading: true,
+                  classes: "govuk"
+                }
+              },
+              hint: {
+                text: ""
+              },
+              items: [
+                {
+                  value: "yes",
+                  text: "True",
+                  checked: checked("outcome8-partiallyachieved", "yes")
+                },
+                {
+                  value: "na",
+                  text: "Not true, but I do have reasons or justifications",
+                  conditional: {
+                    html: giveReason
+                  },
+                  checked: checked("outcome8-partiallyachieved", "na")
+                },
+                {
+                  value: "no",
+                  text: "Not true and I have no reasons or justifications",
+                  checked: checked("outcome8-partiallyachieved", "no")
+                }
+                
+              ]
+            }) }}
+                
+            {% endset -%}
+            {% set notachievedHtml %}
+            <h1 class="govuk-heading-s">Not achieved statements</h1>
+              <div id="signIn-hint" class="govuk-hint">You must select not true to all statements to achieve this outcome.
+              </div> 
+              {% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
+
+              {{ govukWarningText({
+                text: "If you select true for any one of these statements you must provide your reasons or justifications.",
+                iconFallbackText: "Warning"
+              }) }}
+
+            {{ govukRadios({
+              name: "outcome1-not-achieved",
+
+              fieldset: {
+              legend: {
+              html: "1. The security of network and information systems related to the
+              operation of essential function(s) is not discussed or reported
+              on regularly at board- level.",
+              isPageHeading: true,
+              classes: "govuk"
+              }
+              },
+              hint: {
+              text: " "
+              },
+              items: [
+              {
+                  value: "no",
+                  text: "Not true and I have no reasons or justifications",
+                  checked: checked("outcome6-partiallyachieved", "no")
+                },  
+                {
+                  value: "na",
+                  text: "True, but I do have reasons or justifications",
+                  conditional: {
+                    html: giveReason
+                  },
+                  checked: checked("outcome6-partiallyachieved", "na")
+                },
+              {
+                  value: "yes",
+                  text: "True",
+                  checked: checked("outcome6-partiallyachieved", "yes")
+                }
+                
+              ]
+              }) }}
+
+
+                {{ govukRadios({
+                name: "outcome2-not-achieved",
+
+                fieldset: {
+                legend: {
+                html: "2. Board-level discussions on the security of network and information
+                systems are based on partial or out-of-date information, without
+                the benefit of expert guidance.",
+                isPageHeading: true,
+                classes: "govuk"
+                }
+                },
+                hint: {
+                text: ""
+                },
+                items: [
+              {
+                  value: "no",
+                  text: "Not true and I have no reasons or justifications",
+                  checked: checked("outcome6-partiallyachieved", "no")
+                },  
+                {
+                  value: "na",
+                  text: "True, but I do have reasons or justifications",
+                  conditional: {
+                    html: giveReason
+                  },
+                  checked: checked("outcome6-partiallyachieved", "na")
+                },
+              {
+                  value: "yes",
+                  text: "True",
+                  checked: checked("outcome6-partiallyachieved", "yes")
+                }
+                
+              ]
+                }) }}
+
+                {{ govukRadios({
+                name: "outcome3-not-achieved",
+
+                fieldset: {
+                legend: {
+                html: "3. The security of network and information systems supporting your
+                essential function(s) are not driven effectively by the direction
+                set at board-level.</span>",
+                isPageHeading: true,
+                classes: "govuk"
+                }
+                },
+                hint: {
+                text: ""
+                },
+                items: [
+              {
+                  value: "no",
+                  text: "Not true and I have no reasons or justifications",
+                  checked: checked("outcome6-partiallyachieved", "no")
+                },  
+                {
+                  value: "na",
+                  text: "True, but I do have reasons or justifications",
+                  conditional: {
+                    html: giveReason
+                  },
+                  checked: checked("outcome6-partiallyachieved", "na")
+                },
+              {
+                  value: "yes",
+                  text: "True",
+                  checked: checked("outcome6-partiallyachieved", "yes")
+                }
+                
+              ]
+                }) }}
+
+                {{ govukRadios({
+                name: "outcome4-not-achieved",
+
+                fieldset: {
+                legend: {
+                html: "4. Senior management or other pockets of the organisation consider
+                themselves exempt from some policies or expect special accommodations
+                to be made.</span>",
+                isPageHeading: true,
+                classes: "govuk"
+                }
+                },
+                hint: {
+                text: ""
+                },
+                items: [
+              {
+                  value: "no",
+                  text: "Not true and I have no reasons or justifications",
+                  checked: checked("outcome6-partiallyachieved", "no")
+                },  
+                {
+                  value: "na",
+                  text: "True, but I do have reasons or justifications",
+                  conditional: {
+                    html: giveReason
+                  },
+                  checked: checked("outcome6-partiallyachieved", "na")
+                },
+              {
+                  value: "yes",
+                  text: "True",
+                  checked: checked("outcome6-partiallyachieved", "yes")
+                }
+                
+              ]
+                }) }}
+                {% endset -%}
+
+
        {{ govukTabs({
         items: [
+           {
+            label: "Achieved",
+            id: "achieved",
+            panel: {
+              html: achievedHtml
+            }
+          },
+          {
+            label: "Partially achieved",
+            id: "partiallyachieved",
+            panel: {
+              html: partiallyachievedHtml
+            }
+          },
           {
             label:  "Not achieved",
             id: "notachieved",
             panel: {
               html: notachievedHtml
-            }
-          },
-          {
-            label: "Achieved",
-            id: "achieved",
-            panel: {
-              html: achievedHtml
             }
           }
         ]
