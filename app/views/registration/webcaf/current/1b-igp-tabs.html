@@ -43,15 +43,14 @@
       },
       
       {
-        text: "Principle: A1 Governance
-        "
+        text: "Principle: B3.a Understanding Data"
       }
     ]
   }) }}
   <div class="proto-admin">
    <div id="changedName-hint" class="govuk-hint">
       Principle 1 of 4<br>
-      <strong>Principle: A1 Governance</strong>
+      <strong>Principle: B3.a Understanding Data</strong>
     </div>     
          <p id="progress-pages"><strong>You're on outcome 1 of 3</strong></p>
          <div class="progress-inactive"><div class="progress-active" style="width: 33%"></div></div>
@@ -60,7 +59,7 @@
 {% endblock %}
 {% block content %}
 
-<h3 class="govuk-heading-l">A1.a Board direction</h3>
+<h3 class="govuk-heading-l">B3.a Understanding Data</h3>
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
  
@@ -98,11 +97,7 @@
               name: "outcome1-achieved",  
               fieldset: {
                 legend: {
-                  text: "1. Your organisation's approach and policy relating to the security
-                              of network and information systems supporting the operation of your
-                              essential function(s) are owned and managed at board-level. These are
-                              communicated, in a meaningful way, to risk management decision-makers
-                              across the organisation.",
+                  text: "1. You have identified and catalogued all the data important to the operation of the essential function(s), or that would assist an attacker.",
                   isPageHeading: true,
                   classes: "govuk"
                 }
@@ -137,10 +132,7 @@
               
               fieldset: {
                 legend: {
-                  text: "2. Regular board-level discussions on the security of network and
-                              information systems supporting the operation of your essential function(s)
-                              take place, based on timely and accurate information and informed
-                              by expert guidance.",
+                  text: "2. You have identified and catalogued who has access to the data important to the operation of the essential function(s).",
                   isPageHeading: true,
                   classes: "govuk"
                 }
@@ -176,9 +168,7 @@
               
               fieldset: {
                 legend: {
-                  text: "3. There is a board-level individual who has overall accountability
-                              for the security of network and information systems and drives regular
-                              discussion at board-level.",
+                  text: "3. You maintain a current understanding of the location, quantity and quality of data important to the operation of the essential function(s).",
                   isPageHeading: true,
                   classes: "govuk"
                 }
@@ -214,9 +204,7 @@
               
               fieldset: {
                 legend: {
-                  text: "4. Direction set at board-level is translated into effective organisational
-                              practices that direct and control the security of the network and
-                              information systems supporting your essential function(s).",
+                  text: "4. You take steps to remove or minimise unnecessary copies or unneeded historic data.",
                   isPageHeading: true,
                   classes: "govuk"
                 }
@@ -246,6 +234,181 @@
                 
               ]
             }) }}
+            {{ govukRadios({
+              name: "outcome5-achieved",
+              
+              fieldset: {
+                legend: {
+                  text: "5. You have identified all mobile devices and media that may hold data important to the operation of the essential function(s).",
+                  isPageHeading: true,
+                  classes: "govuk"
+                }
+              },
+              hint: {
+                text: ""
+              },
+              items: [
+                {
+                  value: "yes",
+                  text: "True",
+                  checked: checked("outcome5-achieved", "yes")
+                },
+                {
+                  value: "na",
+                  text: "Not true, but I do have justifications",
+                  conditional: {
+                    html: giveReason
+                  },
+                  checked: checked("outcome5-achieved", "na")
+                },
+                {
+                  value: "no",
+                  text: "Not true and I have no justifications",
+                  checked: checked("outcome5-achieved", "no")
+                }
+                
+              ]
+            }) }}
+            {{ govukRadios({
+              name: "outcome6-achieved",
+              
+              fieldset: {
+                legend: {
+                  text: "6. You maintain a current understanding of the data links used to transmit data that is important to your essential function(s).",
+                  isPageHeading: true,
+                  classes: "govuk"
+                }
+              },
+              hint: {
+                text: ""
+              },
+              items: [
+                {
+                  value: "yes",
+                  text: "True",
+                  checked: checked("outcome6-achieved", "yes")
+                },
+                {
+                  value: "na",
+                  text: "Not true, but I do have justifications",
+                  conditional: {
+                    html: giveReason
+                  },
+                  checked: checked("outcome6-achieved", "na")
+                },
+                {
+                  value: "no",
+                  text: "Not true and I have no justifications",
+                  checked: checked("outcome6-achieved", "no")
+                }
+                
+              ]
+            }) }}
+            {{ govukRadios({
+              name: "outcome7-achieved",
+              
+              fieldset: {
+                legend: {
+                  text: "7. You understand the context, limitations and dependencies of your important data.",
+                  isPageHeading: true,
+                  classes: "govuk"
+                }
+              },
+              hint: {
+                text: ""
+              },
+              items: [
+                {
+                  value: "yes",
+                  text: "True",
+                  checked: checked("outcome7-achieved", "yes")
+                },
+                {
+                  value: "na",
+                  text: "Not true, but I do have justifications",
+                  conditional: {
+                    html: giveReason
+                  },
+                  checked: checked("outcome7-achieved", "na")
+                },
+                {
+                  value: "no",
+                  text: "Not true and I have no justifications",
+                  checked: checked("outcome7-achieved", "no")
+                }
+                
+              ]
+            }) }}
+            {{ govukRadios({
+              name: "outcome8-achieved",
+              
+              fieldset: {
+                legend: {
+                  text: "8. You understand and document the impact on your essential function(s) of all relevant scenarios, including unauthorised data access, modification or deletion, or when authorised users are unable to appropriately access this data.",
+                  isPageHeading: true,
+                  classes: "govuk"
+                }
+              },
+              hint: {
+                text: ""
+              },
+              items: [
+                {
+                  value: "yes",
+                  text: "True",
+                  checked: checked("outcome8-achieved", "yes")
+                },
+                {
+                  value: "na",
+                  text: "Not true, but I do have justifications",
+                  conditional: {
+                    html: giveReason
+                  },
+                  checked: checked("outcome8-achieved", "na")
+                },
+                {
+                  value: "no",
+                  text: "Not true and I have no justifications",
+                  checked: checked("outcome8-achieved", "no")
+                }
+                
+              ]
+            }) }}
+            {{ govukRadios({
+              name: "outcome9-achieved",
+              
+              fieldset: {
+                legend: {
+                  text: "9. You validate these documented impact statements regularly, at least annually.",
+                  isPageHeading: true,
+                  classes: "govuk"
+                }
+              },
+              hint: {
+                text: ""
+              },
+              items: [
+                {
+                  value: "yes",
+                  text: "True",
+                  checked: checked("outcome9-achieved", "yes")
+                },
+                {
+                  value: "na",
+                  text: "Not true, but I do have justifications",
+                  conditional: {
+                    html: giveReason
+                  },
+                  checked: checked("outcome9-achieved", "na")
+                },
+                {
+                  value: "no",
+                  text: "Not true and I have no justifications",
+                  checked: checked("outcome9-achieved", "no")
+                }
+                
+              ]
+            }) }}
                 
             {% endset -%}
 {% set partiallyachievedHtml %}
@@ -260,14 +423,10 @@
     }) }}
 
     {{ govukRadios({
-              name: "outcome5-partiallyachieved",  
+              name: "outcome1-partiallyachieved",  
               fieldset: {
                 legend: {
-                  text: "1. Your organisation's approach and policy relating to the security
-                              of network and information systems supporting the operation of your
-                              essential function(s) are owned and managed at board-level. These are
-                              communicated, in a meaningful way, to risk management decision-makers
-                              across the organisation.",
+                  text: "1. You have identified and catalogued all the data important to the operation of the essential function(s), or that would assist an attacker.",
                   isPageHeading: true,
                   classes: "govuk"
                 }
@@ -279,6 +438,148 @@
                 {
                   value: "yes",
                   text: "True ",
+                  checked: checked("outcome1-partiallyachieved", "yes")
+                },
+                {
+                  value: "na",
+                  text: "Not true, but I do have justifications",
+                  conditional: {
+                    html: giveReason
+                  },
+                  checked: checked("outcome1-partiallyachieved", "na")
+                },
+                {
+                  value: "no",
+                  text: "Not true and I have no justifications",
+                  checked: checked("outcome1-partiallyachieved", "no")
+                }
+              ]
+            }) }}
+
+            {{ govukRadios({
+              name: "outcome2-partiallyachieved",
+              
+              fieldset: {
+                legend: {
+                  text: "2. You have identified and catalogued who has access to the data important to the operation of the essential function(s).",
+                  isPageHeading: true,
+                  classes: "govuk"
+                }
+              },
+              hint: {
+                text: ""
+              },
+              items: [
+                {
+                  value: "yes",
+                  text: "True",
+                  checked: checked("outcome2-partiallyachieved", "yes")
+                },
+                {
+                  value: "na",
+                  text: "Not true, but I do have justifications",
+                  conditional: {
+                    html: giveReason
+                  },
+                  checked: checked("outcome2-partiallyachieved", "na")
+                },
+                {
+                  value: "no",
+                  text: "Not true and I have no justifications",
+                  checked: checked("outcome2-partiallyachieved", "no")
+                }
+                
+              ]
+            }) }}
+
+            {{ govukRadios({
+              name: "outcome3-partiallyachieved",
+              
+              fieldset: {
+                legend: {
+                  text: "3. You regularly review location, transmission, quantity and quality of data important to the operation of the essential function(s).",
+                  isPageHeading: true,
+                  classes: "govuk"
+                }
+              },
+              hint: {
+                text: ""
+              },
+              items: [
+                {
+                  value: "yes",
+                  text: "True",
+                  checked: checked("outcome3-partiallyachieved", "yes")
+                },
+                
+                {
+                  value: "na",
+                  text: "Not true, but I do have justifications",
+                  conditional: {
+                    html: giveReason
+                  },
+                  checked: checked("outcome3-partiallyachieved", "na")
+                },
+                {
+                  value: "no",
+                  text: "Not true and I have no justifications",
+                  checked: checked("outcome3-partiallyachieved", "no")
+                }
+              ]
+            }) }}
+
+            {{ govukRadios({
+              name: "outcome4-partiallyachieved",
+              
+              fieldset: {
+                legend: {
+                  text: "4. You have identified all mobile devices and media that hold data important to the operation of the essential function(s).",
+                  isPageHeading: true,
+                  classes: "govuk"
+                }
+              },
+              hint: {
+                text: ""
+              },
+              items: [
+                {
+                  value: "yes",
+                  text: "True",
+                  checked: checked("outcome4-partiallyachieved", "yes")
+                },
+                {
+                  value: "na",
+                  text: "Not true, but I do have justifications",
+                  conditional: {
+                    html: giveReason
+                  },
+                  checked: checked("outcome4-partiallyachieved", "na")
+                },
+                {
+                  value: "no",
+                  text: "Not true and I have no justifications",
+                  checked: checked("outcome4-partiallyachieved", "no")
+                }
+                
+              ]
+            }) }}
+            {{ govukRadios({
+              name: "outcome5-partiallyachieved",
+              
+              fieldset: {
+                legend: {
+                  text: "5. You understand and document the impact on your essential function(s) of all relevant scenarios, including unauthorised data access, modification or deletion, or when authorised users are unable to appropriately access this data.",
+                  isPageHeading: true,
+                  classes: "govuk"
+                }
+              },
+              hint: {
+                text: ""
+              },
+              items: [
+                {
+                  value: "yes",
+                  text: "True",
                   checked: checked("outcome5-partiallyachieved", "yes")
                 },
                 {
@@ -291,21 +592,18 @@
                 },
                 {
                   value: "no",
-                  text: " Not true and I have no justifications",
+                  text: "Not true and I have no justifications",
                   checked: checked("outcome5-partiallyachieved", "no")
                 }
+                
               ]
             }) }}
-
             {{ govukRadios({
               name: "outcome6-partiallyachieved",
               
               fieldset: {
                 legend: {
-                  text: "2. Regular board-level discussions on the security of network and
-                              information systems supporting the operation of your essential function(s)
-                              take place, based on timely and accurate information and informed
-                              by expert guidance.",
+                  text: "6. You occasionally validate these documented impact statements.",
                   isPageHeading: true,
                   classes: "govuk"
                 }
@@ -335,82 +633,6 @@
                 
               ]
             }) }}
-
-            {{ govukRadios({
-              name: "outcome7-partiallyachieved",
-              
-              fieldset: {
-                legend: {
-                  text: "3. There is a board-level individual who has overall accountability
-                              for the security of network and information systems and drives regular
-                              discussion at board-level.",
-                  isPageHeading: true,
-                  classes: "govuk"
-                }
-              },
-              hint: {
-                text: ""
-              },
-              items: [
-                {
-                  value: "yes",
-                  text: "True",
-                  checked: checked("outcome7-partiallyachieved", "yes")
-                },
-                
-                {
-                  value: "na",
-                  text: "Not true, but I do have justifications",
-                  conditional: {
-                    html: giveReason
-                  },
-                  checked: checked("outcome7-partiallyachieved", "na")
-                },
-                {
-                  value: "no",
-                  text: "Not true and I have no justifications",
-                  checked: checked("outcome7-partiallyachieved", "no")
-                }
-              ]
-            }) }}
-
-            {{ govukRadios({
-              name: "outcome8-partiallyachieved",
-              
-              fieldset: {
-                legend: {
-                  text: "4. Direction set at board-level is translated into effective organisational
-                              practices that direct and control the security of the network and
-                              information systems supporting your essential function(s).",
-                  isPageHeading: true,
-                  classes: "govuk"
-                }
-              },
-              hint: {
-                text: ""
-              },
-              items: [
-                {
-                  value: "yes",
-                  text: "True",
-                  checked: checked("outcome8-partiallyachieved", "yes")
-                },
-                {
-                  value: "na",
-                  text: "Not true, but I do have justifications",
-                  conditional: {
-                    html: giveReason
-                  },
-                  checked: checked("outcome8-partiallyachieved", "na")
-                },
-                {
-                  value: "no",
-                  text: "Not true and I have no justifications",
-                  checked: checked("outcome8-partiallyachieved", "no")
-                }
-                
-              ]
-            }) }}
                 
             {% endset -%}
             {% set notachievedHtml %}
@@ -423,9 +645,7 @@
 
               fieldset: {
               legend: {
-              html: "1. The security of network and information systems related to the
-              operation of essential function(s) is not discussed or reported
-              on regularly at board- level.",
+              html: "1. You have incomplete knowledge of what data is used by and produced in the operation of the essential function(s).",
               isPageHeading: true,
               classes: "govuk"
               }
@@ -462,9 +682,7 @@
 
                 fieldset: {
                 legend: {
-                html: "2. Board-level discussions on the security of network and information
-                systems are based on partial or out-of-date information, without
-                the benefit of expert guidance.",
+                html: "2. You have not identified the important data on which your essential function(s) relies.",
                 isPageHeading: true,
                 classes: "govuk"
                 }
@@ -475,20 +693,20 @@
                 items: [
               {
                   value: "no",
-                  text: "Not true and I have no justifications",
+                  text: "This does not apply to my system or organisation",
                   checked: checked("outcome2-not-achieved", "no")
                 },  
                 {
                   value: "na",
-                  text: "True, but I do have justifications",
+                  text: "This does apply to my system or organisation and I have justifications ",
                   conditional: {
                     html: giveReason
                   },
-                  checked: checked("outcome2-not-achievedd", "na")
+                  checked: checked("outcome2-not-achieved", "na")
                 },
               {
                   value: "yes",
-                  text: "True",
+                  text: "This does apply to my system or organisation, but I have no justifications",
                   checked: checked("outcome2-not-achieved", "yes")
                 }
                 
@@ -500,9 +718,7 @@
 
                 fieldset: {
                 legend: {
-                html: "3. The security of network and information systems supporting your
-                essential function(s) are not driven effectively by the direction
-                set at board-level.</span>",
+                html: "3. You have not identified who has access to data important to the operation of the essential function(s).",
                 isPageHeading: true,
                 classes: "govuk"
                 }
@@ -513,12 +729,12 @@
                 items: [
               {
                   value: "no",
-                  text: "Not true and I have no justifications",
+                  text: "This does not apply to my system or organisation",
                   checked: checked("outcome3-not-achieved", "no")
                 },  
                 {
                   value: "na",
-                  text: "True, but I do have justifications",
+                  text: "This does apply to my system or organisation and I have justifications ",
                   conditional: {
                     html: giveReason
                   },
@@ -526,7 +742,7 @@
                 },
               {
                   value: "yes",
-                  text: "True",
+                  text: "This does apply to my system or organisation, but I have no justifications",
                   checked: checked("outcome3-not-achieved", "yes")
                 }
                 
@@ -538,9 +754,7 @@
 
                 fieldset: {
                 legend: {
-                html: "4. Senior management or other pockets of the organisation consider
-                themselves exempt from some policies or expect special accommodations
-                to be made.</span>",
+                html: "4. You have not clearly articulated the impact of data compromise or lack of availability.",
                 isPageHeading: true,
                 classes: "govuk"
                 }
@@ -551,12 +765,12 @@
                 items: [
               {
                   value: "no",
-                  text: "Not true and I have no justifications",
+                  text: "This does not apply to my system or organisation",
                   checked: checked("outcome4-not-achieved", "no")
                 },  
                 {
                   value: "na",
-                  text: "True, but I do have justifications",
+                  text: "This does apply to my system or organisation and I have justifications ",
                   conditional: {
                     html: giveReason
                   },
@@ -564,7 +778,7 @@
                 },
               {
                   value: "yes",
-                  text: "True",
+                  text: "This does apply to my system or organisation, but I have no justifications",
                   checked: checked("outcome4-not-achieved", "yes")
                 }
                 
