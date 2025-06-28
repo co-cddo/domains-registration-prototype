@@ -37,7 +37,7 @@
         href: "/registration/index"
       },
       {
-        text: "Objective A - Managing risk
+        text: "Objective B - Protecting against cyber attacks and data breaches
         ",
         href: "/registration/index"
       },
@@ -49,11 +49,11 @@
   }) }}
   <div class="proto-admin">
    <div id="changedName-hint" class="govuk-hint">
-      Principle 1 of 4<br>
+      Principle 3 of 6<br>
       <strong>Principle: B3.a Understanding Data</strong>
     </div>     
-         <p id="progress-pages"><strong>You're on outcome 1 of 3</strong></p>
-         <div class="progress-inactive"><div class="progress-active" style="width: 33%"></div></div>
+         <p id="progress-pages"><strong>You're on outcome 1 of 5</strong></p>
+         <div class="progress-inactive"><div class="progress-active" style="width: 20%"></div></div>
       </div>
   
 {% endblock %}
@@ -63,7 +63,8 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
  
-    <h3 class="govuk-heading-m">Read all the statements.</h3>
+    <h3 class="govuk-heading-m">Read each statement and select what's true about your system or organisation.
+</h3>
     
     <p></p>
     <p></p>
@@ -73,10 +74,20 @@
             name: "give",
             id: "give",
             label: {
-              text: "Tell us your justifications"
+              text: "If you don't tell us your justification, you will fail this outcome."
             }
           }) }}
           {% endset -%}
+
+          {% set giveReasonCommentHtml %}
+          {{ govukTextarea({
+              name: "giveReasonCommentHtml",
+              id: "giveReasonCommentHtml",
+              label: {
+                text: "Explain why you selected this statement"
+              }
+            }) }}
+            {% endset -%}
 
 
             {% set achievedHtml %}
@@ -88,13 +99,14 @@
               {% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
 
               {{ govukWarningText({
-                text: "If you cannot select true for a statement, you must select not true and provide your justifications. If you don't have a justification, you will fail this outcome.",
+                text: "If you cannot select true for a statement, you must select not true and provide your justifications.",
                 iconFallbackText: "Warning"
               }) }}
                
                   
               {{ govukRadios({
-              name: "outcome1-achieved",  
+              name: "outcome1-achieved", 
+              classes: "govuk-radios--inline",
               fieldset: {
                 legend: {
                   text: "1. You have identified and catalogued all the data important to the operation of the essential function(s), or that would assist an attacker.",
@@ -118,18 +130,13 @@
                     html: giveReason
                   },
                   checked: checked("outcome1-achieved", "na")
-                },
-                {
-                  value: "no",
-                  text: " Not true and I have no justifications",
-                  checked: checked("outcome1-achieved", "no")
                 }
               ]
             }) }}
 
             {{ govukRadios({
               name: "outcome2-achieved",
-              
+              classes: "govuk-radios--inline",
               fieldset: {
                 legend: {
                   text: "2. You have identified and catalogued who has access to the data important to the operation of the essential function(s).",
@@ -153,11 +160,6 @@
                     html: giveReason
                   },
                   checked: checked("outcome2-achieved", "na")
-                },
-                {
-                  value: "no",
-                  text: "Not true and I have no justifications",
-                  checked: checked("outcome2-achieved", "no")
                 }
                 
               ]
@@ -165,7 +167,7 @@
 
             {{ govukRadios({
               name: "outcome3-achieved",
-              
+              classes: "govuk-radios--inline",
               fieldset: {
                 legend: {
                   text: "3. You maintain a current understanding of the location, quantity and quality of data important to the operation of the essential function(s).",
@@ -190,18 +192,13 @@
                     html: giveReason
                   },
                   checked: checked("outcome3-achieved", "na")
-                },
-                {
-                  value: "no",
-                  text: "Not true and I have no justifications",
-                  checked: checked("outcome3-achieved", "no")
                 }
               ]
             }) }}
 
             {{ govukRadios({
               name: "outcome4-achieved",
-              
+              classes: "govuk-radios--inline",
               fieldset: {
                 legend: {
                   text: "4. You take steps to remove or minimise unnecessary copies or unneeded historic data.",
@@ -225,18 +222,13 @@
                     html: giveReason
                   },
                   checked: checked("outcome4-achieved", "na")
-                },
-                {
-                  value: "no",
-                  text: "Not true and I have no justifications",
-                  checked: checked("outcome4-achieved", "no")
                 }
                 
               ]
             }) }}
             {{ govukRadios({
               name: "outcome5-achieved",
-              
+              classes: "govuk-radios--inline",
               fieldset: {
                 legend: {
                   text: "5. You have identified all mobile devices and media that may hold data important to the operation of the essential function(s).",
@@ -260,18 +252,13 @@
                     html: giveReason
                   },
                   checked: checked("outcome5-achieved", "na")
-                },
-                {
-                  value: "no",
-                  text: "Not true and I have no justifications",
-                  checked: checked("outcome5-achieved", "no")
                 }
                 
               ]
             }) }}
             {{ govukRadios({
               name: "outcome6-achieved",
-              
+              classes: "govuk-radios--inline",
               fieldset: {
                 legend: {
                   text: "6. You maintain a current understanding of the data links used to transmit data that is important to your essential function(s).",
@@ -295,18 +282,13 @@
                     html: giveReason
                   },
                   checked: checked("outcome6-achieved", "na")
-                },
-                {
-                  value: "no",
-                  text: "Not true and I have no justifications",
-                  checked: checked("outcome6-achieved", "no")
                 }
                 
               ]
             }) }}
             {{ govukRadios({
               name: "outcome7-achieved",
-              
+              classes: "govuk-radios--inline",
               fieldset: {
                 legend: {
                   text: "7. You understand the context, limitations and dependencies of your important data.",
@@ -330,18 +312,13 @@
                     html: giveReason
                   },
                   checked: checked("outcome7-achieved", "na")
-                },
-                {
-                  value: "no",
-                  text: "Not true and I have no justifications",
-                  checked: checked("outcome7-achieved", "no")
                 }
                 
               ]
             }) }}
             {{ govukRadios({
               name: "outcome8-achieved",
-              
+              classes: "govuk-radios--inline",
               fieldset: {
                 legend: {
                   text: "8. You understand and document the impact on your essential function(s) of all relevant scenarios, including unauthorised data access, modification or deletion, or when authorised users are unable to appropriately access this data.",
@@ -365,18 +342,13 @@
                     html: giveReason
                   },
                   checked: checked("outcome8-achieved", "na")
-                },
-                {
-                  value: "no",
-                  text: "Not true and I have no justifications",
-                  checked: checked("outcome8-achieved", "no")
                 }
                 
               ]
             }) }}
             {{ govukRadios({
               name: "outcome9-achieved",
-              
+              classes: "govuk-radios--inline",
               fieldset: {
                 legend: {
                   text: "9. You validate these documented impact statements regularly, at least annually.",
@@ -400,11 +372,6 @@
                     html: giveReason
                   },
                   checked: checked("outcome9-achieved", "na")
-                },
-                {
-                  value: "no",
-                  text: "Not true and I have no justifications",
-                  checked: checked("outcome9-achieved", "no")
                 }
                 
               ]
@@ -418,12 +385,13 @@
 {% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
 
     {{ govukWarningText({
-    text: "If you cannot select true for a statement, you must select not true and provide your justifications. If you don't have a justification, you will fail this outcome.",
+    text: "If you cannot select true for a statement, you must select not true and provide your justifications.",
     iconFallbackText: "Warning"
     }) }}
 
     {{ govukRadios({
               name: "outcome1-partiallyachieved",  
+              classes: "govuk-radios--inline",
               fieldset: {
                 legend: {
                   text: "1. You have identified and catalogued all the data important to the operation of the essential function(s), or that would assist an attacker.",
@@ -447,18 +415,13 @@
                     html: giveReason
                   },
                   checked: checked("outcome1-partiallyachieved", "na")
-                },
-                {
-                  value: "no",
-                  text: "Not true and I have no justifications",
-                  checked: checked("outcome1-partiallyachieved", "no")
                 }
               ]
             }) }}
 
             {{ govukRadios({
               name: "outcome2-partiallyachieved",
-              
+              classes: "govuk-radios--inline",
               fieldset: {
                 legend: {
                   text: "2. You have identified and catalogued who has access to the data important to the operation of the essential function(s).",
@@ -482,11 +445,6 @@
                     html: giveReason
                   },
                   checked: checked("outcome2-partiallyachieved", "na")
-                },
-                {
-                  value: "no",
-                  text: "Not true and I have no justifications",
-                  checked: checked("outcome2-partiallyachieved", "no")
                 }
                 
               ]
@@ -494,7 +452,7 @@
 
             {{ govukRadios({
               name: "outcome3-partiallyachieved",
-              
+              classes: "govuk-radios--inline",
               fieldset: {
                 legend: {
                   text: "3. You regularly review location, transmission, quantity and quality of data important to the operation of the essential function(s).",
@@ -519,18 +477,13 @@
                     html: giveReason
                   },
                   checked: checked("outcome3-partiallyachieved", "na")
-                },
-                {
-                  value: "no",
-                  text: "Not true and I have no justifications",
-                  checked: checked("outcome3-partiallyachieved", "no")
                 }
               ]
             }) }}
 
             {{ govukRadios({
               name: "outcome4-partiallyachieved",
-              
+              classes: "govuk-radios--inline",
               fieldset: {
                 legend: {
                   text: "4. You have identified all mobile devices and media that hold data important to the operation of the essential function(s).",
@@ -554,18 +507,13 @@
                     html: giveReason
                   },
                   checked: checked("outcome4-partiallyachieved", "na")
-                },
-                {
-                  value: "no",
-                  text: "Not true and I have no justifications",
-                  checked: checked("outcome4-partiallyachieved", "no")
                 }
                 
               ]
             }) }}
             {{ govukRadios({
               name: "outcome5-partiallyachieved",
-              
+              classes: "govuk-radios--inline",
               fieldset: {
                 legend: {
                   text: "5. You understand and document the impact on your essential function(s) of all relevant scenarios, including unauthorised data access, modification or deletion, or when authorised users are unable to appropriately access this data.",
@@ -589,18 +537,13 @@
                     html: giveReason
                   },
                   checked: checked("outcome5-partiallyachieved", "na")
-                },
-                {
-                  value: "no",
-                  text: "Not true and I have no justifications",
-                  checked: checked("outcome5-partiallyachieved", "no")
                 }
                 
               ]
             }) }}
             {{ govukRadios({
               name: "outcome6-partiallyachieved",
-              
+             classes: "govuk-radios--inline", 
               fieldset: {
                 legend: {
                   text: "6. You occasionally validate these documented impact statements.",
@@ -624,11 +567,6 @@
                     html: giveReason
                   },
                   checked: checked("outcome6-partiallyachieved", "na")
-                },
-                {
-                  value: "no",
-                  text: "Not true and I have no justifications",
-                  checked: checked("outcome6-partiallyachieved", "no")
                 }
                 
               ]
@@ -640,150 +578,64 @@
               <div id="signIn-hint" class="govuk-hint">If any statement applies to your system or organisation in this section you must provide justifications otherwise you will fail this outcome.
               </div> 
 
-            {{ govukRadios({
-              name: "outcome1-not-achieved",
-
-              fieldset: {
-              legend: {
-              html: "1. You have incomplete knowledge of what data is used by and produced in the operation of the essential function(s).",
+            {{ govukCheckboxes({
+          name: "statement-achieved",
+          fieldset: {
+            legend: {
+              text: "",
               isPageHeading: true,
-              classes: "govuk"
-              }
-              },
-              hint: {
-              text: " "
-              },
-              items: [
-              {
-                  value: "no",
-                  text: "This does not apply to my system or organisation",
-                  checked: checked("outcome1-not-achieved", "no")
-                },  
-                {
-                  value: "na",
-                  text: "This does apply to my system or organisation and I have justifications ",
-                  conditional: {
-                    html: giveReason
-                  },
-                  checked: checked("outcome1-not-achieved", "na")
-                },
-              {
-                  value: "yes",
-                  text: "This does apply to my system or organisation, but I have no justifications",
-                  checked: checked("outcome1-not-achieved", "yes")
-                }
-                
-              ]
-              }) }}
+              classes: "govuk-fieldset__legend--s"
+            }
+          },
+          hint: {
+            text: ""
+          },
+           items: [
+            {
+              value: "object5",
+              text: "1. You have incomplete knowledge of what data is used by and produced in the operation of the essential function(s).",
+              checked: checked("statement-achieved", "object5"),
+              conditional: {
+              html: giveReasonCommentHtml
+               }
+            },
+            {
+              value: "object6",
+              text: "2. You have not identified the important data on which your essential function(s) relies.",
+              checked: checked("statement-achieved", "object6"),
+               conditional: {
+              html: giveReasonCommentHtml
+               }
+            },
+            {
+              value: "object7",
+              text: "3. You have not identified who has access to data important to the operation of the essential function(s).",
+              checked: checked("statement-achieved", "object7"),
+               conditional: {
+              html: giveReasonCommentHtml
+               }
+            },
+            {
+              value: "object8",
+              text: "4. You have not clearly articulated the impact of data compromise or lack of availability.",
+              checked: checked("statement-achieved", "object8"),
+               conditional: {
+              html: giveReasonCommentHtml
+               }
+            },
 
-
-                {{ govukRadios({
-                name: "outcome2-not-achieved",
-
-                fieldset: {
-                legend: {
-                html: "2. You have not identified the important data on which your essential function(s) relies.",
-                isPageHeading: true,
-                classes: "govuk"
-                }
-                },
-                hint: {
-                text: ""
-                },
-                items: [
+            
               {
-                  value: "no",
-                  text: "This does not apply to my system or organisation",
-                  checked: checked("outcome2-not-achieved", "no")
-                },  
-                {
-                  value: "na",
-                  text: "This does apply to my system or organisation and I have justifications ",
-                  conditional: {
-                    html: giveReason
-                  },
-                  checked: checked("outcome2-not-achieved", "na")
-                },
-              {
-                  value: "yes",
-                  text: "This does apply to my system or organisation, but I have no justifications",
-                  checked: checked("outcome2-not-achieved", "yes")
-                }
-                
-              ]
-                }) }}
-
-                {{ govukRadios({
-                name: "outcome3-not-achieved",
-
-                fieldset: {
-                legend: {
-                html: "3. You have not identified who has access to data important to the operation of the essential function(s).",
-                isPageHeading: true,
-                classes: "govuk"
-                }
-                },
-                hint: {
-                text: ""
-                },
-                items: [
-              {
-                  value: "no",
-                  text: "This does not apply to my system or organisation",
-                  checked: checked("outcome3-not-achieved", "no")
-                },  
-                {
-                  value: "na",
-                  text: "This does apply to my system or organisation and I have justifications ",
-                  conditional: {
-                    html: giveReason
-                  },
-                  checked: checked("outcome3-not-achieved", "na")
-                },
-              {
-                  value: "yes",
-                  text: "This does apply to my system or organisation, but I have no justifications",
-                  checked: checked("outcome3-not-achieved", "yes")
-                }
-                
-              ]
-                }) }}
-
-                {{ govukRadios({
-                name: "outcome4-not-achieved",
-
-                fieldset: {
-                legend: {
-                html: "4. You have not clearly articulated the impact of data compromise or lack of availability.",
-                isPageHeading: true,
-                classes: "govuk"
-                }
-                },
-                hint: {
-                text: ""
-                },
-                items: [
-              {
-                  value: "no",
-                  text: "This does not apply to my system or organisation",
-                  checked: checked("outcome4-not-achieved", "no")
-                },  
-                {
-                  value: "na",
-                  text: "This does apply to my system or organisation and I have justifications ",
-                  conditional: {
-                    html: giveReason
-                  },
-                  checked: checked("outcome4-not-achieved", "na")
-                },
-              {
-                  value: "yes",
-                  text: "This does apply to my system or organisation, but I have no justifications",
-                  checked: checked("outcome4-not-achieved", "yes")
-                }
-                
-              ]
-                }) }}
+              divider: "or"
+            },
+            {
+              value: "none",
+              text: "None of the above",
+              behaviour: "exclusive"
+            }
+            
+          ]    
+        }) }}
                 {% endset -%}
 
 
@@ -819,7 +671,7 @@
   }) }}
   </form>
 
-  <a class="govuk-link" href="#">Back to Objective A - Managing risk </a>
+  <a class="govuk-link" href="#">Back to Objective B - Protecting against cyber attacks and data breaches </a>
 </div>
     </div>    
   </div>
