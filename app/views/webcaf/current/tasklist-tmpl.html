@@ -19,6 +19,11 @@
         text: "Completed"
       } %}
 
+      {% set cannotstartStatus = {
+        text: "Cannot start yet",
+        classes: "govuk-task-list__status--cannot-start-yet"
+      } %}
+
       {% set incompleteStatus = {
         tag: {
           text: "Incomplete",
@@ -86,7 +91,7 @@
               text: "Name of eighth task"
             },
             href: "#",
-            status: incompleteStatus
+            status: cannotstartStatus
           }
         ]
       }) }}
