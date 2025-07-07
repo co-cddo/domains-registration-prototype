@@ -1,0 +1,65 @@
+{#
+For guidance on how to use layouts see:
+https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
+#}
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0BGZRYCHLW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-0BGZRYCHLW');
+</script>
+
+{% extends "govuk-prototype-kit/layouts/govuk-branded.njk" %}
+{% block header %}
+  <!-- Blank header with no service name for the start page -->
+  {{ govukHeader({
+    homepageUrl: "/",
+    serviceName: "Submit a self-assessment for a critical government system",
+    serviceUrl: "#"
+    }) }}
+{% endblock %}
+
+
+{% block beforeContent %}
+
+    <div class="govuk-grid-row">
+
+        <div class="govuk-grid-column-full">
+
+    
+           
+
+            <div class="govuk-grid-row" style="padding-top:16px;">
+                <div class="govuk-grid-column-two-thirds">
+                    <h3 class="govuk-heading-m" style="margin-bottom: 8px;">Ministry of Justice (parent)</h3>
+                    <p class="govuk-body sbi-number" style="margin-bottom: 8px;">Cafcas</p>
+                </div>
+                <div class="govuk-grid-column-one-third">
+                     <h4 class="govuk-heading-m" style="float:right; margin-bottom: 8px;">Anna Brydge</h4><br>
+                    <p class="govuk-body" style="clear:right; float:right; margin-bottom: 8px;"><a href="https://sso.service.security.gov.uk/sign-out?from_app=69a7ddbb-e6af-4dd5-99a4-51b207905218">Sign out</a></p>
+                </div>
+            </div>
+            <hr>
+
+            {% if not hideBackButton %}
+
+                {{ govukBackLink ({
+                    text: 'Back',
+                    href: 'javascript:history.back()'
+                }) }}
+
+            {% endif %}
+
+        </div>
+
+    </div>
+
+{% endblock %}
+
+
+
+
+

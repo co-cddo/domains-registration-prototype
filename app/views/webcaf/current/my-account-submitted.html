@@ -1,0 +1,96 @@
+{% extends "layouts/webcaf-home.html" %}
+
+{% block pageTitle %}
+  Check your answers template – {{ serviceName2 }} – GOV.UK Prototype Kit
+  
+{% endblock %}
+{% block content %}
+<div class="govuk-grid-row" style="padding: top 1px;">
+                <div class="govuk-grid-column-two-thirds">
+                  <h2 class="govuk-body" id="subsection-title">
+          Logged in as
+          
+       
+                    <span class="govuk-heading-m" style="margin-bottom: 8px;">Ministry of Justice (parent)</span><br>
+                    <span class="govuk-heading-s" style="margin-bottom: 8px;"><strong>Cafcas</strong></p>
+                      <hr>
+                </div>
+                
+            </div>
+          
+
+           
+    
+    
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+     <form class="form" action="start-a-draft-assessment" method="post">
+      <h2 class="govuk-heading-l">
+        Year 3 of GovAssure (2025/26) applications
+      </h2>
+      {{ govukButton({
+  text: "Start a draft assessment",
+  classes: "govuk-button--secondary"
+}) }}
+</form>
+      <P><a href="#"class="govuk-link govuk-link--no-visited-state">
+                You have 1 draft assessments
+              </a></P>
+              <P><a href="#"class="govuk-link govuk-link--no-visited-state">
+                View your submitted assessments
+              </a></P>
+     
+
+              
+
+      <p><br></p>
+      <h2 class="govuk-heading-m">
+        My critical systems
+      </h2>
+      <P><a href="view-systems"class="govuk-link govuk-link--no-visited-state">
+                View your systems
+              </a></P>
+
+      <p><br></p>
+      
+
+
+     
+      
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+
+      
+        <h2 class="govuk-body" id="subsection-title">
+        
+          <span class="govuk-heading-m">
+          About your organisation
+          
+        </span> 
+        </h2>
+        
+        <nav role="navigation" aria-labelledby="subsection-title">
+          <ul class="govuk-list">
+            <li>
+            </li>
+            <li>
+              <a href="my-organisations"class="govuk-link govuk-link--no-visited-state">
+                Manage organisations
+              </a>
+            </li>
+            <li>
+              <a href="#"class="govuk-link govuk-link--no-visited-state">
+                Manage users
+              </a>
+            </li>
+            
+          </ul>
+        </nav>
+      
+
+    </div>
+  </div>
+
+{% endblock %}

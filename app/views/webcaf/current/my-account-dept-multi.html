@@ -1,0 +1,62 @@
+{% extends "layouts/webcaf-home.html" %}
+{% block content %}
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+     <form class="form" action="start-a-draft-assessment" method="post">
+      <h2 class="govuk-heading-l">
+        Year 3 of GovAssure (2025/26) applications
+      </h2>
+      {{ govukButton({
+  text: "Start a draft assessment",
+  classes: "govuk-button--secondary"
+}) }}
+</form>
+<div id="noassessments-hint" class="govuk-hint">
+     You don't have assessments drafted
+    </div>
+      
+
+     
+
+              
+
+      
+      
+
+
+     
+      
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+
+      
+      <h2 class="govuk-body" id="subsection-title">
+          Logged in as <a href="#" class="govuk-link--no-visited-state govuk-body govuk-!-font-size-16 govuk-!-text-align-right"><strong>(Change)</strong></a>
+          <span class="govuk-heading-m">
+          Civil Aviation Authority
+        </span> 
+        </h2>
+
+
+        
+        <nav role="navigation" aria-labelledby="subsection-title">
+          <ul class="govuk-list">
+            <li>
+            </li>
+            <li>
+              <a href="my-organisations"class="govuk-link govuk-link--no-visited-state">
+                Manage organisations
+              </a>
+            </li>
+          </ul>
+        </nav>
+      
+
+    </div>
+  </div>
+
+{% endblock %}
