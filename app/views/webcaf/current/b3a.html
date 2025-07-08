@@ -22,7 +22,7 @@
     items: [
       {
         text: "Home",
-        href: "/registration/webcaf/current"
+        href: "#"
       },
       {
         text: "Create a new assessment
@@ -46,31 +46,28 @@
       <strong>Principle: B3 Data security</strong>
     </div>     
          <p id="progress-pages"><strong>You're on outcome 1 of 5</strong></p>
-         <div class="progress-inactive"><div class="progress-active" style="width: 20%"></div></div>
+         <div class="progress-inactive"><div class="progress-active" style="width: 0%"></div></div>
       </div>
   
 {% endblock %}
 {% block content %}
 
-<h3 class="govuk-heading-l">B3.a Understanding Data</h3>
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
- 
-    <h3 class="govuk-heading-m">Read each statement and select what's true about your system or organisation.
-</h3>
+    <h3 class="govuk-heading-l">B3.a Understanding data</h3>
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
     
-    <p></p>
-    <p></p>
-</h3>
-          {% set giveReason %}
-          {{ govukTextarea({
-            name: "give",
-            id: "give",
-            label: {
-              text: "Tell us your justifications"
-            }
-          }) }}
-          {% endset -%}
+    <h3 class="govuk-heading-m">Read each statement and select what's true about your system or organisation.</h3>
+    <form class="form" action="/webcaf/current/b3a-outcome" method="post">
+          
+      {% set giveReason %}
+      {{ govukTextarea({
+        name: "give",
+        id: "give",
+        label: {
+          text: "Tell us your justifications"
+        }
+      }) }}
+      {% endset -%}
 
 
             {% set achievedHtml %}

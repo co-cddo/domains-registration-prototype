@@ -75,7 +75,7 @@ Start a draft assessment – GOV.UK Prototype Kit
          <label class="govuk-label" for="default">
             Select your organisations' government system from the list.
           </label>
-          <select class="govuk-select" id="default" name="system" value="{{ data['system'] }}">
+          <select class="govuk-select"  id="default" name="systemauto" value="{{ data['systemauto'] }}">
             
             <option value="choose" selected>Start typing...</option>
             <option value="Bloomberg">Bloomberg</option>
@@ -133,17 +133,20 @@ Start a draft assessment – GOV.UK Prototype Kit
         }) }}
 
         {{ govukTextarea({
-  name: "govsysdescription",
-  id: "govsysdescription",
-  label: {
-    text: "Government system description",
-    classes: "govuk-heading-s",
-    isPageHeading: true
-  },
-  hint: {
-    text: "Describe what the system does and why do you need to submit a CAF self-assessment for it"
-  }
-}) }}
+          name: "govsysdescription",
+          id: "govsysdescription",
+          type: "string",
+          autocomplete: "string",
+          label: {
+            text: "Government system description",
+            classes: "govuk-heading-s",
+            value: data['govsysdescription'],
+            isPageHeading: true
+          },
+          hint: {
+            text: "Describe what the system does and why do you need to submit a CAF self-assessment for it"
+          }
+        }) }}
 
         
     

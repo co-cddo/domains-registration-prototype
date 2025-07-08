@@ -22,7 +22,7 @@
     items: [
       {
         text: "Home",
-        href: "/registration/webcaf/current"
+        href: "#"
       },
       {
         text: "Create a new assessment
@@ -36,46 +36,41 @@
       },
       
       {
-        text: "B3.a Understanding Data"
+        text: "B4.b Secure configuration"
       }
     ]
   }) }}
   <div class="proto-admin">
    <div id="changedName-hint" class="govuk-hint">
-      Principle 3 of 6<br>
-      <strong>Principle: B3 Data security</strong>
+      Principle 4 of 6<br>
+      <strong>Principle: B4 System security</strong>
     </div>     
-         <p id="progress-pages"><strong>You're on outcome 1 of 5</strong></p>
-         <div class="progress-inactive"><div class="progress-active" style="width: 20%"></div></div>
+         <p id="progress-pages"><strong>You're on outcome 2 of 4</strong></p>
+         <div class="progress-inactive"><div class="progress-active" style="width: 25%"></div></div>
       </div>
   
 {% endblock %}
 {% block content %}
 
-<h3 class="govuk-heading-l">B3.a Understanding Data</h3>
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
- 
-    <h3 class="govuk-heading-m">Read each statement and select what's true about your system or organisation.
-</h3>
+    <h3 class="govuk-heading-l">B4.b Secure configuration</h3>
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
     
-    <p></p>
-    <p></p>
-</h3>
-          {% set giveReason %}
-          {{ govukTextarea({
-            name: "give",
-            id: "give",
-            label: {
-              text: "Tell us your justifications"
-            }
-          }) }}
-          {% endset -%}
+    <h3 class="govuk-heading-m">Read each statement and select what's true about your system or organisation.</h3>
+    <form class="form" action="/webcaf/current/b4b-outcome" method="post">
+          
+      {% set giveReason %}
+      {{ govukTextarea({
+        name: "give",
+        id: "give",
+        label: {
+          text: "Tell us your justifications"
+        }
+      }) }}
+      {% endset -%}
 
 
             {% set achievedHtml %}
-
-
               <h1 class="govuk-heading-s">Achieved statements</h1>
               <div id="signIn-hint" class="govuk-hint">To achieve this outcome you must answer true to all statements.
               </div> 
@@ -91,7 +86,15 @@
               name: "outcome1-achieved",  
               fieldset: {
                 legend: {
-                  text: "1. You have identified and catalogued all the data important to the operation of the essential function(s), or that would assist an attacker.",
+                  text: "1. You have identified,
+                      documented and actively
+                      manage (e.g. maintain security
+                      configurations, patching,
+                      updating according to good
+                      practice) the assets that need to
+                      be carefully configured to
+                      maintain the security of the
+                      essential function(s).",
                   isPageHeading: true,
                   classes: "govuk"
                 }
@@ -126,7 +129,8 @@
               
               fieldset: {
                 legend: {
-                  text: "2. You have identified and catalogued who has access to the data important to the operation of the essential function(s).",
+                  text: "2. All platforms conform to your secure, defined baseline build,
+                      or the latest known good configuration version for that environment.",
                   isPageHeading: true,
                   classes: "govuk"
                 }
@@ -162,7 +166,11 @@
               
               fieldset: {
                 legend: {
-                  text: "3. You maintain a current understanding of the location, quantity and quality of data important to the operation of the essential function(s).",
+                  text: "3. You closely and effectively
+                      manage changes in your
+                      environment, ensuring that
+                      network and system configurations are secure and
+                      documented.",
                   isPageHeading: true,
                   classes: "govuk"
                 }
@@ -198,7 +206,11 @@
               
               fieldset: {
                 legend: {
-                  text: "4. You take steps to remove or minimise unnecessary copies or unneeded historic data.",
+                  text: "4. You regularly review and
+                      validate that your network and
+                      information systems have the
+                      expected, secure settings and
+                      configuration.",
                   isPageHeading: true,
                   classes: "govuk"
                 }
@@ -233,7 +245,8 @@
               
               fieldset: {
                 legend: {
-                  text: "5. You have identified all mobile devices and media that may hold data important to the operation of the essential function(s).",
+                  text: "5. Only permitted software can be
+                      installed.",
                   isPageHeading: true,
                   classes: "govuk"
                 }
@@ -268,7 +281,10 @@
               
               fieldset: {
                 legend: {
-                  text: "6. You maintain a current understanding of the data links used to transmit data that is important to your essential function(s).",
+                  text: "6. Standard users are not able to
+                      change settings that would
+                      impact security or the business
+                      operation.",
                   isPageHeading: true,
                   classes: "govuk"
                 }
@@ -303,7 +319,10 @@
               
               fieldset: {
                 legend: {
-                  text: "7. You understand the context, limitations and dependencies of your important data.",
+                  text: "7. If automated decision-making
+                      technologies are in use, their
+                      operation is well understood,
+                      and decisions can be replicated.",
                   isPageHeading: true,
                   classes: "govuk"
                 }
@@ -338,7 +357,12 @@
               
               fieldset: {
                 legend: {
-                  text: "8. You understand and document the impact on your essential function(s) of all relevant scenarios, including unauthorised data access, modification or deletion, or when authorised users are unable to appropriately access this data.",
+                  text: "8. Generic, shared, default name
+                      and built-in accounts have been
+                      removed or disabled. Where this
+                      is not possible, credentials to
+                      these accounts have been
+                      changed.",
                   isPageHeading: true,
                   classes: "govuk"
                 }
@@ -368,41 +392,7 @@
                 
               ]
             }) }}
-            {{ govukRadios({
-              name: "outcome9-achieved",
-              
-              fieldset: {
-                legend: {
-                  text: "9. You validate these documented impact statements regularly, at least annually.",
-                  isPageHeading: true,
-                  classes: "govuk"
-                }
-              },
-              hint: {
-                text: ""
-              },
-              items: [
-                {
-                  value: "yes",
-                  text: "True",
-                  checked: checked("outcome9-achieved", "yes")
-                },
-                {
-                  value: "na",
-                  text: "Not true, but I do have justifications",
-                  conditional: {
-                    html: giveReason
-                  },
-                  checked: checked("outcome9-achieved", "na")
-                },
-                {
-                  value: "no",
-                  text: "Not true and I have no justifications",
-                  checked: checked("outcome9-achieved", "no")
-                }
-                
-              ]
-            }) }}
+            
                 
             {% endset -%}
 {% set partiallyachievedHtml %}
@@ -420,7 +410,8 @@
               name: "outcome1-partiallyachieved",  
               fieldset: {
                 legend: {
-                  text: "1. You have identified and catalogued all the data important to the operation of the essential function(s), or that would assist an attacker.",
+                  text: "1. You have identified and documented the assets that need to be carefully configured
+                     to maintain the security of the essential function(s).",
                   isPageHeading: true,
                   classes: "govuk"
                 }
@@ -455,7 +446,7 @@
               
               fieldset: {
                 legend: {
-                  text: "2. You have identified and catalogued who has access to the data important to the operation of the essential function(s).",
+                  text: "2. Secure platform and device builds are used across the estate.",
                   isPageHeading: true,
                   classes: "govuk"
                 }
@@ -491,7 +482,8 @@
               
               fieldset: {
                 legend: {
-                  text: "3. You regularly review location, transmission, quantity and quality of data important to the operation of the essential function(s).",
+                  text: "3. Consistent, secure and minimal system and device configurations
+                      are applied across the same types of environment.",
                   isPageHeading: true,
                   classes: "govuk"
                 }
@@ -527,7 +519,12 @@
               
               fieldset: {
                 legend: {
-                  text: "4. You have identified all mobile devices and media that hold data important to the operation of the essential function(s).",
+                  text: "4. Changes and adjustments to
+                      security configuration at security
+                      boundaries with the network
+                      and information systems
+                      supporting your essential function(s) are approved and
+                      documented.",
                   isPageHeading: true,
                   classes: "govuk"
                 }
@@ -562,7 +559,8 @@
               
               fieldset: {
                 legend: {
-                  text: "5. You understand and document the impact on your essential function(s) of all relevant scenarios, including unauthorised data access, modification or deletion, or when authorised users are unable to appropriately access this data.",
+                  text: "5. You verify software before
+                      installation is permitted.",
                   isPageHeading: true,
                   classes: "govuk"
                 }
@@ -597,7 +595,12 @@
               
               fieldset: {
                 legend: {
-                  text: "6. You occasionally validate these documented impact statements.",
+                  text: "6. Generic, shared, default name
+                      and built-in accounts have been
+                      removed or disabled. Where this
+                      is not possible, credentials to
+                      these accounts have been
+                      changed.",
                   isPageHeading: true,
                   classes: "govuk"
                 }
@@ -639,7 +642,8 @@
 
               fieldset: {
               legend: {
-              html: "1. You have incomplete knowledge of what data is used by and produced in the operation of the essential function(s).",
+              html: "1. You haven't identified the assets that need to be carefully configured
+                  to maintain the security of the essential function(s).",
               isPageHeading: true,
               classes: "govuk"
               }
@@ -676,7 +680,9 @@
 
                 fieldset: {
                 legend: {
-                html: "2. You have not identified the important data on which your essential function(s) relies.",
+                html: "2. Policies relating to the security of operating system builds
+                  or configuration are not applied consistently across your network
+                  and information systems relating to your essential function(s).",
                 isPageHeading: true,
                 classes: "govuk"
                 }
@@ -712,7 +718,8 @@
 
                 fieldset: {
                 legend: {
-                html: "3. You have not identified who has access to data important to the operation of the essential function(s).",
+                html: "3. Configuration details are not recorded or lack enough information
+                  to be able to rebuild the system or device.",
                 isPageHeading: true,
                 classes: "govuk"
                 }
@@ -748,7 +755,46 @@
 
                 fieldset: {
                 legend: {
-                html: "4. You have not clearly articulated the impact of data compromise or lack of availability.",
+                html: "4. The recording of security changes or adjustments that
+                      affect your essential function(s)
+                      is lacking or inconsistent.",
+                isPageHeading: true,
+                classes: "govuk"
+                }
+                },
+                hint: {
+                text: ""
+                },
+                items: [
+              {
+                  value: "no",
+                  text: "This does not apply to my system or organisation",
+                  checked: checked("outcome4-not-achieved", "no")
+                },  
+                {
+                  value: "na",
+                  text: "This does apply to my system or organisation and I have justifications ",
+                  conditional: {
+                    html: giveReason
+                  },
+                  checked: checked("outcome4-not-achieved", "na")
+                },
+              {
+                  value: "yes",
+                  text: "This does apply to my system or organisation, but I have no justifications",
+                  checked: checked("outcome4-not-achieved", "yes")
+                }
+                
+              ]
+                }) }}
+                {{ govukRadios({
+                name: "outcome5-not-achieved",
+
+                fieldset: {
+                legend: {
+                html: "5. Generic, shared, default name
+                      and built-in accounts have not
+                      been removed or disabled.",
                 isPageHeading: true,
                 classes: "govuk"
                 }
