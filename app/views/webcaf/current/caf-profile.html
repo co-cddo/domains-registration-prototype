@@ -28,13 +28,16 @@ Start a draft assessment – GOV.UK Prototype Kit
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-l">
-        Choose your government CAF profile
+        Government CAF profile
       </h1>
       <p>
-        Government organisations undergoing GovAssure will need to identify the critical systems that support government functions and services and assign the Government CAF profile to each system and assess the systems against the relevant profile (Baseline or Enhanced).
-
-
+        Every system undergoing GovAssure must be classified as one of two profile types. These are baseline or enhanced.
       </p>
+      {{ govukInsetText({
+      text: "Baseline profile is essential for all government organisations. Enhanced is for critical or CNI systems."
+        }) }}
+      
+      
 
 
       <form class="form" action="/webcaf/current/draft-assessment2" method="post">
@@ -45,7 +48,7 @@ Start a draft assessment – GOV.UK Prototype Kit
           name: "cafprofile",
           fieldset: {
             legend: {
-              text: "Choose a government profile for this assessment",
+              text: "Choose a profile for this assessment",
               isPageHeading: true,
               classes: "govuk-fieldset__legend--m"
             }
@@ -59,7 +62,7 @@ Start a draft assessment – GOV.UK Prototype Kit
               text: "Baseline",
               checked: checked("cafprofile", "baseline"),
               hint: {
-        text: "Use this if your CAF self-assessment is for a non-critical government system"
+        text: "Use this if your system is non-critical"
       }
             },
             {
@@ -67,7 +70,7 @@ Start a draft assessment – GOV.UK Prototype Kit
               text: "Enhanced",
               checked: checked("cafprofile", "enhanced"),
               hint: {
-        text: "Use this if your CAF self-assessment is for a CNI or other critical government system"
+        text: "Use this if your system is part of the CNI or is another critical government system"
       }
             }
           ]

@@ -38,7 +38,7 @@ Start a draft assessment – GOV.UK Prototype Kit
       <form class="form" action="check-system" id="mainForm" method="post">
      
         <h2 class="govuk-heading-m">
-          Select a government system name
+          Select a system name
         </h2>
         
         
@@ -73,7 +73,7 @@ Start a draft assessment – GOV.UK Prototype Kit
       </style>
          <div class="govuk-form-group autocomplete-wrapper">
          <label class="govuk-label" for="default">
-            Select your organisations' government system from the list.
+            Select your organisations' system from the list.
           </label>
           <select class="govuk-select"  id="default" name="systemauto" value="{{ data['systemauto'] }}">
             
@@ -118,10 +118,10 @@ Start a draft assessment – GOV.UK Prototype Kit
      
           {{ govukInput({
           label: {
-            html: "<strong>Add a new government system manually</strong>"
+            html: '<span class="govuk-heading-m">Add a new system manually</span>'
           },
           hint: {
-            text: "Government system name"
+            text: "System name"
           },
           id: "govsysmanual",
           name: "govsysmanual",
@@ -138,13 +138,13 @@ Start a draft assessment – GOV.UK Prototype Kit
           type: "string",
           autocomplete: "string",
           label: {
-            text: "Government system description",
+            text: "System description",
             classes: "govuk-heading-s",
             value: data['govsysdescription'],
             isPageHeading: true
           },
           hint: {
-            text: "Describe what the system does and why do you need to submit a CAF self-assessment for it"
+            text: "Describe what the system does and why you need to submit a self-assessment CAF."
           }
         }) }}
 
