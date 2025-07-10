@@ -18,7 +18,7 @@ Start a draft assessment – GOV.UK Prototype Kit
     items: [
       {
         text: "My account",
-        href: "/webcaf/current/my-account-dept"
+        href: "/webcaf/current/my-account-dept-draft"
       },
       {
         text: "Start a draft assessment"
@@ -59,7 +59,7 @@ Start a draft assessment – GOV.UK Prototype Kit
       {# To switch between the completed and incomplete statues, use some inline logic within the component below, like this: "status: (completedStatus if ... else incompleteStatus)" #}
 
       {{ govukTaskList({
-        idPrefix: "first-section",
+        idPrefix: "sysprofil-section",
         items: [
           {
             title: {
@@ -67,15 +67,14 @@ Start a draft assessment – GOV.UK Prototype Kit
 "
             },
             href: "caf-profile",
-            classes: "govuk-link--no-visited-state",
-            status: incompleteStatus
+            status: completedStatus
           },
           {
             title: {
               text: "Provide system details"
             },
             href: "add-system",
-            status: incompleteStatus
+            status: completedStatus
           }
         ]
       }) }}
@@ -84,48 +83,49 @@ Start a draft assessment – GOV.UK Prototype Kit
       <p>Take time to select your answers for each outcome. They will be assessed against your system and organisation.</p>
 
       {{ govukTaskList({
-        idPrefix: "second-section",
+        idPrefix: "objectives-section",
         items: [
           {
             title: {
-              text: "Objective A: Managing security riskIncomplete"
+              text: "Objective A - Managing security risk"
             },
-            href: "",
-            status: cannotstartStatus
+            href: "objective-a",
+            status: completedStatus
           },
           {
             title: {
-              text: "Objective B: Protecting against cyber attacks"
+              text: "Objective B - Protecting against cyber attacks"
             },
-            href: "",
-            status: cannotstartStatus
+            href: "objective-b-status2",
+            status: completedStatus
           },
           {
             title: {
-              text: "Objective C: Detecting cyber security events"
+              text: "Objective C - Detecting cyber security events"
             },
-            href: "",
-            status: cannotstartStatus
+            href: "objective-c",
+            status: completedStatus
           },
           {
             title: {
-              text: "Objective D: Minimising the impact of cyber security incidents"
+              text: "Objective D - Minimising the impact of cyber
+security incidents"
             },
-            href: "",
-            status: cannotstartStatus
+            href: "objective-d",
+            status: completedStatus
           }
         ]
       }) }}
  <h2 class="govuk-heading-m govuk-!-margin-top-5">3. Submit your assessment</h2>
 {{ govukTaskList({
-        idPrefix: "first-section",
+        idPrefix: "submit-section",
         items: [
           {
             title: {
               text: "Complete the full assessment"
             },
-            href: "",
-            status: cannotstartStatus
+            href: "complete",
+            status: Incomplete
           }
         ]
       }) }}
