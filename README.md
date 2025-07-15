@@ -11,6 +11,13 @@ Welcome :wave: to the working prototypes for The Cyber and Domains Protection Te
 ## Web access
 To access the currently deployed prototypes listed above [visit this URL](https://sgs-ddt-01-96c924f9e494.herokuapp.com/).
 
+## Running the prototypes
+You can download and install the published source code and run it locally.
+
+# Requirements
+Node.js LTS version 20.x.x
+
+
 ## Team contacts
 If you need access to information about this prototype, would like to contribute, or have questions about the team’s work, please contact the user-centered design team:
 
