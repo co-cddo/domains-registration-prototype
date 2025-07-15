@@ -1,5 +1,5 @@
 # The Cyber and Domains Protection Team prototypes
-Welcome :wave: to the working prototype for the `'Get approval to use a .gov.uk domain name'` service. The prototype aims to assist with the design and research of the registration and approval process.
+Welcome :wave: to the working prototypes for the 'Get aproval' an 'GovAssure WEbcaf' service. These prototypes aim to assist with the user-centered design process.
 
 ## Prototypes
 | **Prototype name**                             | **Version** | **Status** | 
