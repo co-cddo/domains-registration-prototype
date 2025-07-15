@@ -4,9 +4,9 @@ Welcome :wave: to the working prototypes for The Cyber and Domains Protection Te
 ### Prototypes
 | **Prototype name**                             | **Version** | **Status** | 
 | ---------------------------------------------- | ----------- | ---------- |
-| Submit a CAF self-assessment for a system      | Version 1   | Design |
-| Get approval to use a .gov.uk domain name      | Version 4   | Live |
-| Moving your parish council to a .gov.uk domain | Version 3   | Live |
+| Submit a CAF self-assessment for a system      | Version 1   | `Design` |
+| Get approval to use a .gov.uk domain name      | Version 4   | `Live` |
+| Moving your parish council to a .gov.uk domain | Version 3   | `Live` |
 
 ### Web access
 To access the currently deployed prototypes listed above [visit this URL](https://sgs-ddt-01-96c924f9e494.herokuapp.com/).
