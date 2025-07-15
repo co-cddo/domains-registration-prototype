@@ -3,6 +3,7 @@ Welcome :wave: to the working prototype for the `'Get approval to use a .gov.uk 
 
 ## Prototypes
 | **Prototype name**                             | **Version** | **Status** | 
+| ---------------------------------------------- | ----------- | ---------- |
 | Submit a CAF self-assessment for a system      | Version 1   | Design |
 | Get approval to use a .gov.uk domain name      | Version 4   | Live |
 | Moving your parish council to a .gov.uk domain | Version 3   | Live |
