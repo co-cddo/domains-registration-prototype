@@ -1,5 +1,5 @@
 # The Cyber and Domains Protection Team prototypes
-Welcome :wave: to the working prototypes for the 'Get aproval' an 'GovAssure WEbcaf' service. These prototypes aim to assist with the user-centered design process.
+Welcome :wave: to the working prototypes for the The Cyber and Domains Protection Team. The publishd prototypes aim to assist with the user-centered design process.
 
 ## Prototypes
 | **Prototype name**                             | **Version** | **Status** | 
