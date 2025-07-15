@@ -28,9 +28,6 @@ Node.js LTS version 20.x.x
  - The first time you run npm run dev, the kit will ask you whether you want to send anonymous data to help the team improve the service. Enter y or n to answer yes or no.
 6. In your web browser, go to open http://localhost:3000 (opens in a new tab).
 
-> [!NOTE]
-> You must be a team member of The Cyber and Domains Protection Team in order to contribute to any of the the prototypes.
-
 ### Team contacts
 If you need access to information about this prototype, would like to contribute, or have questions about the team’s work, please contact the user-centered design team:
 
@@ -38,3 +35,6 @@ If you need access to information about this prototype, would like to contribute
 | -------------- | ---------------------------- | ---------------------------- |
 | Robert Nagy    | Design (SD, XD, IxD) | robert.nagy@dsit.gov.uk |
 | Katherine Brown| User research (UR) | katherine.brown@dsit.gov.uk |
+
+> [!NOTE]
+> You must be a team member of The Cyber and Domains Protection Team in order to contribute to any of the the prototypes.
