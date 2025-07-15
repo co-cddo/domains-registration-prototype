@@ -20,4 +20,4 @@ If you need access to information about this prototype, would like to contribute
 | Katherine Brown| User research (UR) | katherine.brown@dsit.gov.uk |
 
 > [!NOTE]
-> You must be a team member of The Cyber and Domains Protection Team in order to contribute to ay of the the prototypes.
+> You must be a team member of The Cyber and Domains Protection Team in order to contribute to any of the the prototypes.
