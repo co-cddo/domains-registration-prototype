@@ -27,7 +27,7 @@ Node.js LTS version 20.x.x
 5. In the terminal, enter: `npm install` 
 6. In the terminal, enter: `npm run dev`
  - The first time you run `npm run dev`, the kit will ask you whether you want to send anonymous data to help the team improve the service. Enter y or n to answer yes or no.
-6. In your web browser, go to open http://localhost:3000 (opens in a new tab).
+6. In your web browser, go to open http://localhost:3000 .
 
 ### Team contacts
 If you need access to information about this prototype, would like to contribute, or have questions about the team’s work, please contact the user-centered design team:
