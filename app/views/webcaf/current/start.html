@@ -1,5 +1,7 @@
 {% extends "layouts/webcaf.html" %}
-
+{% block pageTitle %}
+  Start page  - Submit a CAF self-assessment for a system - GOV.UK Prototype Kit
+{% endblock %}
 
 
 {% block content %}
@@ -12,27 +14,48 @@
       Submit a CAF self-assessment for a system
       </h1>
       
-      <p>The GovAssure team is responsible for approving all .gov.uk domain names. We have built this service to increase the security of the approvals process and help with our identity checks. <br><br>We will continuously improve the service.
+      <p>GovAssure is the cyber security assurance scheme for assessing the critical systems of government organisations.
       </p>
+      <p>GovAssure uses the NCSC's Cyber Assurance Framework (CAF). GovAssure is currently designed for OFFICIAL government systems, and also applies to government sector critical national infrastructure (CNI).</p>
 
     
 
-      <h2 class="govuk-heading-s">Who can apply for approval</h2>
-        <p>Use this service if you're a .gov.uk Approved Registrar and you want to apply for a .gov.uk domain name for a registrant.</p>
+      <h2 class="govuk-heading-s">CAF government profiles</h2>
+        <p>To enable an effective approach to dealing with the different threats there are two CAF government profiles for government. These are:
+          <ul class="govuk-list govuk-list--bullet">
+  <li>Baseline profile</li>
+  <li>Enhanced profile</li>
+</ul>
+        </p>
+
+        {{ govukWarningText({
+          html: 'All government organisations must meet the Baseline profile. If your organisation wants to assign the Enhanced profile to a system, you should contact us at <code class="govspeak-code">cybergovassure@cabinetoffice.gov.uk</code>.',
+          iconFallbackText: "Warning"
+        }) }}
+        <p> </p>
        
       <h2 class="govuk-heading-s">How long it takes </h2>
-      <p>The approval process should take approximately 5 working days. </p>
+      <p>Submitting a CAF self-assessment should take approximately 30 minutes.</p>
+      <p>The CAF self-assessment will be reviewed and verified by an independent assessor.
+      
+      A final report is produced, including observations, recommendations, and an assessment against the target CAF profile for each system. You can learn more about the <a href="https://www.security.gov.uk/policy-and-guidance/govassure/govassure-guidance/#section_4_further-reading">GovAssure 5 stages.</a>
+
+</p>
       
   
       <h2 class="govuk-heading-m">Before you start
       </h2>
-        <p>You will need to:</p>
+        <p>You must have <a href= "#"> the scoping document</a> completed with:</p>
+        <ul class="govuk-list govuk-list--bullet">
+  <li>Description of the organisation's context and mission</li>
+  <li>Listing the systems in-scope for CAF self-assessment with assigned Government CAF profiles for each</li>
+</ul>
 
         
          
 
-      <a href="registrar-details" role="button" draggable="false" class="govuk-button govuk-button--start govuk-!-margin-top-2 govuk-!-margin-bottom-8" data-module="govuk-button">
-        Start now
+      <a href="sign-in" role="button" draggable="false" class="govuk-button govuk-button--start govuk-!-margin-top-2 govuk-!-margin-bottom-8" data-module="govuk-button">
+        Sign in
         <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
           <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z"></path>
         </svg>
