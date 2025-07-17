@@ -64,7 +64,7 @@
 
 {{ govukRadios({
   classes: "",
-  name: "changedName",
+  name: "b3a-partially-achieved",
   fieldset: {
     legend: {
       text: "",
@@ -77,22 +77,25 @@
   },
   items: [
     {
-      value: "yes",
-      text: "Confirm"
+      value: "pa",
+      text: "Confirm",
+      checked: checked("b3a-partially-achieved", "pa")
     },
     {
-      value: "no",
+      value: "yes",
       text: "Change to Achieved",
       conditional: {
         html: changeStatus
-      }
+      },
+      checked: checked("b3a-partially-achieved", "yes")
     },
     {
       value: "no",
       text: "Change to Not achieved",
       conditional: {
         html: changeStatus
-      }
+      },
+      checked: checked("b3a-partially-achieved", "no")
     }
     
   ]
