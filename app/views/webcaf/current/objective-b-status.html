@@ -179,7 +179,7 @@
         Principle: B3 Data security
       </h2>
 
-
+     {% if (data['b3a-achieved'] == "yes") %}
       {{ govukSummaryList({
         rows: [
           {
@@ -188,12 +188,12 @@
               classes: "govuk-!-width-one-half"
             },
             value: {
-              html: '<strong class="govuk-tag govuk-tag--green">Achieved</strong>'
+              html: "<strong class='govuk-tag govuk-tag--green'>Achieved</strong>"
             },
             actions: {
               items: [
                 {
-                  href: "b3a",
+                  href: "b3a-outcome-achieved",
                   classes: "govuk-link--no-visited-state",
                   text: "Change",
                   visuallyHiddenText: "Question 1"
@@ -277,6 +277,208 @@
           }
         ]
       }) }}
+
+
+
+     
+      {% elseif data['b3a-achieved'] == 'pa' %}   
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "B3.a Understanding data",
+              classes: "govuk-!-width-one-half"
+            },
+            value: {
+              html: " <strong class='govuk-tag govuk-tag--yellow'>Partially achieved</strong>"
+            },
+            actions: {
+              items: [
+                {
+                  href: "b3a-outcome-achieved",
+                  classes: "govuk-link--no-visited-state",
+                  text: "Change",
+                  visuallyHiddenText: "Question 1"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "B3.b Data in transit"
+            },
+            value: {
+              html: '<a class="govuk-link govuk-link--no-visited-state" href="#">Add your answers</a>' 
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  classes: "govuk-link--no-visited-state",
+                  text: "",
+                  visuallyHiddenText: "Question 2"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "B3.c Stored data"
+            },
+            value: {
+              html: '<a class="govuk-link govuk-link--no-visited-state" href="#">Add your answers</a>'
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  classes: "govuk-link--no-visited-state",
+                  text: "",
+                  visuallyHiddenText: "Question 2"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "B3.d Mobile data"
+            },
+            value: {
+              html: '<a class="govuk-link govuk-link--no-visited-state" href="#">Add your answers</a>'
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  classes: "govuk-link--no-visited-state",
+                  text: "",
+                  visuallyHiddenText: "Question 2"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "B3.e Media equipment sanitisation"
+            },
+            value: {
+              html: '<a class="govuk-link govuk-link--no-visited-state" href="#">Add your answers</a>'
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  classes: "govuk-link--no-visited-state",
+                  text: "",
+                  visuallyHiddenText: "Question 2"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+      {% else %}
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "B3.a Understanding data",
+              classes: "govuk-!-width-one-half"
+            },
+            value: {
+              html: " <strong class='govuk-tag govuk-tag--red'>Not achieved</strong>"
+            },
+            actions: {
+              items: [
+                {
+                  href: "b3a-outcome-achieved",
+                  classes: "govuk-link--no-visited-state",
+                  text: "Change",
+                  visuallyHiddenText: "Question 1"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "B3.b Data in transit"
+            },
+            value: {
+              html: '<a class="govuk-link govuk-link--no-visited-state" href="#">Add your answers</a>' 
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  classes: "govuk-link--no-visited-state",
+                  text: "",
+                  visuallyHiddenText: "Question 2"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "B3.c Stored data"
+            },
+            value: {
+              html: '<a class="govuk-link govuk-link--no-visited-state" href="#">Add your answers</a>'
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  classes: "govuk-link--no-visited-state",
+                  text: "",
+                  visuallyHiddenText: "Question 2"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "B3.d Mobile data"
+            },
+            value: {
+              html: '<a class="govuk-link govuk-link--no-visited-state" href="#">Add your answers</a>'
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  classes: "govuk-link--no-visited-state",
+                  text: "",
+                  visuallyHiddenText: "Question 2"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "B3.e Media equipment sanitisation"
+            },
+            value: {
+              html: '<a class="govuk-link govuk-link--no-visited-state" href="#">Add your answers</a>'
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  classes: "govuk-link--no-visited-state",
+                  text: "",
+                  visuallyHiddenText: "Question 2"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+{% endif %}
       
       <h2 class="govuk-heading-m">
        Principle: B4 System security
@@ -468,9 +670,10 @@
           }
         ]
       }) }}
+<form class="form" action="objective-b-status-answer" id="mainForm" method="post">
 
       {{ govukRadios({
-  name: "sectioncompleted",
+  name: "objective-b-status",
   fieldset: {
     legend: {
       text: "Have you completed all four principle?",
@@ -481,17 +684,18 @@
   items: [
     {
       value: "yes",
-      text: "Yes, I've completed all four principles"
+      text: "Yes, I've completed all four principles",
+      checked: checked("objective-b-status", "yes")
     },
     {
       value: "no",
-      text: "No, I'll come back to it later"
+      text: "No, I'll come back to it later",
+      checked: checked("objective-b-status", "no")
     }
   ]
 }) }}
       
-      <form action="/confirmation" method="post" novalidate>
-
+   
         {{ govukButton({
           text: "Save and continue"
         }) }}

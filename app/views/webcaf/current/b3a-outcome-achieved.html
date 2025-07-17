@@ -1,11 +1,5 @@
 {% extends "layouts/webcaf.html" %}
 
-
-
-
-
-
- 
 {% block beforeContent %}
  
 
@@ -21,44 +15,41 @@
     items: [
       {
         text: "Home",
-        href: "/index.html"
+        href: "#"
       },
       {
         text: "Create a new assessment
         ",
-        href: "/registration/index"
+        href: "#"
       },
       {
-        text: "Objective A - Managing risk
+        text: "Objective B - Protecting against cyber attacks and data breaches
         ",
-        href: "/registration/index"
+        href: "#"
       },
       
       {
-        text: "A1.a Board direction outcome
-        "
+        text: "B3.a Understanding data outcome"
       }
     ]
   }) }}
   <div class="proto-admin">
    <div id="changedName-hint" class="govuk-hint">
-      Principle 1 of 4<br>
-      <strong>Principle: A1 Governance</strong>
+      Principle 3 of 6<br>
+      <strong>Principle: B3 Data security</strong>
     </div>     
-         <p id="progress-pages"><strong>You're on outcome 1 of 3</strong></p>
-         <div class="progress-inactive"><div class="progress-active" style="width: 33%"></div></div>
+         <p id="progress-pages"><strong>You're on outcome 1 of 5</strong></p>
+         <div class="progress-inactive"><div class="progress-active" style="width: 0%"></div></div>
       </div>
-
   
   
 {% endblock %}
 {% block content %}
-<form class="form" action="2c" id="mainForm" method="post">
+<form class="form" action="objective-b-status" id="mainForm" method="post">
 <div class="govuk-grid-row">
 
       <div class="govuk-grid-column-two-thirds">
-     
-<h1 class="govuk-heading-l">A1.a Board direction outcome</h1>
+<h1 class="govuk-heading-l">B3.a Understanding data</h1>
 <h1 class="govuk-heading-m">Status: Achieved</h1>
 
 {% set changeStatus %}
@@ -73,7 +64,7 @@
 
 {{ govukRadios({
   classes: "",
-  name: "changedName",
+  name: "b3a-achieved",
   fieldset: {
     legend: {
       text: "",
@@ -87,19 +78,30 @@
   items: [
     {
       value: "yes",
-      text: "Confirm"
+      text: "Confirm",
+      checked: checked("b3a-achieved", "yes")
+    },
+    {
+      value: "pa",
+      text: "Change to Partiallly achieved",
+      conditional: {
+        html: changeStatus
+      },
+      checked: checked("b3a-achieved", "pa")
     },
     {
       value: "no",
       text: "Change to Not achieved",
       conditional: {
         html: changeStatus
-      }
+      },
+      checked: checked("b3a-achieved", "no")
     }
+    
   ]
 }) }}
 
-  <h3 class="govuk-heading-m">Provide a summary about  board direction</h3>
+  <h3 class="govuk-heading-m">Provide a summary about understanding data</h3>
             
       
 

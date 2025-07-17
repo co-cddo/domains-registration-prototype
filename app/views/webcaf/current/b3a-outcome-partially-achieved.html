@@ -1,11 +1,5 @@
 {% extends "layouts/webcaf.html" %}
 
-
-
-
-
-
- 
 {% block beforeContent %}
  
 
@@ -55,9 +49,8 @@
 <div class="govuk-grid-row">
 
       <div class="govuk-grid-column-two-thirds">
-     
-<h1 class="govuk-heading-l">B3.a Understanding data outcome</h1>
-<h1 class="govuk-heading-m">Pending status: Achieved</h1>
+<h1 class="govuk-heading-l">B3.a Understanding data</h1>
+<h1 class="govuk-heading-m">Status: Partially achieved</h1>
 
 {% set changeStatus %}
 {{ govukTextarea({
@@ -80,7 +73,7 @@
     }
   },
   hint: {
-    html: "Your achieved status is pending as it must be reviewed by an assessor. You selected true to all of the achieved statements.<br>You can change this outcome using the buttons."
+    html: "You selected 'true' to all of the partially achieved statements.<br>Please confirm you agree with this status, or you can choose to change the outcome."
   },
   items: [
     {
@@ -89,15 +82,23 @@
     },
     {
       value: "no",
+      text: "Change to Achieved",
+      conditional: {
+        html: changeStatus
+      }
+    },
+    {
+      value: "no",
       text: "Change to Not achieved",
       conditional: {
         html: changeStatus
       }
     }
+    
   ]
 }) }}
 
-  <h3 class="govuk-heading-m">Provide a summary about  board direction</h3>
+  <h3 class="govuk-heading-m">Provide a summary about understanding data</h3>
             
       
 
@@ -106,26 +107,7 @@
   name: "labelAsPageHeading",
   maxlength: 200,
   label: {
-    html: 'Please write a short summary outlining how you worked towards achieving this outcome.<br>
-    <details class="govuk-details">
-  <summary class="govuk-details__summary">
-    <span class="govuk-details__summary-text">
-      Read a summary example on A1.a Board direction outcome
-    </span>
-  </summary>
-  <div class="govuk-details__text">
-    "Information and cyber security risks and associated actions are an agenda item at our monthly Council’s Board meetings. These are presented by the Director of IT and Cyber Security who has overall accountability for the security of network and information systems and is a permanent member of the board.
-
-<Br><Br>Below the board sits an Information Security Working Group which includes cross representation from across the council (including SIRO, CISO, Cyber leaders, IT leads, Business continuity, DPO, Department heads). When necessary these individuals are called in to support the board meetings to discuss cyber security risks that require high-level input from the board.
-
-<br><Br>Information security and cyber security risks documented in the risk register are reviewed and managed as part of the board meetings.
-
-<br><Br>The information and cyber security strategy has recently been reviewed by the board, is current and has been signed off. This is reviewed on an annual basis, or when there is a change in the threat landscape. This strategy has been communicated to risk management decision-makers through the Information Security Working Group.
-
-<br><Br>The cyber security strategy continually supports our organisational practices through inclusion in our policies, processes and procedures. Any changes in the stance to our cyber security strategy elicit a review of those policies, processes and procedures to make sure they remain relevant."
-  </div>
-</details>
-    '
+    html: 'Please write a short summary outlining how you worked towards achieving this outcome. (TBC)'
   }
 }) }}      
  

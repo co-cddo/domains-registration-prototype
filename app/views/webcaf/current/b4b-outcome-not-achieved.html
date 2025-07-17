@@ -1,0 +1,129 @@
+{% extends "layouts/webcaf.html" %}
+
+{% block beforeContent %}
+ 
+
+{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+  {{ govukPhaseBanner({
+    tag: {
+    text: "prototype",
+    classes: "govuk-tag--pink"
+    },
+      html: 'This is not a full service. It is not production code and you might experience problems.'
+  }) }}
+   {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+        href: "#"
+      },
+      {
+        text: "Create a new assessment
+        ",
+        href: "#"
+      },
+      {
+        text: "Objective B - Protecting against cyber attacks and data breaches
+        ",
+        href: "#"
+      },
+      
+      {
+        text: "B4.b Secure configuration outcome"
+      }
+    ]
+  }) }}
+  <div class="proto-admin">
+   <div id="changedName-hint" class="govuk-hint">
+      Principle 4 of 6<br>
+      <strong>Principle: B4 System security</strong>
+    </div>     
+         <p id="progress-pages"><strong>You're on outcome 2 of 4</strong></p>
+         <div class="progress-inactive"><div class="progress-active" style="width: 25%"></div></div>
+      </div>
+  
+  
+{% endblock %}
+{% block content %}
+<form class="form" action="objective-b-status2" id="mainForm" method="post">
+<div class="govuk-grid-row">
+
+      <div class="govuk-grid-column-two-thirds">
+<h1 class="govuk-heading-l">B4.b Secure configuration outcome</h1>
+<h1 class="govuk-heading-m">Status: Not achieved</h1>
+
+{% set changeStatus %}
+{{ govukTextarea({
+  name: "moreDetail",
+  id: "more-detail",
+  label: {
+    text: "Explain why you've changed the outcome"
+  }
+}) }}
+{% endset -%}
+
+{{ govukRadios({
+  classes: "",
+  name: "b3a-not-achieved",
+  fieldset: {
+    legend: {
+      text: "",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  hint: {
+    html: "You selected 'not true' to at least one of the achieved or partially achieved statements.<br>Please confirm you agree with this status, or you can choose to change the outcome."
+  },
+  items: [
+    {
+      value: "no",
+      text: "Confirm",
+      checked: checked("b3a-not-achieved", "no")
+    },
+    {
+      value: "pa",
+      text: "Change to Partiallly achieved",
+      conditional: {
+        html: changeStatus
+      },
+      checked: checked("b3a-not-achieved", "pa")
+    },
+    {
+      value: "yes",
+      text: "Change to Achieved",
+      conditional: {
+        html: changeStatus
+      },
+      checked: checked("b3a-not-achieved", "yes")
+    }
+    
+  ]
+}) }}
+
+  <h3 class="govuk-heading-m">Provide a summary about understanding data</h3>
+            
+      
+
+{{ govukCharacterCount({
+  id: "label-as-page-heading",
+  name: "labelAsPageHeading",
+  maxlength: 200,
+  label: {
+    html: 'Please write a short summary outlining how you worked towards achieving this outcome. (TBC)'
+  }
+}) }}      
+ 
+
+<div class="govuk-button-group">
+  {{ govukButton({
+    text: "Save and continue"
+  }) }}
+  </form>
+
+  <a class="govuk-link" href="javascript:window.history.back()">Back to statements </a>
+</div>
+    </div>    
+  </div>
+
+{% endblock %}

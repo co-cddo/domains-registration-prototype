@@ -453,8 +453,10 @@
         ]
       }) }}
 
-      {{ govukRadios({
-  name: "sectioncompleted",
+<form class="form" action="objective-b-answer" id="mainForm" method="post">
+
+{{ govukRadios({
+  name: "objective-b-completed",
   fieldset: {
     legend: {
       text: "Have you completed all four principle?",
@@ -465,16 +467,18 @@
   items: [
     {
       value: "yes",
-      text: "Yes, I've completed all four principles"
+      text: "Yes, I've completed all four principles",
+      checked: checked("objective-b-completed", "yes")
     },
     {
       value: "no",
-      text: "No, I'll come back to it later"
+      text: "No, I'll come back to it later",
+      checked: checked("objective-b-completed", "no")
     }
   ]
 }) }}
       
-      <form action="/confirmation" method="post" novalidate>
+      
 
         {{ govukButton({
           text: "Save and continue"

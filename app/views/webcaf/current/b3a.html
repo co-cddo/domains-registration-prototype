@@ -1,13 +1,9 @@
-
-
 {% extends "layouts/webcaf.html" %}
 
-
-
-
- 
+{% block pageTitle %}
+B3.a Understanding data – GOV.UK Prototype Kit
+{% endblock %}
 {% block beforeContent %}
- 
 
 {% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
   {{ govukPhaseBanner({
@@ -57,7 +53,7 @@
       <div class="govuk-grid-column-two-thirds">
     
     <h3 class="govuk-heading-m">Read each statement and select what's true about your system or organisation.</h3>
-    <form class="form" action="/webcaf/current/b3a-outcome" method="post">
+    <form class="form" action="b3a-answer" method="post">
           
       {% set giveReason %}
       {{ govukTextarea({
@@ -68,7 +64,6 @@
         }
       }) }}
       {% endset -%}
-
 
             {% set achievedHtml %}
 
@@ -135,7 +130,7 @@
                 {
                   value: "yes",
                   text: "True",
-                  checked: checked("outcome6-achieved", "yes")
+                  checked: checked("outcome2-achieved", "yes")
                 },
                 {
                   value: "na",
@@ -171,7 +166,7 @@
                 {
                   value: "yes",
                   text: "True",
-                  checked: checked("outcome7-achieved", "yes")
+                  checked: checked("outcome3-achieved", "yes")
                 },
                 
                 {
@@ -207,7 +202,7 @@
                 {
                   value: "yes",
                   text: "True",
-                  checked: checked("outcome8-achieved", "yes")
+                  checked: checked("outcome4-achieved", "yes")
                 },
                 {
                   value: "na",
@@ -645,11 +640,7 @@
               text: " "
               },
               items: [
-              {
-                  value: "no",
-                  text: "This does not apply to my system or organisation",
-                  checked: checked("outcome1-not-achieved", "no")
-                },  
+               
                 {
                   value: "na",
                   text: "This does apply to my system or organisation and I have justifications ",
@@ -662,6 +653,11 @@
                   value: "yes",
                   text: "This does apply to my system or organisation, but I have no justifications",
                   checked: checked("outcome1-not-achieved", "yes")
+                },
+                {
+                  value: "no",
+                  text: "This does not apply to my system or organisation",
+                  checked: checked("outcome1-not-achieved", "no")
                 }
                 
               ]
@@ -682,11 +678,7 @@
                 text: ""
                 },
                 items: [
-              {
-                  value: "no",
-                  text: "This does not apply to my system or organisation",
-                  checked: checked("outcome2-not-achieved", "no")
-                },  
+                
                 {
                   value: "na",
                   text: "This does apply to my system or organisation and I have justifications ",
@@ -699,6 +691,11 @@
                   value: "yes",
                   text: "This does apply to my system or organisation, but I have no justifications",
                   checked: checked("outcome2-not-achieved", "yes")
+                },
+                {
+                  value: "no",
+                  text: "This does not apply to my system or organisation",
+                  checked: checked("outcome2-not-achieved", "no")
                 }
                 
               ]
@@ -718,11 +715,7 @@
                 text: ""
                 },
                 items: [
-              {
-                  value: "no",
-                  text: "This does not apply to my system or organisation",
-                  checked: checked("outcome3-not-achieved", "no")
-                },  
+                
                 {
                   value: "na",
                   text: "This does apply to my system or organisation and I have justifications ",
@@ -735,6 +728,11 @@
                   value: "yes",
                   text: "This does apply to my system or organisation, but I have no justifications",
                   checked: checked("outcome3-not-achieved", "yes")
+                },
+                {
+                  value: "no",
+                  text: "This does not apply to my system or organisation",
+                  checked: checked("outcome3-not-achieved", "no")
                 }
                 
               ]
@@ -754,11 +752,7 @@
                 text: ""
                 },
                 items: [
-              {
-                  value: "no",
-                  text: "This does not apply to my system or organisation",
-                  checked: checked("outcome4-not-achieved", "no")
-                },  
+                
                 {
                   value: "na",
                   text: "This does apply to my system or organisation and I have justifications ",
@@ -771,6 +765,11 @@
                   value: "yes",
                   text: "This does apply to my system or organisation, but I have no justifications",
                   checked: checked("outcome4-not-achieved", "yes")
+                },
+                {
+                  value: "no",
+                  text: "This does not apply to my system or organisation",
+                  checked: checked("outcome4-not-achieved", "no")
                 }
                 
               ]

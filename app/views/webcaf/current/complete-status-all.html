@@ -37,14 +37,189 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <form class="form" action="/webcaf/current/draft-assessment5" method="post">
+      <form class="form" action="confirmation" method="post">
 
-      <h1 class="govuk-heading-l">
-        Objective B - Protecting against cyber attacks
+      <h1 class="govuk-heading-xl">
+        Submit your assessment
       </h1>
        
-<p>Please provide your answers for each principle. You can review the status of individual outcomes below each principle and change your answers if you need to.</p>
+<p>Based on your answers, you can review the status of individual outcomes below for each principle. You can go back and change your answers.</p>
 
+<h1 class="govuk-heading-l">
+        Objective A - Managing security risk
+      </h1>
+       
+
+
+      <h2 class="govuk-heading-m">
+        Principle: A1 Governance
+      </h2>
+
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "A1.a Board direction",
+              classes: "govuk-!-width-one-half"
+            },
+            value: {
+             html: '<strong class="govuk-tag govuk-tag--green">Achieved</strong>'
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "Question 1"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "A1.b Roles and responsibilities"
+            },
+            value: {
+              html: '<strong class="govuk-tag govuk-tag--green">Achieved</strong>'
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "Question 2"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "A1.c Decision-making"
+            },
+            value: {
+              html: '<strong class="govuk-tag govuk-tag--green">Achieved</strong>'
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "Question 3"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+      <h2 class="govuk-heading-m">
+        Principle: A2 Risk management
+      </h2>
+
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "A2.a Risk Management Process",
+              classes: "govuk-!-width-one-half"
+            },
+            value: {
+              html: '<strong class="govuk-tag govuk-tag--green">Achieved</strong>'
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "Question 1"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "A2.b Assurance"
+            },
+            value: {
+              html: '<strong class="govuk-tag govuk-tag--green">Achieved</strong>'
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "Question 2"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+      <h2 class="govuk-heading-m">
+        Principle: A3 Asset management
+      </h2>
+
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "A3.a Asset managements",
+              classes: "govuk-!-width-one-half"
+            },
+            value: {
+              html: '<strong class="govuk-tag govuk-tag--green">Achieved</strong>'
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "Question 1"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+      <h2 class="govuk-heading-m">
+        Principle: A4 Supply chain
+      </h2>
+
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "A4.a Supply chain",
+              classes: "govuk-!-width-one-half"
+            },
+            value: {
+              html: '<strong class="govuk-tag govuk-tag--green">Achieved</strong>'
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "Question 1"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+<h2 class="govuk-heading-l">
+Objective B - Protecting against cyber attacks
+</h2>
 
       <h2 class="govuk-heading-m">
         Principle: B1 Service protection policies and processes 
@@ -471,23 +646,309 @@
         ]
       }) }}
 
+<h1 class="govuk-heading-l">
+       Objective C - Detecting cyber security events
+      </h1>
+       
+
+
+      <h2 class="govuk-heading-m">
+        Principle: C1 Security monitoring
+      </h2>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "C1.a Monitoring coverage",
+              classes: "govuk-!-width-one-half"
+            },
+            value: {
+              html: '<strong class="govuk-tag govuk-tag--green">Achieved</strong>'
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "Question 1"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "C1.b Securing logs"
+            },
+            value: {
+              html: '<strong class="govuk-tag govuk-tag--green">Achieved</strong>'
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "Question 2"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "C1.c Generating alerts"
+            },
+            value: {
+              html: '<strong class="govuk-tag govuk-tag--green">Achieved</strong>'
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "Question 3"
+                }
+              ]
+            }
+          }
+           ,
+          {
+            key: {
+              text: "C1.d Identifying security incidents"
+            },
+            value: {
+              html: '<strong class="govuk-tag govuk-tag--green">Achieved</strong>'
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "Question 3"
+                }
+              ]
+            }
+          }
+           ,
+          {
+            key: {
+              text: "C1.e Monitoring tools and skills"
+            },
+            value: {
+              html: '<strong class="govuk-tag govuk-tag--green">Achieved</strong>'
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "Question 3"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+     <h2 class="govuk-heading-m">
+        Principle: C2 Proactive security event discovery
+
+      </h2>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "C2.a System abnormalities for attack detection",
+              classes: "govuk-!-width-one-half"
+            },
+            value: {
+              html: '<strong class="govuk-tag govuk-tag--green">Achieved</strong>'
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "Question 1"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "C2.b Proactive attack discovery"
+            },
+            value: {
+              html: '<strong class="govuk-tag govuk-tag--green">Achieved</strong>'
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "Question 2"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+       <h1 class="govuk-heading-l">
+        Objective D - Minimising the impact of cyber security incidents
+      </h1>
+       
+
+
+      <h2 class="govuk-heading-m">
+        Principle: D1 Response and Recovery Planning
+      </h2>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              html: "D1.a Response plan",
+              classes: "govuk-!-width-one-half"
+            },
+            value: {
+              html: '<strong class="govuk-tag govuk-tag--green">Achieved</strong>'
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "Question 1"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "D1.b Response and recovery capability"
+            },
+            value: {
+              html: '<strong class="govuk-tag govuk-tag--green">Achieved</strong>'
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "Question 2"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "D1.c Testing and exercising"
+            },
+            value: {
+              html: '<strong class="govuk-tag govuk-tag--green">Achieved</strong>'
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "Question 3"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+      <h2 class="govuk-heading-m">
+        Principle: D2 Lessons learned
+      </h2>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "D2.a Incident root cause analysis",
+              classes: "govuk-!-width-one-half"
+            },
+            value: {
+              html: '<strong class="govuk-tag govuk-tag--green">Achieved</strong>'
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "Question 1"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "D2.b Using incidents to drive improvements"
+            },
+            value: {
+              html: '<strong class="govuk-tag govuk-tag--green">Achieved</strong>'
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "",
+                  visuallyHiddenText: "Question 2"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "D1.c Testing and exercising"
+            },
+            value: {
+              html: '<strong class="govuk-tag govuk-tag--green">Achieved</strong>'
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "Question 3"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+      <h2 class="govuk-heading-l">Before you continue</h2>
+      <p>For GovAssure Year 3 2025/26 the submission deadline is 11:59pm on 31 March 2026. You must tell us if you are submitting late. Late submissions will be filed for GovAssure Year 4 2025/26.</p>
       {{ govukRadios({
+  classes: "govuk-radios--inline",
   name: "sectioncompleted",
   fieldset: {
     legend: {
-      text: "Have you completed all four principle?",
+      text: "Are you submitting after the deadline?",
       isPageHeading: true,
-      classes: "govuk-fieldset__legend--m"
+      classes: "govuk-fieldset__legend--s"
     }
   },
   items: [
     {
       value: "yes",
-      text: "Yes, I've completed all four principles"
+      text: "Yes"
     },
     {
       value: "no",
-      text: "No, I'll come back to it later"
+      text: "No"
     }
   ]
 }) }}
