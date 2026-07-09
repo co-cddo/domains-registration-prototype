@@ -14,8 +14,8 @@ Priority recommendations
 
 {{ govukBreadcrumbs({
   items: [
-    { text: "My account", href: "/webcaf/tip/current/my-account" },
-    { text: "Edit draft TIP", href: "/webcaf/tip/current/draft-tip" },
+    { text: "My account", href: basePath + "/my-account" },
+    { text: "Edit draft TIP", href: basePath + "/draft-tip" },
     { text: "Review priority recommendation and action" }
   ]
 }) }}
@@ -256,7 +256,7 @@ Priority recommendations
     </table>
 
     <p class="govuk-body govuk-!-margin-top-6">
-      <a href="/webcaf/tip/current/draft-tip" class="govuk-link">Return to task list</a>
+      <a href="{{ basePath }}/draft-tip" class="govuk-link">Return to task list</a>
     </p>
 
   </div>

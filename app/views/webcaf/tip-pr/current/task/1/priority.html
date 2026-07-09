@@ -3,7 +3,7 @@
 {% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
 
 {% block pageTitle %}
-Review priority recommendations and actions
+Priority recommendations
 {% endblock %}
 
 {% block beforeContent %}
@@ -14,19 +14,19 @@ Review priority recommendations and actions
 
 {{ govukBreadcrumbs({
   items: [
-    { text: "My account", href: basePath + "/my-account" },
-    { text: "Edit draft TIP", href: basePath + "/draft-tip" },
-    { text: "Priority recommendation and action" }
+    { text: "My account", href: "/webcaf/tip/current/my-account" },
+    { text: "Edit draft TIP", href: "/webcaf/tip/current/draft-tip" },
+    { text: "Review priority recommendation and action" }
   ]
 }) }}
 
 <div class="proto-admin govuk-!-margin-bottom-6">
-  <h2 class="govuk-heading-s">{{ progress.reviewed }} of {{ progress.total }} recommendations read</h2>
+  <h2 class="govuk-heading-s">{{ progress.reviewed }} of {{ progress.total }} recommendations reviewed</h2>
   <div class="progress-inactive">
     <div class="progress-active" style="width: {{ (progress.reviewed / progress.total * 100) | round(0, 'floor') }}%"></div>
   </div>
   <p class="govuk-body-s govuk-!-margin-top-2 govuk-!-margin-bottom-0">
-    {{ progress.actionAdded }} actions added · {{ progress.noActionPlanned }} no action planned · {{ progress.notReviewed }} not read yet
+    {{ progress.actionAdded }} actions added · {{ progress.noActionPlanned }} no action planned · {{ progress.notReviewed }} not reviewed
   </p>
 </div>
 {% endblock %}
@@ -123,30 +123,6 @@ Review priority recommendations and actions
   .tip-filter-control .govuk-form-group {
     margin-bottom: 0;
   }
-
-  .tip-filter-control--objective {
-  flex: 0 1 220px;
-}
-
-.tip-filter-control--outcome {
-  flex: 0 1 220px;
-}
-
-.tip-filter-control--status {
-  flex: 0 1 220px;
-}
-
-.tip-filter-controls {
-  display: flex;
-  gap: 8px;
-  align-items: flex-end;
-  flex-wrap: wrap;
-}
-
-.tip-filter-control {
-  flex: 1 1 220px;
-  min-width: 180px;
-}
 </style>
 
 <div class="govuk-grid-row">
@@ -156,79 +132,65 @@ Review priority recommendations and actions
     <h1 class="govuk-heading-l">Priority recommendations ({{ progress.total }})</h1>
 
     <p class="govuk-body">
-      You must read all the priority recommendations for this system and the risks associated with them. The independent assurance reviewer reported that the contributing outcome failed to meet the Baseline Government CAF profile.
+      Review priority recommendations for this system. These relate to contributing outcomes that did not meet the Government CAF profile.
     </p>
-    
-    <p class="govuk-heading-m">Provide actions</p>
-    
 
     {{ govukWarningText({
-      text: "You must provide an action for every priority recommendation. If you do not plan to add an action, you must give a reason. ",
+      text: "All priority recommendations must be reviewed and an action added. Alternatively, add a reason if no action is planned.",
       iconFallbackText: "Warning"
     }) }}
 
-   <section class="app-dashboard-filter-panel" aria-labelledby="recommendations-filter-heading">
-  <div class="app-dashboard-filter-panel__header">
-    <h2 class="govuk-heading-m app-dashboard-filter-panel__title" id="recommendations-filter-heading">
-      Filter recommendations
-    </h2>
-    <p class="govuk-body-s app-dashboard-filter-panel__hint">
-      Filter recommendations by objective, outcome and status.
-    </p>
-  </div>
-
-  <div class="tip-filter-controls">
-    <div class="tip-filter-control tip-filter-control--objective">
-      <div class="govuk-form-group">
-        <label class="govuk-label govuk-label--s" for="objective-filter">
-          Objective
-        </label>
-        <select class="govuk-select" id="objective-filter" name="objective">
-          <option value="">All objectives</option>
-          <option value="A">Objective A</option>
-          <option value="B">Objective B</option>
-          <option value="C">Objective C</option>
-          <option value="D">Objective D</option>
-        </select>
+    <section class="app-dashboard-filter-panel" aria-labelledby="recommendations-filter-heading">
+      <div class="app-dashboard-filter-panel__header">
+        <h2 class="govuk-heading-m app-dashboard-filter-panel__title" id="recommendations-filter-heading">
+          Filter
+        </h2>
+        <p class="govuk-body-s app-dashboard-filter-panel__hint">
+          Filter recommendations by objective and status.
+        </p>
       </div>
-    </div>
 
-    <div class="tip-filter-control tip-filter-control--outcome">
-      <div class="govuk-form-group">
-        <label class="govuk-label govuk-label--s" for="outcome-filter">
-          Outcome
-        </label>
-        <select class="govuk-select" id="outcome-filter" name="outcome">
-          <option value="">All outcomes</option>
-        </select>
+      <div class="tip-filter-controls">
+        <div class="tip-filter-control tip-filter-control--objective">
+          <div class="govuk-form-group">
+            <label class="govuk-label govuk-label--s" for="objective-filter">
+              Objective
+            </label>
+            <select class="govuk-select" id="objective-filter" name="objective">
+              <option value="">All objectives</option>
+              <option value="A">Objective A</option>
+              <option value="B">Objective B</option>
+              <option value="C">Objective C</option>
+              <option value="D">Objective D</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="tip-filter-control tip-filter-control--status">
+          <div class="govuk-form-group">
+            <label class="govuk-label govuk-label--s" for="status-filter">
+              Status
+            </label>
+            <select class="govuk-select" id="status-filter" name="status">
+              <option value="">All statuses</option>
+              <option value="not_reviewed">Not reviewed</option>
+              <option value="action_added">Action added</option>
+              <option value="no_action_planned">No action planned</option>
+            </select>
+          </div>
+        </div>
       </div>
-    </div>
 
-    <div class="tip-filter-control tip-filter-control--status">
-      <div class="govuk-form-group">
-        <label class="govuk-label govuk-label--s" for="status-filter">
-          Status
-        </label>
-        <select class="govuk-select" id="status-filter" name="status">
-          <option value="">All statuses</option>
-          <option value="not_reviewed">Not read</option>
-          <option value="action_added">Action added</option>
-          <option value="no_action_planned">No action planned</option>
-        </select>
+      <div class="govuk-button-group govuk-!-margin-bottom-0 govuk-!-margin-top-3">
+        <button class="govuk-button" type="button" onclick="window.applyTipFilters()">
+          Apply filters
+        </button>
+
+        <a class="govuk-link" href="#" onclick="window.clearTipFilters(); return false;">
+          Clear filters
+        </a>
       </div>
-    </div>
-  </div>
-
-  <div class="govuk-button-group govuk-!-margin-bottom-0 govuk-!-margin-top-3">
-    <button class="govuk-button" type="button" onclick="window.applyTipFilters()">
-      Apply filters
-    </button>
-
-    <a class="govuk-link" href="#" onclick="window.clearTipFilters(); return false;">
-      Clear filters
-    </a>
-  </div>
-</section>
+    </section>
 
     <div class="tip-results-wrap">
       <p class="govuk-body-s govuk-!-margin-bottom-3" id="tip-results-count">
@@ -249,12 +211,11 @@ Review priority recommendations and actions
       <tbody class="govuk-table__body" id="tip-work-queue-body">
 
         {% for row in rows %}
-         <tr
-  class="govuk-table__row tip-queue-row"
-  data-objective="{{ row.objective | trim }}"
-  data-outcome="{{ row.outcome | trim }}"
-  data-status="{{ row.status }}"
->
+          <tr
+            class="govuk-table__row tip-queue-row"
+            data-objective="{{ row.objective }}"
+            data-status="{{ row.status }}"
+          >
             <td class="govuk-table__cell">
               <strong>{{ row.recId }}</strong>
             </td>
@@ -275,9 +236,9 @@ Review priority recommendations and actions
 
             <td class="govuk-table__cell tip-status-cell">
               {% if row.locked %}
-                <a href="#">Read</a>
+                <a href="#">Review</a>
               {% elseif row.status == "not_reviewed" %}
-                <a href="{{ row.href }}" class="govuk-link govuk-link--no-visited-state">Read</a>
+                <a href="{{ row.href }}" class="govuk-link govuk-link--no-visited-state">Review</a>
               {% elseif row.status == "action_added" %}
                 <strong class="govuk-tag govuk-tag--blue tip-status-tag">Action added</strong>
                 <br><br>
@@ -295,7 +256,7 @@ Review priority recommendations and actions
     </table>
 
     <p class="govuk-body govuk-!-margin-top-6">
-      <a href="{{ basePath }}/draft-tip" class="govuk-link">Return to task list</a>
+      <a href="/webcaf/tip/current/draft-tip" class="govuk-link">Return to task list</a>
     </p>
 
   </div>

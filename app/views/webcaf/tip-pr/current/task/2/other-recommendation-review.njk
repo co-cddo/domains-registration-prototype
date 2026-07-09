@@ -4,22 +4,12 @@
 {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
 {% from "govuk/components/input/macro.njk" import govukInput %}
 {% from "govuk/components/date-input/macro.njk" import govukDateInput %}
+{% from "govuk/components/character-count/macro.njk" import govukCharacterCount %}
+
 
 {% block pageTitle %}
-Read recommendation and action
+Review other recommendation and action
 {% endblock %}
-
-{% set noActionReasonHtml %}
-  {{ govukTextarea({
-    name: "noActionReason",
-    id: "noActionReason",
-    value: item.noActionReason or "",
-    label: {
-      text: "Explain why you will not add an action",
-      classes: "govuk-label--s"
-    }
-  }) }}
-{% endset %}
 
 {% set targetDateQuestionHtml %}
   <div class="govuk-!-margin-top-3">
@@ -59,46 +49,33 @@ Read recommendation and action
   </div>
 {% endset %}
 
-{% set noDateReasonHtml %}
-  <div class="govuk-!-margin-top-3">
-    {{ govukTextarea({
-      name: "noTimingReason",
-      id: "noTimingReason",
-      value: item.actionDetails.noTimingReason if item.actionDetails else "",
-      label: {
-        text: "Explain why you cannot provide a target date",
-        classes: "govuk-label--s"
-      }
-    }) }}
-  </div>
-{% endset %}
-
 {% set actionFieldsHtml %}
   <div class="govuk-!-margin-top-3">
-    {{ govukTextarea({
+    {{ govukCharacterCount({
       name: "actionText",
       id: "actionText",
+      maxwords: 1500,
       value: item.actionDetails.actionText if item.actionDetails else "",
       label: {
         text: "What action will you take?",
         classes: "govuk-label--m"
       },
       hint: {
-        text: "Describe the action and how it will implement the recommendation"
+        text: "Describe the action or actions and how they will implement the recommendation"
       }
     }) }}
 
     {{ govukInput({
       name: "owner",
       id: "owner",
-      value: item.actionDetails.owner if item.actionDetails and item.actionDetails.owner else lastPriorityOwner,
+      value: item.actionDetails.owner if item.actionDetails else "",
       classes: "govuk-!-width-two-thirds",
       label: {
         text: "Who owns this action?",
         classes: "govuk-label--m"
       },
       hint: {
-        text: "Enter action owner full name or team name. The last owner you entered has been used as the default. Change it if needed."
+        text: "Name the person or team who has ultimate responsibility for implementing the action "
       }
     }) }}
 
@@ -111,7 +88,7 @@ Read recommendation and action
         }
       },
       hint: {
-        text: "This means whether you have the people, capacity and supporting resources needed to do the work."
+        text: "This means whether you have the people, capacity and supporting resources needed to do the work"
       },
       items: [
         {
@@ -144,7 +121,7 @@ Read recommendation and action
         }
       },
       hint: {
-        text: "This means whether the funding needed for the action has been approved."
+        text: "This means whether the funding needed for the action has been approved"
       },
       items: [
         {
@@ -196,14 +173,13 @@ Read recommendation and action
       ]
     }) }}
   </div>
+
 {% endset %}
 
 {% if returnTo == "check-answers" %}
   {% set backHref = basePath + "/check-answers" %}
-  {% set cancelHref = basePath + "/check-answers" %}
 {% else %}
-  {% set backHref = prioritySummaryHref %}
-  {% set cancelHref = prioritySummaryHref %}
+  {% set backHref = otherSummaryHref %}
 {% endif %}
 
 {% block beforeContent %}
@@ -216,7 +192,7 @@ Read recommendation and action
   items: [
     { text: "My account", href: basePath + "/my-account" },
     { text: "Edit draft TIP", href: basePath + "/draft-tip" },
-    { text: "Read priority recommendation and action", href: prioritySummaryHref },
+    { text: "Review other recommendation", href: otherSummaryHref },
     { text: item.recId }
   ]
 }) }}
@@ -232,9 +208,11 @@ Read recommendation and action
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-<span class="govuk-caption-l">{{ item.systemName or "Microsoft CS version 3" }} ({{ item.finalReportReference or "CAF24092025FDMH" }})</span>
-<h1 class="govuk-heading-l govuk-!-margin-bottom-2">Read priority recommendation and action</h1>
-<p class="govuk-body govuk-!-margin-bottom-6"><strong>Recommendation ID:</strong> {{ item.recId }}</p>
+
+    <span class="govuk-caption-l">{{ item.systemName or "Microsoft CS version 3" }} ({{ item.finalReportReference or "CAF24092025FDMH" }})</span>
+    <h1 class="govuk-heading-l govuk-!-margin-bottom-2">Review other recommendation</h1>
+    <p class="govuk-body govuk-!-margin-bottom-6"><strong>Recommendation ID:</strong> {{ item.recId }}</p>
+
     <div class="govuk-summary-card">
       <div class="govuk-summary-card__title-wrapper">
         <h2 class="govuk-summary-card__title">
@@ -244,14 +222,6 @@ Read recommendation and action
 
       <div class="govuk-summary-card__content">
         <dl class="govuk-summary-list">
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">Associated risk</dt>
-            <dd class="govuk-summary-list__value">
-              <span class="govuk-caption-m">{{ item.riskId }}</span>
-              <p class="govuk-body govuk-!-margin-bottom-0">{{ item.riskText }}</p>
-            </dd>
-          </div>
-
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">Reviewer recommendation</dt>
             <dd class="govuk-summary-list__value">
@@ -263,82 +233,51 @@ Read recommendation and action
       </div>
     </div>
 
-    <form action="{{ basePath }}/task/1/{{ item.recId | lower }}/review{% if returnTo == 'check-answers' %}?returnTo=check-answers{% endif %}" method="post">
+    <form action="{{ basePath }}/task/2/{{ item.recId | lower }}/review{% if returnTo == 'check-answers' %}?returnTo=check-answers{% endif %}" method="post">
 
       {{ govukRadios({
-        name: "reviewedRecommendationAndRisk",
-        classes: "govuk-radios--inline",
+        name: "addAction",
         fieldset: {
           legend: {
-            text: "Have you read this recommendation and associated risk?",
+            text: "Do you want to add an action for this recommendation?",
             classes: "govuk-fieldset__legend--m"
           }
         },
         hint: {
-          text: "If you select No, you can return to the recommendations list without adding a response now."
+          text: "Adding an action for other recommendations is optional"
         },
         items: [
-         {
+          {
             value: "yes",
             text: "Yes",
-            checked: item.reviewedRecommendationAndRisk == "yes"
+            checked: item.addAction == "yes"
           },
           {
             value: "no",
             text: "No",
-            checked: item.reviewedRecommendationAndRisk == "no"
+            checked: item.addAction == "no"
           }
         ]
       }) }}
 
-      <div id="add-action-question" class="tip-hidden govuk-!-margin-top-4">
-  {{ govukRadios({
-    name: "addAction",
-    fieldset: {
-      legend: {
-        text: "Will you add an action for this recommendation?",
-        classes: "govuk-fieldset__legend--m"
-      }
-    },
-    hint: {
-      text: "Priority recommendations must have an action unless you give a reason why you cannot add one."
-    },
-    items: [
-              {
-          value: "yes",
-          text: "Yes",
-          checked: item.addAction == "yes"
-        },
-        {
-          value: "no",
-          text: "No",
-          checked: item.addAction == "no",
-          conditional: { html: noActionReasonHtml }
-        }
-    ]
-  }) }}
-</div>
-
-<div id="action-details-section" class="tip-hidden govuk-!-margin-top-5">
-  <h2 class="govuk-heading-l">Action details</h2>
-  <p class="govuk-body">Provide the details for the action you will take in response to this recommendation.</p>
-  {{ actionFieldsHtml | safe }}
-</div>
-      <div class="govuk-button-group">
-        <button type="submit" class="govuk-button" data-module="govuk-button">
-          Save and continue to next item
-        </button>
-
-        <button type="submit" class="govuk-button govuk-button--secondary" name="saveReturn" value="yes" data-module="govuk-button">
-          Save and return to summary
-        </button>
+      <div id="action-details-section" class="tip-hidden govuk-!-margin-top-5">
+        <h2 class="govuk-heading-l">Action details</h2>
+        <p class="govuk-body">Provide the details for the action or actions you will take in response to this recommendation.</p>
+        <p>For help completing this section, go to the <a href="https://www.security.gov.uk/policy-and-guidance/govassure/stage-5-create-a-targeted-improvement-plan-tip-peer-review-report" class="govuk-link govuk-link--no-visited-state" rel="noreferrer noopener" target="_blank">GovAssure stage 5 guidance page (opens in new tab)</a></p>
+        {{ actionFieldsHtml | safe }}
       </div>
 
-      {% if showBackToAnswers %}
-        <p class="govuk-body govuk-!-margin-top-4">
-          <a href="{{ backHref }}" class="govuk-link">Back to answers</a>
-        </p>
-      {% endif %}
+      <div class="govuk-button-group">
+        <button type="submit" class="govuk-button" data-module="govuk-button">
+          Save action and continue
+        </button>
+        <button type="submit" class="govuk-button govuk-button--secondary" name="saveIncomplete" value="yes" data-module="govuk-button">
+          Save and finish action later
+        </button>
+        <a class="govuk-link" href="other-recommendations-summary" name="saveReturn" value="yes"> Return to summary</a>
+      </div>
+
+      
     </form>
 
   </div>
@@ -346,41 +285,27 @@ Read recommendation and action
 
 <script>
   document.addEventListener('DOMContentLoaded', function () {
-    const reviewedYes = document.querySelector('input[name="reviewedRecommendationAndRisk"][value="yes"]');
-    const reviewedNo = document.querySelector('input[name="reviewedRecommendationAndRisk"][value="no"]');
-
     const addActionYes = document.querySelector('input[name="addAction"][value="yes"]');
     const addActionNo = document.querySelector('input[name="addAction"][value="no"]');
-
-    const addActionQuestion = document.getElementById('add-action-question');
     const actionDetailsSection = document.getElementById('action-details-section');
 
-    function toggleSections() {
-      const reviewedIsYes = reviewedYes && reviewedYes.checked;
-      const addActionIsYes = addActionYes && addActionYes.checked;
+    function toggleActionDetails() {
+      if (!actionDetailsSection) return;
 
-      if (addActionQuestion) {
-        if (reviewedIsYes) {
-          addActionQuestion.classList.remove('tip-hidden');
-        } else {
-          addActionQuestion.classList.add('tip-hidden');
-        }
-      }
-
-      if (actionDetailsSection) {
-        if (reviewedIsYes && addActionIsYes) {
-          actionDetailsSection.classList.remove('tip-hidden');
-        } else {
-          actionDetailsSection.classList.add('tip-hidden');
-        }
+      if (addActionYes && addActionYes.checked) {
+        actionDetailsSection.classList.remove('tip-hidden');
+      } else {
+        actionDetailsSection.classList.add('tip-hidden');
       }
     }
 
-    [reviewedYes, reviewedNo, addActionYes, addActionNo].forEach(function (el) {
-      if (el) el.addEventListener('change', toggleSections);
+    [addActionYes, addActionNo].forEach(function (el) {
+      if (el) {
+        el.addEventListener('change', toggleActionDetails);
+      }
     });
 
-    toggleSections();
+    toggleActionDetails();
   });
 </script>
 

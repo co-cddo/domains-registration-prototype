@@ -14,19 +14,19 @@ Review priority recommendations and actions
 
 {{ govukBreadcrumbs({
   items: [
-    { text: "My account", href: basePath + "/my-account" },
-    { text: "Edit draft TIP", href: basePath + "/draft-tip" },
+    { text: "My account", href: "/webcaf/tip-pr/current/my-account" },
+    { text: "Edit draft TIP", href: "/webcaf/tip-pr/current/draft-tip" },
     { text: "Priority recommendation and action" }
   ]
 }) }}
 
 <div class="proto-admin govuk-!-margin-bottom-6">
-  <h2 class="govuk-heading-s">{{ progress.reviewed }} of {{ progress.total }} recommendations read</h2>
+  <h2 class="govuk-heading-s">{{ progress.reviewed }} of {{ progress.total }} recommendations responded</h2>
   <div class="progress-inactive">
     <div class="progress-active" style="width: {{ (progress.reviewed / progress.total * 100) | round(0, 'floor') }}%"></div>
   </div>
   <p class="govuk-body-s govuk-!-margin-top-2 govuk-!-margin-bottom-0">
-    {{ progress.actionAdded }} actions added · {{ progress.noActionPlanned }} no action planned · {{ progress.notReviewed }} not read yet
+    {{ progress.actionAdded }} actions added · {{ progress.inProgress }} in progress · {{ progress.noActionPlanned }} no action planned · {{ progress.notReviewed }} not responded
   </p>
 </div>
 {% endblock %}
@@ -147,6 +147,35 @@ Review priority recommendations and actions
   flex: 1 1 220px;
   min-width: 180px;
 }
+.tip-table-fixed {
+  table-layout: fixed;
+  width: 100%;
+}
+
+.tip-table-fixed .tip-col-id {
+  width: 7%;
+}
+
+.tip-table-fixed .tip-col-co {
+  width: 8%;
+}
+
+.tip-table-fixed .tip-col-risk {
+  width: 34%;
+}
+
+.tip-table-fixed .tip-col-recommendation {
+  width: 34%;
+}
+
+.tip-table-fixed .tip-col-status {
+  width: 17%;
+}
+
+.tip-table-fixed .govuk-table__cell {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
 </style>
 
 <div class="govuk-grid-row">
@@ -156,7 +185,7 @@ Review priority recommendations and actions
     <h1 class="govuk-heading-l">Priority recommendations ({{ progress.total }})</h1>
 
     <p class="govuk-body">
-      You must read all the priority recommendations for this system and the risks associated with them. The independent assurance reviewer reported that the contributing outcome failed to meet the Baseline Government CAF profile.
+     You must read all the priority  recommendations. Priority recommendations are for contributing outcomes that did not meet the target Government CAF profile in the Independent Assurance Review. 
     </p>
     
     <p class="govuk-heading-m">Provide actions</p>
@@ -211,7 +240,8 @@ Review priority recommendations and actions
         </label>
         <select class="govuk-select" id="status-filter" name="status">
           <option value="">All statuses</option>
-          <option value="not_reviewed">Not read</option>
+          <option value="not_reviewed">Not responded</option>
+          <option value="in_progress">In progress</option>
           <option value="action_added">Action added</option>
           <option value="no_action_planned">No action planned</option>
         </select>
@@ -236,12 +266,19 @@ Review priority recommendations and actions
       </p>
     </div>
 
-    <table class="govuk-table govuk-!-font-size-16 tip-table-compact">
+    <table class="govuk-table govuk-!-font-size-16 tip-table-compact tip-table-fixed">
+      <colgroup>
+  <col class="tip-col-id">
+  <col class="tip-col-co">
+  
+  <col class="tip-col-recommendation">
+  <col class="tip-col-status">
+</colgroup>
       <thead class="govuk-table__head">
         <tr class="govuk-table__row">
           <th scope="col" class="govuk-table__header">ID</th>
           <th scope="col" class="govuk-table__header">CO</th>
-          <th scope="col" class="govuk-table__header">Risk</th>
+          
           <th scope="col" class="govuk-table__header">Recommendation</th>
           <th scope="col" class="govuk-table__header">Status</th>
         </tr>
@@ -263,11 +300,7 @@ Review priority recommendations and actions
               {{ row.outcome or "" }}
             </td>
 
-            <td class="govuk-table__cell">
-              {% if row.riskId and row.riskText %}
-                <strong>{{ row.riskId }}:</strong> {{ row.riskText }}
-              {% endif %}
-            </td>
+           
 
             <td class="govuk-table__cell">
               {{ row.recommendationText or "" }}
@@ -275,18 +308,24 @@ Review priority recommendations and actions
 
             <td class="govuk-table__cell tip-status-cell">
               {% if row.locked %}
-                <a href="#">Read</a>
-              {% elseif row.status == "not_reviewed" %}
-                <a href="{{ row.href }}" class="govuk-link govuk-link--no-visited-state">Read</a>
-              {% elseif row.status == "action_added" %}
-                <strong class="govuk-tag govuk-tag--blue tip-status-tag">Action added</strong>
-                <br><br>
-                <a href="{{ row.href }}" class="govuk-link govuk-link--no-visited-state">Change</a>
-              {% elseif row.status == "no_action_planned" %}
-                <strong class="govuk-tag govuk-tag--grey tip-status-tag">No action planned</strong>
-                <br><br>
-                <a href="{{ row.href }}" class="govuk-link govuk-link--no-visited-state">Change</a>
-              {% endif %}
+      <a href="#">Add response</a>
+        {% elseif row.status == "not_reviewed" %}
+          <a href="{{ row.href }}" class="govuk-link govuk-link--no-visited-state">Add response</a>
+        {% elseif row.status == "in_progress" %}
+          <strong class="govuk-tag govuk-tag--yellow tip-status-tag">In progress</strong>
+          <br><br>
+          <a href="{{ row.href }}" class="govuk-link govuk-link--no-visited-state">Continue</a>
+
+        {% elseif row.status == "action_added" %}
+          <strong class="govuk-tag govuk-tag--blue tip-status-tag">Action added</strong>
+          <br><br>
+          <a href="{{ row.href }}" class="govuk-link govuk-link--no-visited-state">Change</a>
+
+        {% elseif row.status == "no_action_planned" %}
+          <strong class="govuk-tag govuk-tag--grey tip-status-tag">No action planned</strong>
+          <br><br>
+          <a href="{{ row.href }}" class="govuk-link govuk-link--no-visited-state">Change</a>
+        {% endif %}
             </td>
           </tr>
         {% endfor %}
@@ -295,7 +334,7 @@ Review priority recommendations and actions
     </table>
 
     <p class="govuk-body govuk-!-margin-top-6">
-      <a href="{{ basePath }}/draft-tip" class="govuk-link">Return to task list</a>
+      <a href="/webcaf/tip-pr/current/draft-tip" class="govuk-link">Return to task list</a>
     </p>
 
   </div>

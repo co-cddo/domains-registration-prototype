@@ -42,4 +42,8 @@ router.use('/webcaf/tip/current', require('./views/webcaf/tip/current/routes/rou
 router.use('/webcaf/tip/v1', require('./views/webcaf/tip/v1/routes/routes'))
 router.use('/webcaf/tip/v2', require('./views/webcaf/tip/v2/routes/routes'))
 router.use('/webcaf/tip/v3', require('./views/webcaf/tip/v3/routes/routes'))
+
+// Webcaf TIP Peer Review
+router.use('/webcaf/tip-pr/current', require('./views/webcaf/tip-pr/current/routes/routes'))
+
 module.exports = router

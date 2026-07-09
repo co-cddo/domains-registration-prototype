@@ -16,8 +16,8 @@ Other recommendations
 
 {{ govukBreadcrumbs({
   items: [
-    { text: "My account", href: basePath + "/my-account" },
-    { text: "Edit draft TIP", href: basePath + "/draft-tip" },
+    { text: "My account", href: "/webcaf/tip-pr/current/my-account" },
+    { text: "Edit draft TIP", href: "/webcaf/tip-pr/current/draft-tip" },
     { text: "Other recommendations" }
   ]
 }) }}
@@ -33,7 +33,7 @@ Other recommendations
     </div>
     <div class="govuk-notification-banner__content">
       <p class="govuk-notification-banner__heading">
-        All remaining other recommendations have been marked as read. You did not add any actions.
+        All remaining other recommendations have been marked as reviewed. You did not add actions.
       </p>
     </div>
   </div>
@@ -59,23 +59,24 @@ Other recommendations
     <span class="govuk-caption-l">{{ tip.system.name }} ({{ tip.system.finalReportReference }})</span>
     <h1 class="govuk-heading-l">Other recommendations (16)</h1>
 
-    <h2 class="govuk-heading-m">You have read {{ reviewed }} of 16 recommendations</h2>
+    <h2 class="govuk-heading-m">You have reviewed {{ reviewed }} of 16 recommendations</h2>
 
     <p class="govuk-body">
-      You must read all the other recommendations for this system and the associated risks.  
+     You must review all recommendations. 
     </p>
 
     {{ govukWarningText({
-      text: "You do not have to provide actions against these recommendations, as the contributing outcomes met the Government CAF profile",
+      text: " Adding actions for other recommendations is optional, as the contributing outcomes met the target Government CAF profile",
       iconFallbackText: "Important"
     }) }}
+    <p>If you are not adding any actions, go to 'Mark all recommendations as reviewed' at the bottom of the page, then select 'Yes' and ‘Save and continue'.</p>
 
     <table class="govuk-table govuk-!-font-size-16 tip-table-compact">
       <thead class="govuk-table__head">
         <tr class="govuk-table__row">
           <th scope="col" class="govuk-table__header">ID</th>
           <th scope="col" class="govuk-table__header">CO</th>
-          <th scope="col" class="govuk-table__header">Risk</th>
+          
           <th scope="col" class="govuk-table__header">Recommendation</th>
           <th scope="col" class="govuk-table__header">Status</th>
         </tr>
@@ -92,9 +93,7 @@ Other recommendations
               {{ row.outcome }}
             </td>
 
-            <td class="govuk-table__cell">
-              <strong>{{ row.riskId }}:</strong> {{ row.riskText }}
-            </td>
+           
 
             <td class="govuk-table__cell">
               {{ row.recommendationText | safe }}
@@ -102,9 +101,9 @@ Other recommendations
 
             <td class="govuk-table__cell">
               {% if row.locked %}
-                <a href="#">Read</a>
+                <a href="#">Review</a>
               {% elseif row.status == "not_reviewed" %}
-                <a href="{{ row.href }}" class="govuk-link govuk-link--no-visited-state">Read</a>
+                <a href="{{ row.href }}" class="govuk-link govuk-link--no-visited-state">Review</a>
               {% elseif row.status == "action_added" %}
                 <strong class="govuk-tag govuk-tag--blue tip-status-tag">Action added</strong>
                 <br><br>
@@ -140,15 +139,15 @@ Other recommendations
 
 {% if not reviewed %}
   <div class="govuk-!-margin-top-7">
-    <h2 class="govuk-heading-m">Mark all recommendations as read</h2>
+    <h2 class="govuk-heading-m">Mark all recommendations as reviewed</h2>
 
-    <form action="{{ basePath }}/task/2/review-all" method="post">
+    <form action="/webcaf/tip-pr/current/task/2/review-all" method="post">
       {{ govukRadios({
         name: "confirmBulkReview",
         classes: "govuk-radios--inline",
         fieldset: {
           legend: {
-            text: "Have you read all the recommendations?",
+            text: "Have you reviewed all the recommendations?",
             classes: "govuk-fieldset__legend--s"
           }
         },
@@ -171,7 +170,7 @@ Other recommendations
   </div>
 {% endif %}
   <p class="govuk-body govuk-!-margin-top-6">
-      <a href="{{ basePath }}/draft-tip" class="govuk-link">Return to task list</a>
+      <a href="/webcaf/tip-pr/current/draft-tip" class="govuk-link">Return to task list</a>
     </p>
   </div>
 </div>
