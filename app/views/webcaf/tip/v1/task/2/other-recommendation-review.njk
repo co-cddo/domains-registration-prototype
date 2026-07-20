@@ -251,7 +251,7 @@ Review other recommendation and action
       </div>
     </div>
 
-    <form action="/webcaf/tip/current/task/2/{{ item.recId | lower }}/review{% if returnTo == 'check-answers' %}?returnTo=check-answers{% endif %}" method="post">
+    <form action="{{ basePath }}/task/2/{{ item.recId | lower }}/review{% if returnTo == 'check-answers' %}?returnTo=check-answers{% endif %}" method="post">
 
       {{ govukRadios({
         name: "reviewedRecommendationAndRisk",

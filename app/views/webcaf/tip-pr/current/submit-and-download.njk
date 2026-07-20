@@ -35,6 +35,7 @@ Submit and download your TIP
   Your Targeted Improvement Plan (TIP) is ready for submission.
 </p>
 <p>You can go back to check your actions, download the draft TIP to complete final sign-off, or continue to submission.</p>
+<p>You must submit your TIP by Wednesday 30 September 2026.</p>
     {{ govukInsetText({
   html: "
   If there are any changes to your TIP needed after you submit it, the GovAssure team will contact you. You will then be able to return to WebCAF to make updates."
@@ -89,7 +90,13 @@ Submit and download your TIP
         items: [
           {
             value: "yes",
-            text: "I confirm that the contents of this TIP have been signed off by my organisation's GovAssure senior responsible officer (SRO). ",
+            html: '<p>I confirm that the contents of this TIP have been signed off by my organisations:</p>
+            <ul class="govuk-list govuk-list--bullet">
+              <li>GovAssure senior responsible officer (SRO)</li>
+              <li>Lead Government Department (LGD) (if applicable)</li>
+            </ul>
+            
+             ',
             checked: data['confirmSubmit'] == 'yes'
           }
         ]

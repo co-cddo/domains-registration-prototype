@@ -126,43 +126,38 @@ Check your answers
 {% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
 
 
-    <form action="/webcaf/tip-pr/current/check-answers" method="post" novalidate>
-      {{ govukRadios({
-        classes: "govuk-radios--inline",
-        name: "confirmAnswers",
-        fieldset: {
-          legend: {
-            text: "Do you want to continue?",
-            classes: "govuk-fieldset__legend--m"
-          }
-        },
-         hint: {
-          text: ""
-        },
-        items: [
-          {
-            value: "yes",
-            text: "Yes",
-            checked: data['confirmAnswers'] == 'yes'
-          },
-          {
-            value: "no",
-            text: "No",
-            checked: data['confirmAnswers'] == 'no'
-          }
-        ]
-      }) }}
+  <form action="/webcaf/tip-pr/current/check-answers" method="post" novalidate>
+  <input type="hidden" name="confirmAnswers" value="yes">
+
+  
+<h3 class="govuk-heading-m">Mark this step as complete</h3>
+
+{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+
+{% call govukInsetText() %}
+  This will not submit your TIP.
+{% endcall %}
+
+
+
+
+<p>When you mark this step as complete, you'll return to the task list. You can then move to the final step where you'll submit your TIP.</p>
 
 {{ govukWarningText({
-  text: "Update one or more actions to continue.",
-  iconFallbackText: "Warning"
-}) }}
+    html: "You must update one or more actions.",
+    iconFallbackText: "Warning"
+  }) }}
 
 
-      {{ govukButton({
-        text: "Continue"
-      }) }}
-    </form>
+  {{ govukButton({
+    text: "Mark as complete"
+  }) }}
+</form>
+
+
+<p class="govuk-body">
+      <a href="/webcaf/tip-pr/current/draft-tip" class="govuk-link">Return to task list</a>
+    </p>
 
   </div>
 </div>
