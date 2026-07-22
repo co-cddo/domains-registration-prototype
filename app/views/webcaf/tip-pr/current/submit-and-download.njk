@@ -73,14 +73,14 @@ Submit and download your TIP
 
 
   <p>If your organisation is an arm's length body (ALB), your Lead Government Department (LGD) must sign off your TIP.</p>
-
-   
+<h2 class="govuk-heading-m"> Confirm to continue</h2>
+   <p>I confirm that the contents of this TIP have been signed off by my organisation's:</p>
     <form action="/webcaf/tip-pr/current/confirmation" method="post" novalidate>
       {{ govukCheckboxes({
         name: "confirmSubmit",
         fieldset: {
           legend: {
-            text: "Confirm to continue",
+            text: "",
             classes: "govuk-fieldset__legend--m"
           }
         },
@@ -90,17 +90,22 @@ Submit and download your TIP
         items: [
           {
             value: "yes",
-            html: "<p>I confirm that the contents of this TIP have been signed off by my organisation's:</p>
-            <ul class='govuk-list govuk-list--bullet'>
-              <li>GovAssure senior responsible officer (SRO)</li>
-              <li>Lead Government Department (LGD) (if applicable)</li>
-            </ul>
-            
-             ",
+            html: "GovAssure senior responsible officer (SRO)",
+            checked: data['confirmSubmit'] == 'yes'
+          },
+          {
+            value: "yes",
+            html: "Lead Government Department (LGD) ",
+            hint: {
+            text: "You must confirm sign off by LGD, if your organisation is an arm's length body (ALB) .
+
+"
+          },
             checked: data['confirmSubmit'] == 'yes'
           }
         ]
       }) }}
+      
 
 
 
