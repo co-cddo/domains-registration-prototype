@@ -1,0 +1,340 @@
+{% extends "layouts/webcaf.html" %}
+
+{% block pageTitle %}
+  B3.a Understanding data – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype",
+      classes: "govuk-tag--pink"
+    },
+    html: 'This is not a full service. It is not production code and you might experience problems.'
+  }) }}
+
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+        href: "#"
+      },
+      {
+        text: "Create a new assessment",
+        href: "#"
+      },
+      {
+        text: "Objective B - Protecting against cyber attacks and data breaches",
+        href: "#"
+      },
+      {
+        text: "B3.a Understanding Data"
+      }
+    ]
+  }) }}
+
+  <div class="proto-admin">
+    <div id="changedName-hint" class="govuk-hint">
+      Principle 3 of 6<br>
+      <strong>Principle: B3 Data security</strong>
+    </div>      
+    <p id="progress-pages"><strong>You have completed 25% of your CAF self-assessment</strong></p>
+    <div class="progress-inactive"><div class="progress-active" style="width: 25%"></div></div>
+  </div>
+{% endblock %}
+
+{% block content %}
+  <h3 class="govuk-heading-l">B3.a Understanding data</h3>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <p class="govuk-body">
+        You must read each indicator of good practice (IGP). Select the statements that apply to your systems. If you have alternative controls and exemptions you must still select the statements and add your comments to explain this.
+      </p>
+
+      {{ govukWarningText({
+        text: "Some achieved and partially-achieved statements are identical. Please make sure that your selections for these statements do not conflict.",
+        iconFallbackText: "Warning"
+      }) }}
+
+      <form class="form" action="b3a-answer" method="post">
+
+        {% set giveReason %}
+          {{ govukCharacterCount({
+            name: "give",
+            id: "give",
+            maxwords: 1500,
+            label: {
+              text: "You only need to add a comment if you are using alternative controls or exemptions (optional)"
+            }
+          }) }}
+        {% endset -%}
+
+        {% set paTag %}
+          {{ govukTag({
+            text: "Urgent",
+            classes: "govuk-tag--red"
+          }) }}
+        {% endset -%}
+
+        {# Achieved statements #}
+        {{ govukCheckboxes({
+          idPrefix: "b3aAc",
+          name: "b3aAc1",  
+          fieldset: {
+            legend: {
+              text: "Achieved statements ",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          hint: {
+            text: "You will achieve this outcome if you select all statements."
+          },
+          errorMessage: errors.b3aAc if errors else null,
+          items: [
+            {
+              value: "yes",
+              id: "b3a-achieved-1",
+              attributes: {
+                "data-duplicate": "b3a-1",
+                "data-group": "Achieved"
+              },
+              html: '1. You have identified and catalogued all the data important to the operation of the essential function(s), or that would assist an attacker.
+              <br><strong class="govuk-tag--grey">identical to partially-achieved statement 1</strong>
+              <div id="b3a-achieved-1-hint" class="govuk-hint" hidden></div>',
+              checked: checked("b3aAc", "yes" if values else false),
+              conditional: {
+                html: giveReason
+              } 
+            },
+            {
+              value: "yes",
+              id: "b3a-achieved-2",
+              attributes: {
+                "data-duplicate": "b3a-2",
+                "data-group": "Achieved"
+              },
+              html: '2. You have identified and catalogued who has access to the data important to the operation of the essential function(s).
+              <br><strong class="govuk-tag--grey">identical to partially-achieved statement 2 </strong>
+              <div id="b3a-achieved-2-hint" class="govuk-hint" hidden></div>',
+              checked: checked("b3aAc", "yes" if values else false)
+            },
+            {
+              value: "yes",
+              text: "3. You maintain a current understanding of the location, quantity and quality of data important to the operation of the essential function(s).",
+              checked: checked("b3aAc", "yes" if values else false)
+            },
+            {
+              value: "yes",
+              text: "4. You take steps to remove or minimise unnecessary copies or unneeded historic data.",
+              checked: checked("b3aAc", "yes" if values else false)
+            },
+            {
+              value: "yes",
+              text: "5. You have identified all mobile devices and media that may hold data important to the operation of the essential function(s).",
+              checked: checked("b3aAc", "yes" if values else false)
+            },
+            {
+              value: "yes",
+              text: "6. You maintain a current understanding of the data links used to transmit data that is important to your essential function(s).",
+              checked: checked("b3aAc", "yes" if values else false)
+            },
+            {
+              value: "yes",
+              text: "7. You understand the context, limitations and dependencies of your important data.",
+              checked: checked("b3aAc", "yes" if values else false)
+            },
+            {
+              value: "yes",
+              text: "8. You understand and document the impact on your essential function(s) of all relevant scenarios, including unauthorised data access, modification or deletion, or when authorised users are unable to appropriately access this data.",
+              checked: checked("b3aAc", "yes" if values else false)
+            },
+            {
+              value: "yes",
+              text: "9. You validate these documented impact statements regularly, at least annually.",
+              checked: checked("b3aAc", "yes" if values else false)
+            }  
+          ]
+        }) }}
+
+        {# Partially achieved statements #}
+        {{ govukCheckboxes({
+          idPrefix: "b3aPAc",
+          name: "b3aPAc",  
+          fieldset: {
+            legend: {
+              text: "Partially achieved statements ",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          hint: {
+            text: "You will partially achieve this outcome if you select all statements."
+          },
+          errorMessage: errors.b3aPAc if errors else null,
+          items: [
+            {
+              value: "yes",
+              id: "b3a-partial-1",
+              attributes: {
+                "data-duplicate": "b3a-1",
+                "data-group": "Partially achieved"
+              },
+              html: '1. You have identified and catalogued all the data important to the operation of the essential function(s), or that would assist an attacker.
+              <br><strong class="govuk-tag--grey">identical to achieved statement 1</strong>
+              <div id="b3a-partial-1-hint" class="govuk-hint" hidden></div>',
+              checked: checked("b3aPAc", "yes" if values else false)
+            },
+            {
+              value: "yes",
+              id: "b3a-partial-2",
+              attributes: {
+                "data-duplicate": "b3a-2",
+                "data-group": "Partially achieved"
+              },
+              html: '2. You have identified and catalogued who has access to the data important to the operation of the essential function(s).
+              <br><strong class="govuk-tag--grey">identical to achieved statement 2 </strong>
+              <div id="b3a-partial-2-hint" class="govuk-hint" hidden></div>',
+              checked: checked("b3aPAc", "yes" if values else false)
+            },
+            {
+              value: "yes",
+              text: "3. You regularly review location, transmission, quantity and quality of data important to the operation of the essential function(s).",
+              checked: checked("b3aPAc", "yes" if values else false)
+            },
+            {
+              value: "yes",
+              text: "4. You have identified all mobile devices and media that hold data important to the operation of the essential function(s).",
+              checked: checked("b3aPAc", "yes" if values else false)
+            },
+            {
+              value: "yes",
+              text: "5. You understand and document the impact on your essential function(s) of all relevant scenarios, including unauthorised data access, modification or deletion, or when authorised users are unable to appropriately access this data.",
+              checked: checked("b3aPAc", "yes" if values else false)
+            },
+            {
+              value: "yes",
+              text: "6. You occasionally validate these documented impact statements.",
+              checked: checked("b3aPAc", "yes" if values else false)
+            }
+          ]
+        }) }}
+
+        {# Not achieved statements #}
+        {{ govukCheckboxes({
+          idPrefix: "b3aNAc",
+          name: "b3aNAc",  
+          fieldset: {
+            legend: {
+              text: "Not achieved statements ",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          hint: {
+            text: "You will not achieve this outcome if you select any of these statements."
+          },
+          errorMessage: errors.b3aNAc if errors else null,
+          items: [
+            {
+              value: "yes",
+              text: "1. You have incomplete knowledge of what data is used by and produced in the operation of the essential function(s).",
+              checked: checked("b3aNAc", "yes" if values else false)
+            },
+            {
+              value: "yes",
+              text: "2. You have not identified the important data on which your essential function(s) relies.",
+              checked: checked("b3aNAc", "yes" if values else false)
+            },
+            {
+              value: "yes",
+              text: "3. You have not identified who has access to data important to the operation of the essential function(s).",
+              checked: checked("b3aNAc", "yes" if values else false)
+            },
+            {
+              value: "yes",
+              text: "4. You have not clearly articulated the impact of data compromise or lack of availability.",
+              checked: checked("b3aNAc", "yes" if values else false)
+            }
+          ]
+        }) }}
+
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Save and continue"
+          }) }}
+          <a class="govuk-link" href="#">Back to Objective B - Protecting against cyber attacks and data breaches </a>
+        </div>
+
+      </form>
+    </div>    
+  </div>
+{% endblock %}
+
+{% block bodyEnd %}
+  {{ super() }}
+  <script>
+    (function () {
+      function runDuplicateLock() {
+        const checkboxes = document.querySelectorAll('input[data-duplicate]');
+        if (!checkboxes.length) return;
+
+        const groups = {};
+
+        checkboxes.forEach(function (checkbox) {
+          const groupKey = checkbox.getAttribute('data-duplicate');
+          if (!groups[groupKey]) groups[groupKey] = [];
+          groups[groupKey].push(checkbox);
+        });
+
+        Object.keys(groups).forEach(function (groupKey) {
+          const group = groups[groupKey];
+
+          function updateGroup() {
+            const selected = group.find(function (cb) {
+              return cb.checked;
+            });
+
+            group.forEach(function (cb) {
+              const hint = document.getElementById(cb.id + '-hint');
+
+              if (selected && cb !== selected) {
+                cb.checked = false;
+                cb.disabled = true;
+
+                if (hint) {
+                  hint.hidden = false;
+                  hint.style.display = 'block';
+                  hint.textContent = 'Already selected under "' + selected.getAttribute('data-group') + '".';
+                }
+              } else {
+                cb.disabled = false;
+
+                if (hint) {
+                  hint.hidden = true;
+                  hint.style.display = 'none';
+                  hint.textContent = '';
+                }
+              }
+            });
+          }
+
+          group.forEach(function (cb) {
+            cb.addEventListener('change', updateGroup);
+          });
+
+          updateGroup();
+        });
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', runDuplicateLock);
+      } else {
+        runDuplicateLock();
+      }
+    })();
+  </script>
+{% endblock %}
