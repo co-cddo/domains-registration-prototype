@@ -202,7 +202,7 @@ console.log(`[A3A] ac=${JSON.stringify(ac)} na=${JSON.stringify(na)} anyNot=${na
   }
 
   // Fallback (until you add “Partially achieved”)
-  return res.redirect('/webcaf/current/a3a-outcome-not-achieved'); // ABSOLUTE path
+  return res.redirect('/webcaf/complete/current/a3a-outcome-not-achieved'); // ABSOLUTE path
 });
 
 // (Optional) legacy endpoint if anything still posts here
@@ -243,8 +243,8 @@ router.post('/a3a-outcome-not-achieved-answer', function(request, response) {
 
 // 1) Set this to where your template lives under app/views.
 //    e.g. 'b3a'  → app/views/b3a.html
-//         'webcaf/current/b3a' → app/views/webcaf/current/b3a.html
-const TEMPLATE_B3A = 'webcaf/current/b3a';
+//         'webcaf/complete/current/b3a' → app/views/webcaf/complete/current/b3a.html
+const TEMPLATE_B3A = 'webcaf/complete/current/b3a';
 
 // 2) Helpers (same pattern as a3a)
 const toArrayB3A = v => Array.isArray(v) ? v : (v ? [v] : []);
