@@ -55,7 +55,7 @@
       </p>
 
       {{ govukWarningText({
-        text: "Some achieved and partially-achieved statements are identical. Please make sure that your selections for these statements do not conflict.",
+        text: 'Some "Achieved" and "Partially achieved" statements are identical. Your selection for these statements under "Achieved" will be automatically applied under "Partially achieved".',
         iconFallbackText: "Warning"
       }) }}
 
@@ -103,8 +103,7 @@
                 "data-group": "Achieved"
               },
               html: '1. You have identified and catalogued all the data important to the operation of the essential function(s), or that would assist an attacker.
-              <br><strong class="govuk-tag--grey">identical to partially-achieved statement 1</strong>
-              <div id="b3a-achieved-1-hint" class="govuk-hint" hidden></div>',
+              <br><strong class="govuk-tag--grey">identical to partially-achieved statement 1</strong>',
               checked: checked("b3aAc", "yes" if values else false),
               conditional: {
                 html: giveReason
@@ -118,8 +117,7 @@
                 "data-group": "Achieved"
               },
               html: '2. You have identified and catalogued who has access to the data important to the operation of the essential function(s).
-              <br><strong class="govuk-tag--grey">identical to partially-achieved statement 2 </strong>
-              <div id="b3a-achieved-2-hint" class="govuk-hint" hidden></div>',
+              <br><strong class="govuk-tag--grey">identical to partially-achieved statement 2 </strong>',
               checked: checked("b3aAc", "yes" if values else false)
             },
             {
@@ -185,7 +183,7 @@
               },
               html: '1. You have identified and catalogued all the data important to the operation of the essential function(s), or that would assist an attacker.
               <br><strong class="govuk-tag--grey">identical to achieved statement 1</strong>
-              <div id="b3a-partial-1-hint" class="govuk-hint" hidden></div>',
+              <div id="b3a-partial-1-hint" class="govuk-hint" hidden>Automatically selected from Achieved statements.</div>',
               checked: checked("b3aPAc", "yes" if values else false)
             },
             {
@@ -197,7 +195,7 @@
               },
               html: '2. You have identified and catalogued who has access to the data important to the operation of the essential function(s).
               <br><strong class="govuk-tag--grey">identical to achieved statement 2 </strong>
-              <div id="b3a-partial-2-hint" class="govuk-hint" hidden></div>',
+              <div id="b3a-partial-2-hint" class="govuk-hint" hidden>Automatically selected from Achieved statements.</div>',
               checked: checked("b3aPAc", "yes" if values else false)
             },
             {
@@ -278,62 +276,54 @@
   {{ super() }}
   <script>
     (function () {
-      function runDuplicateLock() {
-        const checkboxes = document.querySelectorAll('input[data-duplicate]');
-        if (!checkboxes.length) return;
+      function initAutoMirrorDuplicates() {
+        const achievedDuplicates = document.querySelectorAll('input[data-duplicate][data-group="Achieved"]');
+        const form = document.querySelector('form');
 
-        const groups = {};
+        achievedDuplicates.forEach(function (achievedCb) {
+          const key = achievedCb.getAttribute('data-duplicate');
+          const partialCb = document.querySelector('input[data-duplicate="' + key + '"][data-group="Partially achieved"]');
 
-        checkboxes.forEach(function (checkbox) {
-          const groupKey = checkbox.getAttribute('data-duplicate');
-          if (!groups[groupKey]) groups[groupKey] = [];
-          groups[groupKey].push(checkbox);
-        });
+          if (!partialCb) return;
 
-        Object.keys(groups).forEach(function (groupKey) {
-          const group = groups[groupKey];
+          const partialHint = document.getElementById(partialCb.id + '-hint');
 
-          function updateGroup() {
-            const selected = group.find(function (cb) {
-              return cb.checked;
-            });
+          // Disable partial checkbox so user cannot check/uncheck it independently
+          partialCb.disabled = true;
 
-            group.forEach(function (cb) {
-              const hint = document.getElementById(cb.id + '-hint');
+          function mirrorState() {
+            partialCb.checked = achievedCb.checked;
 
-              if (selected && cb !== selected) {
-                cb.checked = false;
-                cb.disabled = true;
-
-                if (hint) {
-                  hint.hidden = false;
-                  hint.style.display = 'block';
-                  hint.textContent = 'Already selected under "' + selected.getAttribute('data-group') + '".';
-                }
+            if (partialHint) {
+              if (achievedCb.checked) {
+                partialHint.hidden = false;
+                partialHint.style.display = 'block';
               } else {
-                cb.disabled = false;
-
-                if (hint) {
-                  hint.hidden = true;
-                  hint.style.display = 'none';
-                  hint.textContent = '';
-                }
+                partialHint.hidden = true;
+                partialHint.style.display = 'none';
               }
-            });
+            }
           }
 
-          group.forEach(function (cb) {
-            cb.addEventListener('change', updateGroup);
-          });
-
-          updateGroup();
+          achievedCb.addEventListener('change', mirrorState);
+          mirrorState(); // Run on initial load
         });
+
+        // HTML forms do not POST disabled fields. 
+        // Re-enable the checked partial checkboxes right before form submission so both selections are posted.
+        if (form) {
+          form.addEventListener('submit', function () {
+            document.querySelectorAll('input[data-duplicate][data-group="Partially achieved"]').forEach(function (cb) {
+              cb.disabled = false;
+            });
+          });
+        }
       }
 
       if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', runDuplicateLock);
+        document.addEventListener('DOMContentLoaded', initAutoMirrorDuplicates);
       } else {
-        runDuplicateLock();
+        initAutoMirrorDuplicates();
       }
     })();
   </script>
