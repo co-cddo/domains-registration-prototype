@@ -61,11 +61,18 @@ A3.a Statements – GOV.UK Prototype Kit
     <h3 class="govuk-heading-l">A3.a Asset management</h3>
     <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-    
-    <span class="govuk-body">
-You must read each indicator of good practice (IGP). Select the statements that apply to your systems. If you have alternative controls and exemptions you must still select the statements and add your comments to explain this.
+    {% from "govuk/components/details/macro.njk" import govukDetails %}
 
-</span>
+{% call govukDetails({
+  summaryText: "Read the outcome wording"
+}) %}
+  You have effective organisational security management led at board level and articulated clearly in corresponding policies.<br>
+  
+{% endcall %}
+      
+    <span class="govuk-body">
+    You must read each indicator of good practice (IGP). Select the statements that apply to your systems. If you have alternative controls and exemptions you must still select the statements and add your comments to explain this.
+    </span>
       {% set giveReason %}
       {{ govukCharacterCount({
         name: "give",
